@@ -1,19 +1,18 @@
 /* Generic Elements
- *
+ * ================
  */
 
 /* Main background colour */
 QMainWindow, QDialog {
 	background-color: #444;
-	/*etch-disabled-text: 1;*/
 }
 
 QWidget {
 	margin: 0;
 	padding: 0;
-	color: rgba(204, 204, 204, 100%);
+	color: rgba(204, 204, 204);
 	selection-background-color: rgba(112, 158, 50, 50%);
-	selection-color: #fff;
+	selection-color: rgba(255, 255, 255);
 	alternate-background-color: rgba(102, 102, 102, 5%);
 	font-family: 'Segoe UI', '.SF NS Text'; /* Lucida Grande, Sans, sans-serif */
 	font-size: 11px;
@@ -22,7 +21,7 @@ QWidget {
 
 QWidget:disabled {
 	background: transparent;
-	color: rgba(102, 102, 102, 100%);
+	color: rgba(102, 102, 102);
 	selection-background-color: #666;
 	selection-color: #333;
 	alternate-background-color: #484848;
@@ -42,10 +41,6 @@ QWidget:!focus {
 	border-bottom: 2px solid #555;
 	selection-background-color: #666;
 	selection-color: #333;
-}*/
-
-/*QFrame {
-	background: #444;
 }*/
 
 QAbstractScrollArea {
@@ -272,9 +267,28 @@ QMenu::indicator:exclusive:checked:disabled {
 
 
 
-/* Push Button
- *
+/* Buttons
+ * =======
  */
+
+QAbstractButton {
+	border: 2px solid #666;
+	border-color: transparent;
+	border-radius: 0px;
+}
+
+QAbstractButton::menu-indicator {
+	image: url(:/images/popup_indicator.png);
+	subcontrol-position: right center;
+	subcontrol-origin: padding;
+	left: -2px;
+}
+
+QAbstractButton::menu-indicator:disabled {
+	image: url(:/images/popup_indicator_disabled.png);
+}
+
+/* Push Button */
 
 QPushButton {
 	min-width: 8em;
@@ -282,7 +296,6 @@ QPushButton {
 	min-height: 18px;
 	padding: 1px 2px 2px 1px;
 	background: rgba(102, 102, 102);
-	/*border: 1px solid #666;*/
 	border-radius: 0px;
 }
 
@@ -306,18 +319,18 @@ QPushButton:checked {
 
 QPushButton:disabled {
 	background: rgba(102, 102, 102, 20%);
-	color: #333;
-	/*border: 1px solid #666;*/
+	color: #444;
 }
+
+/* Tool Button / Flat Push Button */
 
 QPushButton:flat {
 	margin: 0px;
 	background: #4c4c4c;
 	border: 2px solid transparent;
-	/*border-radius: 3px;*/
 }
 
-QPushButton:flat:hover {
+QPushButton:flat:hover, QToolButton:hover {
 	border-color: rgba(112, 158, 50, 100%);
 }
 
@@ -340,23 +353,13 @@ QPushButton::menu-indicator {
 	left: -2px;
 }
 
-/* End Push Button */
-
-
-
-/* Tool Button
- *
- */
+/* Tool Button */
 
 QToolButton {
 	padding: 1px 2px 2px 1px;
 	background: #4c4c4c;
 	border: 2px solid transparent;
 	/*border-radius: 3px;*/
-}
-
-QToolButton:hover {
-	border-color: rgba(112, 158, 50, 100%);
 }
 
 QToolButton:pressed, QToolButton:checked:pressed {
@@ -371,10 +374,7 @@ QToolButton:checked {
 }
 
 QToolButton:disabled {
-	/*background: #474747;*/
-	/*border: 1px solid #4c4c4c;*/
 	background: transparent;
-	/*border-color: #666;*/
 }
 
 QToolButton[popupMode="MenuButtonPopup"] { /* only for MenuButtonPopup */
@@ -415,7 +415,7 @@ QToolButton::menu-indicator:disabled {
 	image: url(:/images/popup_indicator_disabled.png);
 }
 
-/* End Tool Button */
+/* Buttons */
 
 
 
@@ -433,6 +433,7 @@ QToolButton::menu-indicator:disabled {
 QCheckBox {
 	padding: 3px;
 	spacing: 5px;
+	border: none;
 	background: none;
 }
 
@@ -483,6 +484,7 @@ QCheckBox::indicator:indeterminate:disabled {
 QRadioButton {
 	padding: 3px;
 	spacing: 5px;
+	border: none;
 	background: none;
 }
 
@@ -779,62 +781,178 @@ QGroupBox[expandable="true"]::indicator:checked:disabled {
 
 
 /* Tab Widget
- *
+ * ==========
  */
 
 QTabWidget::pane { /* the tab widget frame */
-	border-top: 2px solid #555;
 	background: rgba(153, 153, 153, 5%);
+	border-width: 0;
+	border-style: solid;
+	border-color: rgba(102, 102, 102);
 }
 
-QTabWidget::tab-bar {
-	left: 0px; /* orient tabs to the left */
+QTabWidget::pane:disabled {
+	background: transparent;
+	border-color: rgba(102, 102, 102, 25%);
 }
 
-QTabBar::tab { /* Style the tab using the tab sub-control. Note that it reads QTabBar _not_ QTabWidget */
+QTabWidget::pane:top { /* north */
+	border-top-width: 2px;
+}
+
+QTabWidget::pane:bottom { /* south */
+	border-bottom-width: 2px;
+}
+
+QTabWidget::pane:left { /* east */
+	border-right-width: 2px;
+}
+
+QTabWidget::pane:right { /* west */
+	border-left-width: 2px;
+}
+
+/* Style the tab using the tab sub-control. Note that it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+	border-radius: 0;
+	background: rgba(60, 60, 60);
+}
+
+QTabBar::tab:disabled {
+	background: rgba(60, 60, 60, 25%);
+}
+
+QTabBar::tab:top, QTabBar::tab:bottom {
 	min-width: 3em;
 	min-height: 2ex;
 	min-height: 12px;
-	/*margin-left: -1px;
-	margin-right: -1px;*/
+	margin-right: 1px;
 	padding: 6px 12px;
-	background: #3c3c3c;
+}
+
+QTabBar::tab:left, QTabBar::tab:right {
+	min-height: 3em;
+	min-width: 2ex;
+	min-width: 12px;
+	margin-bottom: 1px;
+	padding: 12px 6px;
 }
 
 QTabBar::tab:hover {
-	background: #4c4c4c;
-	/*background: rgba(112, 158, 50, 10%);*/
+	background: rgba(85, 85, 85);
 }
 
 QTabBar::tab:selected {
-	min-height: 2.5ex; /* need to test this on Windows / OS X and check single tab doesn't change height */
+	border-radius: 3px;
+	background: rgba(102, 102, 102);
+}
+
+/* Remove margin from the end of the last tab */
+QTabBar::tab:last:top, QTabBar::tab:last:bottom { margin-right: 0; }
+QTabBar::tab:last:left, QTabBar::tab:last:right { margin-bottom: 0; }
+
+QTabBar::tab:selected:disabled {
+	background: rgba(102, 102, 102, 25%);
+}
+
+QTabBar::tab:selected:top, QTabBar::tab:selected:bottom {
+	min-height: 2.5ex;
 	min-height: 15px;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
-	background: #555;
 }
 
-QTabBar::tab:!selected {
-	margin-left: 1px;
-	margin-right: 1px;
-	margin-top: 2px; /* make non-selected tabs look smaller */
-	margin-bottom: 0;
+QTabBar::tab:selected:top {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
-QTabBar::tab:first {
-	margin-left: 0; /* the first selected tab has nothing to overlap with on the left */
+QTabBar::tab:selected:bottom {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 
-QTabBar::tab:last {
-	margin-right: 0; /* the last selected tab has nothing to overlap with on the right */
+QTabBar::tab:selected:left, QTabBar::tab:selected:right {
+	min-width: 2.5ex;
+	min-width: 15px;
 }
 
-QTabBar::tab:only-one { /* if there is only one tab, we don't want overlapping margins */
-	margin-left: 0;
-	margin-right: 0;
+QTabBar::tab:selected:left {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
-/* TODO: South, East & West tab orientations */
+QTabBar::tab:selected:right {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+/* Reduce height of unselected tabs */
+QTabBar::tab:!selected:top { margin-top: 2px; }
+QTabBar::tab:!selected:bottom { margin-bottom: 2px; }
+QTabBar::tab:!selected:left { margin-right: 2px; }
+QTabBar::tab:!selected:right { margin-left: 2px; }
+
+QTabBar QToolButton {
+	margin: 0;
+	padding: 1px 2px 2px 1px;
+	border: 0;
+}
+
+QTabBar QToolButton:hover {
+	background: #777;
+}
+
+QTabBar QToolButton:pressed {
+	background: #3c3c3c;
+}
+
+QTabBar::tear {
+	border: none;
+	background: #666;
+}
+
+QTabBar::tear:disabled {
+	background: transparent;
+}
+
+QTabBar::tear:top, QTabBar::tear:bottom {
+	width: 2px;
+}
+
+QTabBar::tear:left, QTabBar::tear:right {
+	height: 2px;
+}
+
+QTabBar QToolButton::up-arrow:enabled {
+	image: url(:/images/arrow_up.png);
+}
+
+QTabBar QToolButton::up-arrow:disabled {
+	image: url(:/images/arrow_up_disabled.png);
+}
+
+QTabBar QToolButton::down-arrow:enabled {
+	image: url(:/images/arrow_down.png);
+}
+
+QTabBar QToolButton::down-arrow:disabled {
+	image: url(:/images/arrow_down_disabled.png);
+}
+
+QTabBar QToolButton::left-arrow:enabled {
+	image: url(:/images/arrow_left.png);
+}
+
+QTabBar QToolButton::left-arrow:disabled {
+	image: url(:/images/arrow_left_disabled.png);
+}
+
+QTabBar QToolButton::right-arrow:enabled {
+	image: url(:/images/arrow_right.png);
+}
+
+QTabBar QToolButton::right-arrow:disabled {
+	image: url(:/images/arrow_right_disabled.png);
+}
 
 /* End Tab Widget */
 
@@ -846,6 +964,7 @@ QTabBar::tab:only-one { /* if there is only one tab, we don't want overlapping m
 
 QFrame {
 	/*border: 1px inset #333;*/
+	background: transparent;
 }
 
 QFrame:no-frame {
