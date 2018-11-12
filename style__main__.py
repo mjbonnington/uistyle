@@ -44,6 +44,33 @@ class TestApp(QtWidgets.QMainWindow):  # Replace 'TestApp' with the name of your
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).clicked.connect(self.exit)
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.loadStyleSheet)
 
+		self.ui.colorChooser_button.clicked.connect(self.colorPickerDialog)
+
+		# Add 'Sort by' separator label
+		label = QtWidgets.QLabel("Sort by:")
+		sortBy_separator = QtWidgets.QWidgetAction(self)
+		sortBy_separator.setDefaultWidget(label)
+		self.ui.menuEdit.insertAction(self.ui.actionName, sortBy_separator)
+
+		# Make 'Sort by' actions mutually exclusive
+		alignmentGroup = QtWidgets.QActionGroup(self)
+		alignmentGroup.addAction(self.ui.actionName)
+		alignmentGroup.addAction(self.ui.actionSize)
+		alignmentGroup.addAction(self.ui.actionType)
+		alignmentGroup.addAction(self.ui.actionDate)
+
+		# Add 'Other' separator label
+		label = QtWidgets.QLabel("Other:")
+		other_separator = QtWidgets.QWidgetAction(self)
+		other_separator.setDefaultWidget(label)
+		other_separator.setEnabled(False)
+		self.ui.menuEdit.insertAction(self.ui.actionAttribute, other_separator)
+
+		# Make 'Other' actions mutually exclusive
+		otherGroup = QtWidgets.QActionGroup(self)
+		otherGroup.addAction(self.ui.actionAttribute)
+		otherGroup.addAction(self.ui.actionObject)
+
 
 	# [Application code goes here]
 
@@ -65,12 +92,27 @@ class TestApp(QtWidgets.QMainWindow):  # Replace 'TestApp' with the name of your
 		self.ui = QtCompat.loadUi(UI_FILE, self)
 
 
-	def loadStyleSheet(self):
+	def loadStyleSheet(self, accent_color=None):
 		""" Load/reload stylesheet.
 		"""
 		if STYLESHEET is not None:
 			with open(STYLESHEET, "r") as fh:
-				self.ui.setStyleSheet(fh.read().replace("112, 158, 50", "0, 120, 215"))
+				if accent_color:
+					rgb = "%d, %d, %d" %(accent_color.red(), accent_color.green(), accent_color.blue())
+					stylesheet = fh.read().replace("112, 158, 50", rgb)  # "0, 120, 215"
+				else:
+					stylesheet = fh.read()
+				self.ui.setStyleSheet(stylesheet)
+
+
+	def colorPickerDialog(self):
+		""" Open a dialog to choose a color.
+		"""
+		color = QtWidgets.QColorDialog.getColor()
+		if color:
+			self.sender().setStyleSheet("QWidget { background-color: %s }" %color.name())
+			self.loadStyleSheet(color)
+
 
 	def exit(self):
 		""" Exit the UI.

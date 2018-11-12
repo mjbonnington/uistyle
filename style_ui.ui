@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>677</width>
+    <width>766</width>
     <height>841</height>
    </rect>
   </property>
@@ -42,7 +42,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>2</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -615,6 +615,9 @@
                 <property name="text">
                  <string>Check Box 3 (tri-state)</string>
                 </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
                 <property name="tristate">
                  <bool>true</bool>
                 </property>
@@ -1085,638 +1088,652 @@ p, li { white-space: pre-wrap; }
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QGroupBox" name="groupBox_10">
-          <property name="title">
-           <string>List Widgets</string>
+         <widget class="QSplitter" name="splitter_5">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <item>
-            <widget class="QListWidget" name="listWidget_2">
-             <property name="alternatingRowColors">
-              <bool>false</bool>
-             </property>
-             <item>
-              <property name="text">
-               <string>New Item</string>
+          <widget class="QGroupBox" name="groupBox_10">
+           <property name="title">
+            <string>List Widgets</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QSplitter" name="splitter_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
               </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item>
-            <widget class="QListWidget" name="listWidget">
-             <property name="alternatingRowColors">
-              <bool>true</bool>
-             </property>
-             <property name="selectionMode">
-              <enum>QAbstractItemView::MultiSelection</enum>
-             </property>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox_11">
-          <property name="title">
-           <string>Tree Widgets</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_5">
-           <item>
-            <widget class="QTreeWidget" name="treeWidget_2">
-             <property name="alternatingRowColors">
-              <bool>false</bool>
-             </property>
-             <property name="sortingEnabled">
-              <bool>true</bool>
-             </property>
-             <property name="animated">
-              <bool>true</bool>
-             </property>
-             <property name="headerHidden">
-              <bool>false</bool>
-             </property>
-             <column>
-              <property name="text">
-               <string>Layer</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Frames</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Path</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Type</string>
-              </property>
-             </column>
-             <item>
-              <property name="text">
-               <string>utility</string>
-              </property>
-              <property name="text">
-               <string>1001-1150</string>
-              </property>
-              <property name="text">
-               <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
-              </property>
-              <property name="text">
-               <string>layer</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>main</string>
-              </property>
-              <property name="text">
-               <string>1001-1150</string>
-              </property>
-              <property name="text">
-               <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
-              </property>
-              <property name="text">
-               <string>main</string>
-              </property>
-              <item>
-               <property name="text">
-                <string>sss</string>
+              <widget class="QListWidget" name="listWidget_2">
+               <property name="alternatingRowColors">
+                <bool>false</bool>
                </property>
-               <property name="text">
-                <string/>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+                <property name="checkState">
+                 <enum>Checked</enum>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+                <property name="checkState">
+                 <enum>PartiallyChecked</enum>
+                </property>
+                <property name="flags">
+                 <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled|ItemIsTristate</set>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+              </widget>
+              <widget class="QListWidget" name="listWidget">
+               <property name="alternatingRowColors">
+                <bool>true</bool>
                </property>
-               <property name="text">
-                <string/>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::MultiSelection</enum>
                </property>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_11">
+           <property name="title">
+            <string>Tree Widgets</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QSplitter" name="splitter_7">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <widget class="QTreeWidget" name="treeWidget_2">
+               <property name="alternatingRowColors">
+                <bool>false</bool>
+               </property>
+               <property name="sortingEnabled">
+                <bool>true</bool>
+               </property>
+               <property name="animated">
+                <bool>true</bool>
+               </property>
+               <property name="headerHidden">
+                <bool>false</bool>
+               </property>
+               <column>
+                <property name="text">
+                 <string>Layer</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Frames</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Path</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Type</string>
+                </property>
+               </column>
+               <item>
+                <property name="text">
+                 <string>utility</string>
+                </property>
+                <property name="text">
+                 <string>1001-1150</string>
+                </property>
+                <property name="text">
+                 <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
+                </property>
+                <property name="text">
+                 <string>layer</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>main</string>
+                </property>
+                <property name="text">
+                 <string>1001-1150</string>
+                </property>
+                <property name="text">
+                 <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
+                </property>
+                <property name="text">
+                 <string>main</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>sss</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>specular</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>self_illumination</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>refract</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>reflect</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>master</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>lighting</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>gi</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>diffuse</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+               </item>
+               <item>
+                <property name="text">
+                 <string>id</string>
+                </property>
+                <property name="text">
+                 <string>1001-1150</string>
+                </property>
+                <property name="text">
+                 <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
+                </property>
+                <property name="text">
+                 <string>layer</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>foreground</string>
+                </property>
+                <property name="text">
+                 <string>1056-1150</string>
+                </property>
+                <property name="text">
+                 <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
+                </property>
+                <property name="text">
+                 <string>layer</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>background</string>
+                </property>
+                <property name="text">
+                 <string>1001-1150</string>
+                </property>
+                <property name="text">
+                 <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
+                </property>
+                <property name="text">
+                 <string>layer</string>
+                </property>
+               </item>
+              </widget>
+              <widget class="QTreeWidget" name="treeWidget">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <column>
+                <property name="text">
+                 <string notr="true">Name</string>
+                </property>
+               </column>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>New Item</string>
+                </property>
+               </item>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_9">
+           <property name="title">
+            <string>Table Widget</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <widget class="QTableWidget" name="tableWidget">
+              <property name="alternatingRowColors">
+               <bool>false</bool>
+              </property>
+              <row>
                <property name="text">
-                <string/>
+                <string>1</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>2</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>3</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>4</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>5</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>6</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>7</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>8</string>
+               </property>
+              </row>
+              <column>
+               <property name="text">
+                <string>A</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>B</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>C</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>D</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>E</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>F</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>G</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>H</string>
+               </property>
+              </column>
+              <item row="0" column="0">
+               <property name="text">
+                <string>Item 1</string>
                </property>
               </item>
-              <item>
+              <item row="1" column="1">
                <property name="text">
-                <string>specular</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
+                <string>Item 2</string>
                </property>
               </item>
-              <item>
+              <item row="2" column="2">
                <property name="text">
-                <string>self_illumination</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
+                <string>Item 3</string>
                </property>
               </item>
-              <item>
+              <item row="3" column="3">
                <property name="text">
-                <string>refract</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
+                <string>Item 4</string>
                </property>
               </item>
-              <item>
+              <item row="4" column="4">
                <property name="text">
-                <string>reflect</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
+                <string>Item 5</string>
                </property>
               </item>
-              <item>
+              <item row="5" column="5">
                <property name="text">
-                <string>master</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
+                <string>Item 6</string>
                </property>
               </item>
-              <item>
-               <property name="text">
-                <string>lighting</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>gi</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>diffuse</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </item>
-             </item>
-             <item>
-              <property name="text">
-               <string>id</string>
-              </property>
-              <property name="text">
-               <string>1001-1150</string>
-              </property>
-              <property name="text">
-               <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
-              </property>
-              <property name="text">
-               <string>layer</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>foreground</string>
-              </property>
-              <property name="text">
-               <string>1056-1150</string>
-              </property>
-              <property name="text">
-               <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
-              </property>
-              <property name="text">
-               <string>layer</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>background</string>
-              </property>
-              <property name="text">
-               <string>1001-1150</string>
-              </property>
-              <property name="text">
-               <string>C:\Users\Mike\Documents\Scripts\python\PySide\images</string>
-              </property>
-              <property name="text">
-               <string>layer</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTreeWidget" name="treeWidget">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="alternatingRowColors">
-              <bool>true</bool>
-             </property>
-             <column>
-              <property name="text">
-               <string notr="true">Name</string>
-              </property>
-             </column>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox_9">
-          <property name="title">
-           <string>Table Widget</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_9">
-           <item>
-            <widget class="QTableWidget" name="tableWidget">
-             <property name="alternatingRowColors">
-              <bool>false</bool>
-             </property>
-             <row>
-              <property name="text">
-               <string>1</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>2</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>3</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>4</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>5</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>6</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>7</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>8</string>
-              </property>
-             </row>
-             <column>
-              <property name="text">
-               <string>A</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>B</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>C</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>D</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>E</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>F</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>G</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>H</string>
-              </property>
-             </column>
-             <item row="0" column="0">
-              <property name="text">
-               <string>Item 1</string>
-              </property>
-             </item>
-             <item row="1" column="1">
-              <property name="text">
-               <string>Item 2</string>
-              </property>
-             </item>
-             <item row="2" column="2">
-              <property name="text">
-               <string>Item 3</string>
-              </property>
-             </item>
-             <item row="3" column="3">
-              <property name="text">
-               <string>Item 4</string>
-              </property>
-             </item>
-             <item row="4" column="4">
-              <property name="text">
-               <string>Item 5</string>
-              </property>
-             </item>
-             <item row="5" column="5">
-              <property name="text">
-               <string>Item 6</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox_12">
-          <property name="title">
-           <string>Column View</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_10">
-           <item>
-            <widget class="QColumnView" name="columnView"/>
-           </item>
-          </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_12">
+           <property name="title">
+            <string>Column View</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <item>
+             <widget class="QColumnView" name="columnView"/>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
        </layout>
@@ -1958,8 +1975,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>598</width>
-                 <height>89</height>
+                 <width>704</width>
+                 <height>134</height>
                 </rect>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -1977,8 +1994,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>188</width>
-                      <height>69</height>
+                      <width>223</width>
+                      <height>114</height>
                      </rect>
                     </property>
                    </widget>
@@ -1992,8 +2009,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>188</width>
-                      <height>69</height>
+                      <width>224</width>
+                      <height>114</height>
                      </rect>
                     </property>
                    </widget>
@@ -2007,8 +2024,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>188</width>
-                      <height>69</height>
+                      <width>223</width>
+                      <height>114</height>
                      </rect>
                     </property>
                    </widget>
@@ -2337,6 +2354,62 @@ p, li { white-space: pre-wrap; }
           <property name="expandable" stdset="0">
            <bool>true</bool>
           </property>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>UI Brightness</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <layout class="QHBoxLayout" name="spinSlider_horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="label_18">
+               <property name="text">
+                <string>Dark</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="spinSlider_slider_2">
+               <property name="minimum">
+                <number>0</number>
+               </property>
+               <property name="maximum">
+                <number>100</number>
+               </property>
+               <property name="value">
+                <number>50</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::NoTicks</enum>
+               </property>
+               <property name="tickInterval">
+                <number>10</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_19">
+               <property name="text">
+                <string>Light</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_20">
+             <property name="text">
+              <string>Accent Colour</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>
@@ -2356,9 +2429,6 @@ p, li { white-space: pre-wrap; }
         <layout class="QHBoxLayout" name="spinSlider_horizontalLayout">
          <item>
           <widget class="QSpinBox" name="spinSlider_spinBox">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set the priority for this render job.&lt;/p&gt;&lt;p&gt;Higher priority jobs will be rendered first. Setting the priority to zero will submit the job as paused.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
            <property name="buttonSymbols">
             <enum>QAbstractSpinBox::NoButtons</enum>
            </property>
@@ -2375,9 +2445,6 @@ p, li { white-space: pre-wrap; }
          </item>
          <item>
           <widget class="QSlider" name="spinSlider_slider">
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set the priority for this render job.&lt;/p&gt;&lt;p&gt;Higher priority jobs will be rendered first. Setting the priority to zero will submit the job as paused.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
            <property name="minimum">
             <number>0</number>
            </property>
@@ -2399,6 +2466,23 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QToolButton" name="colorChooser_button">
+         <property name="minimumSize">
+          <size>
+           <width>64</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="enable_checkBox">
+         <property name="text">
+          <string>Enable</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="lineEdit_6">
@@ -2492,7 +2576,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>677</width>
+     <width>766</width>
      <height>21</height>
     </rect>
    </property>
@@ -2507,9 +2591,20 @@ p, li { white-space: pre-wrap; }
      <addaction name="actionSub_menu_item"/>
      <addaction name="actionAnother_sub_menu_item"/>
     </widget>
+    <widget class="QMenu" name="menuSub_menu_disabled">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>Sub menu (disabled)</string>
+     </property>
+     <addaction name="actionItem_1"/>
+     <addaction name="actionItem_2"/>
+    </widget>
     <addaction name="actionMenu"/>
     <addaction name="actionMenu_disabled"/>
     <addaction name="menuSub_menu"/>
+    <addaction name="menuSub_menu_disabled"/>
     <addaction name="separator"/>
     <addaction name="actionChecked"/>
     <addaction name="actionUnchecked"/>
@@ -2524,8 +2619,15 @@ p, li { white-space: pre-wrap; }
      <string>Edit</string>
     </property>
     <addaction name="actionMore"/>
-    <addaction name="actionTest_2"/>
     <addaction name="actionMenu_2"/>
+    <addaction name="actionItems"/>
+    <addaction name="separator"/>
+    <addaction name="actionName"/>
+    <addaction name="actionSize"/>
+    <addaction name="actionType"/>
+    <addaction name="actionDate"/>
+    <addaction name="actionAttribute"/>
+    <addaction name="actionObject"/>
    </widget>
    <widget class="QMenu" name="menuDisabled">
     <property name="enabled">
@@ -2640,6 +2742,81 @@ p, li { white-space: pre-wrap; }
   <action name="actionDisabled_Menu_2">
    <property name="text">
     <string>Disabled Menu 2</string>
+   </property>
+  </action>
+  <action name="actionItem_1">
+   <property name="text">
+    <string>Item 1</string>
+   </property>
+  </action>
+  <action name="actionItem_2">
+   <property name="text">
+    <string>Item 2</string>
+   </property>
+  </action>
+  <action name="actionName">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Name</string>
+   </property>
+  </action>
+  <action name="actionSize">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Size</string>
+   </property>
+  </action>
+  <action name="actionType">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Type</string>
+   </property>
+  </action>
+  <action name="actionDate">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Date</string>
+   </property>
+  </action>
+  <action name="actionAttribute">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Attribute</string>
+   </property>
+  </action>
+  <action name="actionObject">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Object</string>
+   </property>
+  </action>
+  <action name="actionItems">
+   <property name="text">
+    <string>Items</string>
    </property>
   </action>
  </widget>
