@@ -53,8 +53,15 @@ class TemplateUI(object):
 	            store_window_geometry=True):
 		""" Setup the UI.
 		"""
-		info_str = "Window object: %s Parent: %s" %(self, self.parent)
-		print(info_str)
+		# Store some system UI colours & define colour palette
+		tmpWidget = QtWidgets.QWidget()
+		self.col = {}
+		self.col['bg'] = tmpWidget.palette().color(QtGui.QPalette.Window)
+		self.col['accent'] = tmpWidget.palette().color(QtGui.QPalette.Highlight)
+		self.computeUIPalette()
+
+		# info_str = "Window object: %s Parent: %s" %(self, self.parent)
+		# print(info_str)
 
 		# Define some global variables
 		self.currentAttrStr = ""
@@ -70,7 +77,7 @@ class TemplateUI(object):
 			uifile = ui_file
 			self.ui = QtCompat.loadUi(uifile, self)
 		self.stylesheet = stylesheet
-		self.reloadStyleSheet()
+		self.loadStyleSheet()
 
 		# Set window title
 		self.setObjectName(window_object)
@@ -117,7 +124,7 @@ class TemplateUI(object):
 		# Set up keyboard shortcuts
 		self.shortcutReloadStyleSheet = QtWidgets.QShortcut(self)
 		self.shortcutReloadStyleSheet.setKey('Ctrl+Shift+R')
-		self.shortcutReloadStyleSheet.activated.connect(self.reloadStyleSheet)
+		self.shortcutReloadStyleSheet.activated.connect(self.loadStyleSheet)
 
 
 	def fileDialog(self, startingDir, fileFilter='All files (*.*)'):
@@ -167,6 +174,24 @@ class TemplateUI(object):
 			dialog = QtWidgets.QFileDialog.getExistingDirectory(self, self.tr('Directory'), startingDir, QtWidgets.QFileDialog.DontResolveSymlinks | QtWidgets.QFileDialog.ShowDirsOnly)
 
 		return dialog
+
+
+	def colorPickerDialog(self, current_color=None):
+		""" Opens a system dialog for choosing a colour.
+			Return the selected colour as a QColor object, or None if the
+			dialog is cancelled.
+		"""
+		color_dialog = QtWidgets.QColorDialog()
+		#color_dialog.setOption(QtWidgets.QColorDialog.DontUseNativeDialog)
+
+		# Set current colour
+		if current_color is not None:
+			color_dialog.setCurrentColor(current_color)
+
+		# Only return a color if valid / dialog accepted
+		if color_dialog.exec_() == color_dialog.Accepted:
+			color = color_dialog.selectedColor()
+			return color
 
 
 	# ------------------------------------------------------------------------
@@ -583,14 +608,158 @@ class TemplateUI(object):
 	# ------------------------------------------------------------------------
 
 
-	def reloadStyleSheet(self):
-		""" Reload stylesheet.
+	# def loadUIFile(self):
+	# 	""" Load/reload UI file.
+	# 	"""
+	# 	self.ui = QtCompat.loadUi(UI_FILE, self)
+
+
+	def loadStyleSheet(self):
+		""" Load/reload stylesheet.
 		"""
 		if self.stylesheet:
-			#qss = os.path.join(os.environ['IC_FORMSDIR'], self.stylesheet)
-			qss = self.stylesheet
-			with open(qss, "r") as fh:
-				self.setStyleSheet(fh.read()) #.replace("112, 158, 50", "0, 120, 215"))
+			#import style_vars
+
+			with open(self.stylesheet, 'r') as fh:
+				stylesheet = fh.read()
+
+				# if accent_color:
+				# 	rgb = "%d, %d, %d" %(accent_color.red(), accent_color.green(), accent_color.blue())
+				# 	stylesheet = fh.read().replace("112, 158, 50", rgb)  # "0, 120, 215"
+				# else:
+				# 	stylesheet = fh.read()
+
+			#for key, value in style_vars.var.items():
+			for key, value in self.col.items():
+				rgb = "%d, %d, %d" %(value.red(), value.green(), value.blue())
+				stylesheet = stylesheet.replace("%"+key+"%", rgb)
+
+			self.ui.setStyleSheet(stylesheet)
+
+
+	# def reloadStyleSheet(self):
+	# 	""" Reload stylesheet.
+	# 	"""
+	# 	if self.stylesheet:
+	# 		#qss = os.path.join(os.environ['IC_FORMSDIR'], self.stylesheet)
+	# 		qss = self.stylesheet
+	# 		with open(qss, "r") as fh:
+	# 			self.setStyleSheet(fh.read()) #.replace("112, 158, 50", "0, 120, 215"))
+
+
+	# def contrast(self, color1, color2, min_contrast=68, lighter=False, darker=False):
+	# 	""" Find the brightness variation between two colours and return a
+	# 		color that has good contrast with color2 (at least the value of
+	# 		min_contrast).
+	# 	"""
+	# 	contrast = abs(color1.lightness()-color2.lightness())
+	# 	if contrast < min_contrast:
+	# 		print "low contrast warning: %d" %contrast
+
+	# 		if lighter:
+	# 			color3 = QtGui.QColor(color2.red()+min_contrast, color2.green()+min_contrast, color2.blue()+min_contrast)
+	# 			#print color3.name()
+	# 			return color3
+	# 		elif darker:
+	# 			color3 = QtGui.QColor(color2.red()-min_contrast, color2.green()-min_contrast, color2.blue()-min_contrast)
+	# 			#print color3.name()
+	# 			return color3
+	# 	else:  # Color has sufficient contrast
+	# 		return color1
+
+
+	def offsetColor(self, input_color, amount, clamp=None):
+		""" .
+		"""
+		if amount == 0:
+			return input_color
+		elif amount > 0:  # Lighten
+			if clamp is None:
+				min_clamp = 0
+			else:
+				min_clamp = clamp
+			max_clamp = 255
+		elif amount < 0:  # Darken
+			min_clamp = 0
+			if clamp is None:
+				max_clamp = 255
+			else:
+				max_clamp = clamp
+		lum = max(min_clamp, min(input_color.lightness()+amount, max_clamp))
+		return QtGui.QColor(lum, lum, lum)
+
+
+	def computeUIPalette(self):
+		""" Compute UI colours based on window colour.
+		"""
+		self.col['text'] = QtGui.QColor(204, 204, 204)
+		self.col['disabled'] = QtGui.QColor(102, 102, 102)
+		self.col['base'] = QtGui.QColor(51, 51, 51)
+		self.col['input'] = QtGui.QColor(34, 34, 34)
+		self.col['button'] = QtGui.QColor(102, 102, 102)
+		self.col['hover'] = QtGui.QColor(119, 119, 119)
+		#self.col['pressed'] = QtGui.QColor(60, 60, 60)
+		self.col['pressed'] = self.col['accent']
+		self.col['checked'] = QtGui.QColor(51, 51, 51)
+		self.col['menu-bg'] = QtGui.QColor(51, 51, 51)
+		self.col['menu-border'] = QtGui.QColor(68, 68, 68)
+		self.col['group-bg'] = QtGui.QColor(128, 128, 128)
+		self.col['line'] = self.col['bg'].darker(110)
+		self.col['selection'] = QtGui.QColor(255, 255, 255)
+
+		if self.col['bg'].lightness() < 128:  # Dark UI
+			self.col['text'] = self.offsetColor(self.col['bg'], +68, 204)
+			self.col['base'] = self.offsetColor(self.col['bg'], -17, 51)
+			self.col['input'] = self.offsetColor(self.col['bg'], -34, 34)
+			self.col['button'] = self.offsetColor(self.col['bg'], +34, 102)
+			self.col['menu-bg'] = self.offsetColor(self.col['bg'], -17, 68)
+			self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], +17)
+			#self.col['group-bg'] = QtGui.QColor(127, 127, 127)
+		else:  # Light UI
+			self.col['text'] = self.offsetColor(self.col['bg'], -68, 51)
+			self.col['base'] = self.offsetColor(self.col['bg'], +17, 204)
+			self.col['input'] = self.offsetColor(self.col['bg'], +34, 221)
+			self.col['button'] = self.offsetColor(self.col['bg'], -34, 187)
+			self.col['menu-bg'] = self.offsetColor(self.col['bg'], +17, 187)
+			self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], -17)
+			#self.col['group-bg'] = QtGui.QColor(128, 128, 128)
+
+		self.col['hover'] = self.offsetColor(self.col['button'], +17)
+		self.col['checked'] = self.offsetColor(self.col['button'], -17)
+		#print("hover: %s" %self.col['hover'].name())
+
+		if self.col['accent'].lightness() < 187:
+			self.col['selection'] = QtGui.QColor(255, 255, 255)
+			#self.col['selection'] = self.contrast(QtGui.QColor(255, 255, 255), self.col['accent'], 68)
+		else:
+			self.col['selection'] = QtGui.QColor(0, 0, 0)
+			#self.col['selection'] = self.contrast(QtGui.QColor(0, 0, 0), self.col['accent'], 68)
+
+
+	# @QtCore.Slot()
+	def setUIBrightness(self, value):
+		""" Set the UI style background shade.
+		"""
+		print(value)
+		self.col['bg'] = QtGui.QColor(value, value, value)
+		self.computeUIPalette()
+		self.loadStyleSheet()
+
+
+	# @QtCore.Slot()
+	def setAccentColor(self, color=None):
+		""" Set the UI style accent colour.
+		"""
+		widget = self.sender()
+
+		# Get current colour and pass to function
+		current_color = widget.palette().color(QtGui.QPalette.Background)
+		color = self.colorPickerDialog(current_color)
+		if color:
+			widget.setStyleSheet("QWidget { background-color: %s }" %color.name())
+			self.col['accent'] = color
+			self.computeUIPalette()
+			self.loadStyleSheet()
 
 
 	def storeWindow(self):

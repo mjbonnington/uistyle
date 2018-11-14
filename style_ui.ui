@@ -2372,7 +2372,7 @@ p, li { white-space: pre-wrap; }
                 <x>0</x>
                 <y>0</y>
                 <width>706</width>
-                <height>92</height>
+                <height>69</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2384,8 +2384,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>98</width>
-                <height>28</height>
+                <width>100</width>
+                <height>30</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2430,24 +2430,26 @@ p, li { white-space: pre-wrap; }
            <property name="labelAlignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_17">
-             <property name="text">
-              <string>UI Brightness</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="1">
-            <layout class="QHBoxLayout" name="spinSlider_horizontalLayout_2">
+            <layout class="QHBoxLayout" name="spinSlider_horizontalLayout">
              <item>
-              <widget class="QLabel" name="label_18">
-               <property name="text">
-                <string>Dark</string>
+              <widget class="QSpinBox" name="spinSlider_spinBox">
+               <property name="buttonSymbols">
+                <enum>QAbstractSpinBox::NoButtons</enum>
+               </property>
+               <property name="minimum">
+                <number>0</number>
+               </property>
+               <property name="maximum">
+                <number>100</number>
+               </property>
+               <property name="value">
+                <number>50</number>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QSlider" name="spinSlider_slider_2">
+              <widget class="QSlider" name="spinSlider_slider">
                <property name="minimum">
                 <number>0</number>
                </property>
@@ -2468,31 +2470,7 @@ p, li { white-space: pre-wrap; }
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QLabel" name="label_19">
-               <property name="text">
-                <string>Light</string>
-               </property>
-              </widget>
-             </item>
             </layout>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_20">
-             <property name="text">
-              <string>Accent Colour</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QToolButton" name="colorChooser_button_2">
-             <property name="minimumSize">
-              <size>
-               <width>64</width>
-               <height>0</height>
-              </size>
-             </property>
-            </widget>
            </item>
           </layout>
          </widget>
@@ -2517,40 +2495,47 @@ p, li { white-space: pre-wrap; }
     <item>
      <widget class="QGroupBox" name="mixedControls_groupBox">
       <property name="title">
-       <string>Mixed controls</string>
+       <string>Stylesheet controls</string>
       </property>
       <property name="checkable">
        <bool>true</bool>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_7">
        <item>
-        <layout class="QHBoxLayout" name="spinSlider_horizontalLayout">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>UI Brightness</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="spinSlider_horizontalLayout_2">
+         <property name="leftMargin">
+          <number>12</number>
+         </property>
+         <property name="rightMargin">
+          <number>12</number>
+         </property>
          <item>
-          <widget class="QSpinBox" name="spinSlider_spinBox">
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::NoButtons</enum>
-           </property>
-           <property name="minimum">
-            <number>0</number>
-           </property>
-           <property name="maximum">
-            <number>100</number>
-           </property>
-           <property name="value">
-            <number>50</number>
+          <widget class="QLabel" name="label_18">
+           <property name="text">
+            <string>Dark</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSlider" name="spinSlider_slider">
+          <widget class="QSlider" name="uiBrightness_slider">
            <property name="minimum">
-            <number>0</number>
+            <number>17</number>
            </property>
            <property name="maximum">
-            <number>100</number>
+            <number>238</number>
+           </property>
+           <property name="pageStep">
+            <number>17</number>
            </property>
            <property name="value">
-            <number>50</number>
+            <number>68</number>
            </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -2563,7 +2548,21 @@ p, li { white-space: pre-wrap; }
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QLabel" name="label_19">
+           <property name="text">
+            <string>Light</string>
+           </property>
+          </widget>
+         </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_20">
+         <property name="text">
+          <string>Accent Colour</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QToolButton" name="colorChooser_button">
@@ -2580,59 +2579,9 @@ p, li { white-space: pre-wrap; }
          <property name="text">
           <string>Enable</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_6">
-         <property name="text">
-          <string>Type something here</string>
+         <property name="checked">
+          <bool>true</bool>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="spinBox_2">
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::PlusMinus</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboBox_3">
-         <item>
-          <property name="text">
-           <string>Select</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>An</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Item</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>From</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>This</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>ComboBox</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Widget</string>
-          </property>
-         </item>
         </widget>
        </item>
        <item>
@@ -2933,12 +2882,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>44</x>
-     <y>751</y>
+     <x>78</x>
+     <y>427</y>
     </hint>
     <hint type="destinationlabel">
-     <x>63</x>
-     <y>744</y>
+     <x>148</x>
+     <y>428</y>
     </hint>
    </hints>
   </connection>
@@ -2949,12 +2898,28 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>57</x>
-     <y>756</y>
+     <x>142</x>
+     <y>428</y>
     </hint>
     <hint type="destinationlabel">
-     <x>40</x>
-     <y>756</y>
+     <x>76</x>
+     <y>427</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>enable_checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tabWidget</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>621</x>
+     <y>751</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>15</x>
+     <y>40</y>
     </hint>
    </hints>
   </connection>

@@ -51,7 +51,6 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 
 		# Load UI
 		#self.loadUIFile()
-		#self.loadStyleSheet()
 		self.show()
 
 		self.info()
@@ -60,7 +59,10 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).clicked.connect(self.exit)
 		#self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.loadStyleSheet)
 
-		self.ui.colorChooser_button.clicked.connect(self.colorPickerDialog)
+		self.ui.colorChooser_button.setStyleSheet("QWidget { background-color: %s }" %self.col['accent'].name())
+		self.ui.colorChooser_button.clicked.connect(self.setAccentColor)
+		self.ui.uiBrightness_slider.setValue(self.col['bg'].lightness())
+		self.ui.uiBrightness_slider.valueChanged.connect(self.setUIBrightness)
 		#self.ui.reloadUI_pushButton.clicked.connect(self.loadUIFile)
 		self.ui.reloadStylesheet_pushButton.clicked.connect(self.loadStyleSheet)
 
@@ -101,35 +103,6 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		print("Python %d.%d.%d" %(sys.version_info[0], sys.version_info[1], sys.version_info[2]))
 		print("%s %s" %(__binding__, __binding_version__))
 		print("Qt %s" %QtCore.qVersion())
-		#print(type(self.ui))
-
-
-	# def loadUIFile(self):
-	# 	""" Load/reload UI file.
-	# 	"""
-	# 	self.ui = QtCompat.loadUi(UI_FILE, self)
-
-
-	def loadStyleSheet(self, accent_color=None):
-		""" Load/reload stylesheet.
-		"""
-		if STYLESHEET is not None:
-			with open(STYLESHEET, "r") as fh:
-				if accent_color:
-					rgb = "%d, %d, %d" %(accent_color.red(), accent_color.green(), accent_color.blue())
-					stylesheet = fh.read().replace("112, 158, 50", rgb)  # "0, 120, 215"
-				else:
-					stylesheet = fh.read()
-				self.ui.setStyleSheet(stylesheet)
-
-
-	def colorPickerDialog(self):
-		""" Open a dialog to choose a color.
-		"""
-		color = QtWidgets.QColorDialog.getColor()
-		if color:
-			self.sender().setStyleSheet("QWidget { background-color: %s }" %color.name())
-			self.loadStyleSheet(color)
 
 
 	def exit(self):
