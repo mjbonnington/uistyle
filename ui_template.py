@@ -56,8 +56,8 @@ class TemplateUI(object):
 		# Store some system UI colours & define colour palette
 		tmpWidget = QtWidgets.QWidget()
 		self.col = {}
-		self.col['bg'] = tmpWidget.palette().color(QtGui.QPalette.Window)
-		self.col['accent'] = tmpWidget.palette().color(QtGui.QPalette.Highlight)
+		self.col['window'] = tmpWidget.palette().color(QtGui.QPalette.Window)
+		self.col['highlight'] = tmpWidget.palette().color(QtGui.QPalette.Highlight)
 		self.computeUIPalette()
 
 		# info_str = "Window object: %s Parent: %s" %(self, self.parent)
@@ -694,33 +694,32 @@ class TemplateUI(object):
 		"""
 		self.col['text'] = QtGui.QColor(204, 204, 204)
 		self.col['disabled'] = QtGui.QColor(102, 102, 102)
-		self.col['base'] = QtGui.QColor(51, 51, 51)
-		self.col['input'] = QtGui.QColor(34, 34, 34)
+		self.col['base'] = QtGui.QColor(34, 34, 34)
 		self.col['button'] = QtGui.QColor(102, 102, 102)
 		self.col['hover'] = QtGui.QColor(119, 119, 119)
 		#self.col['pressed'] = QtGui.QColor(60, 60, 60)
-		self.col['pressed'] = self.col['accent']
+		self.col['pressed'] = self.col['highlight']
 		self.col['checked'] = QtGui.QColor(51, 51, 51)
 		self.col['menu-bg'] = QtGui.QColor(51, 51, 51)
 		self.col['menu-border'] = QtGui.QColor(68, 68, 68)
 		self.col['group-bg'] = QtGui.QColor(128, 128, 128)
-		self.col['line'] = self.col['bg'].darker(110)
-		self.col['selection'] = QtGui.QColor(255, 255, 255)
+		self.col['line'] = self.col['window'].darker(110)
+		self.col['highlighted-text'] = QtGui.QColor(255, 255, 255)
 
-		if self.col['bg'].lightness() < 128:  # Dark UI
-			self.col['text'] = self.offsetColor(self.col['bg'], +68, 204)
-			self.col['base'] = self.offsetColor(self.col['bg'], -17, 51)
-			self.col['input'] = self.offsetColor(self.col['bg'], -34, 34)
-			self.col['button'] = self.offsetColor(self.col['bg'], +34, 102)
-			self.col['menu-bg'] = self.offsetColor(self.col['bg'], -17, 68)
+		if self.col['window'].lightness() < 128:  # Dark UI
+			self.col['text'] = self.offsetColor(self.col['window'], +68, 204)
+			self.col['base'] = self.offsetColor(self.col['window'], -34, 34)
+			self.col['alternate'] = self.offsetColor(self.col['base'], +8)
+			self.col['button'] = self.offsetColor(self.col['window'], +34, 102)
+			self.col['menu-bg'] = self.offsetColor(self.col['window'], -17, 68)
 			self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], +17)
 			#self.col['group-bg'] = QtGui.QColor(127, 127, 127)
 		else:  # Light UI
-			self.col['text'] = self.offsetColor(self.col['bg'], -68, 51)
-			self.col['base'] = self.offsetColor(self.col['bg'], +17, 204)
-			self.col['input'] = self.offsetColor(self.col['bg'], +34, 221)
-			self.col['button'] = self.offsetColor(self.col['bg'], -34, 187)
-			self.col['menu-bg'] = self.offsetColor(self.col['bg'], +17, 187)
+			self.col['text'] = self.offsetColor(self.col['window'], -68, 51)
+			self.col['base'] = self.offsetColor(self.col['window'], +34, 221)
+			self.col['alternate'] = self.offsetColor(self.col['base'], -8)
+			self.col['button'] = self.offsetColor(self.col['window'], -34, 187)
+			self.col['menu-bg'] = self.offsetColor(self.col['window'], +17, 187)
 			self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], -17)
 			#self.col['group-bg'] = QtGui.QColor(128, 128, 128)
 
@@ -728,12 +727,19 @@ class TemplateUI(object):
 		self.col['checked'] = self.offsetColor(self.col['button'], -17)
 		#print("hover: %s" %self.col['hover'].name())
 
-		if self.col['accent'].lightness() < 187:
-			self.col['selection'] = QtGui.QColor(255, 255, 255)
-			#self.col['selection'] = self.contrast(QtGui.QColor(255, 255, 255), self.col['accent'], 68)
+		if self.col['highlight'].lightness() < 192:
+			self.col['highlighted-text'] = QtGui.QColor(255, 255, 255)
+			#self.col['highlighted-text'] = self.contrast(QtGui.QColor(255, 255, 255), self.col['highlight'], 68)
 		else:
-			self.col['selection'] = QtGui.QColor(0, 0, 0)
-			#self.col['selection'] = self.contrast(QtGui.QColor(0, 0, 0), self.col['accent'], 68)
+			self.col['highlighted-text'] = QtGui.QColor(0, 0, 0)
+			#self.col['highlighted-text'] = self.contrast(QtGui.QColor(0, 0, 0), self.col['highlight'], 68)
+
+		if self.col['button'].lightness() < 192:
+			#self.col['button-text'] = QtGui.QColor(255, 255, 255)
+			self.col['button-text'] = self.offsetColor(self.col['button'], +68, 204)
+		else:
+			#self.col['button-text'] = QtGui.QColor(0, 0, 0)
+			self.col['button-text'] = self.offsetColor(self.col['button'], -68, 51)
 
 
 	# @QtCore.Slot()
@@ -741,7 +747,7 @@ class TemplateUI(object):
 		""" Set the UI style background shade.
 		"""
 		print(value)
-		self.col['bg'] = QtGui.QColor(value, value, value)
+		self.col['window'] = QtGui.QColor(value, value, value)
 		self.computeUIPalette()
 		self.loadStyleSheet()
 
@@ -757,7 +763,7 @@ class TemplateUI(object):
 		color = self.colorPickerDialog(current_color)
 		if color:
 			widget.setStyleSheet("QWidget { background-color: %s }" %color.name())
-			self.col['accent'] = color
+			self.col['highlight'] = color
 			self.computeUIPalette()
 			self.loadStyleSheet()
 

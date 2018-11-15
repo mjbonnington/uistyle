@@ -59,9 +59,9 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).clicked.connect(self.exit)
 		#self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.loadStyleSheet)
 
-		self.ui.colorChooser_button.setStyleSheet("QWidget { background-color: %s }" %self.col['accent'].name())
+		self.ui.colorChooser_button.setStyleSheet("QWidget { background-color: %s }" %self.col['highlight'].name())
 		self.ui.colorChooser_button.clicked.connect(self.setAccentColor)
-		self.ui.uiBrightness_slider.setValue(self.col['bg'].lightness())
+		self.ui.uiBrightness_slider.setValue(self.col['window'].lightness())
 		self.ui.uiBrightness_slider.valueChanged.connect(self.setUIBrightness)
 		#self.ui.reloadUI_pushButton.clicked.connect(self.loadUIFile)
 		self.ui.reloadStylesheet_pushButton.clicked.connect(self.loadStyleSheet)
