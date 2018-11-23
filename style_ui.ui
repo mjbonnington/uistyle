@@ -925,7 +925,10 @@
               <item row="0" column="1">
                <widget class="QLineEdit" name="lineEdit">
                 <property name="text">
-                 <string>Type here...</string>
+                 <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>Placeholder text</string>
                 </property>
                </widget>
               </item>
@@ -998,7 +1001,7 @@
               <item row="4" column="1">
                <widget class="QLineEdit" name="lineEdit_4">
                 <property name="text">
-                 <string>Can't type here...</string>
+                 <string>Type here...</string>
                 </property>
                 <property name="frame">
                  <bool>false</bool>
@@ -1014,25 +1017,58 @@
               <item row="2" column="0">
                <widget class="QLabel" name="label_12">
                 <property name="text">
-                 <string>Line Edit (mandatory):</string>
+                 <string>Custom attributes:</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                 </property>
+                <property name="mandatoryField" stdset="0">
+                 <bool>false</bool>
+                </property>
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QLineEdit" name="lineEdit_2">
-                <property name="text">
-                 <string>Type here...</string>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
-                <property name="mandatoryField" stdset="0">
-                 <bool>true</bool>
-                </property>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_13">
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_2">
+                  <property name="text">
+                   <string>Mandatory field</string>
+                  </property>
+                  <property name="frame">
+                   <bool>true</bool>
+                  </property>
+                  <property name="mandatoryField" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_6">
+                  <property name="text">
+                   <string>Inherited value</string>
+                  </property>
+                  <property name="frame">
+                   <bool>true</bool>
+                  </property>
+                  <property name="inheritedValue" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_7">
+                  <property name="text">
+                   <string>Warning message</string>
+                  </property>
+                  <property name="frame">
+                   <bool>true</bool>
+                  </property>
+                  <property name="warning" stdset="0">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>
@@ -1058,31 +1094,21 @@
               <property name="bottomMargin">
                <number>0</number>
               </property>
-              <item row="0" column="2">
+              <item row="2" column="1">
+               <widget class="QSlider" name="verticalSlider">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
                <widget class="QLabel" name="label_10">
                 <property name="text">
                  <string>Plain Text Edit:</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="2">
-               <widget class="QPlainTextEdit" name="plainTextEdit">
-                <property name="readOnly">
-                 <bool>false</bool>
-                </property>
-                <property name="plainText">
-                 <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris placerat pharetra turpis, in pharetra purus ultrices quis. Vivamus eget sem vel dolor scelerisque cursus eget eget ipsum. In hac habitasse platea dictumst. Aliquam elementum odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi maximus, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_11">
-                <property name="text">
-                 <string>Rich Text Edit:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
+              <item row="2" column="2">
                <widget class="QTextEdit" name="textEdit">
                 <property name="html">
                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -1093,10 +1119,20 @@ p, li { white-space: pre-wrap; }
                 </property>
                </widget>
               </item>
-              <item row="1" column="1">
-               <widget class="QSlider" name="verticalSlider">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+              <item row="2" column="0">
+               <widget class="QPlainTextEdit" name="plainTextEdit">
+                <property name="readOnly">
+                 <bool>false</bool>
+                </property>
+                <property name="plainText">
+                 <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris placerat pharetra turpis, in pharetra purus ultrices quis. Vivamus eget sem vel dolor scelerisque cursus eget eget ipsum. In hac habitasse platea dictumst. Aliquam elementum odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi maximus, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>Rich Text Edit:</string>
                 </property>
                </widget>
               </item>
@@ -2577,7 +2613,7 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QCheckBox" name="enable_checkBox">
          <property name="text">
-          <string>Enable</string>
+          <string>Enable UI</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -2587,7 +2623,21 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QPushButton" name="reloadStylesheet_pushButton">
          <property name="text">
-          <string>Reload Stylesheet</string>
+          <string>Reload</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="unloadStylesheet_pushButton">
+         <property name="text">
+          <string>Unload</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="saveStylesheet_pushButton">
+         <property name="text">
+          <string>Dump</string>
          </property>
         </widget>
        </item>

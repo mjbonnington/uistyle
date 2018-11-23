@@ -49,9 +49,13 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		except:
 			pass
 
-		# Load UI
-		#self.loadUIFile()
 		self.show()
+
+		# Load and set stylesheet - workaround for bug in Qt 4.8 where some
+		# styles not being applied (including QHeaderView / QTableView) if
+		# stylesheet is loaded before ui is displayed.
+		# self.stylesheet = STYLESHEET
+		# self.loadStyleSheet()
 
 		self.info()
 
@@ -65,6 +69,8 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.uiBrightness_slider.valueChanged.connect(self.setUIBrightness)
 		#self.ui.reloadUI_pushButton.clicked.connect(self.loadUIFile)
 		self.ui.reloadStylesheet_pushButton.clicked.connect(self.loadStyleSheet)
+		self.ui.unloadStylesheet_pushButton.clicked.connect(self.unloadStyleSheet)
+		self.ui.saveStylesheet_pushButton.clicked.connect(self.saveStyleSheet)
 
 		# Add 'Sort by' separator label
 		label = QtWidgets.QLabel("Sort by:")
@@ -135,6 +141,10 @@ if __name__ == "__main__":
 	pal = QtWidgets.QApplication.palette()
 	#pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Text, QtGui.QColor(102, 102, 102))
 	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Light, QtGui.QColor(0, 0, 0, 0))
+	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Midlight, QtGui.QColor(0, 0, 0, 0))
+	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Dark, QtGui.QColor(0, 0, 0, 0))
+	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Mid, QtGui.QColor(0, 0, 0, 0))
+	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Shadow, QtGui.QColor(0, 0, 0, 0))
 	app.setPalette(pal);
 
 	myApp = UITestApp()
