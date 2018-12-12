@@ -73,6 +73,7 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.saveStylesheet_pushButton.clicked.connect(self.saveStyleSheet)
 
 		self.ui.openUI_toolButton.clicked.connect(self.openUI)
+		self.ui.main_tabWidget.tabCloseRequested.connect(lambda index: self.ui.main_tabWidget.removeTab(index))  # Allow tabs to be closed
 
 		# Add 'Sort by' separator label
 		label = QtWidgets.QLabel("Sort by:")
@@ -121,7 +122,8 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		ui_file = self.fileDialog('.', fileFilter='UI files (*.ui)')
 		# add new tab
 		ui = QtCompat.loadUi(ui_file)
-		self.ui.main_tabWidget.addTab(ui, os.path.basename(ui_file))
+		tab_id = self.ui.main_tabWidget.addTab(ui, os.path.basename(ui_file))
+		self.ui.main_tabWidget.setCurrentIndex(tab_id)
 
 
 	def exit(self):
@@ -147,8 +149,10 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 if __name__ == "__main__":
 	app = QtWidgets.QApplication(sys.argv)
 
-	# Apply application style.
-	# app.setStyle('Fusion')  # Qt5
+	# Apply application style
+	# styles = QtWidgets.QStyleFactory.keys()
+	# if 'Fusion' in styles:  # Qt5
+	# 	app.setStyle('Fusion')
 
 	# Hack to fix 'etching' on disabled text
 	pal = QtWidgets.QApplication.palette()

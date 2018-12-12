@@ -76,9 +76,10 @@ class TemplateUI(object):
 		self.computeUIPalette()
 
 		# Set 'Fusion' platform-independent style if running Qt5
+		# Does not work here - must be applied at the application level
 		# styles = QtWidgets.QStyleFactory.keys()
 		# if 'Fusion' in styles:
-		# 	self.setStyle('Fusion')  # Mac doesn't like this
+		# 	self.setStyle('Fusion')
 
 		# Load and set stylesheet
 		self.stylesheet = stylesheet

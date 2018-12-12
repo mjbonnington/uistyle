@@ -411,6 +411,10 @@ QTabBar::tab:!selected:bottom { margin-bottom: 2px; }
 QTabBar::tab:!selected:left { margin-right: 2px; }
 QTabBar::tab:!selected:right { margin-left: 2px; }
 
+QTabBar::close-button {
+	image: url(:/images/indicator_less.png);
+}
+
 QTabBar QToolButton {
 	margin: 0;
 	padding: 1px 2px 2px 1px;
