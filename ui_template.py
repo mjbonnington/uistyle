@@ -49,7 +49,7 @@ class TemplateUI(object):
 		        window_title="", 
 		        ui_file="", 
 	            stylesheet="", 
-	            xml_data="", 
+	            prefs_file="", 
 	            store_window_geometry=True):
 		""" Setup the UI.
 		"""
@@ -60,9 +60,9 @@ class TemplateUI(object):
 		self.currentAttrStr = ""
 
 		# Instantiate XML data class
-		if xml_data:
+		if prefs_file:
 			self.xd = settingsData.SettingsData()
-			xd_load = self.xd.loadXML(xml_data)
+			xd_load = self.xd.loadXML(prefs_file)
 
 		# Load UI file
 		if ui_file:
@@ -76,9 +76,9 @@ class TemplateUI(object):
 		self.computeUIPalette()
 
 		# Set 'Fusion' platform-independent style if running Qt5
-		styles = QtWidgets.QStyleFactory.keys()
-		if 'Fusion' in styles:
-			self.setStyle('Fusion')
+		# styles = QtWidgets.QStyleFactory.keys()
+		# if 'Fusion' in styles:
+		# 	self.setStyle('Fusion')  # Mac doesn't like this
 
 		# Load and set stylesheet
 		self.stylesheet = stylesheet
@@ -140,17 +140,17 @@ class TemplateUI(object):
 			The window flags bypass a Mac bug that made the dialog always
 			appear under the Icarus window. This is ignored in a Linux env.
 		"""
-		envOverride = ['MAYA', 'NUKE']
-		if os.environ['IC_ENV'] in envOverride:
-			if os.environ['IC_RUNNING_OS'] == "MacOS":
-				self.setWindowFlags(QtCore.Qt.WindowStaysOnBottomHint | QtCore.Qt.X11BypassWindowManagerHint | QtCore.Qt.WindowCloseButtonHint)
-				self.show()
-			dialog = QtWidgets.QFileDialog.getOpenFileName(self, self.tr('Files'), startingDir, fileFilter)
-			if os.environ['IC_RUNNING_OS'] == "MacOS":
-				self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.X11BypassWindowManagerHint | QtCore.Qt.WindowCloseButtonHint)
-				self.show()
-		else:
-			dialog = QtWidgets.QFileDialog.getOpenFileName(self, self.tr('Files'), startingDir, fileFilter)
+		# envOverride = ['MAYA', 'NUKE']
+		# if os.environ['IC_ENV'] in envOverride:
+		# 	if os.environ['IC_RUNNING_OS'] == "MacOS":
+		# 		self.setWindowFlags(QtCore.Qt.WindowStaysOnBottomHint | QtCore.Qt.X11BypassWindowManagerHint | QtCore.Qt.WindowCloseButtonHint)
+		# 		self.show()
+		# 	dialog = QtWidgets.QFileDialog.getOpenFileName(self, self.tr('Files'), startingDir, fileFilter)
+		# 	if os.environ['IC_RUNNING_OS'] == "MacOS":
+		# 		self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.X11BypassWindowManagerHint | QtCore.Qt.WindowCloseButtonHint)
+		# 		self.show()
+		# else:
+		dialog = QtWidgets.QFileDialog.getOpenFileName(self, self.tr('Files'), startingDir, fileFilter)
 
 		try:
 			return dialog[0]

@@ -72,6 +72,8 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.unloadStylesheet_pushButton.clicked.connect(self.unloadStyleSheet)
 		self.ui.saveStylesheet_pushButton.clicked.connect(self.saveStyleSheet)
 
+		self.ui.openUI_toolButton.clicked.connect(self.openUI)
+
 		# Add 'Sort by' separator label
 		label = QtWidgets.QLabel("Sort by:")
 		sortBy_separator = QtWidgets.QWidgetAction(self)
@@ -109,6 +111,17 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		print("Python %d.%d.%d" %(sys.version_info[0], sys.version_info[1], sys.version_info[2]))
 		print("%s %s" %(__binding__, __binding_version__))
 		print("Qt %s" %QtCore.qVersion())
+
+
+	def openUI(self):
+		""" Load UI.
+		"""
+		import os
+		from Qt import QtCompat
+		ui_file = self.fileDialog('.', fileFilter='UI files (*.ui)')
+		# add new tab
+		ui = QtCompat.loadUi(ui_file)
+		self.ui.main_tabWidget.addTab(ui, os.path.basename(ui_file))
 
 
 	def exit(self):
