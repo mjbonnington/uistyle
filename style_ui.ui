@@ -1812,13 +1812,6 @@ p, li { white-space: pre-wrap; }
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_12">
            <item>
-            <widget class="QProgressBar" name="progressBar_2">
-             <property name="value">
-              <number>24</number>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QProgressBar" name="progressBar">
              <property name="value">
               <number>50</number>
@@ -1839,14 +1832,36 @@ p, li { white-space: pre-wrap; }
            </item>
            <item>
             <widget class="QProgressBar" name="progressBar_3">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="value">
               <number>72</number>
              </property>
              <property name="textVisible">
               <bool>false</bool>
              </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
              <property name="invertedAppearance">
               <bool>false</bool>
+             </property>
+             <property name="textDirection">
+              <enum>QProgressBar::BottomToTop</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSlider_2">
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>50</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
@@ -1993,7 +2008,7 @@ p, li { white-space: pre-wrap; }
                  <x>0</x>
                  <y>0</y>
                  <width>704</width>
-                 <height>134</height>
+                 <height>133</height>
                 </rect>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -2012,7 +2027,7 @@ p, li { white-space: pre-wrap; }
                       <x>0</x>
                       <y>0</y>
                       <width>223</width>
-                      <height>114</height>
+                      <height>113</height>
                      </rect>
                     </property>
                    </widget>
@@ -2027,7 +2042,7 @@ p, li { white-space: pre-wrap; }
                       <x>0</x>
                       <y>0</y>
                       <width>224</width>
-                      <height>114</height>
+                      <height>113</height>
                      </rect>
                     </property>
                    </widget>
@@ -2042,7 +2057,7 @@ p, li { white-space: pre-wrap; }
                       <x>0</x>
                       <y>0</y>
                       <width>223</width>
-                      <height>114</height>
+                      <height>113</height>
                      </rect>
                     </property>
                    </widget>
@@ -2357,8 +2372,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>100</width>
-                <height>30</height>
+                <width>98</width>
+                <height>28</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2876,8 +2891,8 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>78</x>
-     <y>427</y>
+     <x>61</x>
+     <y>429</y>
     </hint>
     <hint type="destinationlabel">
      <x>148</x>
@@ -2896,8 +2911,8 @@ p, li { white-space: pre-wrap; }
      <y>428</y>
     </hint>
     <hint type="destinationlabel">
-     <x>76</x>
-     <y>427</y>
+     <x>61</x>
+     <y>429</y>
     </hint>
    </hints>
   </connection>
@@ -2908,12 +2923,44 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>621</x>
-     <y>751</y>
+     <x>433</x>
+     <y>760</y>
     </hint>
     <hint type="destinationlabel">
      <x>15</x>
      <y>40</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>progressBar</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>209</x>
+     <y>678</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>185</x>
+     <y>616</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>progressBar_3</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>301</x>
+     <y>672</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>297</x>
+     <y>648</y>
     </hint>
    </hints>
   </connection>

@@ -120,10 +120,13 @@ class UITestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		import os
 		from Qt import QtCompat
 		ui_file = self.fileDialog('.', fileFilter='UI files (*.ui)')
-		# add new tab
-		ui = QtCompat.loadUi(ui_file)
-		tab_id = self.ui.main_tabWidget.addTab(ui, os.path.basename(ui_file))
-		self.ui.main_tabWidget.setCurrentIndex(tab_id)
+		# add and select new tab
+		if ui_file:
+			ui = QtCompat.loadUi(ui_file)
+			tab_id = self.ui.main_tabWidget.addTab(ui, os.path.basename(ui_file))
+			self.ui.main_tabWidget.setCurrentIndex(tab_id)
+			self.setupWidgets(ui)
+			self.conformFormLayoutLabels(ui)
 
 
 	def exit(self):
