@@ -40,7 +40,7 @@ QWidget:disabled {
 	alternate-background-color: transparent;
 	selection-background-color: rgba(%disabled%, 50%);
 	selection-color: rgba(%disabled%);
-	color: rgba(%text%, 33%); /*%disabled%*/
+	color: rgba(%text%, 50%);
 	text-decoration: none;
 }
 
@@ -243,10 +243,11 @@ QMenu::right-arrow {
 	image: url(:/images/arrow_right_%theme%.png);
 }
 
-/*QMenu::right-arrow:disabled {
-	margin: 4px;
-	image: url(:/images/arrow_right_disabled.png);
-}*/
+QMenu::right-arrow:disabled {
+	/*margin: 4px;
+	image: url(:/images/arrow_right_disabled.png);*/
+	opacity: 0.33;
+}
 
 /* Check boxes and radio buttons */
 QMenu::indicator {
@@ -866,6 +867,8 @@ QPushButton {
 	min-height: 18px;
 	background: rgba(%button%);
 	color: rgba(%button-text%);
+	/*border-color: rgba(%button-border%);
+	border-width: 1px;*/
 	border-radius: 0;
 }
 
@@ -889,8 +892,9 @@ QPushButton:checked {
 }
 
 QPushButton:disabled {
-	background: transparent; /*rgba(102, 102, 102, 20%);*/
-	border-color: rgba(%disabled%);
+	background: rgba(%button%, 50%);
+	border-color: transparent;
+	/*border-color: rgba(%button-border%, 25%);*/
 }
 
 QPushButton:focus {
@@ -1090,7 +1094,6 @@ QAbstractSpinBox:read-only {
 }
 
 QAbstractSpinBox:disabled {
-	/*border-color: rgba(85, 85, 85);*/
 	background: transparent;
 }
 
@@ -1204,10 +1207,6 @@ QComboBox::drop-down:editable {
 QComboBox::drop-down:!editable {
 	left: 0;
 	background: transparent;
-	/* add divider line before drop-down */
-	/*border-left-width: 1px;
-	border-left-color: rgba(34, 34, 34, 25%);
-	border-left-style: solid;*/
 }
 
 QComboBox:!editable:hover, QComboBox::drop-down:editable:hover {
@@ -1220,8 +1219,16 @@ QComboBox:!editable:on, QComboBox::drop-down:editable:on {
 }
 
 QComboBox:disabled {
+	background: rgba(%button%, 50%);
+	/*background: transparent;*/
 	/*border-color: #555;*/
+	color: rgba(%text%, 20%);
+}
+
+QComboBox:editable:disabled {
 	background: transparent;
+	/*border-color: #555;*/
+	/*color: rgba(%text%, 20%);*/
 }
 
 QComboBox::drop-down:disabled {
@@ -1247,43 +1254,36 @@ QComboBox::down-arrow:on {
 }
 
 /* Background color of popup-list. */ 
-/*QComboBox QListView {
-	padding: 0 6px;
-	background: #333;
-	border: 1px solid #555;
-}*/
-
-/*QComboBox QAbstractItemView {
-	margin: 0;
-	padding: 6px;
-	background: #933;
-	border: 1px solid #555;
-}*/
-
-QComboBox::item {
-	/*padding: 4px 16px 4px 24px;*/
-	background: transparent;
-}
-
-/* Needed to complete the rule set. */
-QComboBox::item:alternate {
-	background: transparent;
-}
-
-/* Color of the selected list item. */
-QComboBox::item:selected {
-	background: rgba(%highlight%, 50%);
-	color: rgba(%highlighted-text%);
+QComboBox QAbstractItemView {
+	/*padding: 2px 8px;*/
+	background: rgba(%menu-bg%);
 	border: none;
 }
 
+/* Cannot get combo box popups to style correctly */
+/*QComboBox::item {
+	background: transparent;
+}*/
+
+/* Needed to complete the rule set. */
+/*QComboBox::item:alternate {
+	background: transparent;
+}*/
+
+/* Color of the selected list item. */
+/*QComboBox::item:selected {
+	background: rgba(%highlight%);
+	color: rgba(%highlighted-text%);
+	border: none;
+}*/
+
 /* Indicator will shine through the label text if you don't make it hidden. */
-QComboBox::indicator {
+/*QComboBox::indicator {
 	background-color: transparent;
 	selection-background-color: transparent;
 	color: transparent;
 	selection-color: transparent;
-}
+}*/
 
 /*QComboBox::indicator:checked {
 	image: url(:/images/checkbox_checked_%theme%.png);

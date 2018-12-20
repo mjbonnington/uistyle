@@ -683,30 +683,28 @@ class TemplateUI(object):
 		""" Compute UI colours based on window colour.
 		"""
 		self.col['disabled'] = QtGui.QColor(102, 102, 102)
-		#self.col['pressed'] = QtGui.QColor(60, 60, 60)
 		self.col['group-bg'] = QtGui.QColor(128, 128, 128)
 		self.col['line'] = self.col['window'].darker(110)
-		#self.col['highlighted-text'] = QtGui.QColor(255, 255, 255)
 		self.col['mandatory'] = QtGui.QColor('#f92672')
 		self.col['warning'] = QtGui.QColor('#e6db74')
 		self.col['inherited'] = QtGui.QColor('#a1efe4')
 
 		if self.col['window'].lightness() < 128:  # Dark UI
 			self.imgtheme = "light"
-			self.col['text'] = QtGui.QColor(204, 204, 204)
-			#self.col['text'] = self.offsetColor(self.col['window'], +68, 204)
+			self.col['text'] = QtGui.QColor(204, 204, 204) #self.offsetColor(self.col['window'], +68, 204)
 			self.col['base'] = self.offsetColor(self.col['window'], -34, 34)
 			self.col['alternate'] = self.offsetColor(self.col['base'], +8)
 			self.col['button'] = self.offsetColor(self.col['window'], +34, 102)
+			self.col['button-border'] = self.offsetColor(self.col['button'], +8)
 			self.col['menu-bg'] = self.offsetColor(self.col['window'], -17, 68)
 			self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], +17)
 		else:  # Light UI
 			self.imgtheme = "dark"
-			self.col['text'] = QtGui.QColor(51, 51, 51)
-			#self.col['text'] = self.offsetColor(self.col['window'], -68, 51)
+			self.col['text'] = QtGui.QColor(51, 51, 51) #self.offsetColor(self.col['window'], -68, 51)
 			self.col['base'] = self.offsetColor(self.col['window'], +34, 221)
 			self.col['alternate'] = self.offsetColor(self.col['base'], -8)
 			self.col['button'] = self.offsetColor(self.col['window'], -17, 204)
+			self.col['button-border'] = self.offsetColor(self.col['button'], -8)
 			self.col['menu-bg'] = self.offsetColor(self.col['window'], +17, 187)
 			self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], -17)
 
