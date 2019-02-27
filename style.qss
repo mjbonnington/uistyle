@@ -40,7 +40,7 @@ QWidget:disabled {
 	alternate-background-color: transparent;
 	selection-background-color: rgba(%disabled%, 50%);
 	selection-color: rgba(%disabled%);
-	color: rgba(%text%, 50%);
+	color: rgba(%disabled%); /*rgba(%text%, 33%);*/
 	text-decoration: none;
 }
 
@@ -188,7 +188,7 @@ QMenuBar::item:selected, QMenuBar::item:pressed {
 
 QMenuBar::item:selected:disabled {
 	background: transparent;
-	color: rgba(%text%, 33%); /*%disabled%*/
+	color: rgba(%disabled%);
 }
 
 /* QMenu
@@ -213,7 +213,7 @@ QMenu::item:selected {
 
 QMenu::item:selected:disabled {
 	background: transparent;
-	color: rgba(%text%, 33%); /*%disabled%*/
+	color: rgba(%disabled%);
 }
 
 QMenu::separator {
@@ -230,7 +230,7 @@ QMenu::separator QLabel {
 }
 
 QMenu::separator QLabel:disabled {
-	color: rgba(%text%, 33%); /*%disabled%*/
+	color: rgba(%disabled%);
 }
 
 QMenu::icon {
@@ -373,7 +373,7 @@ QTabBar::tab:last:left, QTabBar::tab:last:right { margin-bottom: 0; }
 
 QTabBar::tab:selected:disabled {
 	background: rgba(%button%, 25%);
-	color: rgba(%text%, 33%); /*%disabled%*/
+	color: rgba(%disabled%);
 }
 
 QTabBar::tab:selected:top, QTabBar::tab:selected:bottom {
@@ -546,7 +546,7 @@ QGroupBox[expandable="true"] {
 	/*margin-top: 20px;*/
 	padding: 0;
 	border: 0;
-	border-top: 20px solid rgba(%menu-bg%);
+	border-top: 20px solid rgba(%group-header%);
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	/*border-bottom-left-radius: 2px;
@@ -566,7 +566,7 @@ QGroupBox[expandable="true"]::title {
 	border-radius: 0;
 	/*subcontrol-origin: margin;
 	subcontrol-position: top center;*/
-	background: rgba(%menu-bg%);
+	background: rgba(%group-header%);
 }
 
 QGroupBox[expandable="true"]::indicator {
@@ -892,7 +892,7 @@ QPushButton:checked {
 }
 
 QPushButton:disabled {
-	background: rgba(%button%, 50%);
+	background: rgba(%button%, 33%);
 	border-color: transparent;
 	/*border-color: rgba(%button-border%, 25%);*/
 }
@@ -951,11 +951,11 @@ QToolButton:disabled {
 }
 
 QToolButton[popupMode="MenuButtonPopup"] { /* only for MenuButtonPopup */
-	padding-right: 16px;
+	/*padding-right: 16px;*/
 }
 
 QToolButton[popupMode="InstantPopup"] { /* only for InstantPopup */
-	padding-right: 16px;
+	/*padding-right: 16px;*/
 }
 
 /* The subcontrols below are used only in the MenuButtonPopup mode */
@@ -1178,8 +1178,9 @@ QComboBox {
 }
 
 QComboBox:editable {
-	margin-right: 17px;
-	padding: 1px 6px 2px 1px;
+	/*margin-right: 17px;*/
+	/*padding: 1px 6px 2px 1px;*/
+	padding: 1px 2px 2px 1px;
 	background: rgba(%base%);
 	/*border-color: #555;*/
 }
@@ -1200,7 +1201,8 @@ QComboBox::drop-down {
 }
 
 QComboBox::drop-down:editable {
-	left: 17px;
+	/*left: 17px;*/
+	right: 0;
 	background: rgba(%button%);
 }
 
@@ -1219,10 +1221,10 @@ QComboBox:!editable:on, QComboBox::drop-down:editable:on {
 }
 
 QComboBox:disabled {
-	background: rgba(%button%, 50%);
+	background: rgba(%button%, 33%);
 	/*background: transparent;*/
 	/*border-color: #555;*/
-	color: rgba(%text%, 20%);
+	color: rgba(%disabled%);
 }
 
 QComboBox:editable:disabled {
@@ -1429,7 +1431,7 @@ QScrollBar::handle:disabled {
 }
 
 QScrollBar::add-page:disabled, QScrollBar::sub-page:disabled {
-	background: rgba(51, 51, 51, 25%);
+	background: rgba(%base%, 25%);
 }
 
 
@@ -1520,7 +1522,7 @@ QSlider::handle:pressed {
 }
 
 QSlider::handle:disabled {
-	background: rgba(%disabled%, 25%);
+	background: rgba(%button%, 33%);
 }
 
 /* End Sliders, scroll bars and dials */
@@ -1551,6 +1553,11 @@ QSlider::handle:disabled {
 *:disabled[noBackground="true"] { /* no background colour */
 	background: transparent;
 	/*border-color: transparent;*/
+}
+
+*[attach="true"], 
+*:disabled[attach="true"] { /* attach tool button to widget */
+	background: rgba(%base%);
 }
 
 /* End Custom Attributes */
