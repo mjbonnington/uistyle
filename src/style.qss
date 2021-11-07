@@ -544,8 +544,8 @@ QGroupBox {
 }
 
 QGroupBox:flat, QGroupBox:disabled {
-	background: transparent;
 	margin-top: 0;
+	background: transparent;
 }
 
 QGroupBox::title {
@@ -649,7 +649,7 @@ QProgressBar {
 }
 
 QProgressBar::chunk {
-	background: rgba(150, 158, 163, 100%);
+	background: rgba(%highlight%, 100%);
 	width: 1px;
 }
 
@@ -701,13 +701,6 @@ QHeaderView::section:disabled {
 	border-color: rgb(68, 68, 68);
 }
 
-QHeaderView::down-arrow {
-	width: 9px;
-	height: 9px;
-	padding-right: 2px;
-	image: url(:/images/arrow_down.png);
-}
-
 QHeaderView::up-arrow {
 	width: 9px;
 	height: 9px;
@@ -715,12 +708,19 @@ QHeaderView::up-arrow {
 	image: url(:/images/arrow_up.png);
 }
 
-QHeaderView::down-arrow:disabled {
-	image: url(:/images/arrow_down_disabled.png);
-}
-
 QHeaderView::up-arrow:disabled {
 	image: url(:/images/arrow_up_disabled.png);
+}
+
+QHeaderView::down-arrow {
+	width: 9px;
+	height: 9px;
+	padding-right: 2px;
+	image: url(:/images/arrow_down.png);
+}
+
+QHeaderView::down-arrow:disabled {
+	image: url(:/images/arrow_down_disabled.png);
 }
 
 /* QTreeView
@@ -1027,15 +1027,18 @@ QCheckBox::indicator {
 	border-radius: 0;
 }
 
-QCheckBox::indicator:hover, QGroupBox::indicator:hover {
+QCheckBox::indicator:hover,
+QGroupBox::indicator:hover {
 	border-color: rgb(%highlight%);
 }
 
-QCheckBox::indicator:checked, QGroupBox::indicator:checked {
+QCheckBox::indicator:checked,
+QGroupBox::indicator:checked {
 	image: url(:/images/checkbox_checked.png);
 }
 
-QCheckBox::indicator:checked:disabled, QGroupBox::indicator:checked:disabled {
+QCheckBox::indicator:checked:disabled,
+QGroupBox::indicator:checked:disabled {
 	image: url(:/images/checkbox_checked_disabled.png);
 }
 
@@ -1557,7 +1560,7 @@ QSlider::handle:disabled {
 
 QWidget[bgoverride="true"] {
 	background-color: #23282d;
-	border: none
+	border: none;
 }
 
 *[mandatoryField="true"] { /* custom colour for mandatory fields */
@@ -1582,7 +1585,7 @@ QLabel[warning="true"] { /* custom colour for warning message labels */
 QMessageBox[warn="true"] QLabel {
 	padding:  12px;
 	background: rgb(255, 0, 95);
-	color: rgb(255, 255, 255)
+	color: rgb(255, 255, 255);
 }
 
 /**[header="true"] {  custom colour for header bar 

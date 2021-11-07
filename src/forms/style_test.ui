@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>766</width>
-    <height>841</height>
+    <width>1024</width>
+    <height>880</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,11 +42,36 @@
        <bool>false</bool>
       </property>
       <property name="tabsClosable">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="movable">
        <bool>true</bool>
       </property>
+      <widget class="QWidget" name="tab_29">
+       <attribute name="title">
+        <string>Loaded UIs</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_25">
+        <item>
+         <widget class="QTabWidget" name="loadedUIs_tabWidget">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="tabsClosable">
+           <bool>true</bool>
+          </property>
+          <property name="movable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="tab_30">
+           <attribute name="title">
+            <string>Tab 1</string>
+           </attribute>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="tab">
        <attribute name="title">
         <string>Buttons</string>
@@ -2007,8 +2032,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>704</width>
-                 <height>133</height>
+                 <width>241</width>
+                 <height>89</height>
                 </rect>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -2026,8 +2051,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>223</width>
-                      <height>113</height>
+                      <width>98</width>
+                      <height>28</height>
                      </rect>
                     </property>
                    </widget>
@@ -2041,8 +2066,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>224</width>
-                      <height>113</height>
+                      <width>98</width>
+                      <height>28</height>
                      </rect>
                     </property>
                    </widget>
@@ -2056,8 +2081,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>223</width>
-                      <height>113</height>
+                      <width>98</width>
+                      <height>28</height>
                      </rect>
                     </property>
                    </widget>
@@ -2359,8 +2384,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>706</width>
-                <height>69</height>
+                <width>964</width>
+                <height>78</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2636,13 +2661,13 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>766</width>
+     <width>1024</width>
      <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Edit</string>
     </property>
     <widget class="QMenu" name="menuSub_menu">
      <property name="title">
@@ -2676,7 +2701,7 @@ p, li { white-space: pre-wrap; }
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
-     <string>Edit</string>
+     <string>Another Menu</string>
     </property>
     <addaction name="actionMore"/>
     <addaction name="actionMenu_2"/>
@@ -2699,6 +2724,18 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionDisabled_menu_1"/>
     <addaction name="actionDisabled_Menu_2"/>
    </widget>
+   <widget class="QMenu" name="menuFile_2">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_UI"/>
+    <addaction name="actionOpen_Stylesheet"/>
+    <addaction name="actionSave_Stylesheet"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuFile_2"/>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuDisabled"/>
@@ -2877,6 +2914,31 @@ p, li { white-space: pre-wrap; }
   <action name="actionItems">
    <property name="text">
     <string>Items</string>
+   </property>
+  </action>
+  <action name="actionOpen_Stylesheet">
+   <property name="text">
+    <string>Open Stylesheet...</string>
+   </property>
+  </action>
+  <action name="actionSave_Stylesheet">
+   <property name="text">
+    <string>Save Stylesheet...</string>
+   </property>
+  </action>
+  <action name="actionOpen_UI">
+   <property name="text">
+    <string>Open UI...</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About...</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
    </property>
   </action>
  </widget>
