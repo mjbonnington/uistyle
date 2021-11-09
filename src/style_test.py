@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-# style__main__.py
+# style_test.py
+#
+# Mike Bonnington <mjbonnington@gmail.com>
+# (c) 2018-2021
+#
 # Template for Qt GUI application written in Python
 # Uses Qt.py for compatibility with all Python bindings.
 #
@@ -14,7 +18,7 @@
 # For compatibility with PySide2, replace 'from [PySide/PyQt] import QtCore'
 # with 'from Qt import QtCore'
 # 
-# Run with command: 'python ./style__main__.py'
+# Run with command: 'python ./style_test.py'
 
 import os
 import sys
@@ -37,7 +41,7 @@ cfg['window_object'] = "styleTestUI"
 cfg['window_title'] = "Style Test"
 
 # Set the UI and the stylesheet
-cfg['ui_file'] = os.path.join(os.path.dirname(__file__), 'forms', 'style_test.ui')
+cfg['ui_file'] = 'forms/style_test.ui'
 # cfg['stylesheet'] = os.environ['IC_STYLESHEET']
 cfg['stylesheet'] = "style.qss"  # Set to None to use the parent app's stylesheet
 
@@ -103,7 +107,6 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.unloadStylesheet_pushButton.clicked.connect(self.unloadStyleSheet)
 		self.ui.saveStylesheet_pushButton.clicked.connect(self.saveStyleSheet)
 
-		self.ui.openUI_toolButton.clicked.connect(self.openUI)
 		self.ui.loadedUIs_tabWidget.tabCloseRequested.connect(lambda index: self.ui.loadedUIs_tabWidget.removeTab(index))  # Allow tabs to be closed
 
 		# Add 'Sort by' separator label

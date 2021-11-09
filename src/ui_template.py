@@ -6,11 +6,13 @@
 # (c) 2018-2021
 #
 # A custom class to act as a template for all windows and dialogs.
+#
 # This module provides windowing / UI helper functions for better integration
 # of PySide / PyQt UIs in supported DCC applications.
+#
 # Current support:
-# Good: Maya, Nuke
-# Partial: Houdini, Clarisse, 3ds Max
+# Good: Maya, Nuke, Houdini
+# Partial: Clarisse, 3ds Max
 # Experimental: Blender
 # Future: ?
 
@@ -40,31 +42,31 @@ COPYRIGHT = os.getenv('IC_COPYRIGHT', '(c) 2013-2021')
 # Environment detection
 # ----------------------------------------------------------------------------
 
-ENVIRONMENT = os.getenv('IC_ENV', 'standalone')
+HOST = os.getenv('IC_ENV', 'standalone')
 
 try:
 	import hou
-	ENVIRONMENT = 'houdini'
+	HOST = 'houdini'
 except ImportError:
 	pass
 
 try:
 	import maya.cmds as mc
-	ENVIRONMENT = 'maya'
+	HOST = 'maya'
 except ImportError:
 	pass
 
 try:
 	from pymxs import runtime
 	import qtmax
-	ENVIRONMENT = 'max'
+	HOST = 'max'
 except ImportError:
 	pass
 
 try:
 	import nuke
 	import nukescripts
-	ENVIRONMENT = 'nuke'
+	HOST = 'nuke'
 except ImportError:
 	pass
 
@@ -101,7 +103,7 @@ class TemplateUI(object):
 
 		# Load UI
 		try:
-			self.ui = QtCompat.loadUi(ui_file, self)
+			self.ui = QtCompat.loadUi(self.checkFilePath(ui_file), self)
 		except:
 			# verbose.error("Failed to open UI file: %s" % ui_file)
 			print("Failed to open UI file: %s" % ui_file)
@@ -137,8 +139,8 @@ class TemplateUI(object):
 		# Restore window geometry and state
 		self.store_window_geometry = store_window_geometry
 		ui_name = self.objectName()
-		if ENVIRONMENT != 'standalone':
-			ui_name += "_" + ENVIRONMENT.lower()
+		if HOST != 'standalone':
+			ui_name += "_" + HOST.lower()
 		self.settings = QtCore.QSettings(VENDOR, ui_name)
 		if self.store_window_geometry:
 			try:
@@ -150,7 +152,7 @@ class TemplateUI(object):
 
 			# # Use QSettings to store window geometry and state.
 			# # (Restore state may cause issues with PyQt5)
-			# if ENVIRONMENT == 'standalone':
+			# if HOST == 'standalone':
 			# 	verbose.detail("Restoring window geometry for '%s'." %self.objectName())
 			# 	try:
 			# 		self.settings = QtCore.QSettings(
@@ -163,10 +165,10 @@ class TemplateUI(object):
 			# # Makes Maya perform magic which makes the window stay on top in
 			# # OS X and Linux. As an added bonus, it'll make Maya remember the
 			# # window position.
-			# elif ENVIRONMENT == 'MAYA':
+			# elif HOST == 'MAYA':
 			# 	self.setProperty("saveWindowPref", True)
 
-			# elif ENVIRONMENT == 'NUKE':
+			# elif HOST == 'NUKE':
 			# 	pass
 
 		else:
@@ -198,7 +200,7 @@ class TemplateUI(object):
 		info[__binding__] = __binding_version__
 		info['Qt'] = QtCore.qVersion()
 		info['OS'] = platform.system()
-		info['Environment'] = ENVIRONMENT
+		info['Environment'] = HOST
 
 		if formatted:
 			info_ls = []
@@ -1164,16 +1166,17 @@ class TemplateUI(object):
 
 		self.col['group-bg'] = QtGui.QColor(128, 128, 128)
 		self.col['line'] = self.col['window'].darker(110)
-		self.col['mandatory'] = QtGui.QColor('#f92672')
-		self.col['warning'] = QtGui.QColor('#e6db74')
-		self.col['inherited'] = QtGui.QColor('#a1efe4')
+		self.col['tooltip'] = QtGui.QColor(255, 255, 221)
+		self.col['mandatory'] = QtGui.QColor(252, 152, 103)
+		self.col['warning'] = QtGui.QColor(255, 216, 106)
+		self.col['inherited'] = QtGui.QColor(161, 239, 228)
 
 		if self.col['window'].lightness() < 128:  # Dark UI
 			self.imgtheme = "light"
 			self.col['text'] = QtGui.QColor(204, 204, 204)
 			self.col['disabled'] = self.offsetColor(self.col['window'], +51)
 			self.col['base'] = self.offsetColor(self.col['window'], -34, 34)
-			self.col['alternate'] = self.offsetColor(self.col['base'], +8)
+			self.col['alternate'] = self.offsetColor(self.col['base'], +6)
 			self.col['button'] = self.offsetColor(self.col['window'], +34, 102)
 			self.col['button-border'] = self.offsetColor(self.col['button'], +8)
 			self.col['menu-bg'] = self.offsetColor(self.col['window'], -17, 68)
@@ -1184,7 +1187,7 @@ class TemplateUI(object):
 			self.col['text'] = QtGui.QColor(51, 51, 51)
 			self.col['disabled'] = self.offsetColor(self.col['window'], -51)
 			self.col['base'] = self.offsetColor(self.col['window'], +34, 221)
-			self.col['alternate'] = self.offsetColor(self.col['base'], -8)
+			self.col['alternate'] = self.offsetColor(self.col['base'], -6)
 			self.col['button'] = self.offsetColor(self.col['window'], -17, 204)
 			self.col['button-border'] = self.offsetColor(self.col['button'], -8)
 			self.col['menu-bg'] = self.offsetColor(self.col['window'], +17, 187)
@@ -1199,6 +1202,11 @@ class TemplateUI(object):
 			self.col['highlighted-text'] = QtGui.QColor(255, 255, 255)
 		else:
 			self.col['highlighted-text'] = QtGui.QColor(0, 0, 0)
+
+		if self.col['tooltip'].lightness() < 136:
+			self.col['tooltip-text'] = QtGui.QColor(255, 255, 255)
+		else:
+			self.col['tooltip-text'] = QtGui.QColor(0, 0, 0)
 
 		# if self.col['button'].lightness() < 170:
 		# 	self.col['button-text'] = self.offsetColor(self.col['button'], +68, 204)
@@ -1267,7 +1275,7 @@ class TemplateUI(object):
 				# verbose.warning("Could not store window geometry for '%s'." % self.objectName())
 				print("Could not store window geometry for '%s'." % self.objectName())
 
-			# if ENVIRONMENT == 'standalone':
+			# if HOST == 'standalone':
 			# 	verbose.detail("Storing window geometry for '%s'." %self.objectName())
 			# 	try:
 			# 		self.settings.setValue("geometry", self.saveGeometry())
@@ -1342,7 +1350,7 @@ class TemplateUI(object):
 # DCC application helper functions
 # ----------------------------------------------------------------------------
 
-def _main_window(app=ENVIRONMENT):
+def _main_window(app=HOST):
 	"""Return specified app's main window instance.
 
 	We need this in order for our Qt dialogs to be correctly parented as a

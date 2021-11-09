@@ -8,7 +8,7 @@ description = 'UI-related modules'
 
 variants = [['python-3.9']]
 
-requires = ['pyside2']
+requires = ['PySide2']
 
 authors = ['mjbonnington']
 
