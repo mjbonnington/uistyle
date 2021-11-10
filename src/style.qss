@@ -52,6 +52,10 @@ QWidget:disabled {
 	text-decoration: none;
 }
 
+QWidget:read-only {
+	background: transparent;
+}
+
 QWidget:no-frame {
 	border-color: transparent;
 }
@@ -942,9 +946,9 @@ QPushButton:flat:disabled {
  */
 
 QToolButton {
-	padding: 1px 2px 2px 1px;
+	padding: 3px 4px 4px 3px;
 	/*background: rgba(%group-bg%, 10%);*/
-	border: 3px solid transparent;
+	/*border: 3px solid transparent;*/
 	/*border-radius: 3px;*/
 }
 
@@ -954,12 +958,12 @@ QToolButton:hover {
 }
 
 QToolButton:pressed, QToolButton:checked:pressed {
-	padding: 2px 1px 1px 2px;
+	padding: 4px 3px 3px 4px;
 	background: rgb(%pressed%);
 }
 
 QToolButton:checked {
-	padding: 2px 1px 1px 2px;
+	padding: 4px 3px 3px 4px;
 	background: rgb(%checked%);
 }
 
@@ -1132,17 +1136,12 @@ QAbstractSpinBox[buttonSymbols="NoButtons"] {
 }
 
 QAbstractSpinBox:read-only {
-	/*border-color: transparent;*/
 	background: transparent;
 }
 
 QAbstractSpinBox:disabled {
 	background: transparent;
 }
-
-/*QAbstractSpinBox:focus {
-	border-bottom-color: rgb(%highlight%);
-}*/
 
 QAbstractSpinBox::up-button, 
 QAbstractSpinBox::down-button {

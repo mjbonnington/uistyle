@@ -92,6 +92,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		# Connect signals & slots
 		self.ui.actionOpen_UI.triggered.connect(self.openUI)
 		self.ui.actionOpen_Stylesheet.triggered.connect(self.openQSS)
+		self.ui.actionSave_Stylesheet.triggered.connect(self.saveQSS)
 		self.ui.actionAbout.triggered.connect(about)
 
 		self.ui.actionQuit.triggered.connect(self.exit)
@@ -170,6 +171,14 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 			self.stylesheet = qss_file
 			self.loadStyleSheet()
 			self.setWindowTitle(cfg['window_title'] + " - " + os.path.basename(self.stylesheet))
+
+
+	def saveQSS(self):
+		"""Save QSS stylesheet."""
+
+		qss_file = self.fileDialog('.', fileFilter='Qt Style Sheet files (*.qss)')
+		if qss_file:
+			self.saveStyleSheet(output_name=qss_file)
 
 
 	def exit(self):

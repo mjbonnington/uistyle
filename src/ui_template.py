@@ -116,10 +116,14 @@ class TemplateUI(object):
 		tmpWidget = QtWidgets.QWidget()
 		self.col['sys-window'] = tmpWidget.palette().color(QtGui.QPalette.Window)
 		self.col['sys-highlight'] = tmpWidget.palette().color(QtGui.QPalette.Highlight)
-		# self.col['window'] = self.col['sys-window']
-		self.col['highlight'] = self.col['sys-highlight']
-		self.col['window'] = QtGui.QColor('#444444')
+
+		# self.col['window'] = self.col['sys-window']  # Use base window color from OS / parent app
+		# self.col['window'] = QtGui.QColor('#444444')  # Standard dark grey
+		self.col['window'] = QtGui.QColor('#383b3d')
+
+		self.col['highlight'] = self.col['sys-highlight']  # Use highlight color from OS / parent app
 		# self.col['highlight'] = QtGui.QColor('#78909c')
+
 		self.computeUIPalette()
 
 		# Load and set stylesheet
@@ -231,7 +235,7 @@ class TemplateUI(object):
 				info_ls1.append(value)
 			else:
 				info_ls2.append("{} {}".format(key, value))
-		info_str1 = "/".join(info_ls1)
+		info_str1 = ", ".join(info_ls1)
 		info_str2 = " | ".join(info_ls2)
 
 		about_msg = "%s\n%s (%s)\n\n%s\n%s\n%s %s\n\n%s" % (
@@ -701,13 +705,15 @@ class TemplateUI(object):
 		SVG processing taken from the answer here:
 		https://stackoverflow.com/questions/25671275
 		"""
-		search_locations = [
-			'icons', 
-			# os.path.join(os.environ['IC_BASEDIR'], 'shared', 'icons'), 
-			# os_wrapper.absolute_path('./icons')
-		]
+		# search_locations = [
+		# 	'icons', 
+		# 	# os.path.join(os.environ['IC_BASEDIR'], 'shared', 'icons'), 
+		# 	# os_wrapper.absolute_path('./icons')
+		# ]
 
-		icon_path = self.checkFilePath(icon_name, searchpath=search_locations)
+		# icon_path = self.checkFilePath(icon_name, searchpath=search_locations)
+		icon_path = self.checkFilePath(
+			icon_name, searchpath=os.getenv('IC_ICONPATH', "").split(os.pathsep))
 		if icon_path is None:
 			# verbose.warning("Could not find icon: %s" % icon_name)
 			pixmap = QtGui.QPixmap()
@@ -1077,7 +1083,7 @@ class TemplateUI(object):
 		"""
 		if filename is None:
 			return None
-		if os.path.isfile(filename):
+		elif os.path.isfile(filename):
 			return filename
 		else:
 			# Append current dir to searchpath and try each in turn

@@ -2,11 +2,11 @@
 
 name = 'ic_ui'
 
-version = '1.0.0'
+version = '1.0.1'
 
 description = 'UI-related modules'
 
-variants = [['python-3.9']]
+variants = [['python-2.7']]
 
 requires = ['PySide2']
 

@@ -860,7 +860,7 @@ QTextEdit:disabled, QTextEdit:read-only, QPlainTextEdit:disabled, QPlainTextEdit
  */
 
 QAbstractButton {
-	border: 2px solid transparent;
+	border: 1px solid transparent;
 	border-radius: 0;
 }
 
