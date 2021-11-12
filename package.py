@@ -17,3 +17,4 @@ build_command = 'python {root}/build.py {install}'
 
 def commands():
     env.PYTHONPATH.append('{root}')
+    env.IC_ICONPATH.append('{root}/icons')
