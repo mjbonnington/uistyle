@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# shared/imagebutton.py
+# imagebutton.py
 #
 # Mike Bonnington <mjbonnington@gmail.com>
 # (c) 2020-2021
@@ -17,12 +17,13 @@ from Qt import QtCore, QtGui, QtWidgets
 
 
 _blank_msg = "Browse, or drop image file here"
-_allowed_formats = ['.png', '.jpg', '.gif', '.svg']
+_allowed_formats = ['.png', '.jpg', '.gif']
 
 
 class ImageButton(QtWidgets.QPushButton):
 	"""Image button class. Inherits QPushButton."""
 
+	# Create a signal to emit when the image is changed
 	imageChanged = QtCore.Signal(str)
 
 	def __init__(self, parent=None, max_size=[320, 320]):
@@ -30,10 +31,17 @@ class ImageButton(QtWidgets.QPushButton):
 
 		self.maxSize = QtCore.QSize(max_size[0], max_size[1])
 		# self.setFixedSize(self.maxSize)
-		self.setStyleSheet("QWidget { width: %d; height: %d }" % (max_size[0], max_size[1]))
+		self.initThumbnail()
 
-		self.setText("Drop image here")
+
+	def initThumbnail(self):
+		"""Reset thumbnail image button."""
+
+		self.setStyleSheet("QWidget { width: %d; height: %d }" % (self.maxSize.width(), self.maxSize.height()))
+
 		self.setToolTip(_blank_msg)
+		self.setText("Drop image here")
+		self.setIcon(QtGui.QIcon())
 		self.setProperty('imageButton', True)
 		self.setAcceptDrops(True)
 
@@ -42,8 +50,7 @@ class ImageButton(QtWidgets.QPushButton):
 		"""Update thumbnail preview with image."""
 
 		# print(image_path)
-		if (image_path is not None) and \
-			os.path.isfile(image_path):
+		if (image_path is not None) and os.path.isfile(image_path):
 			pixmap = QtGui.QPixmap(image_path)
 			icon = QtGui.QIcon(pixmap)
 			size = self.getImageSize(pixmap)
@@ -54,9 +61,9 @@ class ImageButton(QtWidgets.QPushButton):
 			self.setIconSize(size)
 			self.setStyleSheet("QWidget { padding: 0; min-width: 0; border: none; background: transparent }")
 			self.imageChanged.emit(image_path)
+
 		else:
-			self.setText(_blank_msg)
-			self.setStyleSheet("")
+			self.initThumbnail()
 
 
 	def getImageSize(self, pixmap):
