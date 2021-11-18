@@ -31,19 +31,20 @@ class ImageButton(QtWidgets.QPushButton):
 
 		self.maxSize = QtCore.QSize(max_size[0], max_size[1])
 		# self.setFixedSize(self.maxSize)
+		self.setProperty('imageButton', True)
+		self.setAcceptDrops(True)
+		self.setToolTip(_blank_msg)
 		self.initThumbnail()
 
 
 	def initThumbnail(self):
 		"""Reset thumbnail image button."""
 
-		self.setStyleSheet("QWidget { width: %d; height: %d }" % (self.maxSize.width(), self.maxSize.height()))
+		qss = "QWidget { padding: 0; width: %d; height: %d }" % (self.maxSize.width(), self.maxSize.height())
 
-		self.setToolTip(_blank_msg)
+		self.setStyleSheet(qss)
 		self.setText("Drop image here")
 		self.setIcon(QtGui.QIcon())
-		self.setProperty('imageButton', True)
-		self.setAcceptDrops(True)
 
 
 	def updateThumbnail(self, image_path):
@@ -54,12 +55,15 @@ class ImageButton(QtWidgets.QPushButton):
 			pixmap = QtGui.QPixmap(image_path)
 			icon = QtGui.QIcon(pixmap)
 			size = self.getImageSize(pixmap)
+			qss = "QWidget { padding: 0; min-width: 0; background: transparent }"
+
+			self.setStyleSheet(qss)
 			self.setText("")
 			self.setIcon(icon)
+			self.setIconSize(size)
 			# self.resize(size)
 			self.setFixedSize(size)
-			self.setIconSize(size)
-			self.setStyleSheet("QWidget { padding: 0; min-width: 0; border: none; background: transparent }")
+			# self.setMaximumSize(size)
 			self.imageChanged.emit(image_path)
 
 		else:

@@ -89,6 +89,7 @@ class TemplateUI(object):
 		window_title="", 
 		ui_file="", 
 		stylesheet="", 
+		icon=None, 
 		prefs_file=None, 
 		store_window_geometry=True):
 		"""Setup the UI."""
@@ -118,8 +119,8 @@ class TemplateUI(object):
 		self.col['sys-highlight'] = tmpWidget.palette().color(QtGui.QPalette.Highlight)
 
 		# self.col['window'] = self.col['sys-window']  # Use base window color from OS / parent app
-		# self.col['window'] = QtGui.QColor('#444444')  # Standard dark grey
-		self.col['window'] = QtGui.QColor('#383b3d')
+		self.col['window'] = QtGui.QColor('#444444')  # Standard dark grey
+		# self.col['window'] = QtGui.QColor('#383b3d')  # Adwaita dark
 
 		self.col['highlight'] = self.col['sys-highlight']  # Use highlight color from OS / parent app
 		# self.col['highlight'] = QtGui.QColor('#78909c')
@@ -129,6 +130,10 @@ class TemplateUI(object):
 		# Load and set stylesheet
 		self.stylesheet = self.checkFilePath(stylesheet)
 		self.loadStyleSheet()
+
+		# Set window icon
+		if icon is not None:
+			self.setWindowIcon(self.iconSet(icon, tintNormal=False))
 
 		# Set window title
 		self.setObjectName(window_object)
@@ -220,9 +225,10 @@ class TemplateUI(object):
 	def about(self, 
 		app_name="", 
 		app_version="0.0.0", 
-		credits="", 
 		description="", 
-		background=os.getenv('IC_SPLASHSCREEN')):
+		credits="", 
+		background=os.getenv('IC_SPLASHSCREEN'), 
+		icon=None):
 		"""Show standardised popup about dialog."""
 
 		if app_name == "":
@@ -249,6 +255,7 @@ class TemplateUI(object):
 		aboutDialog = about.AboutDialog(parent=self)
 		aboutDialog.display(
 			bg_image=background, 
+			icon_pixmap=icon, 
 			message=about_msg)
 
 
