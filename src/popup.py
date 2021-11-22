@@ -65,14 +65,16 @@ class PopupDialog(QtWidgets.QDialog):
 			self.message_label.setText(message)
 
 		if attachTo:  # Attach popup to a widget
-			# gp = attachTo.mapToGlobal(QtCore.QPoint(0, 0))
 			gp = attachTo.mapToGlobal(attachTo.rect().bottomLeft())
+			# gp = attachTo.mapToGlobal(attachTo.frameGeometry().center() - self.frameGeometry().center())
 			# print(gp)
 			self.move(gp)
+			# self.move(attachTo.frameGeometry().center() - self.frameGeometry().center())
 		else:  # Move to centre of parent window
 			self.move(self.parent.frameGeometry().center() - self.frameGeometry().center())
 
 		self.exec_()  # Make the dialog modal
+		# self.show()
 
 
 	def mousePressEvent(self, QMouseEvent):

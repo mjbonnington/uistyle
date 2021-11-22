@@ -346,7 +346,7 @@ class TemplateUI(object):
 
 		if warn:
 			# message_box.setIcon(QtWidgets.QMessageBox.Warning)
-			message_box.setIconPixmap(self.iconTint('dialog-warning.svg', tint=self.col['text']))
+			message_box.setIconPixmap(self.iconTint('dialog-warning.svg', tint=self.col['error']))
 			self.setDynamicProperty(message_box, 'warn', True)
 
 		message_box.setDefaultButton(message_box.Ok);

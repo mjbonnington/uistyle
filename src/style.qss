@@ -1592,11 +1592,11 @@ QLabel[warning="true"] { /* custom colour for warning message labels */
 	color: rgb(255, 216, 106);
 }
 
-QMessageBox[warn="true"] QLabel {
+/*QMessageBox[warn="true"] QLabel {
 	padding:  12px;
-	background: rgb(255, 0, 95);
+	background: #e96168;
 	color: rgb(255, 255, 255);
-}
+}*/
 
 /**[header="true"] {  custom colour for header bar 
 	background: #23282d;
