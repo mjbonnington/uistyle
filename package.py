@@ -6,7 +6,7 @@ version = '1.0.3'
 
 description = 'UI-related modules'
 
-variants = [['python-2.7']]
+variants = [['python-2.7+']]
 
 requires = ['PySide2']
 
