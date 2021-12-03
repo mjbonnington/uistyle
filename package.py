@@ -2,7 +2,7 @@
 
 name = 'ic_ui'
 
-version = '1.0.3'
+version = '1.0.4'
 
 description = 'UI-related modules'
 

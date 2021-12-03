@@ -227,7 +227,7 @@ class TemplateUI(object):
 		app_version="0.0.0", 
 		description="", 
 		credits="", 
-		background=os.getenv('IC_SPLASHSCREEN'), 
+		background=os.getenv('IC_SPLASHSCREEN', QtGui.QColor('#23282d')), 
 		icon=None):
 		"""Show standardised popup about dialog."""
 
@@ -254,7 +254,7 @@ class TemplateUI(object):
 
 		aboutDialog = about.AboutDialog(parent=self)
 		aboutDialog.display(
-			bg_image=background, 
+			background=background, 
 			icon_pixmap=icon, 
 			message=about_msg)
 
@@ -1028,7 +1028,11 @@ class TemplateUI(object):
 		#self.setFixedHeight(self.sizeHint().height())  # Resize window
 
 
-	def populateComboBox(self, comboBox, contents, replace=True, addEmptyItems=False, blockSignals=False):
+	def populateComboBox(self, comboBox, contents, 
+		replace=True, 
+		addEmptyItems=False, 
+		setSelected=None, 
+		blockSignals=False):
 		"""Use a list (contents) to populate a combo box.
 
 		If 'replace' is true, the existing items will be replaced,
@@ -1038,7 +1042,10 @@ class TemplateUI(object):
 			comboBox.blockSignals(True)
 
 		# Store current value
-		current = comboBox.currentText()
+		if setSelected is None:
+			current = comboBox.currentText()
+		else:
+			current = setSelected
 
 		# Clear menu
 		if replace:
@@ -1053,7 +1060,7 @@ class TemplateUI(object):
 					if item:
 						comboBox.addItem(item)
 
-		# Set to current value
+		# Set to current value or specified value
 		index = comboBox.findText(current)
 		if index == -1:
 			comboBox.setCurrentIndex(0)

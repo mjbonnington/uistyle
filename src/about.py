@@ -46,31 +46,30 @@ class AboutDialog(QtWidgets.QDialog):
 
 
 	def display(self, 
-		bg_image=None, 
-		bg_color=None, 
+		background=None, 
 		icon_pixmap=None, 
 		message=""):
 		"""Display message in about dialog.
 
-		Keyword arguments:
-		bg_image - path to an image file to use for the background.
-		bg_color - QColor object to use for the background colour, if bg_image
-			is not set.
-		icon_pixmap - QPixmap to use for foreground image or icon.
-		message - text message to display.
+		Keyword Arguments:
+			background (QColor or str): QColor object, or path to an image
+				file to use for the background.
+			icon_pixmap (QPixmap): Foreground image or icon.
+			message (str): Text message to display.
 		"""
-		if bg_image:
-			pixmap = QtGui.QPixmap(bg_image)
+		if isinstance(background, QtGui.QColor):
+			self.bg_label.setStyleSheet("background: %s" % background.name())
+
+		elif isinstance(background, str):
+			pixmap = QtGui.QPixmap(background)
 			self.bg_label.setPixmap(pixmap.scaled(
 				self.bg_label.size(), QtCore.Qt.KeepAspectRatioByExpanding, 
 				QtCore.Qt.SmoothTransformation))
 			self.bg_label.setAlignment(QtCore.Qt.AlignCenter)
 
-		elif bg_color:
-			self.bg_label.setStyleSheet("background: %s" % bg_color.name())
-
 		if icon_pixmap:
 			# Offset message from centre to make space for icon
+			# TODO: take icon size into account
 			self.message_label.setGeometry(QtCore.QRect(256, 16, 368, 288))
 
 			self.icon_label = QtWidgets.QLabel(self)
