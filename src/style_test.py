@@ -37,20 +37,17 @@ import imagebutton
 # Configuration
 # ----------------------------------------------------------------------------
 
-cfg = {}
+cfg = {
+	'window_object': "styleTestUI", 
+	'window_title': "Style Test", 
 
-# Set window title and object names
-cfg['window_object'] = "styleTestUI"
-cfg['window_title'] = "Style Test"
+	'ui_file': os.path.join(os.path.dirname(__file__), 'forms', 'style_test.ui'), 
+	'stylesheet': 'style.qss', 
+	'icon': 'view-preview.svg', 
 
-# Set the UI and the stylesheet
-cfg['ui_file'] = 'forms/style_test.ui'
-# cfg['stylesheet'] = os.environ['IC_STYLESHEET']
-cfg['stylesheet'] = "style.qss"  # Set to None to use the parent app's stylesheet
-
-# Other options
-# cfg['prefs_file'] = os.path.join(os.environ['IC_USERPREFSDIR'], 'core_prefs.json')
-# cfg['store_window_geometry'] = True
+	# 'prefs_file': os.path.join(prefs_location, 'manager_prefs.json'), 
+	# 'store_window_geometry': True, 
+}
 
 # ----------------------------------------------------------------------------
 # Begin main application class
@@ -91,6 +88,16 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		# self.loadStyleSheet()
 
 		self.info()
+
+		# Set icons
+		self.ui.toolButton_10.setIcon(self.iconSet('folder.svg'))
+		self.ui.toolButton_11.setIcon(self.iconSet('computer-symbolic.svg'))
+		self.ui.toolButton_12.setIcon(self.iconSet('utilities-terminal-symbolic.svg'))
+		self.ui.toolButton_13.setIcon(self.iconSet('refresh.svg'))
+		self.ui.toolButton_14.setIcon(self.iconSet('add.svg'))
+		self.ui.toolButton_15.setIcon(self.iconSet('edit.svg'))
+		self.ui.toolButton_16.setIcon(self.iconSet('merge.svg'))
+		self.ui.toolButton_17.setIcon(self.iconSet('clear.svg'))
 
 		# Connect signals & slots
 		self.ui.actionOpen_UI.triggered.connect(self.openUI)

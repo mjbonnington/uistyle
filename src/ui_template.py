@@ -132,7 +132,7 @@ class TemplateUI(object):
 		self.loadStyleSheet()
 
 		# Set window icon
-		if icon is not None:
+		if (icon is not None) and (HOST == 'standalone'):
 			self.setWindowIcon(self.iconSet(icon, tintNormal=False))
 
 		# Set window title
@@ -227,7 +227,7 @@ class TemplateUI(object):
 		app_version="0.0.0", 
 		description="", 
 		credits="", 
-		background=os.getenv('IC_SPLASHSCREEN', QtGui.QColor('#23282d')), 
+		background=os.getenv('IC_SPLASHSCREEN', QtGui.QColor('#111111')), #23282d
 		icon=None):
 		"""Show standardised popup about dialog."""
 
@@ -346,7 +346,7 @@ class TemplateUI(object):
 
 		if warn:
 			# message_box.setIcon(QtWidgets.QMessageBox.Warning)
-			message_box.setIconPixmap(self.iconTint('dialog-warning.svg', tint=self.col['error']))
+			message_box.setIconPixmap(self.iconTint('dialog-warning.svg', tint=self.col['warning']))
 			self.setDynamicProperty(message_box, 'warn', True)
 
 		message_box.setDefaultButton(message_box.Ok);
@@ -1131,6 +1131,8 @@ class TemplateUI(object):
 			# Replace font tokens
 			if platform.system() == 'Windows':
 				stylesheet = stylesheet.replace(r"%systemfont%", "'Segoe UI'")
+			elif platform.system() == 'Linux':
+				stylesheet = stylesheet.replace(r"%systemfont%", "'Cantarell'")
 			else:
 				stylesheet = stylesheet.replace(r"%systemfont%", "")
 			# ----------------------------------------------------------------

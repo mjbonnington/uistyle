@@ -750,15 +750,15 @@ QTreeView::branch {
 }*/
 
 QTreeView::branch:has-siblings:!adjoins-item {
-	image: url(:/images/vline.png);
+	/*image: url(:/images/vline.png);*/
 }
 
 QTreeView::branch:has-siblings:adjoins-item {
-	image: url(:/images/branch-more.png);
+	/*image: url(:/images/branch-more.png);*/
 }
 
 QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-	image: url(:/images/branch-end.png);
+	/*image: url(:/images/branch-end.png);*/
 }
 
 QTreeView::branch:has-children:!has-siblings:closed, 
@@ -979,6 +979,20 @@ QToolButton[popupMode="MenuButtonPopup"] {
 /* Only for InstantPopup */
 QToolButton[popupMode="InstantPopup"] {
 	/*padding-right: 16px;*/
+}
+
+/* Style tool buttons with popup menus like actual menus */
+QToolButton[popupMode="MenuButtonPopup"]:pressed, 
+QToolButton[popupMode="MenuButtonPopup"]:checked:pressed, 
+QToolButton[popupMode="InstantPopup"]:pressed, 
+QToolButton[popupMode="InstantPopup"]:checked:pressed {
+	background: rgb(%highlight%);
+	color: rgb(%highlighted-text%);
+}
+
+/* Add extra padding to button icon when beside text */
+QToolButton[toolButtonStyle="ToolButtonTextBesideIcon"]::icon {
+	padding-right: 4px;
 }
 
 /* The subcontrols below are used only in the MenuButtonPopup mode */
@@ -1570,7 +1584,7 @@ QSlider::handle:disabled {
 /* Custom Attributes -------------------------------------------------------*/
 
 QWidget[bgoverride="true"] {
-	background-color: #23282d;
+	background-color: #111111;
 	border: none;
 }
 
