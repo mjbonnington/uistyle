@@ -37,6 +37,8 @@ import imagebutton
 # Configuration
 # ----------------------------------------------------------------------------
 
+VERSION = os.getenv('REZ_IC_UI_VERSION', "0.0.0")
+
 cfg = {
 	'window_object': "styleTestUI", 
 	'window_title': "Style Test", 
@@ -75,8 +77,8 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		# Set up about dialog
 		about = lambda: self.about(
 			app_name=cfg['window_title'], 
-			app_version="v1.0.0", 
-			description="Test UIs.\n", 
+			app_version="v" + VERSION, 
+			description="Template for Qt GUI application written in Python.\nUses Qt.py for compatibility with all Python bindings.\n", 
 			credits="Principal developer: Mike Bonnington")
 
 		self.show()
@@ -112,7 +114,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.colorChooser_button.setStyleSheet("QWidget { background-color: %s }" %self.col['highlight'].name())
 		self.ui.colorChooser_button.clicked.connect(self.setAccentColor)
 		self.ui.uiBrightness_slider.setValue(self.col['window'].lightness())
-		self.ui.uiBrightness_slider.valueChanged.connect(self.setUIBrightness)
+		self.ui.uiBrightness_slider.valueChanged.connect(lambda value: self.setUIBrightness(value))
 		#self.ui.reloadUI_pushButton.clicked.connect(self.loadUIFile)
 		self.ui.reloadStylesheet_pushButton.clicked.connect(self.loadStyleSheet)
 		self.ui.unloadStylesheet_pushButton.clicked.connect(self.unloadStyleSheet)
@@ -219,6 +221,21 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		#self.settings.setValue("renderQueueView", self.ui.renderQueue_treeWidget.header().saveState())
 
 		QtWidgets.QMainWindow.closeEvent(self, event)
+
+# ----------------------------------------------------------------------------
+# End main dialog class
+# ============================================================================
+# Run functions
+# ----------------------------------------------------------------------------
+
+def run(session):
+	"""Run inside host app."""
+
+	try:  # Show the UI
+		session.styleTestUI.show()
+	except AttributeError:  # Create the UI
+		session.styleTestUI = StyleTestApp(parent=UI._main_window())
+		session.styleTestUI.show()
 
 
 if __name__ == "__main__":

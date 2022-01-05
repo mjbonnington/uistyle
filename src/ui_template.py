@@ -36,7 +36,7 @@ import popup
 
 
 VENDOR = os.getenv('IC_VENDOR', 'mjbonnington')
-COPYRIGHT = os.getenv('IC_COPYRIGHT', '(c) 2013-2021')
+COPYRIGHT = os.getenv('IC_COPYRIGHT', '(c) 2013-2022')
 
 # ----------------------------------------------------------------------------
 # Environment detection
@@ -1129,12 +1129,13 @@ class TemplateUI(object):
 			stylesheet = stylesheet.replace(r"%theme%", self.imgtheme)
 
 			# Replace font tokens
-			if platform.system() == 'Windows':
-				stylesheet = stylesheet.replace(r"%systemfont%", "'Segoe UI'")
-			elif platform.system() == 'Linux':
-				stylesheet = stylesheet.replace(r"%systemfont%", "'Cantarell'")
-			else:
-				stylesheet = stylesheet.replace(r"%systemfont%", "")
+			font_str = ""
+			if HOST != 'houdini':
+				if platform.system() == 'Windows':
+					font_str = "'Segoe UI'"
+				elif platform.system() == 'Linux':
+					font_str = "'Cantarell', 'OpenSans', 'sans'"
+			stylesheet = stylesheet.replace(r"%systemfont%", font_str)
 			# ----------------------------------------------------------------
 
 			self.setStyleSheet(stylesheet)
@@ -1255,11 +1256,11 @@ class TemplateUI(object):
 			self.col['inherited-text'] = self.offsetColor(self.col['inherited-bg'], -68, 51)
 
 
-	# @QtCore.Slot()
+	@QtCore.Slot(int)
 	def setUIBrightness(self, value):
 		"""Set the UI style background shade."""
 
-		#print(value)
+		# print(value)
 		self.col['window'] = QtGui.QColor(value, value, value)
 		self.computeUIPalette()
 		self.loadStyleSheet()
