@@ -28,8 +28,9 @@ def build(source_path, build_path, install_path, targets):
 
         print('\tCopy "%s" -> "%s"' % (src, install_path))
         shutil.copytree(src, install_path)#, dirs_exist_ok=True)
-        print('\tDelete "%s"' % build_path)
-        shutil.rmtree(os.path.dirname(build_path), ignore_errors=True)
+        build_parent = os.path.dirname(build_path)
+        print('\tDelete "%s"' % build_parent)
+        shutil.rmtree(build_parent, ignore_errors=True)
         print("[Install complete]")
 
 
