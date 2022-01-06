@@ -2,13 +2,16 @@
 
 name = 'ic_ui'
 
-version = '1.0.7'
+version = '1.0.8'
 
 description = 'UI-related modules'
 
 variants = [['python-2.7+']]
 
-requires = ['PySide2']
+requires = [
+    'python-2.7+', 
+    'PySide2'
+]
 
 authors = ['mjbonnington']
 

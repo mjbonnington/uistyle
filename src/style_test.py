@@ -258,6 +258,3 @@ if __name__ == "__main__":
 
 	myApp = StyleTestApp()
 	sys.exit(app.exec_())
-
-else:
-	myApp = StyleTestApp()
