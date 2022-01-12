@@ -60,8 +60,8 @@ except ImportError:
 	pass
 
 try:
-	import nuke
 	import nukescripts
+	import nuke
 	HOST = 'nuke'
 except ImportError:
 	pass
@@ -100,11 +100,6 @@ class TemplateUI(object):
 
 		# verbose.debug("%s %s\n  Parent: %s" % (window_object, self, self.parent))
 
-		# Set window object name ---------------------------------------------
-		if not window_object:
-			window_object = "%s_ui" % app_id
-		self.setObjectName(window_object)
-
 		# Set version --------------------------------------------------------
 		if not app_version:
 			app_version = os.getenv('REZ_%s_VERSION' % app_id.upper(), "0.0.0")
@@ -121,6 +116,13 @@ class TemplateUI(object):
 		except:
 			# verbose.error("Failed to open UI file: %s" % ui_file)
 			print("Failed to open UI file: %s" % ui_file)
+
+		# Set window object name ---------------------------------------------
+		# (must happen after UI is loaded)
+		if not window_object:
+			window_object = "%s_ui" % app_id
+		self.setObjectName(window_object)
+		print(self.objectName())
 
 		# Store some system UI colours & define colour palette ---------------
 		self.col = {}
@@ -219,6 +221,12 @@ class TemplateUI(object):
 		self.shortcutReloadStyleSheet.activated.connect(self.loadStyleSheet)
 
 		# End initialisation -------------------------------------------------
+
+
+	def getHost(self):
+		"""Return the name of the current host app."""
+
+		return HOST
 
 
 	def getInfo(self, formatted=False):
