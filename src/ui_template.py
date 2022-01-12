@@ -2,9 +2,6 @@
 
 # ui_template.py
 #
-# Mike Bonnington <mjbonnington@gmail.com>
-# (c) 2018-2021
-#
 # A custom class to act as a template for all windows and dialogs.
 #
 # This module provides windowing / UI helper functions for better integration
@@ -16,12 +13,15 @@
 # Experimental: Blender
 # Future: ?
 
+# TODO: replace all calls to 'verbose' with builtin logging
 
 import os
 import platform
 import re
 import sys
 import textwrap
+from datetime import datetime
+# from pprint import pprint
 
 from Qt import QtCompat, QtCore, QtGui, QtSvg, QtWidgets, __binding__, __binding_version__
 
@@ -33,10 +33,6 @@ import about
 # import os_wrapper
 import popup
 # import verbose
-
-
-VENDOR = os.getenv('IC_VENDOR', 'mjbonnington')
-COPYRIGHT = os.getenv('IC_COPYRIGHT', '(c) 2013-2022')
 
 # ----------------------------------------------------------------------------
 # Environment detection
@@ -85,7 +81,15 @@ class TemplateUI(object):
 	#def setupUI(self, **cfg):
 	def setupUI(
 		self, 
-		window_object, 
+		app_id, 
+		app_name="", 
+		app_version="", 
+		vendor=os.getenv('IC_VENDOR', 'mjbonnington'), 
+		copyright="(c) %s" % datetime.now().year, 
+		help="", 
+		description="", 
+		credits="", 
+		window_object="", 
 		window_title="", 
 		ui_file="", 
 		stylesheet="", 
@@ -96,27 +100,35 @@ class TemplateUI(object):
 
 		# verbose.debug("%s %s\n  Parent: %s" % (window_object, self, self.parent))
 
-		# Instantiate preferences data class
+		# Set window object name ---------------------------------------------
+		if not window_object:
+			window_object = "%s_ui" % app_id
+		self.setObjectName(window_object)
+
+		# Set version --------------------------------------------------------
+		if not app_version:
+			app_version = os.getenv('REZ_%s_VERSION' % app_id.upper(), "0.0.0")
+
+		# Instantiate preferences data class ---------------------------------
 		if prefs_file is None:
 			self.prefs = None
 		else:
 			self.prefs = self.createPrefs(prefs_file)
 
-		# Load UI
+		# Load UI ------------------------------------------------------------
 		try:
 			self.ui = QtCompat.loadUi(self.checkFilePath(ui_file), self)
 		except:
 			# verbose.error("Failed to open UI file: %s" % ui_file)
 			print("Failed to open UI file: %s" % ui_file)
 
-		# Store some system UI colours & define colour palette
+		# Store some system UI colours & define colour palette ---------------
 		self.col = {}
 		self.col['text'] = QtGui.QColor(204, 204, 204)
 		self.col['disabled'] = QtGui.QColor(102, 102, 102)
 		self.col['highlighted-text'] = QtGui.QColor(255, 255, 255)
-		tmpWidget = QtWidgets.QWidget()
-		self.col['sys-window'] = tmpWidget.palette().color(QtGui.QPalette.Window)
-		self.col['sys-highlight'] = tmpWidget.palette().color(QtGui.QPalette.Highlight)
+		self.col['sys-window'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Window)
+		self.col['sys-highlight'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Highlight)
 
 		# self.col['window'] = self.col['sys-window']  # Use base window color from OS / parent app
 		self.col['window'] = QtGui.QColor('#444444')  # Standard dark grey
@@ -127,30 +139,29 @@ class TemplateUI(object):
 
 		self.computeUIPalette()
 
-		# Load and set stylesheet
+		# Load and set stylesheet --------------------------------------------
 		self.stylesheet = self.checkFilePath(stylesheet)
 		self.loadStyleSheet()
 
-		# Set window icon
+		# Set window icon ----------------------------------------------------
 		if (icon is not None) and (HOST == 'standalone'):
 			self.setWindowIcon(self.iconSet(icon, tintNormal=False))
 
-		# Set window title
-		self.setObjectName(window_object)
-		if window_title:
-			self.setWindowTitle(window_title)
-		else:
-			window_title = self.windowTitle()
+		# Set window title ---------------------------------------------------
+		if not window_title:
+			window_title = app_name
+		self.setWindowTitle(window_title)
 
-		# Perform custom widget setup
+		# Perform custom widget setup ----------------------------------------
 		self.setupWidgets(self.ui)
 
-		# Restore window geometry and state
+		# Restore window geometry and state ----------------------------------
 		self.store_window_geometry = store_window_geometry
 		ui_name = self.objectName()
 		if HOST != 'standalone':
 			ui_name += "_" + HOST.lower()
-		self.settings = QtCore.QSettings(VENDOR, ui_name)
+		self.settings = QtCore.QSettings(vendor, ui_name)
+
 		if self.store_window_geometry:
 			try:
 				self.restoreGeometry(self.settings.value("geometry", ""))
@@ -158,27 +169,6 @@ class TemplateUI(object):
 			except (KeyError, TypeError):
 				# verbose.warning("Could not restore window geometry for '%s'." % self.objectName())
 				print("Could not restore window geometry for '%s'." % self.objectName())
-
-			# # Use QSettings to store window geometry and state.
-			# # (Restore state may cause issues with PyQt5)
-			# if HOST == 'standalone':
-			# 	verbose.detail("Restoring window geometry for '%s'." %self.objectName())
-			# 	try:
-			# 		self.settings = QtCore.QSettings(
-			# 			VENDOR, window_title)
-			# 		self.restoreGeometry(self.settings.value("geometry", ""))
-			# 		# self.restoreState(self.settings.value("windowState", ""))
-			# 	except:
-			# 		pass
-
-			# # Makes Maya perform magic which makes the window stay on top in
-			# # OS X and Linux. As an added bonus, it'll make Maya remember the
-			# # window position.
-			# elif HOST == 'MAYA':
-			# 	self.setProperty("saveWindowPref", True)
-
-			# elif HOST == 'NUKE':
-			# 	pass
 
 		else:
 			try:
@@ -191,7 +181,35 @@ class TemplateUI(object):
 				# screen = desktop.screenNumber(desktop.cursor().pos())
 				# self.move(desktop.screenGeometry(screen).center() - self.frameGeometry().center())
 
-		# Set up keyboard shortcuts
+		# Set up about dialog ------------------------------------------------
+		info_ls1 = []
+		info_ls2 = []
+		for key, value in self.getInfo().items():
+			if key in ['Environment', 'OS']:
+				info_ls1.append(value)
+			else:
+				info_ls2.append("{} {}".format(key, value))
+		info_str1 = ", ".join(info_ls1)
+		info_str2 = " | ".join(info_ls2)
+
+		# description = "\n".join(textwrap.wrap(description, width=50))
+
+		about_msg = """{0}
+{1} ({2})
+
+{3}
+
+{4}
+{5} {6}
+
+{7}""".format(app_name, app_version, info_str1, description, credits, copyright, vendor, info_str2)
+
+		self.about_dialog = lambda: self.about(
+			message=about_msg, 
+			icon=icon, 
+		)
+
+		# Set up keyboard shortcuts ------------------------------------------
 		self.shortcutUnloadStyleSheet = QtWidgets.QShortcut(self)
 		self.shortcutUnloadStyleSheet.setKey('Ctrl+Shift+R')
 		self.shortcutUnloadStyleSheet.activated.connect(self.unloadStyleSheet)
@@ -199,6 +217,8 @@ class TemplateUI(object):
 		self.shortcutReloadStyleSheet = QtWidgets.QShortcut(self)
 		self.shortcutReloadStyleSheet.setKey('Ctrl+R')
 		self.shortcutReloadStyleSheet.activated.connect(self.loadStyleSheet)
+
+		# End initialisation -------------------------------------------------
 
 
 	def getInfo(self, formatted=False):
@@ -223,40 +243,16 @@ class TemplateUI(object):
 
 
 	def about(self, 
-		app_name="", 
-		app_version="0.0.0", 
-		description="", 
-		credits="", 
 		background=os.getenv('IC_SPLASHSCREEN', QtGui.QColor('#111111')), #23282d
-		icon=None):
+		icon=None, 
+		message=""):
 		"""Show standardised popup about dialog."""
-
-		if app_name == "":
-			app_name = self.windowTitle()
-
-		info_ls1 = []
-		info_ls2 = []
-		for key, value in self.getInfo().items():
-			if key in ['Environment', 'OS']:
-				info_ls1.append(value)
-			else:
-				info_ls2.append("{} {}".format(key, value))
-		info_str1 = ", ".join(info_ls1)
-		info_str2 = " | ".join(info_ls2)
-
-		about_msg = "%s\n%s (%s)\n\n%s\n%s\n%s %s\n\n%s" % (
-			app_name, 
-			app_version, info_str1, 
-			description, 
-			credits, 
-			COPYRIGHT, VENDOR, 
-			info_str2)
 
 		aboutDialog = about.AboutDialog(parent=self)
 		aboutDialog.display(
 			background=background, 
-			icon_pixmap=icon, 
-			message=about_msg)
+			icon_pixmap=self.iconTint(icon), 
+			message=message)
 
 
 	def popup(self, message, attachTo=None): #, parent=None):
@@ -755,14 +751,15 @@ class TemplateUI(object):
 		Used to hide expert mode or experimental UI elements.
 		"""
 		types = (
-			QtWidgets.QMenu, 
-			QtWidgets.QMenuBar, 
 			QtWidgets.QAction, 
-			QtWidgets.QPushButton, 
-			QtWidgets.QToolButton, 
 			QtWidgets.QCheckBox, 
 			QtWidgets.QComboBox, 
-			QtWidgets.QFrame
+			QtWidgets.QFrame, 
+			QtWidgets.QLineEdit, 
+			QtWidgets.QMenu, 
+			QtWidgets.QMenuBar, 
+			QtWidgets.QPushButton, 
+			QtWidgets.QToolButton, 
 		)
 
 		try:

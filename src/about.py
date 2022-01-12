@@ -33,6 +33,7 @@ class AboutDialog(QtWidgets.QDialog):
 		self.message_label = QtWidgets.QLabel(self)
 		self.message_label.setGeometry(QtCore.QRect(16, 16, 608, 288))
 		self.message_label.setStyleSheet("background: transparent; color: #FFF;")
+		self.message_label.setWordWrap(True)
 
 		self.icon_label = QtWidgets.QLabel(self)
 		self.icon_label.setGeometry(QtCore.QRect(0, 0, 256, 256))

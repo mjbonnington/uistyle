@@ -3,7 +3,7 @@
 # style_test.py
 #
 # Mike Bonnington <mjbonnington@gmail.com>
-# (c) 2018-2021
+# (c) 2018-2022
 #
 # Template for Qt GUI application written in Python
 # Uses Qt.py for compatibility with all Python bindings.
@@ -37,19 +37,19 @@ import imagebutton
 # Configuration
 # ----------------------------------------------------------------------------
 
-VERSION = os.getenv('REZ_IC_UI_VERSION', "0.0.0")
+cfg = dict(
+	app_id="ic_ui",  # This should match the Rez package name
+	app_name="Style Test", 
 
-cfg = {
-	'window_object': "styleTestUI", 
-	'window_title': "Style Test", 
+	description="Template for Qt GUI application written in Python.\nUses Qt.py for compatibility with all Python bindings.", 
+	credits="Principal developer: Mike Bonnington", 
 
-	'ui_file': os.path.join(os.path.dirname(__file__), 'forms', 'style_test.ui'), 
-	'stylesheet': 'style.qss', 
-	'icon': 'view-preview.svg', 
+	ui_file=os.path.join(os.path.dirname(__file__), 'forms', 'style_test.ui'), 
+	stylesheet='style.qss', 
+	icon='view-preview.svg', 
 
-	# 'prefs_file': os.path.join(prefs_location, 'manager_prefs.json'), 
-	# 'store_window_geometry': True, 
-}
+	store_window_geometry=True, 
+)
 
 # ----------------------------------------------------------------------------
 # Begin main application class
@@ -74,12 +74,12 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		# except:
 		# 	pass
 
-		# Set up about dialog
-		about = lambda: self.about(
-			app_name=cfg['window_title'], 
-			app_version="v" + VERSION, 
-			description="Template for Qt GUI application written in Python.\nUses Qt.py for compatibility with all Python bindings.\n", 
-			credits="Principal developer: Mike Bonnington")
+		# # Set up about dialog
+		# about = lambda: self.about(
+		# 	app_name=cfg['window_title'], 
+		# 	app_version="v" + VERSION, 
+		# 	description="Template for Qt GUI application written in Python.\nUses Qt.py for compatibility with all Python bindings.\n", 
+		# 	credits="Principal developer: Mike Bonnington")
 
 		self.show()
 
@@ -105,7 +105,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.actionOpen_UI.triggered.connect(self.openUI)
 		self.ui.actionOpen_Stylesheet.triggered.connect(self.openQSS)
 		self.ui.actionSave_Stylesheet.triggered.connect(self.saveQSS)
-		self.ui.actionAbout.triggered.connect(about)
+		self.ui.actionAbout.triggered.connect(self.about_dialog)
 
 		self.ui.actionQuit.triggered.connect(self.exit)
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).clicked.connect(self.exit)
@@ -239,6 +239,10 @@ def run(session):
 
 
 if __name__ == "__main__":
+	try:
+		QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_ShareOpenGLContexts)
+	except AttributeError:
+		pass
 	app = QtWidgets.QApplication(sys.argv)
 
 	# Apply application style

@@ -750,16 +750,16 @@ QTreeView::branch {
 	background-color: #000;
 }*/
 
-QTreeView::branch:has-siblings:!adjoins-item {
-	/*image: url(:/images/vline.png);*/
+QTreeView[branchLinesVisible="true"]::branch:has-siblings:!adjoins-item {
+	image: url(:/images/vline.png);
 }
 
-QTreeView::branch:has-siblings:adjoins-item {
-	/*image: url(:/images/branch-more.png);*/
+QTreeView[branchLinesVisible="true"]::branch:has-siblings:adjoins-item {
+	image: url(:/images/branch-more.png);
 }
 
-QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-	/*image: url(:/images/branch-end.png);*/
+QTreeView[branchLinesVisible="true"]::branch:!has-children:!has-siblings:adjoins-item {
+	image: url(:/images/branch-end.png);
 }
 
 QTreeView::branch:has-children:!has-siblings:closed, 
