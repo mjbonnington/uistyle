@@ -2,20 +2,22 @@
 
 name = 'ic_ui'
 
-version = '2.0.3'
+version = '2.0.4'
 
 description = 'UI-related modules'
 
-# variants = [['python-2.7+']]
+authors = ['mjbonnington']
 
 requires = [
     'python-2.7+', 
-    'PySide2'
+    'PySide2', 
 ]
 
-authors = ['mjbonnington']
+build_requires = [
+    'rezlib', 
+]
 
-build_command = 'python {root}/build.py {install}'
+build_command = 'python -m build {install}'
 
 
 def commands():
