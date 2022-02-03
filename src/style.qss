@@ -926,9 +926,9 @@ QPushButton:flat {
 	border: 2px solid transparent;
 }
 
-QPushButton:flat:hover, QToolButton:hover {
+/*QPushButton:flat:hover, QToolButton:hover {
 	border-color: rgb(%highlight%);
-}
+}*/
 
 QPushButton:flat:pressed, QPushButton:flat:checked:pressed {
 	background: rgb(%pressed%);
@@ -953,9 +953,17 @@ QToolButton {
 	/*border-radius: 3px;*/
 }
 
+QToolButton[button="true"] {
+	background: rgb(%button%);
+}
+
 QToolButton:hover {
 	background: rgba(%hover%, 25%);
-	border-color: transparent;
+	/*border-color: transparent;*/
+}
+
+QToolButton[button="true"]:hover {
+	background: rgb(%hover%);
 }
 
 QToolButton:pressed, QToolButton:checked:pressed {

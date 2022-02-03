@@ -40,9 +40,10 @@ class ImageButton(QtWidgets.QPushButton):
 	def initThumbnail(self):
 		"""Reset thumbnail image button."""
 
-		qss = "QWidget { padding: 0; width: %d; height: %d }" % (self.maxSize.width(), self.maxSize.height())
+		# qss = "QWidget { padding: 0; width: %d; height: %d }" % (self.maxSize.width(), self.maxSize.height())
 
-		self.setStyleSheet(qss)
+		# self.setStyleSheet(qss)
+		self.resize(self.maxSize)
 		self.setText("Drop image here")
 		self.setIcon(QtGui.QIcon())
 

@@ -122,7 +122,7 @@ class TemplateUI(object):
 		if not window_object:
 			window_object = "%s_ui" % app_id
 		self.setObjectName(window_object)
-		print(self.objectName())
+		# print(self.objectName())
 
 		# Store some system UI colours & define colour palette ---------------
 		self.col = {}
@@ -171,6 +171,8 @@ class TemplateUI(object):
 			except (KeyError, TypeError):
 				# verbose.warning("Could not restore window geometry for '%s'." % self.objectName())
 				print("Could not restore window geometry for '%s'." % self.objectName())
+				# Center window on current screen
+				self.center_window()
 
 		else:
 			try:
@@ -414,6 +416,16 @@ class TemplateUI(object):
 			color = color_dialog.selectedColor()
 			return color
 
+
+	def center_window(self):
+		"""Center the window on the current screen."""
+
+		frame_geo = self.frameGeometry()
+		cursor_pos = QtWidgets.QApplication.desktop().cursor().pos()
+		screen = QtWidgets.QApplication.desktop().screenNumber(cursor_pos)
+		center_point = QtWidgets.QApplication.desktop().screenGeometry(screen).center()
+		frame_geo.moveCenter(center_point)
+		self.move(frame_geo.topLeft())
 
 	# ------------------------------------------------------------------------
 	# Widget handlers
@@ -696,15 +708,30 @@ class TemplateUI(object):
 				self.iconTint(icon_name, tint=self.col['text']), 
 				QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
+		# icon.addPixmap(
+		# 	self.iconTint(icon_name, tint=self.col['highlighted-text']), 
+		# 	QtGui.QIcon.Normal, QtGui.QIcon.On)
+
 		icon.addPixmap(
 			self.iconTint(icon_name, tint=self.col['disabled']), 
 			QtGui.QIcon.Disabled, QtGui.QIcon.Off)
+		# icon.addPixmap(
+		# 	self.iconTint(icon_name, tint=self.col['disabled']), 
+		# 	QtGui.QIcon.Disabled, QtGui.QIcon.On)
+
 		icon.addPixmap(
 			self.iconTint(icon_name, tint=self.col['highlighted-text']), 
 			QtGui.QIcon.Active, QtGui.QIcon.Off)
+		# icon.addPixmap(
+		# 	self.iconTint(icon_name, tint=self.col['highlighted-text']), 
+		# 	QtGui.QIcon.Active, QtGui.QIcon.On)
+
 		icon.addPixmap(
 			self.iconTint(icon_name, tint=self.col['highlighted-text']), 
 			QtGui.QIcon.Selected, QtGui.QIcon.Off)
+		# icon.addPixmap(
+		# 	self.iconTint(icon_name, tint=self.col['highlighted-text']), 
+		# 	QtGui.QIcon.Selected, QtGui.QIcon.On)
 
 		return icon
 

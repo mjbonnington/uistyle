@@ -5,12 +5,13 @@ class MessageOverlay(QtWidgets.QWidget):
 	"""Message overlay setup to be used by most of the GUI python tools."""
 
 	def __init__(self, parent=None):
+		"""Class constuctor."""
 
 		super(MessageOverlay, self).__init__(parent)
 		self.setup_ui()
 		self.setVisible(False)
 		self.setStyleSheet(
-			'''
+			"""
 				QFrame#main_widget {
 					background-color: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #222, stop: 1 #111);
 					border: 2px solid #333;
@@ -32,48 +33,47 @@ class MessageOverlay(QtWidgets.QWidget):
 					font-size: 14px;
 					color: #ccc;
 				}
-			'''
+			"""
 		)
 
 
 	def setup_ui(self):
 		"""Set up the Message Overlay widgets.
 
-			+-main_widget (QFrame) --------------+
-			|+- main_layout (QVBoxLayout)-------+|
-			||                                  ||
-			||        label_title(QLabel)       ||
-			||                                  ||
-			|| --- horizontal_line (QLabel) --- ||
-			||                                  ||
-			||       label_message(QLabel)      ||
-			||                                  ||
-			|+----------------------------------+|
-			+------------------------------------+
+		+- main_widget (QFrame) -------------+
+		|+- main_layout (QVBoxLayout)-------+|
+		||                                  ||
+		||       label_title (QLabel)       ||
+		||                                  ||
+		|| --- horizontal_line (QLabel) --- ||
+		||                                  ||
+		||      label_message (QLabel)      ||
+		||                                  ||
+		|+----------------------------------+|
+		+------------------------------------+
 		"""
-
 		self.main_widget = QtWidgets.QFrame(self)
-		self.main_widget.setObjectName('main_widget')
+		self.main_widget.setObjectName("main_widget")
 
 		self.vertical_layout = QtWidgets.QVBoxLayout(self.main_widget)
-		self.vertical_layout.setObjectName('vertical_layout')
+		self.vertical_layout.setObjectName("vertical_layout")
 
-		# Message Title
-		self.label_title = QtWidgets.QLabel('')
-		self.label_title.setObjectName('label_title')
+		# Message title
+		self.label_title = QtWidgets.QLabel("")
+		self.label_title.setObjectName("label_title")
 		self.label_title.setSizePolicy(
 			QtWidgets.QSizePolicy.Preferred,
 			QtWidgets.QSizePolicy.MinimumExpanding
 		)
 
 		# Separating line
-		self.horizontal_line = QtWidgets.QLabel('')
+		self.horizontal_line = QtWidgets.QLabel("")
 		self.horizontal_line.setMaximumSize(QtCore.QSize(16777215, 1))
 		self.horizontal_line.setObjectName("horizontal_line")
 
-		# Message Text
-		self.label_message = QtWidgets.QLabel('')
-		self.label_message.setObjectName('label_message')
+		# Message text
+		self.label_message = QtWidgets.QLabel("")
+		self.label_message.setObjectName("label_message")
 		self.label_message.setSizePolicy(
 			QtWidgets.QSizePolicy.Preferred,
 			QtWidgets.QSizePolicy.MinimumExpanding
@@ -104,7 +104,7 @@ class MessageOverlay(QtWidgets.QWidget):
 		self.resize(self.parent().size())
 
 
-	def show_message(self, title, msg='', suffix=''):
+	def show_message(self, title, msg="", suffix=""):
 		"""Populate title and message and show this widget.
 
 		Args:
@@ -113,7 +113,7 @@ class MessageOverlay(QtWidgets.QWidget):
 			suffix (str, optional): Title suffix.
 		"""
 
-		self.label_title.setText('{0} {1}'.format(title, suffix))
+		self.label_title.setText("{0} {1}".format(title, suffix))
 		self.update_message(msg)
 		self.setVisible(True)
 
@@ -125,8 +125,8 @@ class MessageOverlay(QtWidgets.QWidget):
 			msg (str, optional): Message message.
 		"""
 
-		if msg != '':
-			self.label_message.setText('{0}'.format(msg))
+		if msg != "":
+			self.label_message.setText("{0}".format(msg))
 			self.label_message.setVisible(True)
 
 		self.update_widget()
@@ -140,6 +140,7 @@ class MessageOverlay(QtWidgets.QWidget):
 		self.main_widget.adjustSize()
 		parent_size = self.parent().size()
 		main_widget_size = self.main_widget.size()
+		self.resize(parent_size)
 		self.main_widget.move(
 			(parent_size.width() - main_widget_size.width()) / 2,
 			(parent_size.height() - main_widget_size.height()) / 2
