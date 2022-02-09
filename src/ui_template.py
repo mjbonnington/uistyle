@@ -149,6 +149,14 @@ class TemplateUI(object):
 		if (icon is not None) and (HOST == 'standalone'):
 			self.setWindowIcon(self.iconSet(icon, tintNormal=False))
 
+			# Workaround for Windows to use correct icon on the taskbar...
+			try:
+				import ctypes
+				myappid = u'mycompany.myproduct.subproduct.version'  # arbitrary string
+				ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+			except:
+				pass
+
 		# Set window title ---------------------------------------------------
 		if not window_title:
 			window_title = app_name
@@ -758,7 +766,7 @@ class TemplateUI(object):
 
 		else:
 			if icon_name.endswith('svg'):
-				w, h = 64, 64
+				w, h = 256, 256  # This sets the resolution at which to rasterize the SVG
 				svg_renderer = QtSvg.QSvgRenderer(icon_path)
 				image = QtGui.QImage(w, h, QtGui.QImage.Format_ARGB32)
 				image.fill(0x00000000)  # Set the ARGB to 0 to prevent rendering artifacts

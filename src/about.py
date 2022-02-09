@@ -71,11 +71,14 @@ class AboutDialog(QtWidgets.QDialog):
 		if icon_pixmap:
 			# Offset message from centre to make space for icon
 			# TODO: take icon size into account
-			self.message_label.setGeometry(QtCore.QRect(256, 16, 368, 288))
+			self.message_label.setGeometry(QtCore.QRect(288, 16, 336, 288))
 
 			self.icon_label = QtWidgets.QLabel(self)
-			self.icon_label.setGeometry(QtCore.QRect(0, 32, 256, 256))
-			self.icon_label.setPixmap(icon_pixmap)
+			self.icon_label.setGeometry(QtCore.QRect(16, 32, 256, 256))
+			self.icon_label.setPixmap(icon_pixmap.scaled(
+				self.icon_label.size(), QtCore.Qt.KeepAspectRatio, 
+				QtCore.Qt.SmoothTransformation))
+			self.icon_label.setAlignment(QtCore.Qt.AlignCenter)
 
 		if message:
 			self.message_label.setText(message)

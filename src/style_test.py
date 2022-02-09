@@ -46,7 +46,7 @@ cfg = dict(
 
 	ui_file=os.path.join(os.path.dirname(__file__), 'forms', 'style_test.ui'), 
 	stylesheet='style.qss', 
-	icon='view-preview.svg', 
+	icon='color.svg', 
 
 	store_window_geometry=True, 
 )
