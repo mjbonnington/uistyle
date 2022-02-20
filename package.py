@@ -2,7 +2,7 @@
 
 name = 'ic_ui'
 
-version = '2.0.5'
+version = '2.0.6'
 
 description = 'UI-related modules'
 
@@ -23,3 +23,4 @@ build_command = 'python -m build {install}'
 def commands():
     env.PYTHONPATH.append('{root}')
     env.IC_ICONPATH.append('{root}/icons')
+    alias("test", "python {root}/style_test.py")

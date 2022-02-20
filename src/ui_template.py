@@ -133,8 +133,8 @@ class TemplateUI(object):
 		self.col['sys-highlight'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Highlight)
 
 		# self.col['window'] = self.col['sys-window']  # Use base window color from OS / parent app
-		self.col['window'] = QtGui.QColor('#444444')  # Standard dark grey
-		# self.col['window'] = QtGui.QColor('#383b3d')  # Adwaita dark
+		# self.col['window'] = QtGui.QColor('#444444')  # Standard dark grey
+		self.col['window'] = QtGui.QColor('#33393b')  # Adwaita dark #2b3032
 
 		self.col['highlight'] = self.col['sys-highlight']  # Use highlight color from OS / parent app
 		# self.col['highlight'] = QtGui.QColor('#78909c')
@@ -229,6 +229,10 @@ class TemplateUI(object):
 		self.shortcutReloadStyleSheet = QtWidgets.QShortcut(self)
 		self.shortcutReloadStyleSheet.setKey('Ctrl+R')
 		self.shortcutReloadStyleSheet.activated.connect(self.loadStyleSheet)
+
+		self.shortcutReloadStyleSheet = QtWidgets.QShortcut(self)
+		self.shortcutReloadStyleSheet.setKey('Ctrl+Alt+R')
+		self.shortcutReloadStyleSheet.activated.connect(self.cycleStyles)
 
 		# End initialisation -------------------------------------------------
 
@@ -1152,6 +1156,22 @@ class TemplateUI(object):
 		return None
 
 
+	def cycleStyles(self):
+		"""Cycle through default Qt styles."""
+
+		print(QtWidgets.QStyleFactory.keys())
+		self.unloadStyleSheet()
+		try:
+			style = next(self.styles)
+		except (AttributeError, NameError, StopIteration):
+			self.styles = iter(QtWidgets.QStyleFactory.keys())
+			style = next(self.styles)
+
+		# self.setStyle(style)
+		QtWidgets.QApplication.setStyle(style)
+		print("Set style to '%s'" % style)
+
+
 	def loadStyleSheet(self):
 		"""Load/reload stylesheet."""
 
@@ -1227,7 +1247,7 @@ class TemplateUI(object):
 	def computeUIPalette(self):
 		"""Compute complementary UI colours based on window colour."""
 
-		self.col['group-bg'] = QtGui.QColor(128, 128, 128)
+		# self.col['group-bg'] = QtGui.QColor(128, 128, 128)
 		self.col['line'] = self.col['window'].darker(110)
 		self.col['tooltip'] = QtGui.QColor(255, 255, 221)
 		self.col['mandatory'] = QtGui.QColor(252, 152, 103)
@@ -1237,28 +1257,48 @@ class TemplateUI(object):
 		if self.col['window'].lightness() < 128:  # Dark UI
 			self.imgtheme = "light"
 			self.col['text'] = QtGui.QColor(204, 204, 204)
-			self.col['disabled'] = self.offsetColor(self.col['window'], +51)
-			self.col['base'] = self.offsetColor(self.col['window'], -34, 34)
-			self.col['alternate'] = self.offsetColor(self.col['base'], +6)
-			self.col['button'] = self.offsetColor(self.col['window'], +34, 102)
-			self.col['button-border'] = self.offsetColor(self.col['button'], +8)
-			self.col['menu-bg'] = self.offsetColor(self.col['window'], -17, 68)
-			self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], +17)
-			self.col['group-header'] = self.offsetColor(self.col['window'], +17)
+			self.col['group-bg'] = QtGui.QColor(0, 0, 0)
+			self.col['disabled'] = QtGui.QColor(102, 102, 102)
+			# self.col['disabled'] = self.offsetColor(self.col['window'], +51)
+			# self.col['base'] = self.offsetColor(self.col['window'], -34, 34)
+			# self.col['alternate'] = self.offsetColor(self.col['base'], +6)
+			# self.col['button'] = self.offsetColor(self.col['window'], +34, 102)
+			# self.col['button-border'] = self.offsetColor(self.col['button'], +8)
+			# self.col['menu-bg'] = self.offsetColor(self.col['window'], -17, 68)
+			# self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], +17)
+			# self.col['group-header'] = self.offsetColor(self.col['window'], +17)
+			self.col['base'] = self.col['window'].darker(150)
+			self.col['alternate'] = self.col['base'].lighter(106)
+			self.col['button'] = self.col['window'].lighter(150)
+			self.col['button-border'] = self.col['button']
+			self.col['menu-bg'] = self.col['window'].darker(125)
+			self.col['menu-border'] = self.col['menu-bg']
+			self.col['group-header'] = self.col['window'].lighter(150)
 		else:  # Light UI
 			self.imgtheme = "dark"
 			self.col['text'] = QtGui.QColor(51, 51, 51)
-			self.col['disabled'] = self.offsetColor(self.col['window'], -51)
-			self.col['base'] = self.offsetColor(self.col['window'], +34, 221)
-			self.col['alternate'] = self.offsetColor(self.col['base'], -6)
-			self.col['button'] = self.offsetColor(self.col['window'], -17, 204)
-			self.col['button-border'] = self.offsetColor(self.col['button'], -8)
-			self.col['menu-bg'] = self.offsetColor(self.col['window'], +17, 187)
-			self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], -17)
-			self.col['group-header'] = self.offsetColor(self.col['window'], -17)
+			self.col['group-bg'] = QtGui.QColor(255, 255, 255)
+			self.col['disabled'] = QtGui.QColor(102, 102, 102)
+			# self.col['disabled'] = self.offsetColor(self.col['window'], -51)
+			# self.col['base'] = self.offsetColor(self.col['window'], +34, 221)
+			# self.col['alternate'] = self.offsetColor(self.col['base'], -6)
+			# self.col['button'] = self.offsetColor(self.col['window'], -17, 204)
+			# self.col['button-border'] = self.offsetColor(self.col['button'], -8)
+			# self.col['menu-bg'] = self.offsetColor(self.col['window'], +17, 187)
+			# self.col['menu-border'] = self.offsetColor(self.col['menu-bg'], -17)
+			# self.col['group-header'] = self.offsetColor(self.col['window'], -17)
+			self.col['base'] = self.col['window'].lighter(150)
+			self.col['alternate'] = self.col['base'].darker(106)
+			self.col['button'] = self.col['window'].darker(150)
+			self.col['button-border'] = self.col['button']
+			self.col['menu-bg'] = self.col['window'].lighter(125)
+			self.col['menu-border'] = self.col['menu-bg']
+			self.col['group-header'] = self.col['window'].darker(150)
 
-		self.col['hover'] = self.offsetColor(self.col['button'], +17)
-		self.col['checked'] = self.offsetColor(self.col['button'], -17)
+		# self.col['hover'] = self.offsetColor(self.col['button'], +17)
+		# self.col['checked'] = self.offsetColor(self.col['button'], -17)
+		self.col['hover'] = self.col['button'].lighter(110)
+		self.col['checked'] = self.col['button'].darker(110)
 		self.col['pressed'] = self.col['checked'] #self.col['highlight']
 
 		if self.col['highlight'].lightness() < 136:

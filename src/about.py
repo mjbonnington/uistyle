@@ -22,16 +22,16 @@ class AboutDialog(QtWidgets.QDialog):
 		# Setup window and UI widgets
 		self.setWindowFlags(QtCore.Qt.Popup)
 
-		self.resize(640, 320)
-		self.setMinimumSize(QtCore.QSize(640, 320))
-		self.setMaximumSize(QtCore.QSize(640, 320))
+		self.resize(640, 288)
+		self.setMinimumSize(QtCore.QSize(640, 288))
+		self.setMaximumSize(QtCore.QSize(640, 288))
 		self.setSizeGripEnabled(False)
 
 		self.bg_label = QtWidgets.QLabel(self)
-		self.bg_label.setGeometry(QtCore.QRect(0, 0, 640, 320))
+		self.bg_label.setGeometry(QtCore.QRect(0, 0, 640, 288))
 
 		self.message_label = QtWidgets.QLabel(self)
-		self.message_label.setGeometry(QtCore.QRect(16, 16, 608, 288))
+		self.message_label.setGeometry(QtCore.QRect(16, 16, 608, 256))
 		self.message_label.setStyleSheet("background: transparent; color: #FFF;")
 		self.message_label.setWordWrap(True)
 
@@ -71,10 +71,10 @@ class AboutDialog(QtWidgets.QDialog):
 		if icon_pixmap:
 			# Offset message from centre to make space for icon
 			# TODO: take icon size into account
-			self.message_label.setGeometry(QtCore.QRect(288, 16, 336, 288))
+			self.message_label.setGeometry(QtCore.QRect(288, 16, 336, 256))
 
 			self.icon_label = QtWidgets.QLabel(self)
-			self.icon_label.setGeometry(QtCore.QRect(16, 32, 256, 256))
+			self.icon_label.setGeometry(QtCore.QRect(16, 16, 256, 256))
 			self.icon_label.setPixmap(icon_pixmap.scaled(
 				self.icon_label.size(), QtCore.Qt.KeepAspectRatio, 
 				QtCore.Qt.SmoothTransformation))
