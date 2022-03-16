@@ -103,22 +103,22 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 
 		# Connect signals & slots
 		self.ui.actionOpen_UI.triggered.connect(self.openUI)
-		self.ui.actionOpen_Stylesheet.triggered.connect(self.openQSS)
-		self.ui.actionSave_Stylesheet.triggered.connect(self.saveQSS)
+		self.ui.actionOpen_Stylesheet.triggered.connect(self.open_qss)
+		self.ui.actionSave_Stylesheet.triggered.connect(self.save_qss)
 		self.ui.actionAbout.triggered.connect(self.about_dialog)
+		self.ui.actionDynamic_QSS.triggered.connect(self.appearance.read_stylesheet)
 
 		self.ui.actionQuit.triggered.connect(self.exit)
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).clicked.connect(self.exit)
-		#self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.loadStyleSheet)
+		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.exit)
 
-		self.ui.colorChooser_button.setStyleSheet("QWidget { background-color: %s }" %self.col['highlight'].name())
-		self.ui.colorChooser_button.clicked.connect(self.setAccentColor)
+		self.ui.base_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['window'].name())
+		self.ui.base_colorChooser_button.clicked.connect(lambda: self.appearance.setUIColor('window'))
+		self.appearance.color_changed.connect(lambda: self.ui.uiBrightness_slider.setValue(self.col['window'].lightness()))
+		self.ui.accent_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['highlight'].name())
+		self.ui.accent_colorChooser_button.clicked.connect(lambda: self.appearance.setUIColor('highlight'))
 		self.ui.uiBrightness_slider.setValue(self.col['window'].lightness())
-		self.ui.uiBrightness_slider.valueChanged.connect(lambda value: self.setUIBrightness(value))
-		#self.ui.reloadUI_pushButton.clicked.connect(self.loadUIFile)
-		self.ui.reloadStylesheet_pushButton.clicked.connect(self.loadStyleSheet)
-		self.ui.unloadStylesheet_pushButton.clicked.connect(self.unloadStyleSheet)
-		self.ui.saveStylesheet_pushButton.clicked.connect(self.saveStyleSheet)
+		self.ui.uiBrightness_slider.valueChanged.connect(lambda value: self.appearance.setUIBrightness(value))
 
 		self.ui.loadedUIs_tabWidget.tabCloseRequested.connect(lambda index: self.ui.loadedUIs_tabWidget.removeTab(index))  # Allow tabs to be closed
 
@@ -132,11 +132,13 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.thumbnail_imageButton.imageChanged.connect(lambda imgpath: self.ui.thumbnail_lineEdit.setText(imgpath))
 		self.ui.thumbnail_lineEdit.textChanged.connect(lambda text: self.ui.thumbnail_imageButton.updateThumbnail(text))
 
+		self.build_styles()
+
 		# Add 'Sort by' separator label
 		label = QtWidgets.QLabel("Sort by:")
 		sortBy_separator = QtWidgets.QWidgetAction(self)
 		sortBy_separator.setDefaultWidget(label)
-		self.ui.menuEdit.insertAction(self.ui.actionName, sortBy_separator)
+		self.ui.menuTest_2.insertAction(self.ui.actionName, sortBy_separator)
 
 		# Make 'Sort by' actions mutually exclusive
 		alignmentGroup = QtWidgets.QActionGroup(self)
@@ -150,7 +152,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		other_separator = QtWidgets.QWidgetAction(self)
 		other_separator.setDefaultWidget(label)
 		other_separator.setEnabled(False)
-		self.ui.menuEdit.insertAction(self.ui.actionAttribute, other_separator)
+		self.ui.menuTest_2.insertAction(self.ui.actionAttribute, other_separator)
 
 		# Make 'Other' actions mutually exclusive
 		otherGroup = QtWidgets.QActionGroup(self)
@@ -167,8 +169,24 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		from Qt import __binding__, __binding_version__
 
 		print("Python %d.%d.%d" %(sys.version_info[0], sys.version_info[1], sys.version_info[2]))
-		print("%s %s" %(__binding__, __binding_version__))
-		print("Qt %s" %QtCore.qVersion())
+		print("%s %s" % (__binding__, __binding_version__))
+		print("Qt %s" % QtCore.qVersion())
+
+
+	def build_styles(self):
+		"""Create menus fo built-in Qt styles."""
+
+		alignmentGroup = QtWidgets.QActionGroup(self)
+		alignmentGroup.addAction(self.ui.actionDynamic_QSS)
+		for style in QtWidgets.QStyleFactory.keys():
+			actionname = "action_style%s" % style
+			action = QtWidgets.QAction(style, None)
+			action.setObjectName(actionname)
+			action.setCheckable(True)
+			action.setProperty('style', style)
+			action.triggered.connect(lambda: self.appearance.set_qt_style(self.sender().property('style')))
+			self.ui.menuStyle.addAction(action)
+			alignmentGroup.addAction(action)
 
 
 	def openUI(self):
@@ -184,23 +202,23 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 			self.conformFormLayoutLabels(ui)
 
 
-	def openQSS(self):
+	def open_qss(self):
 		"""Load QSS stylesheet file and apply to UI."""
 
 		qss_file = self.fileDialog('.', fileFilter='Qt Style Sheet files (*.qss)')
 		# Load and set stylesheet
 		if qss_file:
-			self.stylesheet = qss_file
-			self.loadStyleSheet()
-			self.setWindowTitle(cfg['window_title'] + " - " + os.path.basename(self.stylesheet))
+			self.appearance.qss = qss_file
+			self.appearance.read_stylesheet()
+			# self.setWindowTitle(cfg['window_title'] + " - " + os.path.basename(self.appearance.qss))
 
 
-	def saveQSS(self):
+	def save_qss(self):
 		"""Save QSS stylesheet."""
 
 		qss_file = self.fileDialog('.', fileFilter='Qt Style Sheet files (*.qss)')
 		if qss_file:
-			self.saveStyleSheet(output_name=qss_file)
+			self.appearance.write_stylesheet(qss_file)
 
 
 	def exit(self):

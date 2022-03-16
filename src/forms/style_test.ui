@@ -21,18 +21,148 @@
     <string notr="true"/>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="leftMargin">
+    <property name="margin">
      <number>8</number>
     </property>
-    <property name="topMargin">
-     <number>8</number>
-    </property>
-    <property name="rightMargin">
-     <number>8</number>
-    </property>
-    <property name="bottomMargin">
-     <number>8</number>
-    </property>
+    <item>
+     <widget class="QGroupBox" name="mixedControls_groupBox">
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QLabel" name="base_label">
+         <property name="text">
+          <string>Base Colour</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="base_colorChooser_button">
+         <property name="minimumSize">
+          <size>
+           <width>64</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>Base colour</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="accent_label">
+         <property name="text">
+          <string>Accent Colour</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="accent_colorChooser_button">
+         <property name="minimumSize">
+          <size>
+           <width>64</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>Highlight colour</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="brightness_label">
+         <property name="text">
+          <string>Brightness</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="uiBrightness_slider">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+         <property name="pageStep">
+          <number>17</number>
+         </property>
+         <property name="value">
+          <number>51</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::NoTicks</enum>
+         </property>
+         <property name="tickInterval">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="contrast_label">
+         <property name="text">
+          <string>Contrast</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="uiContrast_Slider">
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="value">
+          <number>50</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::NoTicks</enum>
+         </property>
+         <property name="tickInterval">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="enable_checkBox">
+         <property name="toolTip">
+          <string>Enable or disable the entire UI</string>
+         </property>
+         <property name="text">
+          <string>Enable All</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="resetStylesheet_toolButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Reset</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item>
      <widget class="QTabWidget" name="main_tabWidget">
       <property name="tabPosition">
@@ -42,7 +172,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -234,16 +364,7 @@
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_6">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
+                 <property name="margin">
                   <number>0</number>
                  </property>
                  <item>
@@ -365,16 +486,7 @@
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QGridLayout" name="gridLayout">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
+                 <property name="margin">
                   <number>0</number>
                  </property>
                  <item row="0" column="0">
@@ -484,16 +596,7 @@
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_14">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
+                 <property name="margin">
                   <number>0</number>
                  </property>
                  <item>
@@ -1155,16 +1258,7 @@
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_5">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
+              <property name="margin">
                <number>0</number>
               </property>
               <item row="0" column="1">
@@ -1273,47 +1367,55 @@
                </widget>
               </item>
               <item row="2" column="1">
-               <layout class="QHBoxLayout" name="horizontalLayout_13">
-                <item>
-                 <widget class="QLineEdit" name="lineEdit_2">
-                  <property name="text">
-                   <string>Mandatory field</string>
-                  </property>
-                  <property name="frame">
-                   <bool>true</bool>
-                  </property>
-                  <property name="mandatoryField" stdset="0">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="lineEdit_6">
-                  <property name="text">
-                   <string>Inherited value</string>
-                  </property>
-                  <property name="frame">
-                   <bool>true</bool>
-                  </property>
-                  <property name="inheritedValue" stdset="0">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="lineEdit_7">
-                  <property name="text">
-                   <string>Warning message</string>
-                  </property>
-                  <property name="frame">
-                   <bool>true</bool>
-                  </property>
-                  <property name="warning" stdset="0">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QFrame" name="customAttr_frame">
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_13">
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_2">
+                   <property name="text">
+                    <string>Mandatory field</string>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
+                   </property>
+                   <property name="mandatoryField" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_6">
+                   <property name="text">
+                    <string>Inherited value</string>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
+                   </property>
+                   <property name="inheritedValue" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_7">
+                   <property name="text">
+                    <string>Warning message</string>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
+                   </property>
+                   <property name="warning" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
               </item>
              </layout>
             </widget>
@@ -1327,16 +1429,7 @@
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_4">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
+              <property name="margin">
                <number>0</number>
               </property>
               <item row="2" column="1">
@@ -1359,7 +1452,7 @@
                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI','Segoe UI','Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#ffaa7f;&quot;&gt;Lorem&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#2f9ca5;&quot;&gt; ipsum dolor sit amet&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; color:#2f9ca5;&quot;&gt;,&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:24pt; color:#2f9ca5;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;consectetur &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;adipiscing&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; elit. &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt;Mauris placerat &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#55aaff;&quot;&gt;pharetra&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt; turpis, in pharetra purus ultrices quis.&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; Vivamus eget sem vel &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;dolor scelerisque&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; cursus eget eget ipsum. In hac habitasse platea &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-weight:600; color:#2f9ca5;&quot;&gt;dictumst&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;. Aliquam &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;elementum&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;maximus&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
@@ -2203,8 +2296,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>942</width>
-                 <height>524</height>
+                 <width>962</width>
+                 <height>533</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -2312,8 +2405,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>956</width>
-                 <height>105</height>
+                 <width>962</width>
+                 <height>154</height>
                 </rect>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -2331,8 +2424,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>310</width>
-                      <height>89</height>
+                      <width>309</width>
+                      <height>134</height>
                      </rect>
                     </property>
                    </widget>
@@ -2347,7 +2440,7 @@ p, li { white-space: pre-wrap; }
                       <x>0</x>
                       <y>0</y>
                       <width>310</width>
-                      <height>89</height>
+                      <height>134</height>
                      </rect>
                     </property>
                    </widget>
@@ -2361,8 +2454,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>310</width>
-                      <height>89</height>
+                      <width>309</width>
+                      <height>134</height>
                      </rect>
                     </property>
                    </widget>
@@ -2409,16 +2502,7 @@ p, li { white-space: pre-wrap; }
                <number>0</number>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_11">
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
@@ -2534,16 +2618,7 @@ p, li { white-space: pre-wrap; }
                <number>0</number>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_12">
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
@@ -2682,8 +2757,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>960</width>
-                <height>66</height>
+                <width>964</width>
+                <height>84</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2695,8 +2770,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>96</width>
-                <height>26</height>
+                <width>98</width>
+                <height>28</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2795,16 +2870,7 @@ p, li { white-space: pre-wrap; }
            <property name="spacing">
             <number>0</number>
            </property>
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
+           <property name="margin">
             <number>0</number>
            </property>
            <item>
@@ -2835,131 +2901,6 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="mixedControls_groupBox">
-      <property name="title">
-       <string>Stylesheet controls</string>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_7">
-       <item>
-        <widget class="QLabel" name="label_17">
-         <property name="text">
-          <string>UI Brightness</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="spinSlider_horizontalLayout_2">
-         <property name="leftMargin">
-          <number>12</number>
-         </property>
-         <property name="rightMargin">
-          <number>12</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_18">
-           <property name="text">
-            <string>Dark</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSlider" name="uiBrightness_slider">
-           <property name="toolTip">
-            <string>Window base colour</string>
-           </property>
-           <property name="minimum">
-            <number>17</number>
-           </property>
-           <property name="maximum">
-            <number>238</number>
-           </property>
-           <property name="pageStep">
-            <number>17</number>
-           </property>
-           <property name="value">
-            <number>68</number>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="tickPosition">
-            <enum>QSlider::NoTicks</enum>
-           </property>
-           <property name="tickInterval">
-            <number>10</number>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_19">
-           <property name="text">
-            <string>Light</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_20">
-         <property name="text">
-          <string>Accent Colour</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="colorChooser_button">
-         <property name="minimumSize">
-          <size>
-           <width>64</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>Highlight colour</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="enable_checkBox">
-         <property name="toolTip">
-          <string>Enable or disable the entire UI</string>
-         </property>
-         <property name="text">
-          <string>Enable UI</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="reloadStylesheet_pushButton">
-         <property name="text">
-          <string>Reload</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="unloadStylesheet_pushButton">
-         <property name="text">
-          <string>Unload</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="saveStylesheet_pushButton">
-         <property name="text">
-          <string>Dump</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
     <item>
@@ -2996,12 +2937,12 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>27</height>
+     <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menuTest">
     <property name="title">
-     <string>Edit</string>
+     <string>Test Menu</string>
     </property>
     <widget class="QMenu" name="menuSub_menu">
      <property name="title">
@@ -3033,7 +2974,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuEdit">
+   <widget class="QMenu" name="menuTest_2">
     <property name="title">
      <string>Another Menu</string>
     </property>
@@ -3058,20 +2999,28 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionDisabled_menu_1"/>
     <addaction name="actionDisabled_Menu_2"/>
    </widget>
-   <widget class="QMenu" name="menuFile_2">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
     <addaction name="actionOpen_UI"/>
-    <addaction name="actionOpen_Stylesheet"/>
-    <addaction name="actionSave_Stylesheet"/>
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
     <addaction name="actionQuit"/>
    </widget>
-   <addaction name="menuFile_2"/>
+   <widget class="QMenu" name="menuStyle">
+    <property name="title">
+     <string>Style</string>
+    </property>
+    <addaction name="actionOpen_Stylesheet"/>
+    <addaction name="actionSave_Stylesheet"/>
+    <addaction name="separator"/>
+    <addaction name="actionDynamic_QSS"/>
+   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuEdit"/>
+   <addaction name="menuStyle"/>
+   <addaction name="menuTest"/>
+   <addaction name="menuTest_2"/>
    <addaction name="menuDisabled"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -3275,6 +3224,22 @@ p, li { white-space: pre-wrap; }
     <string>Quit</string>
    </property>
   </action>
+  <action name="actionDefault">
+   <property name="text">
+    <string>Dynamic</string>
+   </property>
+  </action>
+  <action name="actionDynamic_QSS">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Dynamic QSS</string>
+   </property>
+  </action>
  </widget>
  <tabstops>
   <tabstop>main_tabWidget</tabstop>
@@ -3370,13 +3335,6 @@ p, li { white-space: pre-wrap; }
   <tabstop>spinSlider_spinBox</tabstop>
   <tabstop>spinSlider_slider</tabstop>
   <tabstop>loadedUIs_tabWidget</tabstop>
-  <tabstop>mixedControls_groupBox</tabstop>
-  <tabstop>uiBrightness_slider</tabstop>
-  <tabstop>colorChooser_button</tabstop>
-  <tabstop>enable_checkBox</tabstop>
-  <tabstop>reloadStylesheet_pushButton</tabstop>
-  <tabstop>unloadStylesheet_pushButton</tabstop>
-  <tabstop>saveStylesheet_pushButton</tabstop>
  </tabstops>
  <resources>
   <include location="rsc.qrc"/>
