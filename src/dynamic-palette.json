@@ -1,0 +1,116 @@
+{
+	"icon-theme": "light",
+
+	"window": {
+		"parent": "sys-window"
+	},
+	"highlight": {
+		"parent": "sys-highlight"
+	},
+
+	"text": {
+		"rgb": [204, 204, 204]
+	},
+	"disabled": {
+		"rgb": [102, 102, 102]
+	},
+	"highlighted-text": {
+		"rgb": [255, 255, 255]
+	},
+
+	"line": {
+		"parent": "window",
+		"lum": -10,
+		"clamp": null
+	},
+	"group-bg": {
+		"parent": "window",
+		"lum": 10,
+		"clamp": null
+	},
+	"tooltip": {
+		"rgb": [17, 17, 17]
+	},
+	"mandatory": {
+		"rgb": [252, 152, 103]
+	},
+	"warning": {
+		"rgb": [255, 216, 106]
+	},
+	"inherited": {
+		"rgb": [161, 239, 228]
+	},
+
+	"base": {
+		"parent": "window",
+		"lum": -50,
+		"clamp": null
+	},
+	"alternate": {
+		"parent": "base",
+		"lum": 5,
+		"clamp": null
+	},
+	"button": {
+		"parent": "window",
+		"lum": -34,
+		"clamp": null
+	},
+	"button-border": {
+		"parent": "button"
+	},
+	"menu-bg": {
+		"parent": "window",
+		"lum": -25,
+		"clamp": null
+	},
+	"menu-border": {
+		"parent": "menu-bg",
+		"lum": 50,
+		"clamp": null
+	},
+	"group-header": {
+		"parent": "window",
+		"lum": 50,
+		"clamp": null
+	},
+}
+
+
+		self.col['hover'] = self.col['button'].lighter(110)
+		self.col['checked'] = self.color_offset(self.col['button'], -17)
+		self.col['pressed'] = self.col['button'].darker(110)
+
+		if self.col['highlight'].lightness() < 136:
+			self.col['highlighted-text'] = QtGui.QColor(255, 255, 255)
+		else:
+			self.col['highlighted-text'] = QtGui.QColor(0, 0, 0)
+
+		if self.col['tooltip'].lightness() < 136:
+			self.col['tooltip-text'] = QtGui.QColor(255, 255, 255)
+		else:
+			self.col['tooltip-text'] = QtGui.QColor(0, 0, 0)
+
+		# if self.col['button'].lightness() < 170:
+		# 	self.col['button-text'] = self.color_offset(self.col['button'], +68, 204)
+		# else:
+		# 	self.col['button-text'] = self.color_offset(self.col['button'], -68, 51)
+		self.col['button-text'] = self.col['text']
+
+		self.col['mandatory-bg'] = self.col['mandatory']
+		if self.col['mandatory-bg'].lightness() < 128:
+			self.col['mandatory-text'] = self.color_offset(self.col['mandatory-bg'], +68, 204)
+		else:
+			self.col['mandatory-text'] = self.color_offset(self.col['mandatory-bg'], -68, 51)
+
+		self.col['warning-bg'] = self.col['warning']
+		if self.col['warning-bg'].lightness() < 128:
+			self.col['warning-text'] = self.color_offset(self.col['warning-bg'], +68, 204)
+		else:
+			self.col['warning-text'] = self.color_offset(self.col['warning-bg'], -68, 51)
+
+		self.col['inherited-bg'] = self.col['inherited']
+		if self.col['inherited-bg'].lightness() < 128:
+			self.col['inherited-text'] = self.color_offset(self.col['inherited-bg'], +68, 204)
+		else:
+			self.col['inherited-text'] = self.color_offset(self.col['inherited-bg'], -68, 51)

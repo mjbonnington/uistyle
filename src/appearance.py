@@ -35,12 +35,15 @@ class Appearance(QtCore.QObject):
 
 		self.col['window'] = self.col['sys-window']  # Use base window color from OS / parent app
 		# self.col['window'] = QtGui.QColor('#444444')  # Standard dark grey
-		# self.col['window'] = QtGui.QColor('#33393b')  # Adwaita dark #2b3032
+		# self.col['window'] = QtGui.QColor('#33393b')  # Adwaita dark
 
 		self.col['highlight'] = self.col['sys-highlight']  # Use highlight color from OS / parent app
 		# self.col['highlight'] = QtGui.QColor('#78909c')
 
 		self.computeUIPalette()
+		# p = QtGui.QPalette()
+		# p.setColor(QtGui.QPalette.Window, QtGui.QColor('#33393b'))
+		# self.widget.setPalette(p)
 
 		# Load and set stylesheet --------------------------------------------
 		if qss is not None:
@@ -198,56 +201,47 @@ class Appearance(QtCore.QObject):
 		self.col['mandatory'] = QtGui.QColor(252, 152, 103)
 		self.col['warning'] = QtGui.QColor(255, 216, 106)
 		self.col['inherited'] = QtGui.QColor(161, 239, 228)
-		self.col['group-bg'] = self.col['window'].lighter(110)
+		self.col['group-bg'] = self.col['window'].lighter(105)
 
-		if self.col['window'].lightness() < 128:  # Dark UI
+		# Dark mode UI
+		if self.col['window'].lightness() < 128:
 			self.imgtheme = "light"
 			self.col['text'] = QtGui.QColor(204, 204, 204)
 			# self.col['group-bg'] = QtGui.QColor(0, 0, 0)
 			self.col['disabled'] = QtGui.QColor(102, 102, 102)
-			# self.col['disabled'] = self.color_offset(self.col['window'], +51)
-			# self.col['base'] = self.color_offset(self.col['window'], -34, 34)
-			# self.col['alternate'] = self.color_offset(self.col['base'], +6)
-			# self.col['button-border'] = self.color_offset(self.col['button'], +8)
-			# self.col['menu-bg'] = self.color_offset(self.col['window'], -17, 68)
-			# self.col['menu-border'] = self.color_offset(self.col['menu-bg'], +17)
-			# self.col['group-header'] = self.color_offset(self.col['window'], +17)
-			self.col['base'] = self.col['window'].darker(150)
-			self.col['alternate'] = self.col['base'].lighter(105)
-			# self.col['button'] = self.col['window'].lighter(150)
 			self.col['button'] = self.color_offset(self.col['window'], +34)
 			self.col['button-border'] = self.col['button']
+			self.col['input-bg'] = self.col['window'].darker(150)
+			self.col['input-border'] = self.col['button'].darker(125)
+			self.col['alternate'] = self.col['input-bg'].lighter(105)
+			# self.col['button'] = self.col['window'].lighter(150)
 			self.col['menu-bg'] = self.col['window'].darker(125)
 			self.col['menu-border'] = self.col['menu-bg'].lighter(150)
 			self.col['group-header'] = self.col['window'].lighter(150)
-			self.col['hover'] = self.col['button'].lighter(110)
-		else:  # Light UI
+			# self.col['hover'] = self.col['button'].lighter(110)
+
+		# Light mode UI
+		else:
 			self.imgtheme = "dark"
 			self.col['text'] = QtGui.QColor(51, 51, 51)
 			# self.col['group-bg'] = QtGui.QColor(255, 255, 255)
-			self.col['disabled'] = QtGui.QColor(102, 102, 102)
-			# self.col['disabled'] = self.color_offset(self.col['window'], -51)
-			# self.col['base'] = self.color_offset(self.col['window'], +34, 221)
-			# self.col['alternate'] = self.color_offset(self.col['base'], -6)
-			# self.col['button-border'] = self.color_offset(self.col['button'], -8)
-			# self.col['menu-border'] = self.color_offset(self.col['menu-bg'], -17)
-			# self.col['group-header'] = self.color_offset(self.col['window'], -17)
-			self.col['base'] = self.col['window'].lighter(105)
-			self.col['alternate'] = self.col['base'].darker(105)
-			# self.col['button'] = QtGui.QColor("#eee")
-			# self.col['button'] = self.col['window'].darker(110)
-			self.col['button'] = self.color_offset(self.col['window'], -17)
+			self.col['disabled'] = QtGui.QColor(153, 153, 153)
+			self.col['button'] = self.col['window'].darker(106)
 			self.col['button-border'] = self.col['button'].darker(125)
+			self.col['input-bg'] = self.col['window'].lighter(105)
+			self.col['input-border'] = self.col['input-bg'].darker(120)
+			self.col['alternate'] = self.col['input-bg'].darker(102)
+			# self.col['button'] = QtGui.QColor("#eee")
 			# self.col['menu-bg'] = self.col['window'].darker(110)
 			self.col['menu-bg'] = self.color_offset(self.col['window'], +17)
 			self.col['menu-border'] = self.col['menu-bg'].darker(150)
 			self.col['group-header'] = self.col['window'].darker(110)
-			self.col['hover'] = self.col['button'].lighter(110)
+			# self.col['hover'] = self.col['button'].lighter(110)
 
-		# self.col['hover'] = self.color_offset(self.col['button'], +17)
 		# self.col['checked'] = self.color_offset(self.col['button'], -17)
-		# self.col['hover'] = self.col['button'].lighter(110)
-		self.col['checked'] = self.col['highlight'].lighter(225)  # tint
+		self.col['hover'] = self.col['button'].lighter(110)
+		# self.col['checked'] = self.col['highlight'].lighter(125)
+		self.col['checked'] = self.color_offset(self.col['button'], -17)
 		self.col['pressed'] = self.col['button'].darker(110)
 
 		if self.col['highlight'].lightness() < 136:

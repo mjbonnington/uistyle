@@ -74,13 +74,6 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		# except:
 		# 	pass
 
-		# # Set up about dialog
-		# about = lambda: self.about(
-		# 	app_name=cfg['window_title'], 
-		# 	app_version="v" + VERSION, 
-		# 	description="Template for Qt GUI application written in Python.\nUses Qt.py for compatibility with all Python bindings.\n", 
-		# 	credits="Principal developer: Mike Bonnington")
-
 		self.show()
 
 		# Load and set stylesheet - workaround for bug in Qt 4.8 where some

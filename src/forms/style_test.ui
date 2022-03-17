@@ -2371,8 +2371,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>960</width>
-                 <height>538</height>
+                 <width>956</width>
+                 <height>537</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -2480,8 +2480,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>960</width>
-                 <height>125</height>
+                 <width>956</width>
+                 <height>117</height>
                 </rect>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -2499,8 +2499,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>309</width>
-                      <height>105</height>
+                      <width>310</width>
+                      <height>101</height>
                      </rect>
                     </property>
                    </widget>
@@ -2515,7 +2515,7 @@ p, li { white-space: pre-wrap; }
                       <x>0</x>
                       <y>0</y>
                       <width>310</width>
-                      <height>105</height>
+                      <height>101</height>
                      </rect>
                     </property>
                    </widget>
@@ -2529,8 +2529,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>309</width>
-                      <height>105</height>
+                      <width>310</width>
+                      <height>101</height>
                      </rect>
                     </property>
                    </widget>
@@ -2850,8 +2850,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>962</width>
-                <height>68</height>
+                <width>960</width>
+                <height>66</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2863,8 +2863,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>100</width>
-                <height>30</height>
+                <width>96</width>
+                <height>26</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3289,7 +3289,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuTest">
@@ -3297,9 +3297,6 @@ p, li { white-space: pre-wrap; }
      <string>Test Menu</string>
     </property>
     <widget class="QMenu" name="menuSub_menu">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
      <property name="title">
       <string>Sub menu</string>
      </property>
