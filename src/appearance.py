@@ -194,7 +194,7 @@ class Appearance(QtCore.QObject):
 
 		# self.col['group-bg'] = QtGui.QColor(128, 128, 128)
 		self.col['line'] = self.col['window'].darker(110)
-		self.col['tooltip'] = QtGui.QColor(255, 255, 221)
+		self.col['tooltip'] = QtGui.QColor(17, 17, 17)
 		self.col['mandatory'] = QtGui.QColor(252, 152, 103)
 		self.col['warning'] = QtGui.QColor(255, 216, 106)
 		self.col['inherited'] = QtGui.QColor(161, 239, 228)
@@ -218,7 +218,7 @@ class Appearance(QtCore.QObject):
 			self.col['button'] = self.color_offset(self.col['window'], +34)
 			self.col['button-border'] = self.col['button']
 			self.col['menu-bg'] = self.col['window'].darker(125)
-			self.col['menu-border'] = self.col['menu-bg']
+			self.col['menu-border'] = self.col['menu-bg'].lighter(150)
 			self.col['group-header'] = self.col['window'].lighter(150)
 			self.col['hover'] = self.col['button'].lighter(110)
 		else:  # Light UI
@@ -240,9 +240,9 @@ class Appearance(QtCore.QObject):
 			self.col['button-border'] = self.col['button'].darker(125)
 			# self.col['menu-bg'] = self.col['window'].darker(110)
 			self.col['menu-bg'] = self.color_offset(self.col['window'], +17)
-			self.col['menu-border'] = self.col['menu-bg']
+			self.col['menu-border'] = self.col['menu-bg'].darker(150)
 			self.col['group-header'] = self.col['window'].darker(110)
-			self.col['hover'] = self.col['button'].darker(110)
+			self.col['hover'] = self.col['button'].lighter(110)
 
 		# self.col['hover'] = self.color_offset(self.col['button'], +17)
 		# self.col['checked'] = self.color_offset(self.col['button'], -17)

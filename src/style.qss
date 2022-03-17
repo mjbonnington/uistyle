@@ -35,6 +35,7 @@ QMainWindow, QDialog {
 QWidget {
 	margin: 0;
 	padding: 0;
+	border: none;
 	alternate-background-color: rgb(%alternate%);
 	selection-background-color: rgb(%highlight%);
 	selection-color: rgb(%highlighted-text%);
@@ -102,6 +103,7 @@ QLabel[formLabel="true"] {
 	margin: 0;
 	min-height: 3ex;
 	min-height: 22px;
+	border: none;
 }
 
 /* QToolTip
@@ -109,8 +111,7 @@ QLabel[formLabel="true"] {
  */
 
 QToolTip {
-	/*padding: 4px;
-	border: 1px solid rgb(%tooltip-text%);*/
+	padding: 0.5ex;
 	background-color: rgb(%tooltip%);
 	color: rgb(%tooltip-text%);
 }
@@ -143,7 +144,7 @@ QAbstractItemView {
 }
 
 QAbstractItemView::item {
-	padding: 2px 0;
+	padding: 0.5ex 0;
 }
 
 QAbstractItemView::item:selected {
@@ -208,11 +209,13 @@ QAbstractItemView::indicator:indeterminate:disabled {
 QMenuBar {
 	margin: 0;
 	padding: 0;
+	spacing: 0;
+	background: rgba(%menu-bg%, 50%);
 }
 
 QMenuBar::item {
 	margin: 0;
-	padding: 4px 8px;
+	padding: 0.6ex 1.5ex;
 	background: transparent;
 }
 
@@ -231,15 +234,16 @@ QMenuBar::item:selected:disabled {
  */
 
 QMenu {
-	padding: 4px 0;
+	padding: 1ex 0;
 	background: rgb(%menu-bg%);
-	border-radius: 0;
-	/*border-bottom-left-radius: 2px;*/
-	/*border-bottom-right-radius: 2px;*/
+	border: none;
+	/*border: 1px solid rgb(%menu-border%);*/
 }
 
 QMenu::item {
-	padding: 4px 16px 4px 24px;
+	margin: 0;
+	padding: 0.6ex 6ex 0.6ex 3ex;  /*Top, Right, Bottom, Left*/
+	spacing: 0;
 }
 
 QMenu::item:selected {
@@ -253,16 +257,16 @@ QMenu::item:selected:disabled {
 }
 
 QMenu::separator {
-	margin: 4px 6px;
+	margin: 0.6ex 1.5ex;
 	height: 0;
 	border-bottom: 1px solid rgb(%menu-border%);
 }
 
 QMenu::separator QLabel {
-	margin: 4px;
+	margin: 0.6ex 1.5ex;
 	background: transparent;
-	/*border-top: 1px solid rgb(%menu-border%);*/
 	/*font-size: 10px;*/
+	font-style: italic;
 }
 
 QMenu::separator QLabel:disabled {
@@ -270,12 +274,18 @@ QMenu::separator QLabel:disabled {
 }
 
 QMenu::icon {
-	margin: 4px;
+	margin-right: 1ex;
+	left: 1.5ex;
 }
+
+/*QMenu::icon:disabled {
+	color: rgb(%disabled%);
+}*/
 
 /* Sub-menu indicator arrow */
 QMenu::right-arrow {
-	margin: 4px;
+	/*margin-left: 1ex;*/
+	right: 1.5ex;
 	image: url(:/images/arrow_right_%theme%.png);
 }
 
@@ -283,9 +293,14 @@ QMenu::right-arrow:disabled {
 	image: url(:/images/arrow_right_%theme%_disabled.png);
 }
 
+QMenu::right-arrow:selected {
+	image: url(:/images/arrow_right_light.png); /* Need proper image */
+}
+
 /* Check boxes and radio buttons */
 QMenu::indicator {
-	margin: 4px 6px;
+	/*margin-right: 1ex;*/
+	left: 1.5ex;
 	background: rgb(%base%);
 	border: 2px solid rgb(%base%);
 }
@@ -309,8 +324,9 @@ QMenu::indicator:non-exclusive:checked:disabled {
 /* Exclusive indicator - radio button style indicator
    (see QActionGroup::setExclusive) */
 QMenu::indicator:exclusive {
-	width: 8px;
-	height: 8px;
+	width: 9px;
+	height: 9px;
+	border: 2px solid transparent;
 	border-radius: 6px;
 }
 
@@ -837,7 +853,7 @@ QScrollArea:disabled {
 
 QTextEdit, QPlainTextEdit {
 	background: rgb(%base%);
-	border: 1px solid rgb(%checked%);
+	/*border: 1px solid rgb(%checked%);*/
 }
 
 QTextEdit:disabled, QTextEdit:read-only, 
@@ -890,8 +906,8 @@ QAbstractButton::menu-indicator:disabled {
 QPushButton {
 	padding: 1px 2px 2px 1px;
 	min-width: 8em;
-	min-height: 3ex;
-	min-height: 22px;
+	min-height: 4.5ex;
+	/*min-height: 22px;*/
 	border-radius: 2px;
 	background: rgb(%button%);
 	/*background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eee, stop: 1 #ddd);*/
@@ -908,6 +924,10 @@ QPushButton:default {
 	background: rgb(%highlight%);
 	color: rgb(%highlighted-text%);
 	/*border-color: rgb(%highlight%);*/
+}
+
+QPushButton:default:hover {
+	background: rgba(%highlight%, 75%);
 }
 
 QPushButton:hover, QPushButton:checked:hover {
@@ -1610,20 +1630,23 @@ QWidget[bgoverride="true"] {
 	border: none;
 }
 
-*[mandatoryField="true"] { /* custom colour for mandatory fields */
+/* Custom colour for mandatory fields */
+*[mandatoryField="true"] {
 	/*background: rgb(252, 152, 103);*/
 	border-color: rgb(252, 152, 103);
 	color: rgb(252, 152, 103);
 }
 
-*[warning="true"] { /* custom colour for warning messages */
+/* Custom colour for warning messages */
+*[warning="true"] {
 	background: rgb(255, 216, 106);
 	border-color: rgb(255, 216, 106);
 	color: rgb(0, 0, 0);
 	/*border-top-color: rgb(51, 51, 51);*/
 }
 
-QLabel[warning="true"] { /* custom colour for warning message labels */
+/* Custom colour for warning message labels */
+QLabel[warning="true"] {
 	background: transparent;
 	color: rgb(255, 216, 106);
 }
@@ -1640,15 +1663,17 @@ QLabel[warning="true"] { /* custom colour for warning message labels */
 	color: rgb(204, 204, 204);
 }*/
 
-*[inheritedValue="true"] { /* custom colour for inherited attribute values */
+/* Custom colour for inherited attribute values */
+*[inheritedValue="true"] {
 	/*background: rgb(161, 239, 228);*/
 	border-color: rgb(161, 239, 228);
 	color: rgb(161, 239, 228);
 	/*border-top-color: rgb(51, 51, 51);*/
 }
 
+/* No background colour */
 *[noBackground="true"], 
-*:disabled[noBackground="true"] { /* no background colour */
+*:disabled[noBackground="true"] {
 	background: transparent;
 	/*border-color: transparent;*/
 }

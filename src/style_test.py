@@ -113,10 +113,10 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.exit)
 
 		self.ui.base_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['window'].name())
-		self.ui.base_colorChooser_button.clicked.connect(lambda: self.appearance.setUIColor('window'))
+		# self.ui.base_colorChooser_button.clicked.connect(lambda: self.appearance.setUIColor('window'))
 		self.appearance.color_changed.connect(lambda: self.ui.uiBrightness_slider.setValue(self.col['window'].lightness()))
 		self.ui.accent_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['highlight'].name())
-		self.ui.accent_colorChooser_button.clicked.connect(lambda: self.appearance.setUIColor('highlight'))
+		# self.ui.accent_colorChooser_button.clicked.connect(lambda: self.appearance.setUIColor('highlight'))
 		self.ui.uiBrightness_slider.setValue(self.col['window'].lightness())
 		self.ui.uiBrightness_slider.valueChanged.connect(lambda value: self.appearance.setUIBrightness(value))
 
@@ -262,11 +262,6 @@ if __name__ == "__main__":
 	except AttributeError:
 		pass
 	app = QtWidgets.QApplication(sys.argv)
-
-	# Apply application style
-	# styles = QtWidgets.QStyleFactory.keys()
-	# if 'Fusion' in styles:  # Qt5
-	# 	app.setStyle('Fusion')
 
 	# Hack to fix 'etching' on disabled text
 	pal = QtWidgets.QApplication.palette()

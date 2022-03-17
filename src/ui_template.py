@@ -959,6 +959,7 @@ class TemplateUI(object):
 			widget.setStyleSheet("QWidget { background-color: %s }" % color.name())
 			category, attr = self.getWidgetMeta(self.sender())
 			self.storeValue(category, attr, color.name())
+			# self.color_changed.emit()
 
 
 	# @QtCore.Slot()
