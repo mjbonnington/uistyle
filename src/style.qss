@@ -101,7 +101,8 @@ QFrame[frameShape="5"] {
 
 QLabel[formLabel="true"] {
 	margin: 0;
-	min-height: 4.5ex;
+	/*min-height: 4.5ex;*/
+	/*min-height: 1.5em;*/
 	border: none;
 }
 
@@ -214,7 +215,8 @@ QMenuBar {
 
 QMenuBar::item {
 	margin: 0;
-	padding: 0.6ex 1.5ex;
+	/*padding: 0.6ex 1.5ex;*/
+	padding: 0.3em 0.7em;
 	background: transparent;
 }
 
@@ -233,7 +235,8 @@ QMenuBar::item:selected:disabled {
  */
 
 QMenu {
-	padding: 1ex 0;
+	/*padding: 1ex 0;*/
+	padding: 0.3em 0;
 	background: rgb(%menu-bg%);
 	border: none;
 	/*border: 1px solid rgb(%menu-border%);*/
@@ -241,7 +244,8 @@ QMenu {
 
 QMenu::item {
 	margin: 0;
-	padding: 0.6ex 6ex 0.6ex 3ex;  /*Top, Right, Bottom, Left*/
+	/*padding: 0.6ex 6ex 0.6ex 3ex;*/
+	padding: 0.3em 2em 0.3em 2em;  /*Top, Right, Bottom, Left*/
 	spacing: 0;
 }
 
@@ -256,13 +260,15 @@ QMenu::item:selected:disabled {
 }
 
 QMenu::separator {
-	margin: 0.6ex 1.5ex;
+	/*margin: 0.6ex 1.5ex;*/
+	margin: 0.3em 0.7em;
 	height: 0;
 	border-bottom: 1px solid rgb(%menu-border%);
 }
 
 QMenu::separator QLabel {
-	margin: 0.6ex 1.5ex;
+	/*margin: 0.6ex 1.5ex;*/
+	margin: 0.3em 0.7em;
 	background: transparent;
 	/*font-size: 10px;*/
 	font-style: italic;
@@ -273,7 +279,8 @@ QMenu::separator QLabel:disabled {
 }
 
 QMenu::icon {
-	margin-right: 1ex;
+	/*margin-right: 1ex;*/
+	margin-right: 0.3em;
 	left: 1.5ex;
 }
 
@@ -349,7 +356,7 @@ QMenu::indicator:exclusive:checked:disabled {
 
 /* The tab widget frame */
 QTabWidget::pane {
-	background: rgb(%group-bg%);
+	background: rgba(%group-bg%, 50%);
 	/*background: rgb(%window%);*/
 	border-width: 0;
 	border-style: solid;
@@ -560,7 +567,7 @@ QTabBar QToolButton::right-arrow:disabled {
 QGroupBox {
 	margin: 0;
 	margin-top: 24px; /* leave space at the top for the title */
-	border: 1px solid rgba(%group-header%, 50%);
+	border: 1px solid rgb(%line%);
 	border-radius: 3px;
 	/*background: rgb(%group-bg%);*/
 	background: transparent;
@@ -905,7 +912,8 @@ QAbstractButton::menu-indicator:disabled {
 QPushButton {
 	padding: 1px 6px 2px 5px;
 	min-width: 8em;
-	min-height: 4.5ex;
+	/*min-height: 4.5ex;*/
+	min-height: 1.5em;
 	/*min-height: 22px;*/
 	border-radius: 2px;
 	background: rgb(%button%);
@@ -937,6 +945,7 @@ QPushButton:pressed, QPushButton:checked:pressed {
 	padding: 2px 5px 1px 6px;
 	background: rgb(%pressed%);
 	/*background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ddd, stop: 1 #eee);*/
+	border-color: rgb(%highlight%);
 }
 
 QPushButton:checked {
@@ -1180,16 +1189,20 @@ QRadioButton::indicator:checked:disabled {
 
 QAbstractSpinBox {
 	margin-right: 0;
-	padding: 1px 2px 2px 1px;
-	min-height: 3ex;
-	min-height: 22px;
-	border: 1px solid rgb(%input-border%);
+	padding: 1px 4px 2px 3px;
+	/*min-height: 4.5ex;*/
+	min-height: 1.5em;
 	background: rgb(%input-bg%);
+	border: 1px solid rgb(%input-border%);
+	border-radius: 0;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
-QAbstractSpinBox[buttonSymbols="NoButtons"] {
+/*QAbstractSpinBox[buttonSymbols="NoButtons"] {
 	margin-right: 0;
-}
+	border-radius: 0;
+}*/
 
 QAbstractSpinBox:read-only {
 	background: transparent;
@@ -1203,16 +1216,20 @@ QAbstractSpinBox::up-button,
 QAbstractSpinBox::down-button {
 	subcontrol-origin: padding;
 	/*left: 15px;*/
-	width: 15px;
+	width: 17px;
+	border: none; /*1px solid;*/
+	border-radius: 0px;
 	background: rgb(%button%);
 }
 
 QAbstractSpinBox::up-button {
 	subcontrol-position: top right;
+	border-top-right-radius: 2px;
 }
 
 QAbstractSpinBox::down-button {
 	subcontrol-position: bottom right;
+	border-bottom-right-radius: 2px;
 }
 
 QAbstractSpinBox::up-button:hover, 
@@ -1268,7 +1285,8 @@ QAbstractSpinBox::down-arrow:off {
 
 QComboBox {
 	min-width: 4em;
-	min-height: 4.5ex;
+	/*min-height: 4.5ex;*/
+	min-height: 1.5em;
 	border: 1px solid;
 }
 
@@ -1278,8 +1296,8 @@ QComboBox:editable {
 	background: rgb(%input-bg%);
 	border-color: rgb(%input-border%);
 	border-radius: 2px;
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 QComboBox:!editable {
@@ -1300,8 +1318,8 @@ QComboBox::drop-down {
 	width: 17px;
 	border: 1px solid;
 	border-radius: 2px;
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 QComboBox::drop-down:editable {
@@ -1407,10 +1425,10 @@ QComboBox::indicator:checked:disabled {
  */
 
 QLineEdit {
-	padding: 1px 2px 2px 1px;
-	min-width: 8em;
-	min-height: 3ex;
-	min-height: 22px;
+	padding: 1px 4px 2px 3px;
+	min-width: 4em;
+	/*min-height: 4.5ex;*/
+	min-height: 1.5em;
 	border: 1px solid rgb(%input-border%);
 	background: rgb(%input-bg%);
 }
@@ -1423,10 +1441,6 @@ QLineEdit:read-only {
 QLineEdit:disabled {
 	background: transparent;
 }
-
-/*QLineEdit:focus {
-	border-bottom-color: rgb(%highlight%);
-}*/
 
 /* End Misc. input */
 
@@ -1582,28 +1596,28 @@ QScrollBar::down-arrow:vertical:disabled {
  */
 
 QSlider:horizontal {
-	height: 20px;
+	height: 21px;
 }
 
 QSlider::vertical {
-	width: 20px;
+	width: 21px;
 }
 
 QSlider::groove {
-	background: rgb(%input-bg%);
-	border: 1px solid rgb(%input-border%);
+	background: rgb(%line%);
+	border: 1px solid transparent;
 }
 
 QSlider::groove:horizontal {
-	height: 6px;
+	height: 3px;
 }
 
 QSlider::groove:vertical {
-	width: 6px;
+	width: 3px;
 }
 
 QSlider::groove:disabled {
-	background: rgba(%input-bg%, 20%);
+	background: rgba(%line%, 50%);
 }
 
 QSlider::handle {
@@ -1614,12 +1628,12 @@ QSlider::handle {
 
 QSlider::handle:horizontal {
 	width: 9px;
-	margin: -7px 0;
+	margin: -9px 0;
 }
 
 QSlider::handle:vertical {
 	height: 9px;
-	margin: 0 -7px;
+	margin: 0 -9px;
 }
 
 QSlider::handle:hover {
@@ -1632,7 +1646,8 @@ QSlider::handle:pressed {
 }
 
 QSlider::handle:disabled {
-	background: rgb(%group-header%);
+	/*background: rgba(%button%, 25%);*/
+	background: rgb(%window%);
 }
 
 /* End Sliders, scroll bars and dials */
