@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
+    <width>1045</width>
     <height>916</height>
    </rect>
   </property>
@@ -128,6 +128,9 @@
        </item>
        <item>
         <widget class="QLabel" name="contrast_label">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="text">
           <string>Contrast</string>
          </property>
@@ -138,6 +141,9 @@
        </item>
        <item>
         <widget class="QSlider" name="uiContrast_Slider">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="maximum">
           <number>100</number>
          </property>
@@ -193,7 +199,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>8</number>
+       <number>1</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -232,15 +238,350 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tab_exampleForm">
+       <attribute name="title">
+        <string>Example Form</string>
+       </attribute>
+       <layout class="QFormLayout" name="formLayout_2">
+        <property name="fieldGrowthPolicy">
+         <enum>QFormLayout::ExpandingFieldsGrow</enum>
+        </property>
+        <property name="labelAlignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <item row="3" column="1">
+         <widget class="QSpinBox" name="spinBox_spinBox">
+          <property name="minimum">
+           <number>0</number>
+          </property>
+          <property name="maximum">
+           <number>999999</number>
+          </property>
+          <property name="value">
+           <number>0</number>
+          </property>
+          <property name="xmlTag" stdset="0">
+           <string>spinBox</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_doubleSpinBox">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>3</number>
+          </property>
+          <property name="minimum">
+           <double>0.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.001000000000000</double>
+          </property>
+          <property name="value">
+           <double>3.142000000000000</double>
+          </property>
+          <property name="xmlTag" stdset="0">
+           <string>doubleSpinBox</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLineEdit" name="lineEdit_lineEdit">
+          <property name="text">
+           <string>Some text</string>
+          </property>
+          <property name="xmlTag" stdset="0">
+           <string>lineEdit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QPlainTextEdit" name="plainTextEdit_plainTextEdit">
+          <property name="plainText">
+           <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris placerat pharetra turpis, in pharetra purus ultrices quis. Vivamus eget sem vel dolor scelerisque cursus eget eget ipsum. In hac habitasse platea dictumst. Aliquam elementum odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi maximus, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.</string>
+          </property>
+          <property name="xmlTag" stdset="0">
+           <string>plainTextEdit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QCheckBox" name="checkBox_checkBox">
+          <property name="text">
+           <string>Check Box</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <property name="xmlTag" stdset="0">
+           <string>checkBox</string>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="1">
+         <widget class="QComboBox" name="comboBox_comboBox">
+          <property name="xmlTag" stdset="0">
+           <string>comboBox</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Item 1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Item 2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Item 3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Item 4</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="15" column="1">
+         <widget class="QComboBox" name="comboBoxEditable_comboBox">
+          <property name="editable">
+           <bool>true</bool>
+          </property>
+          <property name="xmlTag" stdset="0">
+           <string>comboBox</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Item 1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Item 2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Item 3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Item 4</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="16" column="1">
+         <widget class="QPushButton" name="executeAction_pushButton">
+          <property name="text">
+           <string>Execute Action</string>
+          </property>
+          <property name="exec" stdset="0">
+           <string>executeAction</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="spinBox_label">
+          <property name="text">
+           <string>Spin Box</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="doubleSpinBox_label">
+          <property name="text">
+           <string>Double Spin Box</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="lineEdit_label">
+          <property name="text">
+           <string>Line Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="plainTextEdit_label">
+          <property name="text">
+           <string>Plain Text Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <layout class="QGridLayout" name="radioButton_gridLayout">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="radioButton1">
+            <property name="text">
+             <string>Option 1</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <property name="xmlTag" stdset="0">
+             <string>radioButton</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QRadioButton" name="radioButton3">
+            <property name="text">
+             <string>Option 2</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+            <property name="xmlTag" stdset="0">
+             <string>radioButton</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="radioButton2">
+            <property name="text">
+             <string>Option 3</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+            <property name="xmlTag" stdset="0">
+             <string>radioButton</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QRadioButton" name="radioButton4">
+            <property name="text">
+             <string>Option 4</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+            <property name="xmlTag" stdset="0">
+             <string>radioButton</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="radioButton_label">
+          <property name="text">
+           <string>Radio Buttons</string>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="0">
+         <widget class="QLabel" name="comboBox_label">
+          <property name="text">
+           <string>Combo Box</string>
+          </property>
+         </widget>
+        </item>
+        <item row="15" column="0">
+         <widget class="QLabel" name="comboBoxEditable_label">
+          <property name="text">
+           <string>Combo Box (editable)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="17" column="1">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_17">
+          <property name="text">
+           <string>Spin Box / Slider Group</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QFrame" name="spinSlider_frame">
+          <layout class="QHBoxLayout" name="spinSlider_horizontalLayout">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QSpinBox" name="spinSlider_spinBox">
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="minimum">
+              <number>0</number>
+             </property>
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="spinSlider_slider">
+             <property name="minimum">
+              <number>0</number>
+             </property>
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>50</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::NoTicks</enum>
+             </property>
+             <property name="tickInterval">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="tab">
        <attribute name="title">
         <string>Buttons</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <widget class="QGroupBox" name="groupBox">
+         <widget class="QGroupBox" name="allButtons_groupBox">
           <property name="title">
-           <string>Buttons</string>
+           <string>Group Box</string>
           </property>
           <property name="flat">
            <bool>false</bool>
@@ -253,19 +594,25 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
-            <widget class="QGroupBox" name="groupBox_3">
+            <widget class="QGroupBox" name="pushButtons_groupBox">
              <property name="title">
               <string>Push Buttons</string>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_6">
-              <item>
-               <widget class="QPushButton" name="pushButton_1">
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="1">
+               <widget class="QPushButton" name="pushButton_3">
                 <property name="text">
-                 <string>Push Button 1</string>
+                 <string>Push Button (toggle)</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
-              <item>
+              <item row="2" column="0">
                <widget class="QPushButton" name="pushButton_2">
                 <property name="enabled">
                  <bool>true</bool>
@@ -280,7 +627,7 @@
                  <bool>false</bool>
                 </property>
                 <property name="text">
-                 <string>Push Button 2 (with menu)</string>
+                 <string>Push Button (with menu)</string>
                 </property>
                 <property name="checkable">
                  <bool>false</bool>
@@ -290,23 +637,17 @@
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QPushButton" name="pushButton_3">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pushButton_1">
                 <property name="text">
-                 <string>Push Button 3 (toggle)</string>
-                </property>
-                <property name="checkable">
-                 <bool>true</bool>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
+                 <string>Push Button</string>
                 </property>
                </widget>
               </item>
-              <item>
+              <item row="1" column="0">
                <widget class="QPushButton" name="pushButton_4">
                 <property name="text">
-                 <string>Push Button 4 (flat)</string>
+                 <string>Push Button (flat)</string>
                 </property>
                 <property name="checkable">
                  <bool>false</bool>
@@ -316,10 +657,10 @@
                 </property>
                </widget>
               </item>
-              <item>
+              <item row="1" column="1">
                <widget class="QPushButton" name="pushButton_6">
                 <property name="text">
-                 <string>Push Button 5 (flat, toggle)</string>
+                 <string>Push Button (flat, toggle)</string>
                 </property>
                 <property name="checkable">
                  <bool>true</bool>
@@ -332,7 +673,7 @@
                 </property>
                </widget>
               </item>
-              <item>
+              <item row="2" column="1">
                <widget class="QPushButton" name="pushButton">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -341,14 +682,14 @@
                  </sizepolicy>
                 </property>
                 <property name="text">
-                 <string>Push Button 6 (min width)</string>
+                 <string>Push Button (min width)</string>
                 </property>
                </widget>
               </item>
-              <item>
+              <item row="3" column="1">
                <widget class="QPushButton" name="pushButton_5">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -360,7 +701,23 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>Push Button 7 (custom height)</string>
+                 <string>Push Button (custom height)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QCommandLinkButton" name="commandLinkButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>CommandLinkButton</string>
                 </property>
                </widget>
               </item>
@@ -370,264 +727,14 @@
            <item>
             <widget class="QGroupBox" name="groupBox_4">
              <property name="title">
-              <string>Tool Buttons (flat group box)</string>
+              <string>Tool Buttons</string>
              </property>
              <property name="flat">
               <bool>true</bool>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_11">
               <item>
-               <widget class="QFrame" name="frame_3">
-                <property name="frameShape">
-                 <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_6">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_2">
-                   <property name="minimumSize">
-                    <size>
-                     <width>48</width>
-                     <height>48</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>48</width>
-                     <height>48</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Up</string>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextUnderIcon</enum>
-                   </property>
-                   <property name="arrowType">
-                    <enum>Qt::UpArrow</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_3">
-                   <property name="minimumSize">
-                    <size>
-                     <width>48</width>
-                     <height>48</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>48</width>
-                     <height>48</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Down</string>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextUnderIcon</enum>
-                   </property>
-                   <property name="arrowType">
-                    <enum>Qt::DownArrow</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_2">
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_4">
-                   <property name="minimumSize">
-                    <size>
-                     <width>48</width>
-                     <height>48</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>48</width>
-                     <height>48</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Left</string>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextUnderIcon</enum>
-                   </property>
-                   <property name="arrowType">
-                    <enum>Qt::LeftArrow</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_5">
-                   <property name="minimumSize">
-                    <size>
-                     <width>48</width>
-                     <height>48</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>48</width>
-                     <height>48</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Right</string>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextUnderIcon</enum>
-                   </property>
-                   <property name="arrowType">
-                    <enum>Qt::RightArrow</enum>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="frame_4">
-                <property name="frameShape">
-                 <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QGridLayout" name="gridLayout">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item row="0" column="0">
-                  <widget class="QToolButton" name="toolButton_6">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Up</string>
-                   </property>
-                   <property name="checkable">
-                    <bool>true</bool>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextBesideIcon</enum>
-                   </property>
-                   <property name="arrowType">
-                    <enum>Qt::UpArrow</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QToolButton" name="toolButton_7">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Down</string>
-                   </property>
-                   <property name="checkable">
-                    <bool>true</bool>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextBesideIcon</enum>
-                   </property>
-                   <property name="arrowType">
-                    <enum>Qt::DownArrow</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QToolButton" name="toolButton_8">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Left</string>
-                   </property>
-                   <property name="checkable">
-                    <bool>true</bool>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextBesideIcon</enum>
-                   </property>
-                   <property name="arrowType">
-                    <enum>Qt::LeftArrow</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QToolButton" name="toolButton_9">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Right</string>
-                   </property>
-                   <property name="checkable">
-                    <bool>true</bool>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextBesideIcon</enum>
-                   </property>
-                   <property name="arrowType">
-                    <enum>Qt::RightArrow</enum>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="Line" name="line">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="frame_8">
+               <widget class="QFrame" name="toolbar_frame">
                 <property name="frameShape">
                  <enum>QFrame::NoFrame</enum>
                 </property>
@@ -821,47 +928,346 @@
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_1">
-                <property name="text">
-                 <string>Menu Button Popup</string>
-                </property>
-                <property name="checkable">
-                 <bool>false</bool>
-                </property>
-                <property name="checked">
-                 <bool>false</bool>
-                </property>
-                <property name="autoRepeat">
-                 <bool>false</bool>
-                </property>
-                <property name="autoExclusive">
-                 <bool>false</bool>
-                </property>
-                <property name="popupMode">
-                 <enum>QToolButton::MenuButtonPopup</enum>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonIconOnly</enum>
-                </property>
-                <property name="autoRaise">
-                 <bool>false</bool>
-                </property>
-                <property name="arrowType">
-                 <enum>Qt::NoArrow</enum>
+               <widget class="Line" name="line">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton">
-                <property name="text">
-                 <string>Instant Popup</string>
+               <widget class="QFrame" name="frame_3">
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
                 </property>
-                <property name="checkable">
-                 <bool>false</bool>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
                 </property>
-                <property name="popupMode">
-                 <enum>QToolButton::InstantPopup</enum>
-                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QFrame" name="frame_8">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_7">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item row="1" column="2">
+                     <widget class="QToolButton" name="toolButton_5">
+                      <property name="minimumSize">
+                       <size>
+                        <width>48</width>
+                        <height>48</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>48</width>
+                        <height>48</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Right</string>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextUnderIcon</enum>
+                      </property>
+                      <property name="arrowType">
+                       <enum>Qt::RightArrow</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QToolButton" name="toolButton_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>48</width>
+                        <height>48</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>48</width>
+                        <height>48</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Up</string>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextUnderIcon</enum>
+                      </property>
+                      <property name="arrowType">
+                       <enum>Qt::UpArrow</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QToolButton" name="toolButton_4">
+                      <property name="minimumSize">
+                       <size>
+                        <width>48</width>
+                        <height>48</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>48</width>
+                        <height>48</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Left</string>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextUnderIcon</enum>
+                      </property>
+                      <property name="arrowType">
+                       <enum>Qt::LeftArrow</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QToolButton" name="toolButton_3">
+                      <property name="minimumSize">
+                       <size>
+                        <width>48</width>
+                        <height>48</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>48</width>
+                        <height>48</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Down</string>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextUnderIcon</enum>
+                      </property>
+                      <property name="arrowType">
+                       <enum>Qt::DownArrow</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line_4">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_4">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_6">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QToolButton" name="toolButton_6">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Up</string>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                      <property name="arrowType">
+                       <enum>Qt::UpArrow</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="toolButton_7">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Down</string>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                      <property name="arrowType">
+                       <enum>Qt::DownArrow</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="toolButton_8">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Left</string>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                      <property name="arrowType">
+                       <enum>Qt::LeftArrow</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="toolButton_9">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Right</string>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                      <property name="arrowType">
+                       <enum>Qt::RightArrow</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="Line" name="line_2">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_10">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_26">
+                    <item>
+                     <widget class="QToolButton" name="toolButton_1">
+                      <property name="text">
+                       <string>Menu Button Popup</string>
+                      </property>
+                      <property name="checkable">
+                       <bool>false</bool>
+                      </property>
+                      <property name="checked">
+                       <bool>false</bool>
+                      </property>
+                      <property name="autoRepeat">
+                       <bool>false</bool>
+                      </property>
+                      <property name="autoExclusive">
+                       <bool>false</bool>
+                      </property>
+                      <property name="popupMode">
+                       <enum>QToolButton::MenuButtonPopup</enum>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonIconOnly</enum>
+                      </property>
+                      <property name="autoRaise">
+                       <bool>false</bool>
+                      </property>
+                      <property name="arrowType">
+                       <enum>Qt::NoArrow</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="toolButton">
+                      <property name="text">
+                       <string>Instant Popup</string>
+                      </property>
+                      <property name="checkable">
+                       <bool>false</bool>
+                      </property>
+                      <property name="popupMode">
+                       <enum>QToolButton::InstantPopup</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
@@ -871,7 +1277,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QGroupBox" name="groupBox_2">
+         <widget class="QGroupBox" name="checkBox_groupBox">
           <property name="title">
            <string>Group Box (checkable)</string>
           </property>
@@ -880,87 +1286,15 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QGroupBox" name="groupBox_radioButtons">
-             <property name="toolTip">
-              <string/>
-             </property>
+            <widget class="QGroupBox" name="checkBoxes_groupBox">
              <property name="title">
-              <string>Radio Buttons</string>
+              <string>Check Boxes</string>
              </property>
              <property name="flat">
+              <bool>true</bool>
+             </property>
+             <property name="checkable">
               <bool>false</bool>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_3">
-              <item>
-               <widget class="QRadioButton" name="radioButton_1">
-                <property name="text">
-                 <string>Radio Button 1</string>
-                </property>
-                <property name="checked">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="radioButton_2">
-                <property name="text">
-                 <string>Radio Button 2</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="radioButton_3">
-                <property name="text">
-                 <string>Radio Button 3</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="radioButton_4">
-                <property name="text">
-                 <string>Radio Button 4</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="radioButton_5">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="text">
-                 <string>Radio Button 5 (disabled)</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="radioButton_6">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="text">
-                 <string>Radio Button 6 (disabled)</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="groupBox_checkBoxes">
-             <property name="title">
-              <string>Check Boxes (flat group box)</string>
-             </property>
-             <property name="flat">
-              <bool>true</bool>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_5">
               <item>
@@ -1032,23 +1366,79 @@
              </layout>
             </widget>
            </item>
+           <item>
+            <widget class="QGroupBox" name="radioButtons_groupBox">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="title">
+              <string>Radio Buttons</string>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QRadioButton" name="radioButton_1">
+                <property name="text">
+                 <string>Radio Button 1</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_2">
+                <property name="text">
+                 <string>Radio Button 2</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_3">
+                <property name="text">
+                 <string>Radio Button 3</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_4">
+                <property name="text">
+                 <string>Radio Button 4</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_5">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Radio Button 5 (disabled)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_6">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Radio Button 6 (disabled)</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
           </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCommandLinkButton" name="commandLinkButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="text">
-           <string>CommandLinkButton</string>
-          </property>
          </widget>
         </item>
        </layout>
@@ -1449,7 +1839,7 @@
                    <property name="frame">
                     <bool>true</bool>
                    </property>
-                   <property name="mandatoryField" stdset="0">
+                   <property name="mandatory" stdset="0">
                     <bool>true</bool>
                    </property>
                   </widget>
@@ -1527,7 +1917,7 @@
                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell','Cantarell'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#ffaa7f;&quot;&gt;Lorem&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#2f9ca5;&quot;&gt; ipsum dolor sit amet&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; color:#2f9ca5;&quot;&gt;,&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:24pt; color:#2f9ca5;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;consectetur &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;adipiscing&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; elit. &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt;Mauris placerat &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#55aaff;&quot;&gt;pharetra&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt; turpis, in pharetra purus ultrices quis.&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; Vivamus eget sem vel &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;dolor scelerisque&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; cursus eget eget ipsum. In hac habitasse platea &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-weight:600; color:#2f9ca5;&quot;&gt;dictumst&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;. Aliquam &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;elementum&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;maximus&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
@@ -1559,7 +1949,7 @@ p, li { white-space: pre-wrap; }
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
-        <string>Item Views</string>
+        <string>Item Views 1</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
@@ -1746,6 +2136,147 @@ p, li { white-space: pre-wrap; }
             </item>
            </layout>
           </widget>
+          <widget class="QGroupBox" name="groupBox_9">
+           <property name="title">
+            <string>Table Widget</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <widget class="QTableWidget" name="tableWidget">
+              <property name="alternatingRowColors">
+               <bool>false</bool>
+              </property>
+              <row>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>2</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>3</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>4</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>5</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>6</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>7</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>8</string>
+               </property>
+              </row>
+              <column>
+               <property name="text">
+                <string>A</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>B</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>C</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>D</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>E</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>F</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>G</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>H</string>
+               </property>
+              </column>
+              <item row="0" column="0">
+               <property name="text">
+                <string>Item 1</string>
+               </property>
+              </item>
+              <item row="1" column="1">
+               <property name="text">
+                <string>Item 2</string>
+               </property>
+              </item>
+              <item row="2" column="2">
+               <property name="text">
+                <string>Item 3</string>
+               </property>
+              </item>
+              <item row="3" column="3">
+               <property name="text">
+                <string>Item 4</string>
+               </property>
+              </item>
+              <item row="4" column="4">
+               <property name="text">
+                <string>Item 5</string>
+               </property>
+              </item>
+              <item row="5" column="5">
+               <property name="text">
+                <string>Item 6</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_31">
+       <attribute name="title">
+        <string>Item Views 2</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_27">
+        <item>
+         <widget class="QSplitter" name="splitter_8">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
           <widget class="QGroupBox" name="groupBox_11">
            <property name="title">
             <string>Tree Widgets</string>
@@ -2075,133 +2606,6 @@ p, li { white-space: pre-wrap; }
             </item>
            </layout>
           </widget>
-          <widget class="QGroupBox" name="groupBox_9">
-           <property name="title">
-            <string>Table Widget</string>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_9">
-            <item>
-             <widget class="QTableWidget" name="tableWidget">
-              <property name="alternatingRowColors">
-               <bool>false</bool>
-              </property>
-              <row>
-               <property name="text">
-                <string>1</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>2</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>3</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>4</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>5</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>6</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>7</string>
-               </property>
-              </row>
-              <row>
-               <property name="text">
-                <string>8</string>
-               </property>
-              </row>
-              <column>
-               <property name="text">
-                <string>A</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>B</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>C</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>D</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>E</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>F</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>G</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>H</string>
-               </property>
-              </column>
-              <item row="0" column="0">
-               <property name="text">
-                <string>Item 1</string>
-               </property>
-              </item>
-              <item row="1" column="1">
-               <property name="text">
-                <string>Item 2</string>
-               </property>
-              </item>
-              <item row="2" column="2">
-               <property name="text">
-                <string>Item 3</string>
-               </property>
-              </item>
-              <item row="3" column="3">
-               <property name="text">
-                <string>Item 4</string>
-               </property>
-              </item>
-              <item row="4" column="4">
-               <property name="text">
-                <string>Item 5</string>
-               </property>
-              </item>
-              <item row="5" column="5">
-               <property name="text">
-                <string>Item 6</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-           </layout>
-          </widget>
           <widget class="QGroupBox" name="groupBox_12">
            <property name="title">
             <string>Column View</string>
@@ -2371,7 +2775,7 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>956</width>
+                 <width>977</width>
                  <height>537</height>
                 </rect>
                </property>
@@ -2480,7 +2884,7 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>956</width>
+                 <width>977</width>
                  <height>117</height>
                 </rect>
                </property>
@@ -2499,7 +2903,7 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>310</width>
+                      <width>317</width>
                       <height>101</height>
                      </rect>
                     </property>
@@ -2514,7 +2918,7 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>310</width>
+                      <width>317</width>
                       <height>101</height>
                      </rect>
                     </property>
@@ -2529,7 +2933,7 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>310</width>
+                      <width>317</width>
                       <height>101</height>
                      </rect>
                     </property>
@@ -2850,8 +3254,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>960</width>
-                <height>66</height>
+                <width>981</width>
+                <height>105</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2863,8 +3267,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>96</width>
-                <height>26</height>
+                <width>960</width>
+                <height>66</height>
                </rect>
               </property>
               <attribute name="label">
@@ -2909,48 +3313,6 @@ p, li { white-space: pre-wrap; }
            <property name="labelAlignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
-           <item row="0" column="1">
-            <layout class="QHBoxLayout" name="spinSlider_horizontalLayout">
-             <item>
-              <widget class="QSpinBox" name="spinSlider_spinBox">
-               <property name="buttonSymbols">
-                <enum>QAbstractSpinBox::NoButtons</enum>
-               </property>
-               <property name="minimum">
-                <number>0</number>
-               </property>
-               <property name="maximum">
-                <number>100</number>
-               </property>
-               <property name="value">
-                <number>50</number>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QSlider" name="spinSlider_slider">
-               <property name="minimum">
-                <number>0</number>
-               </property>
-               <property name="maximum">
-                <number>100</number>
-               </property>
-               <property name="value">
-                <number>50</number>
-               </property>
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="tickPosition">
-                <enum>QSlider::NoTicks</enum>
-               </property>
-               <property name="tickInterval">
-                <number>10</number>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
           </layout>
          </widget>
         </item>
@@ -3003,256 +3365,6 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_exampleForm">
-       <attribute name="title">
-        <string>Example Form</string>
-       </attribute>
-       <layout class="QFormLayout" name="formLayout_2">
-        <property name="fieldGrowthPolicy">
-         <enum>QFormLayout::ExpandingFieldsGrow</enum>
-        </property>
-        <property name="labelAlignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <item row="3" column="1">
-         <widget class="QSpinBox" name="spinBox_spinBox">
-          <property name="minimum">
-           <number>0</number>
-          </property>
-          <property name="maximum">
-           <number>999999</number>
-          </property>
-          <property name="value">
-           <number>0</number>
-          </property>
-          <property name="xmlTag" stdset="0">
-           <string>spinBox</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_doubleSpinBox">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="decimals">
-           <number>3</number>
-          </property>
-          <property name="minimum">
-           <double>0.000000000000000</double>
-          </property>
-          <property name="maximum">
-           <double>1000.000000000000000</double>
-          </property>
-          <property name="singleStep">
-           <double>0.001000000000000</double>
-          </property>
-          <property name="xmlTag" stdset="0">
-           <string>doubleSpinBox</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="1">
-         <widget class="QLineEdit" name="lineEdit_lineEdit">
-          <property name="xmlTag" stdset="0">
-           <string>lineEdit</string>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="1">
-         <widget class="QPlainTextEdit" name="plainTextEdit_plainTextEdit">
-          <property name="xmlTag" stdset="0">
-           <string>plainTextEdit</string>
-          </property>
-         </widget>
-        </item>
-        <item row="10" column="1">
-         <widget class="QCheckBox" name="checkBox_checkBox">
-          <property name="text">
-           <string>Check Box</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-          <property name="xmlTag" stdset="0">
-           <string>checkBox</string>
-          </property>
-         </widget>
-        </item>
-        <item row="13" column="1">
-         <widget class="QComboBox" name="comboBox_comboBox">
-          <property name="xmlTag" stdset="0">
-           <string>comboBox</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>Item 1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Item 2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Item 3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Item 4</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="15" column="1">
-         <widget class="QComboBox" name="comboBoxEditable_comboBox">
-          <property name="editable">
-           <bool>true</bool>
-          </property>
-          <property name="xmlTag" stdset="0">
-           <string>comboBox</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>Item 1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Item 2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Item 3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Item 4</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="16" column="1">
-         <widget class="QPushButton" name="executeAction_pushButton">
-          <property name="text">
-           <string>Execute Action</string>
-          </property>
-          <property name="exec" stdset="0">
-           <string>executeAction</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="spinBox_label">
-          <property name="text">
-           <string>Spin Box:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="doubleSpinBox_label">
-          <property name="text">
-           <string>Double Spin Box:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0">
-         <widget class="QLabel" name="lineEdit_label">
-          <property name="text">
-           <string>Line Edit:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="0">
-         <widget class="QLabel" name="plainTextEdit_label">
-          <property name="text">
-           <string>Plain Text Edit:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="11" column="1">
-         <layout class="QGridLayout" name="radioButton_gridLayout">
-          <item row="0" column="0">
-           <widget class="QRadioButton" name="radioButton1">
-            <property name="text">
-             <string>Option 1</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-            <property name="xmlTag" stdset="0">
-             <string>radioButton</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QRadioButton" name="radioButton3">
-            <property name="text">
-             <string>Option 2</string>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-            <property name="xmlTag" stdset="0">
-             <string>radioButton</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QRadioButton" name="radioButton2">
-            <property name="text">
-             <string>Option 3</string>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-            <property name="xmlTag" stdset="0">
-             <string>radioButton</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QRadioButton" name="radioButton4">
-            <property name="text">
-             <string>Option 4</string>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-            <property name="xmlTag" stdset="0">
-             <string>radioButton</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="11" column="0">
-         <widget class="QLabel" name="radioButton_label">
-          <property name="text">
-           <string>Radio Buttons:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="13" column="0">
-         <widget class="QLabel" name="comboBox_label">
-          <property name="text">
-           <string>Combo Box:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="15" column="0">
-         <widget class="QLabel" name="comboBoxEditable_label">
-          <property name="text">
-           <string>Combo Box (editable):</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
     <item>
@@ -3288,7 +3400,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
+     <width>1045</width>
      <height>26</height>
     </rect>
    </property>
@@ -3657,50 +3769,30 @@ p, li { white-space: pre-wrap; }
   <tabstop>plainTextEdit</tabstop>
   <tabstop>verticalSlider</tabstop>
   <tabstop>textEdit</tabstop>
-  <tabstop>groupBox</tabstop>
+  <tabstop>allButtons_groupBox</tabstop>
   <tabstop>pushButton_1</tabstop>
   <tabstop>pushButton_2</tabstop>
-  <tabstop>pushButton_3</tabstop>
-  <tabstop>pushButton_4</tabstop>
-  <tabstop>pushButton_6</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>pushButton_5</tabstop>
-  <tabstop>toolButton_2</tabstop>
-  <tabstop>toolButton_3</tabstop>
-  <tabstop>toolButton_4</tabstop>
-  <tabstop>toolButton_5</tabstop>
   <tabstop>toolButton_6</tabstop>
-  <tabstop>toolButton_7</tabstop>
-  <tabstop>toolButton_8</tabstop>
   <tabstop>toolButton_9</tabstop>
-  <tabstop>toolButton_1</tabstop>
-  <tabstop>toolButton</tabstop>
-  <tabstop>groupBox_2</tabstop>
-  <tabstop>groupBox_radioButtons</tabstop>
+  <tabstop>checkBox_groupBox</tabstop>
   <tabstop>radioButton_1</tabstop>
   <tabstop>radioButton_2</tabstop>
   <tabstop>radioButton_3</tabstop>
   <tabstop>radioButton_4</tabstop>
   <tabstop>radioButton_5</tabstop>
   <tabstop>radioButton_6</tabstop>
-  <tabstop>groupBox_checkBoxes</tabstop>
+  <tabstop>checkBoxes_groupBox</tabstop>
   <tabstop>checkBox_1</tabstop>
   <tabstop>checkBox_2</tabstop>
   <tabstop>checkBox_3</tabstop>
   <tabstop>checkBox_4</tabstop>
   <tabstop>checkBox_5</tabstop>
   <tabstop>checkBox_6</tabstop>
-  <tabstop>commandLinkButton</tabstop>
   <tabstop>groupBox_10</tabstop>
   <tabstop>listWidget_2</tabstop>
   <tabstop>listWidget</tabstop>
-  <tabstop>groupBox_11</tabstop>
-  <tabstop>treeWidget_2</tabstop>
-  <tabstop>treeWidget</tabstop>
   <tabstop>groupBox_9</tabstop>
   <tabstop>tableWidget</tabstop>
-  <tabstop>groupBox_12</tabstop>
-  <tabstop>columnView</tabstop>
   <tabstop>groupBox_14</tabstop>
   <tabstop>textBrowser</tabstop>
   <tabstop>graphicsView</tabstop>
@@ -3720,46 +3812,12 @@ p, li { white-space: pre-wrap; }
   <tabstop>tabWidget_3</tabstop>
   <tabstop>tabWidget_4</tabstop>
   <tabstop>tabWidget_5</tabstop>
-  <tabstop>spinSlider_spinBox</tabstop>
-  <tabstop>spinSlider_slider</tabstop>
   <tabstop>loadedUIs_tabWidget</tabstop>
  </tabstops>
  <resources>
-  <include location="rsc.qrc"/>
+  <include location="../ui_chrome.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>spinSlider_spinBox</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>spinSlider_slider</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>69</x>
-     <y>110</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>98</x>
-     <y>110</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>spinSlider_slider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>spinSlider_spinBox</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>98</x>
-     <y>110</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>69</x>
-     <y>110</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>enable_checkBox</sender>
    <signal>toggled(bool)</signal>
@@ -3767,12 +3825,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>727</x>
-     <y>826</y>
+     <x>952</x>
+     <y>65</y>
     </hint>
     <hint type="destinationlabel">
-     <x>15</x>
-     <y>40</y>
+     <x>23</x>
+     <y>122</y>
     </hint>
    </hints>
   </connection>
@@ -3783,12 +3841,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>229</x>
-     <y>727</y>
+     <x>263</x>
+     <y>819</y>
     </hint>
     <hint type="destinationlabel">
-     <x>215</x>
-     <y>693</y>
+     <x>259</x>
+     <y>779</y>
     </hint>
    </hints>
   </connection>
@@ -3799,12 +3857,28 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>321</x>
-     <y>727</y>
+     <x>355</x>
+     <y>819</y>
     </hint>
     <hint type="destinationlabel">
-     <x>800</x>
-     <y>689</y>
+     <x>989</x>
+     <y>779</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinSlider_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinSlider_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>354</x>
+     <y>282</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>245</x>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
