@@ -1,29 +1,11 @@
 <RCC>
   <qresource>
-    <file>rsc/checkbox_checked_000.png</file>
-    <file>rsc/checkbox_checked_333.png</file>
-    <file>rsc/checkbox_checked_666.png</file>
-    <file>rsc/checkbox_checked_999.png</file>
-    <file>rsc/checkbox_checked_ccc.png</file>
-    <file>rsc/checkbox_checked_fff.png</file>
-    <file>rsc/branch_end_000.png</file>
-    <file>rsc/branch_end_333.png</file>
-    <file>rsc/branch_end_666.png</file>
-    <file>rsc/branch_end_999.png</file>
-    <file>rsc/branch_end_ccc.png</file>
-    <file>rsc/branch_end_fff.png</file>
-    <file>rsc/branch_more_000.png</file>
-    <file>rsc/branch_more_333.png</file>
-    <file>rsc/branch_more_666.png</file>
-    <file>rsc/branch_more_999.png</file>
-    <file>rsc/branch_more_ccc.png</file>
-    <file>rsc/branch_more_fff.png</file>
-    <file>rsc/branch_vline_000.png</file>
-    <file>rsc/branch_vline_333.png</file>
-    <file>rsc/branch_vline_666.png</file>
-    <file>rsc/branch_vline_999.png</file>
-    <file>rsc/branch_vline_ccc.png</file>
-    <file>rsc/branch_vline_fff.png</file>
+    <file>rsc/arrow_down_000.png</file>
+    <file>rsc/arrow_down_333.png</file>
+    <file>rsc/arrow_down_666.png</file>
+    <file>rsc/arrow_down_999.png</file>
+    <file>rsc/arrow_down_ccc.png</file>
+    <file>rsc/arrow_down_fff.png</file>
     <file>rsc/arrow_left_000.png</file>
     <file>rsc/arrow_left_333.png</file>
     <file>rsc/arrow_left_666.png</file>
@@ -42,11 +24,65 @@
     <file>rsc/arrow_up_999.png</file>
     <file>rsc/arrow_up_ccc.png</file>
     <file>rsc/arrow_up_fff.png</file>
-    <file>rsc/arrow_down_000.png</file>
-    <file>rsc/arrow_down_333.png</file>
-    <file>rsc/arrow_down_666.png</file>
-    <file>rsc/arrow_down_999.png</file>
-    <file>rsc/arrow_down_ccc.png</file>
-    <file>rsc/arrow_down_fff.png</file>
+    <file>rsc/branch_end_000.png</file>
+    <file>rsc/branch_end_333.png</file>
+    <file>rsc/branch_end_666.png</file>
+    <file>rsc/branch_end_999.png</file>
+    <file>rsc/branch_end_ccc.png</file>
+    <file>rsc/branch_end_fff.png</file>
+    <file>rsc/branch_more_000.png</file>
+    <file>rsc/branch_more_333.png</file>
+    <file>rsc/branch_more_666.png</file>
+    <file>rsc/branch_more_999.png</file>
+    <file>rsc/branch_more_ccc.png</file>
+    <file>rsc/branch_more_fff.png</file>
+    <file>rsc/branch_vline_000.png</file>
+    <file>rsc/branch_vline_333.png</file>
+    <file>rsc/branch_vline_666.png</file>
+    <file>rsc/branch_vline_999.png</file>
+    <file>rsc/branch_vline_ccc.png</file>
+    <file>rsc/branch_vline_fff.png</file>
+    <file>rsc/checkbox_checked_000.png</file>
+    <file>rsc/checkbox_checked_333.png</file>
+    <file>rsc/checkbox_checked_666.png</file>
+    <file>rsc/checkbox_checked_999.png</file>
+    <file>rsc/checkbox_checked_ccc.png</file>
+    <file>rsc/checkbox_checked_fff.png</file>
+    <file>rsc/checkbox_indeterminate_000.png</file>
+    <file>rsc/checkbox_indeterminate_333.png</file>
+    <file>rsc/checkbox_indeterminate_666.png</file>
+    <file>rsc/checkbox_indeterminate_999.png</file>
+    <file>rsc/checkbox_indeterminate_ccc.png</file>
+    <file>rsc/checkbox_indeterminate_fff.png</file>
+    <file>rsc/clear_000.png</file>
+    <file>rsc/clear_333.png</file>
+    <file>rsc/clear_666.png</file>
+    <file>rsc/clear_999.png</file>
+    <file>rsc/clear_ccc.png</file>
+    <file>rsc/clear_fff.png</file>
+    <file>rsc/indicator_less_000.png</file>
+    <file>rsc/indicator_less_333.png</file>
+    <file>rsc/indicator_less_666.png</file>
+    <file>rsc/indicator_less_999.png</file>
+    <file>rsc/indicator_less_ccc.png</file>
+    <file>rsc/indicator_less_fff.png</file>
+    <file>rsc/indicator_more_000.png</file>
+    <file>rsc/indicator_more_333.png</file>
+    <file>rsc/indicator_more_666.png</file>
+    <file>rsc/indicator_more_999.png</file>
+    <file>rsc/indicator_more_ccc.png</file>
+    <file>rsc/indicator_more_fff.png</file>
+    <file>rsc/popup_indicator_000.png</file>
+    <file>rsc/popup_indicator_333.png</file>
+    <file>rsc/popup_indicator_666.png</file>
+    <file>rsc/popup_indicator_999.png</file>
+    <file>rsc/popup_indicator_ccc.png</file>
+    <file>rsc/popup_indicator_fff.png</file>
+    <file>rsc/radiobutton_checked_000.png</file>
+    <file>rsc/radiobutton_checked_333.png</file>
+    <file>rsc/radiobutton_checked_666.png</file>
+    <file>rsc/radiobutton_checked_999.png</file>
+    <file>rsc/radiobutton_checked_ccc.png</file>
+    <file>rsc/radiobutton_checked_fff.png</file>
   </qresource>
 </RCC>

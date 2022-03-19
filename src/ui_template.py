@@ -80,7 +80,7 @@ class TemplateUI(object):
 	with both Python 2 and 3.
 	"""
 
-	# color_changed = QtCore.Signal()
+	colorChanged = QtCore.Signal(str, QtGui.QColor)  # Move when subclassing color picker button
 
 	#def setupUI(self, **cfg):
 	def setupUI(
@@ -959,7 +959,7 @@ class TemplateUI(object):
 			widget.setStyleSheet("QWidget { background-color: %s }" % color.name())
 			category, attr = self.getWidgetMeta(self.sender())
 			self.storeValue(category, attr, color.name())
-			# self.color_changed.emit()
+			self.colorChanged.emit(attr, color)  # Move when subclassing color picker button
 
 
 	# @QtCore.Slot()
@@ -1374,7 +1374,7 @@ class TemplateUI(object):
 	# 		self.col[role] = color
 	# 		self.computeUIPalette()
 	# 		self.loadStyleSheet()  # TODO: no need to load from disk every time
-	# 		self.color_changed.emit()
+	# 		self.colorChanged.emit()
 
 
 	# # @QtCore.Slot()

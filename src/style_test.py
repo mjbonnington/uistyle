@@ -106,12 +106,15 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.exit)
 
 		self.ui.base_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['window'].name())
-		# self.ui.base_colorChooser_button.clicked.connect(lambda: self.appearance.setUIColor('window'))
-		self.appearance.color_changed.connect(lambda: self.ui.uiBrightness_slider.setValue(self.col['window'].lightness()))
+		# self.ui.base_colorChooser_button.colorChanged.connect(lambda: self.appearance.set_ui_color('window'))
+		# self.appearance.color_changed.connect(lambda: self.ui.uiBrightness_slider.setValue(self.col['window'].lightness()))
 		self.ui.accent_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['highlight'].name())
-		# self.ui.accent_colorChooser_button.clicked.connect(lambda: self.appearance.setUIColor('highlight'))
+		# self.ui.accent_colorChooser_button.colorChanged.connect(lambda: self.appearance.set_ui_color('highlight'))
 		self.ui.uiBrightness_slider.setValue(self.col['window'].lightness())
-		self.ui.uiBrightness_slider.valueChanged.connect(lambda value: self.appearance.setUIBrightness(value))
+		self.ui.uiBrightness_slider.valueChanged.connect(lambda value: self.appearance.set_ui_brightness(value))
+		self.ui.fontSize_spinBox.valueChanged.connect(lambda value: self.appearance.set_font_size(value))
+		self.colorChanged.connect(lambda attr, color: self.appearance.set_ui_color(attr, color))
+		self.colorChanged.connect(lambda: self.ui.uiBrightness_slider.setValue(self.col['window'].lightness()))
 
 		self.ui.loadedUIs_tabWidget.tabCloseRequested.connect(lambda index: self.ui.loadedUIs_tabWidget.removeTab(index))  # Allow tabs to be closed
 

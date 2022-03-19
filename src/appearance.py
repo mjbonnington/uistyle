@@ -15,6 +15,7 @@ class Appearance(QtCore.QObject):
 
 	col = {}
 	stylesheet = ""
+	font_size = 11
 	color_changed = QtCore.Signal()
 
 	def __init__(self, widget, qss=None):
@@ -42,7 +43,7 @@ class Appearance(QtCore.QObject):
 		self.col['highlight'] = self.col['sys-highlight']  # Use highlight color from OS / parent app
 		# self.col['highlight'] = QtGui.QColor('#78909c')
 
-		self.computeUIPalette()
+		self.compute_ui_palette()
 		# p = QtGui.QPalette()
 		# p.setColor(QtGui.QPalette.Window, QtGui.QColor('#33393b'))
 		# self.widget.setPalette(p)
@@ -146,6 +147,7 @@ class Appearance(QtCore.QObject):
 		elif platform.system() == 'Linux':
 			font_str = "'Cantarell', 'OpenSans', 'sans'"
 		stylesheet = stylesheet.replace(r"%systemfont%", font_str)
+		stylesheet = stylesheet.replace(r"%fontsize%", str(self.font_size))
 
 		self.stylesheet = stylesheet
 		self.widget.setStyleSheet(self.stylesheet)
@@ -226,7 +228,7 @@ class Appearance(QtCore.QObject):
 		return code
 
 
-	def computeUIPalette(self):
+	def compute_ui_palette(self):
 		"""Compute complementary UI colours based on window colour."""
 
 		# self.col['group-bg'] = QtGui.QColor(128, 128, 128)
@@ -325,36 +327,46 @@ class Appearance(QtCore.QObject):
 		# Compute icon theme colours
 		self.col['icon-normal'] = self.nearest(self.col['text'])
 		self.col['icon-disabled'] = self.nearest(self.col['disabled'])
-		self.col['icon-highlight'] = self.nearest(self.col['highlighted-text'])
+		self.col['icon-highlighted'] = self.nearest(self.col['highlighted-text'])
 
 
 	@QtCore.Slot(int)
-	def setUIBrightness(self, value):
-		"""Set the UI style background shade."""
+	def set_ui_brightness(self, value):
+		"""Set the UI style background shade.
 
-		# print(value)
+		Arguments:
+			value (int) : Luminance value between 0-255.
+		"""
 		h, s, l, a = self.col['window'].getHsl()
 		self.col['window'].setHsl(h, s, value)
-		# self.col['window'] = QtGui.QColor(value, value, value)
-		self.computeUIPalette()
+		self.compute_ui_palette()
 		self.apply_stylesheet(self.stylesheet_orig)
 
 
-	# @QtCore.Slot()
-	def setUIColor(self, role, color=None):
-		"""Set the UI style colour for the given role."""
+	@QtCore.Slot(str, QtGui.QColor)
+	def set_ui_color(self, role, color=None):
+		"""Set the UI style colour for the given role.
 
-		widget = self.widget.sender()
+		Arguments:
+			role (str) : The palette role to set. This is a key for the
+				`self.col` dictionary.
+			color (QColor) : Colour to use.
+		"""
+		self.col[role] = color
+		self.compute_ui_palette()
+		self.apply_stylesheet(self.stylesheet_orig)
 
-		# Get current colour and pass to function
-		current_color = widget.palette().color(QtGui.QPalette.Background)
-		color = self.color_picker_dialog(current_color)
-		if color:
-			widget.setStyleSheet("QWidget { background-color: %s }" % color.name())
-			self.col[role] = color
-			self.computeUIPalette()
-			self.apply_stylesheet(self.stylesheet_orig)
-			self.color_changed.emit()
+
+	@QtCore.Slot(int)
+	def set_font_size(self, value):
+		"""Set the size of the font used thoughout the UI.
+
+		Arguments:
+			value (int) : Font size in pixels.
+		"""
+		self.font_size = value
+		self.compute_ui_palette()
+		self.apply_stylesheet(self.stylesheet_orig)
 
 
 	# # @QtCore.Slot()

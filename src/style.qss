@@ -41,7 +41,7 @@ QWidget {
 	selection-color: rgb(%highlighted-text%);
 	color: rgb(%text%);
 	font-family: %systemfont%;
-	font-size: 11px;
+	font-size: %fontsize%px;
 	font-weight: normal;
 }
 
@@ -300,7 +300,7 @@ QMenu::right-arrow:disabled {
 }
 
 QMenu::right-arrow:selected {
-	image: url(:/rsc/arrow_right_%icon-highlight%.png);
+	image: url(:/rsc/arrow_right_%icon-highlighted%.png);
 }
 
 /* Check boxes and radio buttons */
@@ -475,13 +475,15 @@ QTabBar::tab:!selected:right { margin-right: 2px; }
 QTabBar::tab:!selected:left { margin-left: 2px; }
 
 QTabBar::close-button {
-	border-radius: 3px;
-	/*background: rgba(%menu-bg%, 50%);*/
-	image: url(:/rsc/cross_%icon-normal%.png);
+	image: url(:/rsc/clear_%icon-normal%.png);
+}
+
+QTabBar::close-button:disabled {
+	image: url(:/rsc/clear_%icon-disabled%.png);
 }
 
 QTabBar::close-button:hover {
-	background: rgb(%checked%);
+	image: url(:/rsc/clear_%icon-highlighted%.png);
 }
 
 QTabBar QToolButton {
