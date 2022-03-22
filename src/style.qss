@@ -173,10 +173,10 @@ QAbstractItemView::item QLineEdit {
 }
 
 QAbstractItemView::indicator {
-	width: 9px;
-	height: 9px;
+	width: 11px;
+	height: 11px;
 	background: rgb(%input-bg%);
-	border: 2px solid rgb(%input-bg%);
+	border: 1px solid rgb(%menu-border%);
 	border-radius: 0;
 }
 
@@ -307,15 +307,19 @@ QMenu::right-arrow:selected {
 QMenu::indicator {
 	/*margin-right: 1ex;*/
 	left: 1.5ex;
+	width: 11px;
+	height: 11px;
 	background: rgb(%input-bg%);
-	border: 2px solid rgb(%input-bg%);
+	border: 1px solid rgb(%menu-border%);
+}
+
+QMenu::indicator:disabled {
+	background: transparent;
 }
 
 /* Non-exclusive indicator - check box style indicator
    (see QActionGroup::setExclusive) */
 QMenu::indicator:non-exclusive {
-	width: 9px;
-	height: 9px;
 	border-radius: 0;
 }
 
@@ -330,9 +334,6 @@ QMenu::indicator:non-exclusive:checked:disabled {
 /* Exclusive indicator - radio button style indicator
    (see QActionGroup::setExclusive) */
 QMenu::indicator:exclusive {
-	width: 9px;
-	height: 9px;
-	border: 2px solid transparent;
 	border-radius: 6px;
 }
 
@@ -1088,7 +1089,7 @@ QToolButton::menu-button {
  */
 
 QCheckBox {
-	padding: 3px;
+	padding: 4px 2px;
 	spacing: 5px;
 	/*min-height: 3ex;
 	min-height: 22px;*/
@@ -1098,24 +1099,22 @@ QCheckBox {
 
 QCheckBox::indicator, 
 QGroupBox::indicator {
-	width: 9px;
-	height: 9px;
+	width: 11px;
+	height: 11px;
 	background: rgb(%input-bg%);
-	border: 2px solid rgb(%input-bg%);
+	border: 1px solid rgb(%input-border%);
 	border-radius: 0;
 }
 
-
-/*QCheckBox::indicator:disabled {
-	background: rgba(%input-bg%, 50%);
-	border-color: transparent;
-}*/
+QCheckBox::indicator:disabled,
+QCheckBox::indicator:disabled {
+	background: transparent;
+}
 
 QCheckBox::indicator:hover,
 QGroupBox::indicator:hover {
-	/*background: rgba(%highlight%, 50%);
-	border-color: transparent;*/
-	border-color: rgb(%highlight%);
+	background: rgb(%hover%);
+	/*border-color: rgb(%highlight%);*/
 }
 
 /*QCheckBox::indicator:focus {
@@ -1149,7 +1148,7 @@ QCheckBox::indicator:indeterminate:disabled {
  */
 
 QRadioButton {
-	padding: 3px;
+	padding: 4px 2px;
 	spacing: 5px;
 	/*min-height: 3ex;
 	min-height: 22px;*/
@@ -1158,21 +1157,25 @@ QRadioButton {
 }
 
 QRadioButton::indicator {
-	width: 8px;
-	height: 8px;
+	width: 11px;
+	height: 11px;
 	background: rgb(%input-bg%);
-	border: 2px solid rgb(%input-bg%);
+	border: 1px solid rgb(%input-border%);
 	border-radius: 6px;
 }
 
-/*QRadioButton::indicator:disabled {
-	background: rgba(%input-bg%, 50%);
-	border-color: rgba(%input-bg%, 50%);
-}*/
+QRadioButton::indicator:disabled {
+	background: transparent;
+}
 
 QRadioButton::indicator:hover {
-	border-color: rgb(%highlight%);
+	background: rgb(%hover%);
+	/*border-color: rgb(%highlight%);*/
 }
+
+/*QRadioButton::indicator:focus {
+	border-color: rgb(%highlight%);
+}*/
 
 QRadioButton::indicator:checked {
 	image: url(:/rsc/radiobutton_checked_%icon-normal%.png);
