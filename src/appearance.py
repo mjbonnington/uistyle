@@ -164,6 +164,19 @@ class Appearance(QtCore.QObject):
 			fh.write(self.stylesheet)
 
 
+	def set_luminance(self, input_color, luminance):
+		"""Set the luminance of a color to a given value.
+
+		Arguments:
+			input_color (QColor) : Input colour to adjust.
+			luminance (int) : Luminance value between 0-255.
+		"""
+		h, s, l, a = input_color.getHsl()
+		out_color = QtGui.QColor()
+		out_color.setHsl(h, s, luminance)
+		return out_color
+
+
 	def color_offset(self, input_color, amount, clamp=None):
 		"""Lighten or darken input_color by a given amount.
 
@@ -191,10 +204,7 @@ class Appearance(QtCore.QObject):
 				max_clamp = clamp
 
 		lum = max(min_clamp, min(input_color.lightness()+amount, max_clamp))
-		h, s, l, a = input_color.getHsl()
-		out_color = QtGui.QColor()
-		out_color.setHsl(h, s, lum)
-		return out_color
+		return self.set_luminance(input_color, lum)
 
 
 	def nearest(self, input_color):
@@ -232,40 +242,49 @@ class Appearance(QtCore.QObject):
 		"""Compute complementary UI colours based on window colour."""
 
 		# self.col['group-bg'] = QtGui.QColor(128, 128, 128)
+		self.col['tooltip'] = QtGui.QColor('#111')
 		self.col['line'] = self.col['window'].darker(110)
-		self.col['tooltip'] = QtGui.QColor(17, 17, 17)
+		self.col['group-bg'] = self.col['window'].lighter(105)
 		self.col['mandatory'] = QtGui.QColor(252, 152, 103)
 		self.col['warning'] = QtGui.QColor(255, 216, 106)
 		self.col['inherited'] = QtGui.QColor(161, 239, 228)
-		self.col['group-bg'] = self.col['window'].lighter(105)
+
+		if self.col['highlight'].lightness() < 136:
+			self.col['highlighted-text'] = QtGui.QColor('#fff')
+		else:
+			self.col['highlighted-text'] = QtGui.QColor('#000')
+
+		if self.col['tooltip'].lightness() < 136:
+			self.col['tooltip-text'] = QtGui.QColor('#fff')
+		else:
+			self.col['tooltip-text'] = QtGui.QColor('#000')
 
 		# Dark mode UI
 		if self.col['window'].lightness() < 128:
-			# self.imgtheme = "light"
-			self.col['text'] = QtGui.QColor(204, 204, 204)
-			self.col['disabled'] = QtGui.QColor(102, 102, 102)
+			self.col['text'] = QtGui.QColor('#ccc')
+			self.col['disabled'] = QtGui.QColor('#666')
+			if self.col['window'].lightness() > 68:
+				self.col['text'] = QtGui.QColor('#fff')
+				self.col['disabled'] = QtGui.QColor('#999')
 
 			# self.col['group-bg'] = QtGui.QColor(0, 0, 0)
 			self.col['button'] = self.color_offset(self.col['window'], +34)
 			self.col['button-border'] = self.col['button']
 			self.col['input-bg'] = self.color_offset(self.col['window'], -34)
 			self.col['input-border'] = self.col['button'].darker(125)
-			self.col['alternate'] = self.col['input-bg'].lighter(105)
-			# self.col['button'] = self.col['window'].lighter(150)
+			self.col['alternate'] = self.col['input-bg'].lighter(108)
 			self.col['menu-bg'] = self.col['window'].darker(125)
 			self.col['menu-border'] = self.col['menu-bg'].lighter(150)
 			self.col['group-header'] = self.col['window'].lighter(150)
 			# self.col['hover'] = self.col['button'].lighter(110)
 
-			if self.col['window'].lightness() > 68:
-				self.col['text'] = QtGui.QColor(255, 255, 255)
-				self.col['disabled'] = QtGui.QColor(153, 153, 153)
-
 		# Light mode UI
 		else:
-			# self.imgtheme = "dark"
-			self.col['text'] = QtGui.QColor(51, 51, 51)
-			self.col['disabled'] = QtGui.QColor(153, 153, 153)
+			self.col['text'] = QtGui.QColor('#333')
+			self.col['disabled'] = QtGui.QColor('#999')
+			if self.col['window'].lightness() < 187:
+				self.col['text'] = QtGui.QColor('#000')
+				self.col['disabled'] = QtGui.QColor('#666')
 
 			# self.col['group-bg'] = QtGui.QColor(255, 255, 255)
 			self.col['button'] = self.col['window'].darker(106)
@@ -273,56 +292,18 @@ class Appearance(QtCore.QObject):
 			self.col['input-bg'] = self.color_offset(self.col['window'], +51)
 			self.col['input-border'] = self.col['window'].darker(105)
 			self.col['alternate'] = self.col['input-bg'].darker(102)
-			# self.col['button'] = QtGui.QColor("#eee")
-			# self.col['menu-bg'] = self.col['window'].darker(110)
 			self.col['menu-bg'] = self.color_offset(self.col['window'], +17)
 			self.col['menu-border'] = self.col['menu-bg'].darker(150)
 			self.col['group-header'] = self.col['window'].darker(110)
 			# self.col['hover'] = self.col['button'].lighter(110)
 
-			if self.col['window'].lightness() < 187:
-				self.col['text'] = QtGui.QColor(0, 0, 0)
-				self.col['disabled'] = QtGui.QColor(102, 102, 102)
-
 		# self.col['checked'] = self.color_offset(self.col['button'], -17)
-		self.col['hover'] = self.col['button'].lighter(105)
+		self.col['hover'] = self.col['button'].lighter(110)
 		# self.col['checked'] = self.col['highlight'].lighter(125)
 		self.col['checked'] = self.color_offset(self.col['button'], -17)
 		self.col['pressed'] = self.col['button'].darker(110)
-
-		if self.col['highlight'].lightness() < 136:
-			self.col['highlighted-text'] = QtGui.QColor(255, 255, 255)
-		else:
-			self.col['highlighted-text'] = QtGui.QColor(0, 0, 0)
-
-		if self.col['tooltip'].lightness() < 136:
-			self.col['tooltip-text'] = QtGui.QColor(255, 255, 255)
-		else:
-			self.col['tooltip-text'] = QtGui.QColor(0, 0, 0)
-
-		# if self.col['button'].lightness() < 170:
-		# 	self.col['button-text'] = self.color_offset(self.col['button'], +68, 204)
-		# else:
-		# 	self.col['button-text'] = self.color_offset(self.col['button'], -68, 51)
 		self.col['button-text'] = self.col['text']
-
-		self.col['mandatory-bg'] = self.col['mandatory']
-		if self.col['mandatory-bg'].lightness() < 128:
-			self.col['mandatory-text'] = self.color_offset(self.col['mandatory-bg'], +68, 204)
-		else:
-			self.col['mandatory-text'] = self.color_offset(self.col['mandatory-bg'], -68, 51)
-
-		self.col['warning-bg'] = self.col['warning']
-		if self.col['warning-bg'].lightness() < 128:
-			self.col['warning-text'] = self.color_offset(self.col['warning-bg'], +68, 204)
-		else:
-			self.col['warning-text'] = self.color_offset(self.col['warning-bg'], -68, 51)
-
-		self.col['inherited-bg'] = self.col['inherited']
-		if self.col['inherited-bg'].lightness() < 128:
-			self.col['inherited-text'] = self.color_offset(self.col['inherited-bg'], +68, 204)
-		else:
-			self.col['inherited-text'] = self.color_offset(self.col['inherited-bg'], -68, 51)
+		self.col['tab-border'] = self.col['button'].lighter(120)
 
 		# Compute icon theme colours
 		self.col['icon-normal'] = self.nearest(self.col['text'])
