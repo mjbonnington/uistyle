@@ -105,14 +105,14 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).clicked.connect(self.exit)
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.exit)
 
-		self.ui.base_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['window'].name())
-		# self.ui.base_colorChooser_button.colorChanged.connect(lambda: self.appearance.set_ui_color('window'))
-		# self.appearance.color_changed.connect(lambda: self.ui.uiBrightness_slider.setValue(self.col['window'].lightness()))
-		self.ui.accent_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['highlight'].name())
-		# self.ui.accent_colorChooser_button.colorChanged.connect(lambda: self.appearance.set_ui_color('highlight'))
-		self.ui.uiBrightness_slider.setValue(self.col['window'].lightness())
+		# self.ui.base_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['window'].name())
+		# # self.ui.base_colorChooser_button.colorChanged.connect(lambda: self.appearance.set_ui_color('window'))
+		# self.ui.accent_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['highlight'].name())
+		# # self.ui.accent_colorChooser_button.colorChanged.connect(lambda: self.appearance.set_ui_color('highlight'))
+		# self.ui.uiBrightness_slider.setValue(self.col['window'].lightness())
 		self.ui.uiBrightness_slider.valueChanged.connect(lambda value: self.appearance.set_ui_brightness(value))
 		self.ui.fontSize_spinBox.valueChanged.connect(lambda value: self.appearance.set_font_size(value))
+		self.ui.resetStylesheet_pushButton.clicked.connect(self.reset_appearance)
 		self.colorChanged.connect(lambda attr, color: self.appearance.set_ui_color(attr, color))
 		self.colorChanged.connect(lambda: self.ui.uiBrightness_slider.setValue(self.col['window'].lightness()))
 
@@ -128,6 +128,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.thumbnail_imageButton.imageChanged.connect(lambda imgpath: self.ui.thumbnail_lineEdit.setText(imgpath))
 		self.ui.thumbnail_lineEdit.textChanged.connect(lambda text: self.ui.thumbnail_imageButton.updateThumbnail(text))
 
+		self.reset_appearance()
 		self.build_styles()
 
 		# Add 'Sort by' separator label
@@ -158,6 +159,12 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 
 	# [Application code goes here]
 
+
+	def reset_appearance(self):
+		self.ui.base_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['sys-window'].name())
+		self.ui.accent_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['sys-highlight'].name())
+		self.ui.uiBrightness_slider.setValue(self.col['sys-window'].lightness())
+		self.appearance.reset_()
 
 	def info(self):
 		""" Return some version info about Python, Qt, binding, etc.

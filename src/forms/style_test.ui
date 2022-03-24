@@ -57,9 +57,6 @@
            <height>0</height>
           </size>
          </property>
-         <property name="toolTip">
-          <string>Base colour</string>
-         </property>
          <property name="colorChooser" stdset="0">
           <bool>true</bool>
          </property>
@@ -78,6 +75,19 @@
          </property>
          <property name="buddy">
           <cstring>uiBrightness_slider</cstring>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="uiBrightness_spinBox">
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>255</number>
+         </property>
+         <property name="value">
+          <number>51</number>
          </property>
         </widget>
        </item>
@@ -123,9 +133,6 @@
            <width>64</width>
            <height>0</height>
           </size>
-         </property>
-         <property name="toolTip">
-          <string>Highlight colour</string>
          </property>
          <property name="colorChooser" stdset="0">
           <bool>true</bool>
@@ -188,7 +195,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="resetStylesheet_toolButton">
+        <widget class="QPushButton" name="resetStylesheet_pushButton">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -2788,8 +2795,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>981</width>
-                 <height>537</height>
+                 <width>977</width>
+                 <height>527</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -2897,8 +2904,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>981</width>
-                 <height>124</height>
+                 <width>977</width>
+                 <height>115</height>
                 </rect>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -2916,8 +2923,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>316</width>
-                      <height>104</height>
+                      <width>317</width>
+                      <height>99</height>
                      </rect>
                     </property>
                    </widget>
@@ -2932,7 +2939,7 @@ p, li { white-space: pre-wrap; }
                       <x>0</x>
                       <y>0</y>
                       <width>317</width>
-                      <height>104</height>
+                      <height>99</height>
                      </rect>
                     </property>
                    </widget>
@@ -2946,8 +2953,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>316</width>
-                      <height>104</height>
+                      <width>317</width>
+                      <height>99</height>
                      </rect>
                     </property>
                    </widget>
@@ -3267,8 +3274,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>983</width>
-                <height>104</height>
+                <width>981</width>
+                <height>101</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3280,8 +3287,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>100</width>
-                <height>30</height>
+                <width>96</width>
+                <height>26</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3414,8 +3421,11 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>1045</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
+   </property>
+   <property name="noBackground" stdset="0">
+    <bool>false</bool>
    </property>
    <widget class="QMenu" name="menuTest">
     <property name="title">
@@ -3838,8 +3848,8 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>952</x>
-     <y>65</y>
+     <x>944</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
      <x>23</x>
@@ -3854,12 +3864,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>130</x>
-     <y>825</y>
+     <x>164</x>
+     <y>819</y>
     </hint>
     <hint type="destinationlabel">
-     <x>140</x>
-     <y>794</y>
+     <x>184</x>
+     <y>779</y>
     </hint>
    </hints>
   </connection>
@@ -3870,12 +3880,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>130</x>
-     <y>825</y>
+     <x>164</x>
+     <y>819</y>
     </hint>
     <hint type="destinationlabel">
-     <x>625</x>
-     <y>794</y>
+     <x>1010</x>
+     <y>779</y>
     </hint>
    </hints>
   </connection>
@@ -3886,12 +3896,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>479</x>
-     <y>304</y>
+     <x>749</x>
+     <y>296</y>
     </hint>
     <hint type="destinationlabel">
-     <x>179</x>
-     <y>309</y>
+     <x>275</x>
+     <y>305</y>
     </hint>
    </hints>
   </connection>
@@ -3906,8 +3916,40 @@ p, li { white-space: pre-wrap; }
      <y>290</y>
     </hint>
     <hint type="destinationlabel">
-     <x>190</x>
-     <y>295</y>
+     <x>460</x>
+     <y>296</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uiBrightness_spinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>uiBrightness_slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>358</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>375</x>
+     <y>56</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uiBrightness_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>uiBrightness_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>390</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>70</y>
     </hint>
    </hints>
   </connection>

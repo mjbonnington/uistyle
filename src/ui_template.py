@@ -957,6 +957,7 @@ class TemplateUI(object):
 		color = self.colorPickerDialog(current_color)
 		if color:
 			widget.setStyleSheet("QWidget { background-color: %s }" % color.name())
+			widget.setToolTip(color.name())
 			category, attr = self.getWidgetMeta(self.sender())
 			self.storeValue(category, attr, color.name())
 			self.colorChanged.emit(attr, color)  # Move when subclassing color picker button

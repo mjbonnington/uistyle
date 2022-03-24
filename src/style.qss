@@ -1,9 +1,10 @@
 /* Note:
  * Don't change the order of these definitions! The order is important due to
  * the hierarchy of class inheritance.
- * This stylesheet uses custom variables for pre-defined colours. The variable
- * names are encased with % symbols (e.g. %colour%) and replaced at run-time
- * with the values defined in the Python module 'ui_template'.
+ * This stylesheet uses custom variables for pre-defined colours and other
+ * dynamic property values. The variable names are encased with % symbols
+ * (e.g. %colour%) and replaced at run-time with the values defined in the
+ * Python module 'appearance.py'.
  */
 
 /* Reset styles */
@@ -210,7 +211,7 @@ QMenuBar {
 	margin: 0;
 	padding: 0;
 	spacing: 0;
-	background: rgba(%menu-bg%, 50%);
+	background: rgb(%menu-bg%);
 }
 
 QMenuBar::item {
@@ -238,16 +239,19 @@ QMenu {
 	/*padding: 1ex 0;*/
 	padding: 0.3em 0;
 	background: rgb(%menu-bg%);
-	border: none;
 	/*border: 1px solid rgb(%menu-border%);*/
 }
 
 QMenu::item {
 	margin: 0;
 	/*padding: 0.6ex 6ex 0.6ex 3ex;*/
-	padding: 0.3em 2em 0.3em 2em;  /*Top, Right, Bottom, Left*/
+	padding: 0.3em 2em 0.3em 1.2em;  /*Top, Right, Bottom, Left*/
 	spacing: 0;
 }
+
+/*QMenu::item::has-indicator {
+	padding-left: 0;
+}*/
 
 QMenu::item:selected {
 	background: rgb(%highlight%);
@@ -284,10 +288,6 @@ QMenu::icon {
 	left: 1.5ex;
 }
 
-/*QMenu::icon:disabled {
-	color: rgb(%disabled%);
-}*/
-
 /* Sub-menu indicator arrow */
 QMenu::right-arrow {
 	/*margin-left: 1ex;*/
@@ -309,12 +309,16 @@ QMenu::indicator {
 	left: 1.5ex;
 	width: 11px;
 	height: 11px;
-	background: rgb(%input-bg%);
-	border: 1px solid rgb(%menu-border%);
+	background: transparent;
+	/*border: 1px solid rgb(%menu-border%);*/
 }
 
 QMenu::indicator:disabled {
 	background: transparent;
+}
+
+QMenu::indicator:selected {
+	border-color: rgb(%highlighted-text%);
 }
 
 /* Non-exclusive indicator - check box style indicator
@@ -331,6 +335,10 @@ QMenu::indicator:non-exclusive:checked:disabled {
 	image: url(:/rsc/checkbox_checked_%icon-disabled%.png);
 }
 
+QMenu::indicator:non-exclusive:checked:selected {
+	image: url(:/rsc/checkbox_checked_%icon-highlighted%.png);
+}
+
 /* Exclusive indicator - radio button style indicator
    (see QActionGroup::setExclusive) */
 QMenu::indicator:exclusive {
@@ -343,6 +351,10 @@ QMenu::indicator:exclusive:checked {
 
 QMenu::indicator:exclusive:checked:disabled {
 	image: url(:/rsc/radiobutton_checked_%icon-disabled%.png);
+}
+
+QMenu::indicator:exclusive:checked:selected {
+	image: url(:/rsc/radiobutton_checked_%icon-highlighted%.png);
 }
 
 /* End Menus */
@@ -576,6 +588,10 @@ QGroupBox {
 	background: transparent;
 }
 
+QGroupBox::no-title {
+	margin: 0;
+}
+
 QGroupBox:disabled {
 	border-color: rgba(%disabled%, 10%);
 	background: transparent;
@@ -591,7 +607,9 @@ QGroupBox:flat {
 }
 
 QGroupBox::title {
+	/*subcontrol-origin: margin;*/
 	bottom: 20px;
+	spacing: 4px;
 }
 
 /* Custom widget for expandable rollout group */
@@ -600,7 +618,7 @@ QGroupBox[expandable="true"] {
 	/*margin-top: 20px;*/
 	padding: 0;
 	border: 0;
-	border-top: 20px solid rgb(%group-header%);
+	border-top: 22px solid rgb(%group-header%);
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	/*border-bottom-left-radius: 2px;
@@ -615,7 +633,7 @@ QGroupBox[expandable="true"]::title {
 	right: 0;
 	top: 0;
 	bottom: 0;
-	height: 20px;
+	height: 22px;
 	border: none;
 	border-radius: 0;
 	/*subcontrol-origin: margin;
@@ -1089,8 +1107,8 @@ QToolButton::menu-button {
  */
 
 QCheckBox {
-	padding: 4px 2px;
-	spacing: 5px;
+	padding: 2px 0;
+	spacing: 6px;
 	/*min-height: 3ex;
 	min-height: 22px;*/
 	border: none;
@@ -1099,8 +1117,8 @@ QCheckBox {
 
 QCheckBox::indicator, 
 QGroupBox::indicator {
-	width: 11px;
-	height: 11px;
+	width: 13px;
+	height: 13px;
 	background: rgb(%input-bg%);
 	border: 1px solid rgb(%input-border%);
 	border-radius: 0;
@@ -1148,8 +1166,8 @@ QCheckBox::indicator:indeterminate:disabled {
  */
 
 QRadioButton {
-	padding: 4px 2px;
-	spacing: 5px;
+	padding: 2px 0;
+	spacing: 6px;
 	/*min-height: 3ex;
 	min-height: 22px;*/
 	border: none;
@@ -1157,11 +1175,11 @@ QRadioButton {
 }
 
 QRadioButton::indicator {
-	width: 11px;
-	height: 11px;
+	width: 13px;
+	height: 13px;
 	background: rgb(%input-bg%);
 	border: 1px solid rgb(%input-border%);
-	border-radius: 6px;
+	border-radius: 7px;
 }
 
 QRadioButton::indicator:disabled {

@@ -248,7 +248,7 @@ class Appearance(QtCore.QObject):
 			# self.col['group-bg'] = QtGui.QColor(0, 0, 0)
 			self.col['button'] = self.color_offset(self.col['window'], +34)
 			self.col['button-border'] = self.col['button']
-			self.col['input-bg'] = self.col['window'].darker(150)
+			self.col['input-bg'] = self.color_offset(self.col['window'], -34)
 			self.col['input-border'] = self.col['button'].darker(125)
 			self.col['alternate'] = self.col['input-bg'].lighter(105)
 			# self.col['button'] = self.col['window'].lighter(150)
@@ -257,7 +257,7 @@ class Appearance(QtCore.QObject):
 			self.col['group-header'] = self.col['window'].lighter(150)
 			# self.col['hover'] = self.col['button'].lighter(110)
 
-			if self.col['window'].lightness() > 64:
+			if self.col['window'].lightness() > 68:
 				self.col['text'] = QtGui.QColor(255, 255, 255)
 				self.col['disabled'] = QtGui.QColor(153, 153, 153)
 
@@ -270,8 +270,8 @@ class Appearance(QtCore.QObject):
 			# self.col['group-bg'] = QtGui.QColor(255, 255, 255)
 			self.col['button'] = self.col['window'].darker(106)
 			self.col['button-border'] = self.col['button'].darker(125)
-			self.col['input-bg'] = self.col['window'].lighter(105)
-			self.col['input-border'] = self.col['input-bg'].darker(120)
+			self.col['input-bg'] = self.color_offset(self.col['window'], +51)
+			self.col['input-border'] = self.col['window'].darker(105)
 			self.col['alternate'] = self.col['input-bg'].darker(102)
 			# self.col['button'] = QtGui.QColor("#eee")
 			# self.col['menu-bg'] = self.col['window'].darker(110)
@@ -280,7 +280,7 @@ class Appearance(QtCore.QObject):
 			self.col['group-header'] = self.col['window'].darker(110)
 			# self.col['hover'] = self.col['button'].lighter(110)
 
-			if self.col['window'].lightness() < 192:
+			if self.col['window'].lightness() < 187:
 				self.col['text'] = QtGui.QColor(0, 0, 0)
 				self.col['disabled'] = QtGui.QColor(102, 102, 102)
 
@@ -339,8 +339,7 @@ class Appearance(QtCore.QObject):
 		"""
 		h, s, l, a = self.col['window'].getHsl()
 		self.col['window'].setHsl(h, s, value)
-		self.compute_ui_palette()
-		self.apply_stylesheet(self.stylesheet_orig)
+		self.reset_()
 
 
 	@QtCore.Slot(str, QtGui.QColor)
@@ -353,8 +352,7 @@ class Appearance(QtCore.QObject):
 			color (QColor) : Colour to use.
 		"""
 		self.col[role] = color
-		self.compute_ui_palette()
-		self.apply_stylesheet(self.stylesheet_orig)
+		self.reset_()
 
 
 	@QtCore.Slot(int)
@@ -365,6 +363,11 @@ class Appearance(QtCore.QObject):
 			value (int) : Font size in pixels.
 		"""
 		self.font_size = value
+		self.reset_()
+
+
+	def reset_(self):
+		"""Reset the stylesheet."""
 		self.compute_ui_palette()
 		self.apply_stylesheet(self.stylesheet_orig)
 
