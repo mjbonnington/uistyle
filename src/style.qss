@@ -51,7 +51,7 @@ QWidget {
 QWidget:disabled {
 	background: transparent;
 	alternate-background-color: transparent;
-	selection-background-color: rgba(%disabled%, 30%);
+	selection-background-color: rgb(%disabled-bg%);
 	selection-color: rgb(%disabled%);
 	color: rgb(%disabled%);
 	text-decoration: none;
@@ -162,7 +162,7 @@ QAbstractItemView::item:selected:hover {
 }
 
 QAbstractItemView::item:selected:disabled {
-	background-color: rgba(%disabled%, 30%);
+	background-color: rgb(%disabled-bg%);
 	color: rgb(%disabled%);
 }
 
@@ -374,7 +374,7 @@ QMenu::indicator:exclusive {
 
 /* The tab widget frame */
 QTabWidget::pane {
-	background: rgb(%group-bg%);
+	background: rgba(%group-bg%, 67%);
 	border: 0 solid rgb(%tab-border%);
 }
 
@@ -461,7 +461,7 @@ QTabBar::tab:last:right {
 }
 
 QTabBar::tab:selected:disabled {
-	/*background: transparent;*/
+	background: rgb(%disabled-bg%);
 	color: rgb(%disabled%);
 }
 
@@ -605,7 +605,7 @@ QGroupBox {
 	margin: 0;
 	border: 1px solid rgb(%line%);
 	border-radius: 4px;
-	background: rgba(%group-bg%, 50%);
+	background: rgba(%group-bg%, 33%);
 	/*background: transparent;*/
 }
 
@@ -730,7 +730,7 @@ QProgressBar:disabled {
 }
 
 QProgressBar::chunk:disabled {
-	background: rgba(%disabled%, 50%);
+	background: rgb(%disabled-bg%);
 }
 
 /* QStatusBar
@@ -813,7 +813,7 @@ QTreeView::branch:selected {
 	background-color: rgb(%highlight%);
 }
 QTreeView::branch:selected:disabled {
-	background-color: rgba(%disabled%, 30%);
+	background-color: rgba(%disabled%, 25%);
 }*/
 
 QTreeView[branchLinesVisible="true"]::branch:has-siblings:!adjoins-item {
@@ -1015,7 +1015,7 @@ QPushButton:checked {
 
 QPushButton:disabled,
 QPushButton:default:disabled {
-	background: rgba(%button%, 25%);
+	background: rgb(%disabled-bg%);
 	color: rgb(%disabled%);
 }
 

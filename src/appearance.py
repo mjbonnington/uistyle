@@ -105,7 +105,7 @@ class Appearance(QtCore.QObject):
 
 		self.clear_stylesheet()
 		QtWidgets.QApplication.setStyle(style)
-		print("Set style to '%s'" % style)
+		return "Set style to '{}'".format(style)
 
 
 	def clear_stylesheet(self):
@@ -203,7 +203,7 @@ class Appearance(QtCore.QObject):
 			else:
 				max_clamp = clamp
 
-		lum = max(min_clamp, min(input_color.lightness()+amount, max_clamp))
+		lum = max(min_clamp, min(input_color.lightness() + amount, max_clamp))
 		return self.set_luminance(input_color, lum)
 
 
@@ -223,10 +223,13 @@ class Appearance(QtCore.QObject):
 		ranked_diffs = {}
 		for entry in palette:
 			if len(entry) == 3:
-				triplet = "".join([x*2 for x in entry])
+				triplet = "".join([x * 2 for x in entry])
 			elif len(entry) == 6:
 				triplet = entry
-			p_r, p_g, p_b = bytes.fromhex(triplet)
+			try:
+				p_r, p_g, p_b = bytes.fromhex(triplet)
+			except AttributeError:
+				p_r, p_g, p_b = tuple(int(triplet[i : i + 2], 16) for i in (0, 2, 4))
 			delta_r = abs(r - p_r)
 			delta_g = abs(g - p_g)
 			delta_b = abs(b - p_b)
@@ -277,6 +280,7 @@ class Appearance(QtCore.QObject):
 			self.col['menu-border'] = self.col['menu-bg'].lighter(150)
 			self.col['group-header'] = self.col['window'].lighter(150)
 			# self.col['hover'] = self.col['button'].lighter(110)
+			self.col['disabled-bg'] = self.color_offset(self.col['window'], +17)
 
 		# Light mode UI
 		else:
@@ -296,6 +300,7 @@ class Appearance(QtCore.QObject):
 			self.col['menu-border'] = self.col['menu-bg'].darker(150)
 			self.col['group-header'] = self.col['window'].darker(110)
 			# self.col['hover'] = self.col['button'].lighter(110)
+			self.col['disabled-bg'] = self.color_offset(self.col['window'], -17)
 
 		# self.col['checked'] = self.color_offset(self.col['button'], -17)
 		self.col['hover'] = self.col['button'].lighter(110)

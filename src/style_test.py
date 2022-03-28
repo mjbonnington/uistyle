@@ -39,16 +39,16 @@ import imagebutton
 
 cfg = dict(
 	app_id="ic_ui",  # This should match the Rez package name
-	app_name="Style Test", 
+	app_name="Style Test",
 
-	description="Template for Qt GUI application written in Python.\nUses Qt.py for compatibility with all Python bindings.", 
-	credits="Principal developer: Mike Bonnington", 
+	description="Template for Qt GUI application written in Python.\nUses Qt.py for compatibility with all Python bindings.",
+	credits="Principal developer: Mike Bonnington",
 
-	ui_file=os.path.join(os.path.dirname(__file__), 'forms', 'style_test.ui'), 
-	stylesheet='style.qss', 
-	icon='color.svg', 
+	ui_file=os.path.join(os.path.dirname(__file__), "forms", "style_test.ui"),
+	stylesheet="style.qss",
+	icon="color.svg",
 
-	store_window_geometry=True, 
+	store_window_geometry=True,
 )
 
 # ----------------------------------------------------------------------------
@@ -99,7 +99,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.actionOpen_Stylesheet.triggered.connect(self.open_qss)
 		self.ui.actionSave_Stylesheet.triggered.connect(self.save_qss)
 		self.ui.actionAbout.triggered.connect(self.about_dialog)
-		self.ui.actionDynamic_QSS.triggered.connect(self.appearance.read_stylesheet)
+		self.ui.actionDynamic_QSS.triggered.connect(self.set_dynamic_style)
 
 		self.ui.actionQuit.triggered.connect(self.exit)
 		self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).clicked.connect(self.exit)
@@ -156,7 +156,6 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		otherGroup.addAction(self.ui.actionAttribute)
 		otherGroup.addAction(self.ui.actionObject)
 
-
 	# [Application code goes here]
 
 
@@ -166,36 +165,58 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.uiBrightness_slider.setValue(self.col['sys-window'].lightness())
 		self.appearance.reset_()
 
+
 	def info(self):
-		""" Return some version info about Python, Qt, binding, etc.
-		"""
+		"""Return some version info about Python, Qt, binding, etc."""
+
 		from Qt import __binding__, __binding_version__
 
-		print("Python %d.%d.%d" %(sys.version_info[0], sys.version_info[1], sys.version_info[2]))
+		print("Python %d.%d.%d" % (sys.version_info[0], sys.version_info[1], sys.version_info[2]))
 		print("%s %s" % (__binding__, __binding_version__))
 		print("Qt %s" % QtCore.qVersion())
 
 
 	def build_styles(self):
-		"""Create menus fo built-in Qt styles."""
+		"""Create menus for predefined Qt styles."""
 
 		alignmentGroup = QtWidgets.QActionGroup(self)
 		alignmentGroup.addAction(self.ui.actionDynamic_QSS)
 		for style in QtWidgets.QStyleFactory.keys():
-			actionname = "action_style%s" % style
+			action_name = "action_style_%s" % style
 			action = QtWidgets.QAction(style, None)
-			action.setObjectName(actionname)
+			action.setObjectName(action_name)
 			action.setCheckable(True)
-			action.setProperty('style', style)
-			action.triggered.connect(lambda: self.appearance.set_qt_style(self.sender().property('style')))
+			action.setProperty("style", style)
+			action.triggered.connect(self.set_style)
 			self.ui.menuStyle.addAction(action)
 			alignmentGroup.addAction(action)
+
+			# Make a class-scope reference to this object
+			# (won't work without it for some reason)
+			exec_str = "self.%s = action" % action_name
+			exec(exec_str)
+
+
+	def set_style(self):
+		"""Wrapper to apply predefined Qt style."""
+
+		msg = self.appearance.set_qt_style(self.sender().property("style"))
+		self.mixedControls_groupBox.hide()
+		self.ui.statusbar.showMessage(msg)
+
+
+	def set_dynamic_style(self):
+		"""Wrapper to apply custom dynamic style."""
+
+		self.appearance.read_stylesheet()
+		self.mixedControls_groupBox.show()
+		self.ui.statusbar.showMessage("Using custom dynamic stylesheet")
 
 
 	def openUI(self):
 		"""Load UI into its own tab."""
 
-		ui_file = self.fileDialog('.', fileFilter='UI files (*.ui)')
+		ui_file = self.fileDialog(".", fileFilter="UI files (*.ui)")
 		# Add and select new tab
 		if ui_file:
 			ui = QtCompat.loadUi(ui_file)
@@ -208,7 +229,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 	def open_qss(self):
 		"""Load QSS stylesheet file and apply to UI."""
 
-		qss_file = self.fileDialog('.', fileFilter='Qt Style Sheet files (*.qss)')
+		qss_file = self.fileDialog(".", fileFilter="Qt Style Sheet files (*.qss)")
 		# Load and set stylesheet
 		if qss_file:
 			self.appearance.qss = qss_file
@@ -219,7 +240,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 	def save_qss(self):
 		"""Save QSS stylesheet."""
 
-		qss_file = self.fileDialog('.', fileFilter='Qt Style Sheet files (*.qss)')
+		qss_file = self.fileDialog(".", fileFilter="Qt Style Sheet files (*.qss)")
 		if qss_file:
 			self.appearance.write_stylesheet(qss_file)
 
@@ -239,7 +260,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		# Store window geometry and state of certain widgets
 		self.storeWindow()
 		self.settings.setValue("splitterSizes", self.ui.splitter.saveState())
-		#self.settings.setValue("renderQueueView", self.ui.renderQueue_treeWidget.header().saveState())
+		# self.settings.setValue("renderQueueView", self.ui.renderQueue_treeWidget.header().saveState())
 
 		QtWidgets.QMainWindow.closeEvent(self, event)
 
@@ -268,13 +289,13 @@ if __name__ == "__main__":
 
 	# Hack to fix 'etching' on disabled text
 	pal = QtWidgets.QApplication.palette()
-	#pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Text, QtGui.QColor(102, 102, 102))
+	# pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Text, QtGui.QColor(102, 102, 102))
 	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Light, QtGui.QColor(0, 0, 0, 0))
 	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Midlight, QtGui.QColor(0, 0, 0, 0))
 	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Dark, QtGui.QColor(0, 0, 0, 0))
 	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Mid, QtGui.QColor(0, 0, 0, 0))
 	pal.setColor(QtGui.QPalette.Disabled, QtGui.QPalette.Shadow, QtGui.QColor(0, 0, 0, 0))
-	app.setPalette(pal);
+	app.setPalette(pal)
 
 	myApp = StyleTestApp()
 	sys.exit(app.exec_())

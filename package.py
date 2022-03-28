@@ -9,18 +9,18 @@ description = 'UI-related modules'
 authors = ['mjbonnington']
 
 requires = [
-    'python-2.7+', 
-    'PySide2', 
+	'python-2.7+', 
+	'PySide2', 
 ]
 
 build_requires = [
-    'rezlib', 
+	'rezlib', 
 ]
 
 build_command = 'python -m build {install}'
 
 
 def commands():
-    env.PYTHONPATH.append('{root}')
-    env.IC_ICONPATH.append('{root}/icons')
-    alias("style-test", "python {root}/style_test.py")
+	env.PYTHONPATH.append('{root}')
+	env.IC_ICONPATH.append('{root}/icons')
+	alias('style-test', 'python {root}/style_test.py')
