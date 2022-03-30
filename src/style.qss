@@ -606,7 +606,6 @@ QGroupBox {
 	border: 1px solid rgb(%line%);
 	border-radius: 4px;
 	background: rgba(%group-bg%, 33%);
-	/*background: transparent;*/
 }
 
 /* Leave space at the top for the title */
@@ -624,8 +623,13 @@ QGroupBox:focus {
 }
 
 QGroupBox:flat {
-	/*margin-top: 0;*/
+	border-radius: 0;
+	border-color: transparent;
 	background: transparent;
+}
+
+QGroupBox:flat[title] {
+	border-top: 1px solid rgb(%line%);
 }
 
 QGroupBox::title {
@@ -640,12 +644,12 @@ QGroupBox[expandable="true"] {
 	/*margin-top: 20px;*/
 	padding: 0;
 	border: 0;
+	border-radius: 0;
 	border-top: 22px solid rgb(%group-header%);
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
-	/*border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;*/
-	/*background: #4c4c4c;*/
+	background: rgb(%group-bg%)
+}
+QGroupBox[expandable="true"]:disabled {
+	border-color: rgb(%disabled-bg%);
 }
 
 QGroupBox[expandable="true"]::title {
@@ -662,14 +666,17 @@ QGroupBox[expandable="true"]::title {
 	subcontrol-position: top center;*/
 	background: rgb(%group-header%);
 }
+QGroupBox[expandable="true"]::title:disabled {
+	background: rgb(%disabled-bg%);
+}
 
 QGroupBox[expandable="true"]::indicator {
 	margin: 0;
 	padding: 0;
-	width: 11px;
-	height: 11px;
+	width: 13px;
+	height: 13px;
 	border: none;
-	border-radius: 0;
+	border-radius: 6px;
 	border-image: none;
 	background: none;
 	image: url(:/rsc/arrow_right_%icon-normal%.png);
@@ -683,6 +690,10 @@ QGroupBox[expandable="true"]::indicator:checked {
 }
 QGroupBox[expandable="true"]::indicator:checked:disabled {
 	image: url(:/rsc/arrow_down_%icon-disabled%.png);
+}
+
+QGroupBox[expandable="true"]::indicator:hover {
+	background: rgb(%hover%);
 }
 
 /* QSplitter

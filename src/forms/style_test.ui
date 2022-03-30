@@ -715,9 +715,6 @@
              <property name="title">
               <string>Radio Buttons</string>
              </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
              <property name="checkable">
               <bool>false</bool>
              </property>
@@ -753,9 +750,6 @@
             <widget class="QGroupBox" name="checkBoxes_groupBox">
              <property name="title">
               <string>Check Boxes</string>
-             </property>
-             <property name="flat">
-              <bool>true</bool>
              </property>
              <property name="checkable">
               <bool>false</bool>
@@ -800,7 +794,7 @@
         <item>
          <widget class="QGroupBox" name="allButtons_groupBox">
           <property name="title">
-           <string>Regular Buttons</string>
+           <string>Regular Buttons - flat group boxes</string>
           </property>
           <property name="flat">
            <bool>false</bool>
@@ -816,6 +810,9 @@
             <widget class="QGroupBox" name="pushButtons_groupBox">
              <property name="title">
               <string>Push Buttons</string>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
              </property>
              <layout class="QGridLayout" name="gridLayout_6">
               <item row="0" column="1">
@@ -2829,8 +2826,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>981</width>
-                 <height>537</height>
+                 <width>780</width>
+                 <height>524</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -2938,8 +2935,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>981</width>
-                 <height>124</height>
+                 <width>224</width>
+                 <height>82</height>
                 </rect>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -2957,8 +2954,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>316</width>
-                      <height>104</height>
+                      <width>96</width>
+                      <height>26</height>
                      </rect>
                     </property>
                    </widget>
@@ -2972,8 +2969,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>317</width>
-                      <height>104</height>
+                      <width>96</width>
+                      <height>26</height>
                      </rect>
                     </property>
                    </widget>
@@ -2987,8 +2984,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>316</width>
-                      <height>104</height>
+                      <width>96</width>
+                      <height>26</height>
                      </rect>
                     </property>
                    </widget>
@@ -3308,8 +3305,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>983</width>
-                <height>104</height>
+                <width>96</width>
+                <height>26</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3321,8 +3318,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>100</width>
-                <height>30</height>
+                <width>96</width>
+                <height>26</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3455,7 +3452,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>1045</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <property name="noBackground" stdset="0">

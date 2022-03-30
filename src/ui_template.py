@@ -1077,7 +1077,7 @@ class TemplateUI(object):
 		if state:
 			groupBox.setFixedHeight(groupBox.sizeHint().height())
 		else:
-			groupBox.setFixedHeight(20)  # Slightly hacky - needs to match value defined in QSS
+			groupBox.setFixedHeight(22)  # Slightly hacky - needs to match value defined in QSS
 
 		#self.setFixedHeight(self.sizeHint().height())  # Resize window
 
