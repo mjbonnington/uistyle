@@ -84,15 +84,15 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 
 		self.info()
 
-		# Set icons
-		self.ui.toolButton_10.setIcon(self.iconSet('folder.svg'))
-		self.ui.toolButton_11.setIcon(self.iconSet('computer-symbolic.svg'))
-		self.ui.toolButton_12.setIcon(self.iconSet('utilities-terminal-symbolic.svg'))
-		self.ui.toolButton_13.setIcon(self.iconSet('refresh.svg'))
-		self.ui.toolButton_14.setIcon(self.iconSet('add.svg'))
-		self.ui.toolButton_15.setIcon(self.iconSet('edit.svg'))
-		self.ui.toolButton_16.setIcon(self.iconSet('merge.svg'))
-		self.ui.toolButton_17.setIcon(self.iconSet('clear.svg'))
+		# # Set icons
+		# self.set_icons()
+
+		# Add popup menus to buttons
+		self.ui.menu1_pushButton.setMenu(self.ui.menuTest)
+		self.ui.popup1_toolButton.setMenu(self.ui.menuTest)
+		self.ui.popup2_toolButton.setMenu(self.ui.menuAnother)
+		self.ui.popup3_toolButton.setMenu(self.ui.menuAnother)
+		self.ui.popup4_toolButton.setMenu(self.ui.menuTest)
 
 		# Connect signals & slots
 		self.ui.actionOpen_UI.triggered.connect(self.openUI)
@@ -135,7 +135,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		label = QtWidgets.QLabel("Sort by:")
 		sortBy_separator = QtWidgets.QWidgetAction(self)
 		sortBy_separator.setDefaultWidget(label)
-		self.ui.menuTest_2.insertAction(self.ui.actionName, sortBy_separator)
+		self.ui.menuAnother.insertAction(self.ui.actionName, sortBy_separator)
 
 		# Make 'Sort by' actions mutually exclusive
 		alignmentGroup = QtWidgets.QActionGroup(self)
@@ -149,7 +149,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		other_separator = QtWidgets.QWidgetAction(self)
 		other_separator.setDefaultWidget(label)
 		other_separator.setEnabled(False)
-		self.ui.menuTest_2.insertAction(self.ui.actionAttribute, other_separator)
+		self.ui.menuAnother.insertAction(self.ui.actionAttribute, other_separator)
 
 		# Make 'Other' actions mutually exclusive
 		otherGroup = QtWidgets.QActionGroup(self)
@@ -159,11 +159,25 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 	# [Application code goes here]
 
 
+	def set_icons(self):
+		self.ui.info_toolButton.setIcon(self.iconSet('help-about.svg'))
+		self.ui.test1_toolButton.setIcon(self.iconSet('folder.svg'))
+		self.ui.test2_toolButton.setIcon(self.iconSet('computer-symbolic.svg'))
+		self.ui.popup1_toolButton.setIcon(self.iconSet('utilities-terminal-symbolic.svg'))
+		self.ui.popup2_toolButton.setIcon(self.iconSet('refresh.svg'))
+		self.ui.test3_toolButton.setIcon(self.iconSet('add.svg'))
+		self.ui.test4_toolButton.setIcon(self.iconSet('edit.svg'))
+		self.ui.popup3_toolButton.setIcon(self.iconSet('merge.svg'))
+		self.ui.popup4_toolButton.setIcon(self.iconSet('clear.svg'))
+
+
 	def reset_appearance(self):
 		self.ui.base_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['sys-window'].name())
 		self.ui.accent_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['sys-highlight'].name())
 		self.ui.uiBrightness_slider.setValue(self.col['sys-window'].lightness())
 		self.appearance.reset_()
+		self.set_icons()
+		self.ui.info_toolButton.setToolTip("window-color: {}\naccent-color: {}".format(self.col['window'].name(), self.col['highlight'].name()))
 
 
 	def info(self):

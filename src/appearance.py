@@ -18,30 +18,30 @@ class Appearance(QtCore.QObject):
 	font_size = 11
 	color_changed = QtCore.Signal()
 
-	def __init__(self, widget, qss=None):
+	def __init__(self, widget, qss=None, window_color=None, accent_color=None, font_size=11):
 		"""Class constructor.
 
 		Arguments:
 			widget (QObject) - Apply styles to this widget/window.
+
+		Keyword arguments:
 			qss (str) - File path to QSS stylesheet file.
+			window_color (QColor) - Color to use for window background.
+			accent_color (QColor) - Color to use for accents and highlights.
+			font-size (int) - Font size in pixels for standard UI.
 		"""
 		super(Appearance, self).__init__()
 		self.widget = widget
 		self.qss = qss
 
-		# Store some system UI colours & define colour palette ---------------
-		self.col['text'] = QtGui.QColor(204, 204, 204)
-		self.col['disabled'] = QtGui.QColor(102, 102, 102)
-		self.col['highlighted-text'] = QtGui.QColor(255, 255, 255)
+		# Store some system UI colours & generate colour palette -------------
 		self.col['sys-window'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Window)
 		self.col['sys-highlight'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Highlight)
 
-		self.col['window'] = self.col['sys-window']  # Use base window color from OS / parent app
-		# self.col['window'] = QtGui.QColor('#444444')  # Standard dark grey
-		# self.col['window'] = QtGui.QColor('#33393b')  # Adwaita dark
+		self.col['window'] = self.col['sys-window'] if window_color is None else window_color  # Use base window color from OS / parent app
+		self.col['highlight'] = self.col['sys-highlight'] if accent_color is None else accent_color # Use highlight color from OS / parent app
 
-		self.col['highlight'] = self.col['sys-highlight']  # Use highlight color from OS / parent app
-		# self.col['highlight'] = QtGui.QColor('#78909c')
+		self.font_size = font_size
 
 		self.compute_ui_palette()
 		# p = QtGui.QPalette()
@@ -356,6 +356,7 @@ class Appearance(QtCore.QObject):
 		"""Reset the stylesheet."""
 		self.compute_ui_palette()
 		self.apply_stylesheet(self.stylesheet_orig)
+		self.widget.set_icons()  #
 
 
 	# # @QtCore.Slot()

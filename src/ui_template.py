@@ -98,6 +98,9 @@ class TemplateUI(object):
 		ui_file="", 
 		stylesheet="", 
 		icon=None, 
+		window_color=None, 
+		accent_color=None, 
+		font_size=11, 
 		prefs_file=None, 
 		store_window_geometry=True):
 		"""Setup the UI."""
@@ -129,29 +132,15 @@ class TemplateUI(object):
 		# print(self.objectName())
 
 		# Set up appearance
-		self.appearance = appearance.Appearance(self, self.checkFilePath(stylesheet))
+		# TODO: this should be called from the main window/dialog class
+		self.appearance = appearance.Appearance(
+			self, 
+			self.checkFilePath(stylesheet), 
+			window_color=window_color if HOST == 'standalone' else None, 
+			accent_color=accent_color if HOST == 'standalone' else None, 
+			font_size=font_size
+		)
 		self.col = self.appearance.col  # Alias for compatibility
-
-		# Store some system UI colours & define colour palette ---------------
-		# self.col = {}
-		# self.col['text'] = QtGui.QColor(204, 204, 204)
-		# self.col['disabled'] = QtGui.QColor(102, 102, 102)
-		# self.col['highlighted-text'] = QtGui.QColor(255, 255, 255)
-		# self.col['sys-window'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Window)
-		# self.col['sys-highlight'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Highlight)
-
-		# # self.col['window'] = self.col['sys-window']  # Use base window color from OS / parent app
-		# # self.col['window'] = QtGui.QColor('#444444')  # Standard dark grey
-		# self.col['window'] = QtGui.QColor('#33393b')  # Adwaita dark #2b3032
-
-		# self.col['highlight'] = self.col['sys-highlight']  # Use highlight color from OS / parent app
-		# # self.col['highlight'] = QtGui.QColor('#78909c')
-
-		# self.computeUIPalette()
-
-		# # Load and set stylesheet --------------------------------------------
-		# self.stylesheet = self.checkFilePath(stylesheet)
-		# self.loadStyleSheet()
 
 		# Set window icon ----------------------------------------------------
 		if (icon is not None) and (HOST == 'standalone'):

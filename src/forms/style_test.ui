@@ -175,6 +175,22 @@
         </widget>
        </item>
        <item>
+        <widget class="QToolButton" name="info_toolButton">
+         <property name="toolTip">
+          <string>About</string>
+         </property>
+         <property name="statusTip">
+          <string>Style configuration info</string>
+         </property>
+         <property name="text">
+          <string>Info</string>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonIconOnly</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -829,7 +845,7 @@
                </widget>
               </item>
               <item row="2" column="0">
-               <widget class="QPushButton" name="pushButton_2">
+               <widget class="QPushButton" name="menu1_pushButton">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
@@ -957,7 +973,7 @@
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_14">
+                <layout class="QGridLayout" name="gridLayout">
                  <property name="leftMargin">
                   <number>0</number>
                  </property>
@@ -970,8 +986,8 @@
                  <property name="bottomMargin">
                   <number>0</number>
                  </property>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_10">
+                 <item row="0" column="3">
+                  <widget class="QToolButton" name="popup2_toolButton">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -979,7 +995,63 @@
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Button 1</string>
+                    <string>Checkable Popup</string>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>32</width>
+                     <height>32</height>
+                    </size>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="popupMode">
+                    <enum>QToolButton::InstantPopup</enum>
+                   </property>
+                   <property name="toolButtonStyle">
+                    <enum>Qt::ToolButtonTextUnderIcon</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QToolButton" name="test2_toolButton">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Checkable</string>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>32</width>
+                     <height>32</height>
+                    </size>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="popupMode">
+                    <enum>QToolButton::DelayedPopup</enum>
+                   </property>
+                   <property name="toolButtonStyle">
+                    <enum>Qt::ToolButtonTextUnderIcon</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QToolButton" name="test1_toolButton">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Tool Button</string>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -995,8 +1067,8 @@
                    </property>
                   </widget>
                  </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_11">
+                 <item row="0" column="2">
+                  <widget class="QToolButton" name="popup1_toolButton">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -1004,32 +1076,7 @@
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Button 2</string>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>32</width>
-                     <height>32</height>
-                    </size>
-                   </property>
-                   <property name="popupMode">
-                    <enum>QToolButton::DelayedPopup</enum>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextUnderIcon</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_12">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Button 3</string>
+                    <string>Popup</string>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -1045,8 +1092,8 @@
                    </property>
                   </widget>
                  </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_13">
+                 <item row="1" column="0">
+                  <widget class="QToolButton" name="test3_toolButton">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -1054,40 +1101,15 @@
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Button 4</string>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>32</width>
-                     <height>32</height>
-                    </size>
-                   </property>
-                   <property name="popupMode">
-                    <enum>QToolButton::InstantPopup</enum>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonTextUnderIcon</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_14">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Button 5</string>
+                    <string>Tool Button</string>
                    </property>
                    <property name="toolButtonStyle">
                     <enum>Qt::ToolButtonTextBesideIcon</enum>
                    </property>
                   </widget>
                  </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_15">
+                 <item row="1" column="1">
+                  <widget class="QToolButton" name="test4_toolButton">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -1095,15 +1117,18 @@
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Button 6</string>
+                    <string>Checkable</string>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
                    </property>
                    <property name="toolButtonStyle">
                     <enum>Qt::ToolButtonTextBesideIcon</enum>
                    </property>
                   </widget>
                  </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_16">
+                 <item row="1" column="2">
+                  <widget class="QToolButton" name="popup3_toolButton">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -1111,7 +1136,7 @@
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Button 7</string>
+                    <string>Popup</string>
                    </property>
                    <property name="popupMode">
                     <enum>QToolButton::InstantPopup</enum>
@@ -1121,8 +1146,8 @@
                    </property>
                   </widget>
                  </item>
-                 <item>
-                  <widget class="QToolButton" name="toolButton_17">
+                 <item row="1" column="3">
+                  <widget class="QToolButton" name="popup4_toolButton">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -1130,7 +1155,10 @@
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Button 8</string>
+                    <string>Checkable Popup</string>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
                    </property>
                    <property name="popupMode">
                     <enum>QToolButton::InstantPopup</enum>
@@ -1968,7 +1996,7 @@
                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell','Cantarell','Cantarell','Cantarell'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#ffaa7f;&quot;&gt;Lorem&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#2f9ca5;&quot;&gt; ipsum dolor sit amet&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; color:#2f9ca5;&quot;&gt;,&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:24pt; color:#2f9ca5;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;consectetur &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;adipiscing&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; elit. &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt;Mauris placerat &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#55aaff;&quot;&gt;pharetra&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt; turpis, in pharetra purus ultrices quis.&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; Vivamus eget sem vel &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;dolor scelerisque&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; cursus eget eget ipsum. In hac habitasse platea &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-weight:600; color:#2f9ca5;&quot;&gt;dictumst&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;. Aliquam &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;elementum&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;maximus&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
@@ -2826,8 +2854,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>780</width>
-                 <height>524</height>
+                 <width>977</width>
+                 <height>527</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -2935,8 +2963,8 @@ p, li { white-space: pre-wrap; }
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>224</width>
-                 <height>82</height>
+                 <width>977</width>
+                 <height>115</height>
                 </rect>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -2954,8 +2982,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>96</width>
-                      <height>26</height>
+                      <width>317</width>
+                      <height>99</height>
                      </rect>
                     </property>
                    </widget>
@@ -2969,8 +2997,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>96</width>
-                      <height>26</height>
+                      <width>317</width>
+                      <height>99</height>
                      </rect>
                     </property>
                    </widget>
@@ -2984,8 +3012,8 @@ p, li { white-space: pre-wrap; }
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>96</width>
-                      <height>26</height>
+                      <width>317</width>
+                      <height>99</height>
                      </rect>
                     </property>
                    </widget>
@@ -3305,8 +3333,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>96</width>
-                <height>26</height>
+                <width>981</width>
+                <height>101</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3318,8 +3346,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>96</width>
-                <height>26</height>
+                <width>100</width>
+                <height>30</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3501,7 +3529,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuTest_2">
+   <widget class="QMenu" name="menuAnother">
     <property name="title">
      <string>Another Menu</string>
     </property>
@@ -3548,7 +3576,7 @@ p, li { white-space: pre-wrap; }
    <addaction name="menuFile"/>
    <addaction name="menuStyle"/>
    <addaction name="menuTest"/>
-   <addaction name="menuTest_2"/>
+   <addaction name="menuAnother"/>
    <addaction name="menuDisabled"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -3825,7 +3853,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>textEdit</tabstop>
   <tabstop>allButtons_groupBox</tabstop>
   <tabstop>pushButton_1</tabstop>
-  <tabstop>pushButton_2</tabstop>
+  <tabstop>menu1_pushButton</tabstop>
   <tabstop>toolButton_6</tabstop>
   <tabstop>toolButton_9</tabstop>
   <tabstop>radioButton_1</tabstop>
