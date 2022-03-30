@@ -696,51 +696,44 @@ class TemplateUI(object):
 		return action
 
 
-	def iconSet(self, icon_name, tintNormal=True):
+	def iconSet(self, icon_names, tintNormal=True):
 		"""Return a QIcon using the specified image.
 
 		Generate tinted pixmaps for normal/disabled/active/selected states.
-		tintNormal: whether to tint the normal state icon or leave it as-is.
+
+		Arguments:
+			icon_names (str or list): The names of the icon(s). If a list is
+				passed, the first item will be the 'Off' state and the second
+				will be the 'On' state.
+			tintNormal (bool): Whether to tint the normal state icon or leave
+				it as-is.
 		"""
 		icon = QtGui.QIcon()
+		states = [QtGui.QIcon.Off, QtGui.QIcon.On]
 
-		if isinstance(tintNormal, QtGui.QColor):
-			icon.addPixmap(
-				self.iconTint(icon_name, tint=tintNormal), 
-				QtGui.QIcon.Normal, QtGui.QIcon.Off)
-		elif tintNormal is False:
-			icon.addPixmap(
-				self.iconTint(icon_name), 
-				QtGui.QIcon.Normal, QtGui.QIcon.Off)
-		else:
-			icon.addPixmap(
-				self.iconTint(icon_name, tint=self.col['text']), 
-				QtGui.QIcon.Normal, QtGui.QIcon.Off)
+		if not isinstance(icon_names, list):
+			icon_names = [icon_names]
 
-		# icon.addPixmap(
-		# 	self.iconTint(icon_name, tint=self.col['highlighted-text']), 
-		# 	QtGui.QIcon.Normal, QtGui.QIcon.On)
+		for icon_name, state in zip(icon_names, states):
+			pixmap_disabled = self.iconTint(icon_name, tint=self.col['disabled'])
+			pixmap_selected = self.iconTint(icon_name, tint=self.col['highlighted-text'])
 
-		icon.addPixmap(
-			self.iconTint(icon_name, tint=self.col['disabled']), 
-			QtGui.QIcon.Disabled, QtGui.QIcon.Off)
-		# icon.addPixmap(
-		# 	self.iconTint(icon_name, tint=self.col['disabled']), 
-		# 	QtGui.QIcon.Disabled, QtGui.QIcon.On)
+			if isinstance(tintNormal, QtGui.QColor):
+				icon.addPixmap(
+					self.iconTint(icon_name, tint=tintNormal), 
+					QtGui.QIcon.Normal, state)
+			elif tintNormal is True:
+				icon.addPixmap(
+					self.iconTint(icon_name, tint=self.col['text']), 
+					QtGui.QIcon.Normal, state)
+			else:  # Do not tint
+				icon.addPixmap(
+					self.iconTint(icon_name), 
+					QtGui.QIcon.Normal, state)
 
-		icon.addPixmap(
-			self.iconTint(icon_name, tint=self.col['highlighted-text']), 
-			QtGui.QIcon.Active, QtGui.QIcon.Off)
-		# icon.addPixmap(
-		# 	self.iconTint(icon_name, tint=self.col['highlighted-text']), 
-		# 	QtGui.QIcon.Active, QtGui.QIcon.On)
-
-		icon.addPixmap(
-			self.iconTint(icon_name, tint=self.col['highlighted-text']), 
-			QtGui.QIcon.Selected, QtGui.QIcon.Off)
-		# icon.addPixmap(
-		# 	self.iconTint(icon_name, tint=self.col['highlighted-text']), 
-		# 	QtGui.QIcon.Selected, QtGui.QIcon.On)
+			icon.addPixmap(pixmap_selected, QtGui.QIcon.Active, state)
+			icon.addPixmap(pixmap_disabled, QtGui.QIcon.Disabled, state)
+			icon.addPixmap(pixmap_selected, QtGui.QIcon.Selected, state)
 
 		return icon
 

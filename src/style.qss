@@ -969,7 +969,6 @@ QAbstractButton::menu-indicator {
 	left: -2px;
 	image: url(:/rsc/popup_indicator_%icon-normal%.png);
 }
-
 QAbstractButton::menu-indicator:disabled {
 	image: url(:/rsc/popup_indicator_%icon-disabled%.png);
 }
@@ -1112,6 +1111,12 @@ QToolButton[popupMode="InstantPopup"]:pressed,
 QToolButton[popupMode="InstantPopup"]:checked:pressed {
 	background: rgb(%highlight%);
 	color: rgb(%highlighted-text%);
+}
+QToolButton[popupMode="MenuButtonPopup"]::menu-indicator:pressed,
+QToolButton[popupMode="MenuButtonPopup"]::menu-indicator:checked:pressed,
+QToolButton[popupMode="InstantPopup"]::menu-indicator:pressed,
+QToolButton[popupMode="InstantPopup"]::menu-indicator:checked:pressed {
+	image: url(:/rsc/popup_indicator_%icon-highlighted%.png);
 }
 
 /* Add extra padding to button icon when beside text */

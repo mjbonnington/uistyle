@@ -161,13 +161,14 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 
 	def set_icons(self):
 		self.ui.info_toolButton.setIcon(self.iconSet('help-about.svg'))
-		self.ui.test1_toolButton.setIcon(self.iconSet('folder.svg'))
-		self.ui.test2_toolButton.setIcon(self.iconSet('computer-symbolic.svg'))
+		self.ui.mixed_toolButton.setIcon(self.iconSet('applications-utilities-symbolic.svg'))
+		self.ui.test1_toolButton.setIcon(self.iconSet('computer-symbolic.svg'))
+		self.ui.test2_toolButton.setIcon(self.iconSet(['folder.svg', 'folder-open.svg']))
 		self.ui.popup1_toolButton.setIcon(self.iconSet('utilities-terminal-symbolic.svg'))
-		self.ui.popup2_toolButton.setIcon(self.iconSet('refresh.svg'))
+		self.ui.popup2_toolButton.setIcon(self.iconSet('web-browser-symbolic.svg'))
 		self.ui.test3_toolButton.setIcon(self.iconSet('add.svg'))
-		self.ui.test4_toolButton.setIcon(self.iconSet('edit.svg'))
-		self.ui.popup3_toolButton.setIcon(self.iconSet('merge.svg'))
+		self.ui.test4_toolButton.setIcon(self.iconSet(['object-locked.svg', 'object-unlocked.svg']))
+		self.ui.popup3_toolButton.setIcon(self.iconSet('edit.svg'))
 		self.ui.popup4_toolButton.setIcon(self.iconSet('clear.svg'))
 
 
