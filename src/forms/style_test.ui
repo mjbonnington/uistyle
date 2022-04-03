@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1045</width>
+    <width>1058</width>
     <height>916</height>
    </rect>
   </property>
@@ -21,7 +21,16 @@
     <string notr="true"/>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="margin">
+    <property name="leftMargin">
+     <number>8</number>
+    </property>
+    <property name="topMargin">
+     <number>8</number>
+    </property>
+    <property name="rightMargin">
+     <number>8</number>
+    </property>
+    <property name="bottomMargin">
      <number>8</number>
     </property>
     <item>
@@ -246,7 +255,7 @@
       <property name="movable">
        <bool>true</bool>
       </property>
-      <widget class="QWidget" name="tab_29">
+      <widget class="QWidget" name="tab_loadedUIs">
        <attribute name="title">
         <string>Loaded UIs</string>
        </attribute>
@@ -302,18 +311,12 @@
           <property name="value">
            <double>3.142000000000000</double>
           </property>
-          <property name="xmlTag" stdset="0">
-           <string>doubleSpinBox</string>
-          </property>
          </widget>
         </item>
         <item row="8" column="1">
          <widget class="QLineEdit" name="lineEdit_lineEdit">
           <property name="text">
            <string>Some text</string>
-          </property>
-          <property name="xmlTag" stdset="0">
-           <string>lineEdit</string>
           </property>
          </widget>
         </item>
@@ -325,16 +328,10 @@
           <property name="checked">
            <bool>true</bool>
           </property>
-          <property name="xmlTag" stdset="0">
-           <string>checkBox</string>
-          </property>
          </widget>
         </item>
         <item row="14" column="1">
          <widget class="QComboBox" name="comboBox_comboBox">
-          <property name="xmlTag" stdset="0">
-           <string>comboBox</string>
-          </property>
           <item>
            <property name="text">
             <string>Item 1</string>
@@ -362,9 +359,6 @@
           <property name="text">
            <string>Execute Action</string>
           </property>
-          <property name="exec" stdset="0">
-           <string>executeAction</string>
-          </property>
          </widget>
         </item>
         <item row="5" column="0">
@@ -391,9 +385,6 @@
             <property name="checked">
              <bool>true</bool>
             </property>
-            <property name="xmlTag" stdset="0">
-             <string>radioButton</string>
-            </property>
            </widget>
           </item>
           <item row="0" column="1">
@@ -403,9 +394,6 @@
             </property>
             <property name="checked">
              <bool>false</bool>
-            </property>
-            <property name="xmlTag" stdset="0">
-             <string>radioButton</string>
             </property>
            </widget>
           </item>
@@ -417,9 +405,6 @@
             <property name="checked">
              <bool>false</bool>
             </property>
-            <property name="xmlTag" stdset="0">
-             <string>radioButton</string>
-            </property>
            </widget>
           </item>
           <item row="1" column="1">
@@ -429,9 +414,6 @@
             </property>
             <property name="checked">
              <bool>false</bool>
-            </property>
-            <property name="xmlTag" stdset="0">
-             <string>radioButton</string>
             </property>
            </widget>
           </item>
@@ -474,7 +456,16 @@
         <item row="6" column="1">
          <widget class="QFrame" name="spinSlider_frame">
           <layout class="QHBoxLayout" name="spinSlider_horizontalLayout">
-           <property name="margin">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
             <number>0</number>
            </property>
            <item>
@@ -528,7 +519,16 @@
         <item row="7" column="1">
          <widget class="QFrame" name="frame_11">
           <layout class="QHBoxLayout" name="horizontalLayout_16">
-           <property name="margin">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
             <number>0</number>
            </property>
            <item>
@@ -618,9 +618,6 @@
           <property name="plainText">
            <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris placerat pharetra turpis, in pharetra purus ultrices quis. Vivamus eget sem vel dolor scelerisque cursus eget eget ipsum. In hac habitasse platea dictumst. Aliquam elementum odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi maximus, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.</string>
           </property>
-          <property name="xmlTag" stdset="0">
-           <string>plainTextEdit</string>
-          </property>
          </widget>
         </item>
         <item row="4" column="0">
@@ -641,9 +638,6 @@
           <property name="value">
            <number>0</number>
           </property>
-          <property name="xmlTag" stdset="0">
-           <string>spinBox</string>
-          </property>
          </widget>
         </item>
         <item row="15" column="0">
@@ -657,9 +651,6 @@
          <widget class="QComboBox" name="comboBoxEditable_comboBox">
           <property name="editable">
            <bool>true</bool>
-          </property>
-          <property name="xmlTag" stdset="0">
-           <string>comboBox</string>
           </property>
           <item>
            <property name="text">
@@ -685,7 +676,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="tab_buttons">
        <attribute name="title">
         <string>Buttons</string>
        </attribute>
@@ -706,6 +697,9 @@
              </property>
              <property name="title">
               <string>Radio Buttons</string>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
              </property>
              <property name="checkable">
               <bool>false</bool>
@@ -742,6 +736,9 @@
             <widget class="QGroupBox" name="checkBoxes_groupBox">
              <property name="title">
               <string>Check Boxes</string>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
              </property>
              <property name="checkable">
               <bool>false</bool>
@@ -786,7 +783,7 @@
         <item>
          <widget class="QGroupBox" name="allButtons_groupBox">
           <property name="title">
-           <string>Regular Buttons - flat group boxes</string>
+           <string>Regular Buttons</string>
           </property>
           <property name="flat">
            <bool>false</bool>
@@ -799,141 +796,7 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
-            <widget class="QGroupBox" name="pushButtons_groupBox">
-             <property name="title">
-              <string>Push Buttons</string>
-             </property>
-             <property name="flat">
-              <bool>true</bool>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_6">
-              <item row="0" column="1">
-               <widget class="QPushButton" name="pushButton_3">
-                <property name="text">
-                 <string>Push Button (on)</string>
-                </property>
-                <property name="checkable">
-                 <bool>true</bool>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QPushButton" name="menu1_pushButton">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="contextMenuPolicy">
-                 <enum>Qt::ActionsContextMenu</enum>
-                </property>
-                <property name="layoutDirection">
-                 <enum>Qt::LeftToRight</enum>
-                </property>
-                <property name="autoFillBackground">
-                 <bool>false</bool>
-                </property>
-                <property name="text">
-                 <string>Push Button (with menu)</string>
-                </property>
-                <property name="checkable">
-                 <bool>false</bool>
-                </property>
-                <property name="flat">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="pushButton_1">
-                <property name="text">
-                 <string>Push Button</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QPushButton" name="pushButton_4">
-                <property name="text">
-                 <string>Push Button (flat)</string>
-                </property>
-                <property name="checkable">
-                 <bool>false</bool>
-                </property>
-                <property name="flat">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QPushButton" name="pushButton_6">
-                <property name="text">
-                 <string>Push Button (flat, on)</string>
-                </property>
-                <property name="checkable">
-                 <bool>true</bool>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-                <property name="flat">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QPushButton" name="pushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Push Button (min width)</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="QPushButton" name="pushButton_5">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>48</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Push Button (custom height)</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QCommandLinkButton" name="commandLinkButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="cursor">
-                 <cursorShape>PointingHandCursor</cursorShape>
-                </property>
-                <property name="text">
-                 <string>CommandLinkButton</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="groupBox_4">
+            <widget class="QGroupBox" name="toolButtons_groupBox">
              <property name="title">
               <string>Tool Buttons</string>
              </property>
@@ -950,7 +813,16 @@
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QGridLayout" name="gridLayout">
-                 <property name="margin">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
                   <number>0</number>
                  </property>
                  <item row="0" column="3">
@@ -1160,7 +1032,16 @@
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_6">
-                 <property name="margin">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
                   <number>0</number>
                  </property>
                  <item>
@@ -1175,7 +1056,16 @@
                     <enum>QFrame::NoFrame</enum>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_7">
-                    <property name="margin">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
                      <number>0</number>
                     </property>
                     <item row="1" column="2">
@@ -1300,7 +1190,16 @@
                     <enum>QFrame::NoFrame</enum>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_6">
-                    <property name="margin">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
                      <number>0</number>
                     </property>
                     <item>
@@ -1411,7 +1310,7 @@
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_26">
                     <item>
-                     <widget class="QToolButton" name="toolButton_1">
+                     <widget class="QToolButton" name="menuButtonPopup_toolButton">
                       <property name="text">
                        <string>Menu Button Popup</string>
                       </property>
@@ -1442,15 +1341,40 @@
                      </widget>
                     </item>
                     <item>
-                     <widget class="QToolButton" name="toolButton">
+                     <widget class="QToolButton" name="menuButtonPopupWithIconBeside_toolButton">
                       <property name="text">
-                       <string>Instant Popup</string>
+                       <string>Toggle Popup</string>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="popupMode">
+                       <enum>QToolButton::MenuButtonPopup</enum>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextBesideIcon</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="menuButtonPopupWithIcon_toolButton">
+                      <property name="text">
+                       <string>With Icon</string>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>32</width>
+                        <height>32</height>
+                       </size>
                       </property>
                       <property name="checkable">
                        <bool>false</bool>
                       </property>
                       <property name="popupMode">
-                       <enum>QToolButton::InstantPopup</enum>
+                       <enum>QToolButton::MenuButtonPopup</enum>
+                      </property>
+                      <property name="toolButtonStyle">
+                       <enum>Qt::ToolButtonTextUnderIcon</enum>
                       </property>
                      </widget>
                     </item>
@@ -1458,6 +1382,153 @@
                   </widget>
                  </item>
                 </layout>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="pushButtons_groupBox">
+             <property name="title">
+              <string>Push Buttons</string>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="1">
+               <widget class="QPushButton" name="pushButton_3">
+                <property name="text">
+                 <string>Push Button (on)</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="menu1_pushButton">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="contextMenuPolicy">
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string>Push Button (with menu)</string>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pushButton_1">
+                <property name="text">
+                 <string>Push Button</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="pushButton_4">
+                <property name="text">
+                 <string>Push Button (flat)</string>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="pushButton_6">
+                <property name="text">
+                 <string>Push Button (flat, on)</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="pushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Push Button (min width)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="pushButton_5">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>32</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Push Button (custom height)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QCommandLinkButton" name="commandLinkButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>CommandLinkButton</string>
+                </property>
                </widget>
               </item>
              </layout>
@@ -1468,7 +1539,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_3">
+      <widget class="QWidget" name="tab_inputWidgets">
        <attribute name="title">
         <string>Input Widgets</string>
        </attribute>
@@ -1721,7 +1792,16 @@
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_5">
-              <property name="margin">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
                <number>0</number>
               </property>
               <item row="0" column="1">
@@ -1835,7 +1915,16 @@
                  <number>0</number>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_13">
-                 <property name="margin">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
                   <number>0</number>
                  </property>
                  <item>
@@ -1892,7 +1981,16 @@
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_4">
-              <property name="margin">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
                <number>0</number>
               </property>
               <item row="2" column="1">
@@ -1915,7 +2013,7 @@
                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell','Cantarell','Cantarell','Cantarell'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#ffaa7f;&quot;&gt;Lorem&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#2f9ca5;&quot;&gt; ipsum dolor sit amet&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; color:#2f9ca5;&quot;&gt;,&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:24pt; color:#2f9ca5;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;consectetur &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;adipiscing&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; elit. &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt;Mauris placerat &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#55aaff;&quot;&gt;pharetra&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt; turpis, in pharetra purus ultrices quis.&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; Vivamus eget sem vel &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;dolor scelerisque&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; cursus eget eget ipsum. In hac habitasse platea &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-weight:600; color:#2f9ca5;&quot;&gt;dictumst&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;. Aliquam &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;elementum&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;maximus&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
@@ -1945,7 +2043,7 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="tab_itemViews1">
        <attribute name="title">
         <string>Item Views 1</string>
        </attribute>
@@ -2265,7 +2363,7 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_31">
+      <widget class="QWidget" name="tab_itemViews2">
        <attribute name="title">
         <string>Item Views 2</string>
        </attribute>
@@ -2621,7 +2719,7 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_4">
+      <widget class="QWidget" name="tab_displayWidgets">
        <attribute name="title">
         <string>Display Widgets</string>
        </attribute>
@@ -2745,211 +2843,7 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_5">
-       <attribute name="title">
-        <string>Scrollbars</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_14">
-        <item>
-         <widget class="QGroupBox" name="groupBox_8">
-          <property name="title">
-           <string>Scroll Bars / Splitters</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_15">
-           <item>
-            <widget class="QSplitter" name="splitter">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <widget class="QScrollArea" name="scrollArea">
-              <property name="widgetResizable">
-               <bool>true</bool>
-              </property>
-              <widget class="QWidget" name="scrollAreaWidgetContents">
-               <property name="geometry">
-                <rect>
-                 <x>0</x>
-                 <y>0</y>
-                 <width>983</width>
-                 <height>532</height>
-                </rect>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_16">
-                <item>
-                 <widget class="QFrame" name="frame_5">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>768</width>
-                    <height>512</height>
-                   </size>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <widget class="QScrollBar" name="horizontalScrollBar">
-                   <property name="geometry">
-                    <rect>
-                     <x>60</x>
-                     <y>10</y>
-                     <width>511</width>
-                     <height>16</height>
-                    </rect>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                  <widget class="QScrollBar" name="horizontalScrollBar_2">
-                   <property name="geometry">
-                    <rect>
-                     <x>60</x>
-                     <y>30</y>
-                     <width>511</width>
-                     <height>31</height>
-                    </rect>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                  <widget class="QScrollBar" name="verticalScrollBar">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>60</y>
-                     <width>16</width>
-                     <height>431</height>
-                    </rect>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                  </widget>
-                  <widget class="QScrollBar" name="verticalScrollBar_2">
-                   <property name="geometry">
-                    <rect>
-                     <x>30</x>
-                     <y>60</y>
-                     <width>31</width>
-                     <height>431</height>
-                    </rect>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                  </widget>
-                  <widget class="QTabWidget" name="tabWidget_6">
-                   <property name="geometry">
-                    <rect>
-                     <x>110</x>
-                     <y>100</y>
-                     <width>331</width>
-                     <height>271</height>
-                    </rect>
-                   </property>
-                   <property name="currentIndex">
-                    <number>0</number>
-                   </property>
-                   <widget class="QWidget" name="tab_27">
-                    <attribute name="title">
-                     <string>Tab 1</string>
-                    </attribute>
-                   </widget>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </widget>
-             <widget class="QScrollArea" name="scrollArea_2">
-              <property name="widgetResizable">
-               <bool>true</bool>
-              </property>
-              <widget class="QWidget" name="scrollAreaWidgetContents_2">
-               <property name="geometry">
-                <rect>
-                 <x>0</x>
-                 <y>0</y>
-                 <width>983</width>
-                 <height>154</height>
-                </rect>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_10">
-                <item>
-                 <widget class="QSplitter" name="splitter_2">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <widget class="QScrollArea" name="scrollArea_3">
-                   <property name="widgetResizable">
-                    <bool>true</bool>
-                   </property>
-                   <widget class="QWidget" name="scrollAreaWidgetContents_3">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>0</y>
-                      <width>316</width>
-                      <height>134</height>
-                     </rect>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QScrollArea" name="scrollArea_4">
-                   <property name="widgetResizable">
-                    <bool>true</bool>
-                   </property>
-                   <widget class="QWidget" name="scrollAreaWidgetContents_4">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>0</y>
-                      <width>317</width>
-                      <height>134</height>
-                     </rect>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QScrollArea" name="scrollArea_5">
-                   <property name="widgetResizable">
-                    <bool>true</bool>
-                   </property>
-                   <widget class="QWidget" name="scrollAreaWidgetContents_5">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>0</y>
-                      <width>316</width>
-                      <height>134</height>
-                     </rect>
-                    </property>
-                   </widget>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </widget>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tab_6">
+      <widget class="QWidget" name="tab_tabs">
        <attribute name="title">
         <string>Tabs</string>
        </attribute>
@@ -2979,7 +2873,16 @@ p, li { white-space: pre-wrap; }
                <number>0</number>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_11">
-               <property name="margin">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
                 <number>0</number>
                </property>
                <item>
@@ -3095,7 +2998,16 @@ p, li { white-space: pre-wrap; }
                <number>0</number>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_12">
-               <property name="margin">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
                 <number>0</number>
                </property>
                <item>
@@ -3210,7 +3122,7 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_28">
+      <widget class="QWidget" name="tab_custom">
        <attribute name="title">
         <string>Custom</string>
        </attribute>
@@ -3234,8 +3146,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>985</width>
-                <height>130</height>
+                <width>994</width>
+                <height>118</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3247,8 +3159,8 @@ p, li { white-space: pre-wrap; }
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>98</width>
-                <height>28</height>
+                <width>100</width>
+                <height>30</height>
                </rect>
               </property>
               <attribute name="label">
@@ -3305,16 +3217,22 @@ p, li { white-space: pre-wrap; }
            <property name="spacing">
             <number>0</number>
            </property>
-           <property name="margin">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
             <number>0</number>
            </property>
            <item>
             <widget class="QLineEdit" name="thumbnail_lineEdit">
              <property name="text">
               <string/>
-             </property>
-             <property name="xmlTag" stdset="0">
-              <string>thumbnail</string>
              </property>
             </widget>
            </item>
@@ -3338,32 +3256,6 @@ p, li { white-space: pre-wrap; }
       </widget>
      </widget>
     </item>
-    <item>
-     <widget class="Line" name="line_3">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDialogButtonBox" name="buttonBox">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="standardButtons">
-       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-      </property>
-      <property name="centerButtons">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -3371,8 +3263,8 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1045</width>
-     <height>21</height>
+     <width>1058</width>
+     <height>26</height>
     </rect>
    </property>
    <property name="noBackground" stdset="0">
@@ -3435,6 +3327,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionDate"/>
     <addaction name="actionAttribute"/>
     <addaction name="actionObject"/>
+    <addaction name="separator"/>
     <addaction name="actionCheck"/>
    </widget>
    <widget class="QMenu" name="menuDisabled">
@@ -3442,7 +3335,7 @@ p, li { white-space: pre-wrap; }
      <bool>false</bool>
     </property>
     <property name="title">
-     <string>Disabled</string>
+     <string>Disabled Menu</string>
     </property>
     <addaction name="actionDisabled_menu_1"/>
     <addaction name="actionDisabled_Menu_2"/>
@@ -3467,9 +3360,9 @@ p, li { white-space: pre-wrap; }
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuStyle"/>
+   <addaction name="menuDisabled"/>
    <addaction name="menuTest"/>
    <addaction name="menuAnother"/>
-   <addaction name="menuDisabled"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionMenu">
@@ -3767,13 +3660,6 @@ p, li { white-space: pre-wrap; }
   <tabstop>calendarWidget</tabstop>
   <tabstop>groupBox_16</tabstop>
   <tabstop>horizontalSlider_2</tabstop>
-  <tabstop>scrollArea</tabstop>
-  <tabstop>groupBox_8</tabstop>
-  <tabstop>tabWidget_6</tabstop>
-  <tabstop>scrollArea_3</tabstop>
-  <tabstop>scrollArea_2</tabstop>
-  <tabstop>scrollArea_4</tabstop>
-  <tabstop>scrollArea_5</tabstop>
   <tabstop>groupBox_13</tabstop>
   <tabstop>tabWidget_2</tabstop>
   <tabstop>tabWidget_3</tabstop>
@@ -3785,86 +3671,6 @@ p, li { white-space: pre-wrap; }
   <include location="../ui_chrome.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>enable_checkBox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>main_tabWidget</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>938</x>
-     <y>66</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>23</x>
-     <y>122</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_2</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>progressBar</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>164</x>
-     <y>819</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>184</x>
-     <y>779</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_2</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>progressBar_3</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>164</x>
-     <y>819</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1003</x>
-     <y>792</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>spinSlider_slider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>spinSlider_spinBox</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>749</x>
-     <y>296</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>179</x>
-     <y>310</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>spinSlider_spinBox</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>spinSlider_slider</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>167</x>
-     <y>290</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>460</x>
-     <y>296</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>uiBrightness_spinBox</sender>
    <signal>valueChanged(int)</signal>
@@ -3894,6 +3700,86 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>253</x>
      <y>68</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>progressBar_3</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>819</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1003</x>
+     <y>792</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>progressBar</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>819</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>184</x>
+     <y>779</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinSlider_spinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinSlider_slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>290</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>460</x>
+     <y>296</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>enable_checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>main_tabWidget</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>938</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>23</x>
+     <y>122</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinSlider_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinSlider_spinBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>749</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>179</x>
+     <y>310</y>
     </hint>
    </hints>
   </connection>

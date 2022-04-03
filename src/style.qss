@@ -374,52 +374,63 @@ QMenu::indicator:exclusive {
 
 /* The tab widget frame */
 QTabWidget::pane {
-	background: rgba(%group-bg%, 67%);
-	border: 0 solid rgb(%tab-border%);
-}
-
-QTabWidget::pane:disabled {
-	background: transparent;
+	/*border: 1px solid rgb(%tab-border%);*/
+	background: rgb(%group-bg%);
 }
 
 /* North */
 QTabWidget::pane:top {
-	/*border-top: none;*/
-	border-top-width: 1px;
+	border-top: 3px solid rgb(%tab-border%);
 }
-
 /* South */
 QTabWidget::pane:bottom {
-	/*border-bottom: none;*/
-	border-bottom-width: 1px;
+	border-bottom: 3px solid rgb(%tab-border%);
 }
-
 /* East */
 QTabWidget::pane:right {
-	/*border-right: none;*/
-	border-right-width: 1px;
+	border-right: 3px solid rgb(%tab-border%);
 }
-
 /* West */
 QTabWidget::pane:left {
-	/*border-left: none;*/
-	border-left-width: 1px;
+	border-left: 3px solid rgb(%tab-border%);
+}
+
+QTabWidget::pane:disabled {
+	background: rgb(%window%);
+	border-color: rgba(%tab-border%, 50%);
 }
 
 /* QTabBar
  * =======
  */
 
+/*QTabWidget::tab-bar {
+	background: rgb(%tab-border%);
+}*/
+
+/* North */
+QTabWidget::tab-bar:top {
+	bottom: -3px;
+}
+/* South */
+QTabWidget::tab-bar:bottom {
+	top: -3px;
+}
+/* East */
+QTabWidget::tab-bar:right {
+	left: -3px;
+}
+/* West */
+QTabWidget::tab-bar:left {
+	right: -3px;
+}
+
 /* Style the tab using the tab sub-control.
    Note that it reads QTabBar _not_ QTabWidget */
 QTabBar::tab {
-	border: 1px solid transparent;
+	border: none;
 	border-radius: 0;
-	background: rgba(%button%, 60%);
-}
-
-QTabBar::tab:disabled {
-	background: transparent;
+	background: rgb(%button%);
 }
 
 QTabBar::tab:top,
@@ -427,7 +438,15 @@ QTabBar::tab:bottom {
 	min-width: 30px;
 	min-height: 12px;
 	margin-right: 1px;
-	padding: 6px 12px;
+	padding: 5px 12px;
+}
+
+QTabBar::tab:top {
+	border-bottom: 3px solid rgb(%tab-border%);
+}
+
+QTabBar::tab:bottom {
+	border-top: 3px solid rgb(%tab-border%);
 }
 
 QTabBar::tab:left,
@@ -435,19 +454,25 @@ QTabBar::tab:right {
 	min-width: 12px;
 	min-height: 30px;
 	margin-bottom: 1px;
-	padding: 12px 6px;
+	padding: 12px 5px;
+}
+
+QTabBar::tab:right {
+	border-left: 3px solid rgb(%tab-border%);
+}
+
+QTabBar::tab:left {
+	border-right: 3px solid rgb(%tab-border%);
+}
+
+QTabBar::tab:disabled {
+	background: transparent;
+	border-color: transparent;
 }
 
 QTabBar::tab:hover {
 	background: rgb(%hover%);
-}
-
-QTabBar::tab:selected {
-	border: 1px solid rgb(%tab-border%);
-	border-radius: 4px;
-	background: rgb(%tab-border%)
-	/*color: rgb(%button-text%);*/
-	/*font-weight: bold;*/
+	/*border-color: rgb(%hover%);*/
 }
 
 /* Remove margin from the end of the last tab */
@@ -460,9 +485,11 @@ QTabBar::tab:last:right {
 	margin-bottom: 0;
 }
 
-QTabBar::tab:selected:disabled {
-	background: rgb(%disabled-bg%);
-	color: rgb(%disabled%);
+QTabBar::tab:selected {
+	background: rgb(%group-header%);
+	border-radius: 3px;
+	border-color: rgb(%highlight%);
+	/*font-weight: bold;*/ /* Breaks design */
 }
 
 QTabBar::tab:selected:top,
@@ -471,15 +498,15 @@ QTabBar::tab:selected:bottom {
 }
 
 QTabBar::tab:selected:top {
+	/*bottom: -1px;*/
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
-	border-bottom: none;
 }
 
 QTabBar::tab:selected:bottom {
+	/*top: -1px;*/
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
-	border-top: none;
 }
 
 QTabBar::tab:selected:left,
@@ -488,15 +515,21 @@ QTabBar::tab:selected:right {
 }
 
 QTabBar::tab:selected:right {
+	/*left: -1px;*/
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
-	border-left: none;
 }
 
 QTabBar::tab:selected:left {
+	/*right: -1px;*/
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
-	border-right: none;
+}
+
+QTabBar::tab:selected:disabled {
+	background: rgb(%window%);
+	border-color: rgb(%disabled-bg%);
+	color: rgb(%disabled%);
 }
 
 /* Reduce height of unselected tabs */
@@ -605,7 +638,7 @@ QGroupBox {
 	margin: 0;
 	border: 1px solid rgb(%line%);
 	border-radius: 4px;
-	background: rgba(%group-bg%, 33%);
+	background: rgba(%group-bg%, 50%);
 }
 
 /* Leave space at the top for the title */
@@ -619,7 +652,7 @@ QGroupBox:disabled {
 }
 
 QGroupBox:focus {
-	border-color: rgba(%highlight%, 25%);
+	border-color: rgb(%line%);
 }
 
 QGroupBox:flat {
@@ -1094,14 +1127,52 @@ QToolButton:disabled {
 	background: transparent;
 }
 
-/* Only for MenuButtonPopup */
-QToolButton[popupMode="MenuButtonPopup"] {
-	/*padding-right: 16px;*/
+/* Add extra padding to button icon when beside text */
+QToolButton[toolButtonStyle="ToolButtonTextBesideIcon"]::icon {
+	padding-right: 4px;
 }
 
 /* Only for InstantPopup */
-QToolButton[popupMode="InstantPopup"] {
-	/*padding-right: 16px;*/
+/*QToolButton[popupMode="InstantPopup"] {
+	padding-right: 16px;
+}*/
+
+/* Only for MenuButtonPopup - make room for drop-down putton to right */
+QToolButton[popupMode="MenuButtonPopup"] {
+	padding-right: 19px;
+}
+QToolButton[popupMode="MenuButtonPopup"]:hover {
+	background: rgba(%hover%, 25%);
+}
+
+/* The subcontrols below are used only in the MenuButtonPopup mode */
+QToolButton::menu-button {
+	width: 17px;
+	subcontrol-origin: margin;
+	subcontrol-position: center right;
+	right: 0;
+	border: none;
+}
+
+QToolButton::menu-button:hover {
+	background: rgb(%hover%);
+}
+QToolButton::menu-button:pressed,
+QToolButton::menu-button:checked:pressed {
+	background: rgb(%highlight%);
+	color: rgb(%highlighted-text%);
+}
+
+QToolButton::menu-arrow {
+	image: url(:/rsc/arrow_down_%icon-normal%.png);
+}
+QToolButton::menu-arrow:open {
+	image: url(:/rsc/arrow_down_%icon-highlighted%.png);
+	top: 1px;
+	left: 1px;
+}
+QToolButton::menu-arrow:disabled {
+	image: url(:/rsc/arrow_down_%icon-disabled%.png);
 }
 
 /* Style tool buttons with popup menus like actual menus */
@@ -1112,35 +1183,10 @@ QToolButton[popupMode="InstantPopup"]:checked:pressed {
 	background: rgb(%highlight%);
 	color: rgb(%highlighted-text%);
 }
-QToolButton[popupMode="MenuButtonPopup"]::menu-indicator:pressed,
-QToolButton[popupMode="MenuButtonPopup"]::menu-indicator:checked:pressed,
 QToolButton[popupMode="InstantPopup"]::menu-indicator:pressed,
 QToolButton[popupMode="InstantPopup"]::menu-indicator:checked:pressed {
 	image: url(:/rsc/popup_indicator_%icon-highlighted%.png);
 }
-
-/* Add extra padding to button icon when beside text */
-QToolButton[toolButtonStyle="ToolButtonTextBesideIcon"]::icon {
-	padding-right: 4px;
-}
-
-/* The subcontrols below are used only in the MenuButtonPopup mode */
-QToolButton::menu-button {
-	border-left: 1px solid rgb(%input-bg%);
-	/*border-top-right-radius: 6px;*/
-	/*border-bottom-right-radius: 6px;*/
-	/* 16px width + 4px for border = 20px allocated above */
-	width: 17px;
-}
-
-/*QToolButton::menu-arrow {
-	image: url(:/rsc/arrow_down_%icon-normal%.png);
-}*/
-
-/*QToolButton::menu-arrow:open {
-	top: 1px;
-	left: 1px;
-}*/
 
 /* QCheckBox
  * =========
@@ -1561,7 +1607,7 @@ QScrollBar::sub-line:disabled {
 }
 
 QScrollBar::handle:disabled {
-	background: rgba(%disabled%, 25%);
+	background: rgb(%disabled-bg%);
 }
 
 QScrollBar::add-page:disabled,

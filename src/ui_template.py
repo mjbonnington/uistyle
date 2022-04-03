@@ -13,8 +13,6 @@
 # Experimental: Blender
 # Future: ?
 
-# TODO: replace all calls to 'verbose' with builtin logging
-
 import os
 import platform
 import re
@@ -33,7 +31,11 @@ import about
 import appearance
 # import os_wrapper
 import popup
-# import verbose
+
+# from duperlogger import get_logger
+# logger = get_logger("uistyle", level=10)
+import logging
+logger = logging.getLogger("uistyle")
 
 # ----------------------------------------------------------------------------
 # Environment detection
@@ -105,7 +107,7 @@ class TemplateUI(object):
 		store_window_geometry=True):
 		"""Setup the UI."""
 
-		# verbose.debug("%s %s\n  Parent: %s" % (window_object, self, self.parent))
+		logger.debug("%s %s - Parent: %s" % (window_object, self, self.parent))
 
 		# Set version --------------------------------------------------------
 		if not app_version:
@@ -121,8 +123,7 @@ class TemplateUI(object):
 		try:
 			self.ui = QtCompat.loadUi(self.checkFilePath(ui_file), self)
 		except:
-			# verbose.error("Failed to open UI file: %s" % ui_file)
-			print("Failed to open UI file: %s" % ui_file)
+			logger.error("Failed to open UI file: %s" % ui_file)
 
 		# Set window object name ---------------------------------------------
 		# (must happen after UI is loaded)
@@ -172,12 +173,11 @@ class TemplateUI(object):
 		if self.store_window_geometry:
 			try:
 				self.restoreGeometry(self.settings.value("geometry", ""))
-				# verbose.detail("Restoring window geometry for '%s'." % self.objectName())
+				logger.info("Restoring window geometry for '%s'." % self.objectName())
 			except (KeyError, TypeError):
-				# verbose.warning("Could not restore window geometry for '%s'." % self.objectName())
-				print("Could not restore window geometry for '%s'." % self.objectName())
-				# Center window on current screen
-				self.center_window()
+				logger.warning("Could not restore window geometry for '%s'." % self.objectName())
+
+				self.center_window()  # Center window on current screen
 
 		else:
 			try:
@@ -297,14 +297,14 @@ class TemplateUI(object):
 
 		try:  # Python 2.x
 			if type(prefs_file) in [str, unicode]:
-				import metadata
+				from lib import metadata
 				return metadata.Metadata(prefs_file)
 			else: # Return the object as-is
 				return prefs_file
 
 		except NameError:  # Python 3.x
 			if type(prefs_file) is str:
-				import metadata
+				from lib import metadata
 				return metadata.Metadata(prefs_file)
 			else: # Return the object as-is
 				return prefs_file
@@ -413,7 +413,7 @@ class TemplateUI(object):
 		Return the selected colour as a QColor object, or None if the dialog
 		is cancelled.
 		"""
-		color_dialog = QtWidgets.QColorDialog()
+		color_dialog = QtWidgets.QColorDialog(parent=self)
 		#color_dialog.setOption(QtWidgets.QColorDialog.DontUseNativeDialog)
 
 		# Set current colour
@@ -641,10 +641,9 @@ class TemplateUI(object):
 			if widget.property('xmlTag'):
 				try:
 					widget.disconnect()
-					# verbose.debug("Disconnect signals from %s" % widget.objectName())
+					logger.debug("Disconnect signals from %s" % widget.objectName())
 				except TypeError:
-					pass
-					# verbose.debug("No signals to disconnect from %s" % widget.objectName())
+					logger.debug("No signals to disconnect from %s" % widget.objectName())
 
 
 	def findCategory(self, widget):
@@ -653,19 +652,19 @@ class TemplateUI(object):
 		"""
 		# print("widget: " + widget.objectName())
 		if widget.property('xmlCategory'):
-			#verbose.detail("Category '%s' found for '%s'." %(widget.property('xmlCategory'), widget.objectName()))
+			logger.debug("Category '%s' found for '%s'." % (widget.property('xmlCategory'), widget.objectName()))
 			return widget.property('xmlCategory')
 		else:
 			# # Stop iterating if the widget's parent is the top window...
 			# if isinstance(widget.parent(), QtWidgets.QMainWindow) \
 			# or isinstance(widget.parent(), QtWidgets.QDialog):
-			# 	verbose.warning("No category could be found for '%s'. The widget's value cannot be stored." %self.base_widget)
+			# 	verbose.warning("No category could be found for '%s'. The widget's value cannot be stored." % self.base_widget)
 			# 	return None
 			# else:
 			try:
 				return self.findCategory(widget.parent())
 			except TypeError:
-				# verbose.warning("No category could be found for '%s'. The widget's value cannot be stored." %self.base_widget)
+				logger.warning("No category could be found for '%s'. The widget's value cannot be stored." % self.base_widget)
 				return "none"
 
 
@@ -755,7 +754,7 @@ class TemplateUI(object):
 		icon_path = self.checkFilePath(
 			icon_name, searchpath=os.getenv('IC_ICONPATH', "").split(os.pathsep))
 		if icon_path is None:
-			# verbose.warning("Could not find icon: %s" % icon_name)
+			logger.warning("Could not find icon: %s" % icon_name)
 			pixmap = QtGui.QPixmap()
 
 		else:
@@ -924,8 +923,7 @@ class TemplateUI(object):
 
 		***NOT YET IMPLEMENTED***
 		"""
-		# verbose.detail("%s %s" %(self.sender().objectName(), self.sender().property('exec')))
-		print("%s %s" %(self.sender().objectName(), self.sender().property('exec')))
+		logger.debug("%s %s" % (self.sender().objectName(), self.sender().property('exec')))
 
 
 	# @QtCore.Slot()
@@ -1034,20 +1032,20 @@ class TemplateUI(object):
 
 		ignore_list = ["null", "none", ""]
 		if (category.lower() in ignore_list) or (attr.lower() in ignore_list):
-			# verbose.warning("Null category.")
+			logger.warning("Null category.")
 			return
 
 		currentAttrStr = "%20s %s.%s" % (type(value), category, attr)
 
 		try:
 			self.prefs.set_attr(category, attr, value)  # str(value)
+			logger.debug("%s=%s" % (currentAttrStr, value))
 			# if int(os.getenv('IC_VERBOSITY')) < 5:
 			# 	verbose.print_("%s=%s" % (currentAttrStr, value), inline=True)
 			# else:
 			# 	verbose.print_("%s=%s" % (currentAttrStr, value))
 		except AttributeError as e:
-			pass
-			# verbose.error("Could not store value: %s " % str(e))
+			logger.error("Could not store value: %s " % str(e))
 
 
 	# @QtCore.Slot()
@@ -1117,7 +1115,7 @@ class TemplateUI(object):
 			comboBox.setCurrentIndex(index)
 			return True
 		else:
-			# verbose.detail("Unable to set %s to %s" % (comboBox.objectName(), text))
+			logger.warning("Unable to set %s to %s" % (comboBox.objectName(), text))
 			comboBox.setCurrentIndex(0)
 			return False
 
@@ -1387,10 +1385,9 @@ class TemplateUI(object):
 		if self.store_window_geometry:
 			try:
 				self.settings.setValue("geometry", self.saveGeometry())
-				# verbose.detail("Storing window geometry for '%s'." %self.objectName())
+				logger.info("Storing window geometry for '%s'." % self.objectName())
 			except:
-				# verbose.warning("Could not store window geometry for '%s'." % self.objectName())
-				print("Could not store window geometry for '%s'." % self.objectName())
+				logger.warning("Could not store window geometry for '%s'." % self.objectName())
 
 			# if HOST == 'standalone':
 			# 	verbose.detail("Storing window geometry for '%s'." %self.objectName())
@@ -1407,8 +1404,7 @@ class TemplateUI(object):
 		try:
 			self.settings.setValue(storage_attr, widget.saveState())
 		except (AttributeError, TypeError):
-			# verbose.warning("Could not store widget state for '%s'." % widget.objectName())
-			print("Could not store widget state for '%s'." % widget.objectName())
+			logger.warning("Could not store widget state for '%s'." % widget.objectName())
 
 
 	def restoreWidgetState(self, widget, storage_attr):
@@ -1417,8 +1413,7 @@ class TemplateUI(object):
 		try:
 			widget.restoreState(self.settings.value(storage_attr)) #.toByteArray())
 		except (AttributeError, TypeError):
-			# verbose.warning("Could not restore widget state for '%s'." % widget.objectName())
-			print("Could not restore widget state for '%s'." % widget.objectName())
+			logger.warning("Could not restore widget state for '%s'." % widget.objectName())
 
 
 	# def showEvent(self, event):
@@ -1517,8 +1512,7 @@ def _main_window(app=HOST):
 
 	else:
 		# raise RuntimeError("Could not find %s's main window instance" % app)
-		# verbose.warning("Could not find %s's main window instance" % app)
-		print("Could not find %s's main window instance" % app)
+		logger.warning("Could not find %s's main window instance" % app)
 		return None
 
 
