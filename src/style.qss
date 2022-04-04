@@ -527,7 +527,7 @@ QTabBar::tab:selected:left {
 }
 
 QTabBar::tab:selected:disabled {
-	background: rgb(%window%);
+	background: rgb(%disabled-bg%);
 	border-color: rgb(%disabled-bg%);
 	color: rgb(%disabled%);
 }
@@ -556,6 +556,7 @@ QTabBar::close-button:hover {
 	image: url(:/rsc/clear_%icon-highlighted%.png);
 }
 
+/* Tool buttons for scrolling the tab bar */
 QTabBar QToolButton {
 	margin: 0;
 	padding: 1px 2px 2px 1px;
@@ -565,6 +566,10 @@ QTabBar QToolButton {
 
 QTabBar QToolButton:hover {
 	background: rgb(%hover%);
+}
+
+QTabBar QToolButton:disabled {
+	background: rgb(%disabled-bg%);
 }
 
 QTabBar QToolButton:pressed {
@@ -1045,6 +1050,7 @@ QPushButton:checked:hover {
 
 QPushButton:pressed,
 QPushButton:checked:pressed {
+	/* Top, Right, Bottom, Left */
 	padding: 2px 4px 1px 6px;
 	background: rgb(%pressed%);
 	/*border-color: rgb(%highlight%);*/
@@ -1055,75 +1061,85 @@ QPushButton:checked {
 	background: rgb(%checked%);
 }
 
+QPushButton:checked:disabled {
+	background: transparent;
+}
+
 QPushButton:disabled,
 QPushButton:default:disabled {
 	background: rgb(%disabled-bg%);
 	color: rgb(%disabled%);
 }
 
-/* Flat Push Button */
+/* QToolButton
+ * ===========
+ *
+ * Including flat Push Button
+ */
+
+QToolButton,
 QPushButton:flat {
 	margin: 0;
 	border-radius: 0;
-	background: rgba(%button%, 10%);
-	border-color: transparent;
 }
 
-/*QPushButton:flat:hover,
-QToolButton:hover {
-	border-color: rgb(%highlight%);
-}*/
+QToolButton {
+	padding: 3px 4px 4px 3px;
+	border-color: transparent;
+	background: transparent;
+}
 
+QPushButton:flat {
+	border-color: transparent;
+	background: rgb(%button%);
+}
+
+QToolButton:hover,
+QPushButton:flat:hover {
+	background: rgba(%hover%, 50%);
+}
+
+QToolButton:pressed,
+QToolButton:checked:pressed,
 QPushButton:flat:pressed,
 QPushButton:flat:checked:pressed {
 	background: rgb(%pressed%);
 }
 
+QToolButton:checked,
 QPushButton:flat:checked {
 	background: rgb(%checked%);
 }
 
+QToolButton:disabled,
 QPushButton:flat:disabled {
 	background: transparent;
 }
 
-/* QToolButton
- * ===========
- */
-
-QToolButton {
-	padding: 3px 4px 4px 3px;
-	border-color: transparent;
-	border-radius: 0;
-	background: transparent;
+QToolButton:checked:disabled,
+QPushButton:flat:checked:disabled {
+	background: rgb(%disabled-bg%);
 }
 
-QToolButton[button="true"] {
+/*QToolButton[button="true"] {
 	background: rgb(%button%);
-}
+}*/
 
-QToolButton:hover {
+/*QToolButton:hover {
 	background: rgba(%hover%, 25%);
-	/*border-color: transparent;*/
-}
+}*/
 
-QToolButton[button="true"]:hover {
+/*QToolButton[button="true"]:hover {
 	background: rgb(%hover%);
-}
+}*/
 
 QToolButton:pressed,
 QToolButton:checked:pressed {
 	padding: 4px 3px 3px 4px;
-	background: rgb(%pressed%);
 }
 
 QToolButton:checked {
 	padding: 4px 3px 3px 4px;
-	background: rgb(%checked%);
-}
-
-QToolButton:disabled {
-	background: transparent;
 }
 
 /* Add extra padding to button icon when beside text */
@@ -1133,15 +1149,28 @@ QToolButton[toolButtonStyle="ToolButtonTextBesideIcon"]::icon {
 
 /* Only for InstantPopup */
 /*QToolButton[popupMode="InstantPopup"] {
-	padding-right: 16px;
+	padding-right: 17px;
 }*/
 
 /* Only for MenuButtonPopup - make room for drop-down putton to right */
 QToolButton[popupMode="MenuButtonPopup"] {
-	padding-right: 19px;
+	padding-right: 17px;
 }
-QToolButton[popupMode="MenuButtonPopup"]:hover {
+/*QToolButton[popupMode="MenuButtonPopup"]:hover {
 	background: rgba(%hover%, 25%);
+}*/
+
+/* Style tool buttons with popup menus like actual menus */
+QToolButton[popupMode="MenuButtonPopup"]:pressed,
+QToolButton[popupMode="MenuButtonPopup"]:checked:pressed,
+QToolButton[popupMode="InstantPopup"]:pressed,
+QToolButton[popupMode="InstantPopup"]:checked:pressed {
+	background: rgb(%highlight%);
+	color: rgb(%highlighted-text%);
+}
+QToolButton[popupMode="InstantPopup"]::menu-indicator:pressed,
+QToolButton[popupMode="InstantPopup"]::menu-indicator:checked:pressed {
+	image: url(:/rsc/popup_indicator_%icon-highlighted%.png);
 }
 
 /* The subcontrols below are used only in the MenuButtonPopup mode */
@@ -1172,19 +1201,6 @@ QToolButton::menu-arrow:open {
 }
 QToolButton::menu-arrow:disabled {
 	image: url(:/rsc/arrow_down_%icon-disabled%.png);
-}
-
-/* Style tool buttons with popup menus like actual menus */
-QToolButton[popupMode="MenuButtonPopup"]:pressed,
-QToolButton[popupMode="MenuButtonPopup"]:checked:pressed,
-QToolButton[popupMode="InstantPopup"]:pressed,
-QToolButton[popupMode="InstantPopup"]:checked:pressed {
-	background: rgb(%highlight%);
-	color: rgb(%highlighted-text%);
-}
-QToolButton[popupMode="InstantPopup"]::menu-indicator:pressed,
-QToolButton[popupMode="InstantPopup"]::menu-indicator:checked:pressed {
-	image: url(:/rsc/popup_indicator_%icon-highlighted%.png);
 }
 
 /* QCheckBox
@@ -1397,9 +1413,9 @@ QComboBox:editable {
 	border-radius: 0;
 }
 
-QComboBox:editable:on {
+/*QComboBox:editable:on {
 	border-color: rgb(%checked%);
-}
+}*/
 
 QComboBox::drop-down {
 	subcontrol-origin: padding;

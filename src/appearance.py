@@ -40,9 +40,11 @@ class Appearance(QtCore.QObject):
 		super(Appearance, self).__init__()
 		self.widget = widget
 		self.qss = qss
+		self.theme = None
 
 		# Store some system UI colours & generate colour palette -------------
 		try:  # Hack to detect dark theme
+			self.theme = darkdetect.theme()
 			if darkdetect.isDark():
 				self.col['sys-window'] = QtGui.QColor('#33393b')
 			else:

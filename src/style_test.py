@@ -97,11 +97,12 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.menu1_pushButton.setMenu(self.ui.menuTest)
 		self.ui.popup1_toolButton.setMenu(self.ui.menuTest)
 		self.ui.popup2_toolButton.setMenu(self.ui.menuAnother)
+		self.ui.menuButton1_toolButton.setMenu(self.ui.menuTest)
+		self.ui.menuButton2_toolButton.setMenu(self.ui.menuAnother)
 		self.ui.popup3_toolButton.setMenu(self.ui.menuAnother)
 		self.ui.popup4_toolButton.setMenu(self.ui.menuTest)
-		self.ui.menuButtonPopup_toolButton.setMenu(self.ui.menuTest)
-		self.ui.menuButtonPopupWithIcon_toolButton.setMenu(self.ui.menuAnother)
-		self.ui.menuButtonPopupWithIconBeside_toolButton.setMenu(self.ui.menuAnother)
+		self.ui.menuButton3_toolButton.setMenu(self.ui.menuAnother)
+		self.ui.menuButton4_toolButton.setMenu(self.ui.menuTest)
 
 		# Set up image thumbnail browser button ------------------------------
 
@@ -152,18 +153,20 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 
 
 	def set_icons(self):
-		self.ui.info_toolButton.setIcon(self.iconSet('help-about.svg'))
+		self.ui.info_toolButton.setIcon(self.iconSet('visibility.svg'))
 		self.ui.mixed_toolButton.setIcon(self.iconSet('applications-utilities-symbolic.svg'))
 		self.ui.test1_toolButton.setIcon(self.iconSet('computer-symbolic.svg'))
 		self.ui.test2_toolButton.setIcon(self.iconSet(['folder.svg', 'folder-open.svg']))
 		self.ui.popup1_toolButton.setIcon(self.iconSet('utilities-terminal-symbolic.svg'))
 		self.ui.popup2_toolButton.setIcon(self.iconSet('web-browser-symbolic.svg'))
+		self.ui.menuButton1_toolButton.setIcon(self.iconSet('system-file-manager-symbolic.svg'))
+		self.ui.menuButton2_toolButton.setIcon(self.iconSet(['media-playback-start.svg', 'media-playback-pause.svg']))
 		self.ui.test3_toolButton.setIcon(self.iconSet('add.svg'))
 		self.ui.test4_toolButton.setIcon(self.iconSet(['object-locked.svg', 'object-unlocked.svg']))
 		self.ui.popup3_toolButton.setIcon(self.iconSet('edit.svg'))
 		self.ui.popup4_toolButton.setIcon(self.iconSet('clear.svg'))
-		self.ui.menuButtonPopupWithIcon_toolButton.setIcon(self.iconSet('system-file-manager-symbolic.svg'))
-		self.ui.menuButtonPopupWithIconBeside_toolButton.setIcon(self.iconSet(['layer-visible-off.svg', 'layer-visible-on.svg']))
+		self.ui.menuButton3_toolButton.setIcon(self.iconSet('edit-comment.svg'))
+		self.ui.menuButton4_toolButton.setIcon(self.iconSet(['layer-visible-off.svg', 'layer-visible-on.svg']))
 
 
 	def reset_appearance(self):
@@ -173,6 +176,7 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.appearance.reset_()
 		self.set_icons()
 		self.ui.info_toolButton.setToolTip("window-color: {}\naccent-color: {}".format(self.col['window'].name(), self.col['highlight'].name()))
+		self.ui.info_toolButton.setText(self.appearance.theme)
 
 
 	def build_styles(self):

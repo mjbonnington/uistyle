@@ -35,7 +35,7 @@ if self.col['window'].lightness() < 128:
 	self.col['input-border'] = self.col['button']
 	self.col['menu-bg'] = self.col['window'].darker(128)
 	self.col['menu-border'] = self.col['menu-bg'].lighter(150)
-	self.col['disabled-bg'] = self.col['window'].lighter(115)
+	self.col['disabled-bg'] = self.col['window'].lighter(125)
 	self.col['alternate'] = self.color_offset(self.col['input-bg'], 7)
 
 # Light mode UI
