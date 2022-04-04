@@ -375,7 +375,7 @@ QMenu::indicator:exclusive {
 /* The tab widget frame */
 QTabWidget::pane {
 	/*border: 1px solid rgb(%tab-border%);*/
-	background: rgb(%group-bg%);
+	background: rgb(%tab-bg%);
 }
 
 /* North */
@@ -638,16 +638,15 @@ QGroupBox {
 	margin: 0;
 	border: 1px solid rgb(%line%);
 	border-radius: 4px;
-	background: rgba(%group-bg%, 50%);
+	background: rgb(%group-bg%);
 }
 
-/* Leave space at the top for the title */
+/* Leave space at the top for the title, if required */
 QGroupBox[title] {
 	margin-top: 24px;
 }
 
 QGroupBox:disabled {
-	/*border-color: rgba(%disabled%, 10%);*/
 	background: transparent;
 }
 
@@ -1288,8 +1287,8 @@ QAbstractSpinBox {
 	background: rgb(%input-bg%);
 	border: 1px solid rgb(%input-border%);
 	border-radius: 0;
-	border-top-right-radius: 2px;
-	border-bottom-right-radius: 2px;
+	/*border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;*/
 }
 
 QAbstractSpinBox[buttonSymbols="NoButtons"] {
@@ -1313,12 +1312,12 @@ QAbstractSpinBox::down-button {
 
 QAbstractSpinBox::up-button {
 	subcontrol-position: top right;
-	border-top-right-radius: 2px;
+	/*border-top-right-radius: 2px;*/
 }
 
 QAbstractSpinBox::down-button {
 	subcontrol-position: bottom right;
-	border-bottom-right-radius: 2px;
+	/*border-bottom-right-radius: 2px;*/
 }
 
 QAbstractSpinBox::up-button:hover,
@@ -1376,22 +1375,10 @@ QComboBox {
 	border: 1px solid;
 }
 
-QComboBox:editable {
-	/*margin-right: 17px;*/
-	/* Top, Right, Bottom, Left */
-	padding: 1px 8px 2px 3px;
-	background: rgb(%input-bg%);
-	border-color: rgb(%input-border%);
-	border-radius: 2px;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-}
-
 QComboBox:!editable {
 	/* Top, Right, Bottom, Left */
 	padding: 1px 6px 2px 5px;
 	background: rgb(%button%);
-	color: rgb(%button-text%);
 	border-color: rgb(%button-border%);
 	border-radius: 2px;
 }
@@ -1401,13 +1388,22 @@ QComboBox:!editable:on {
 	padding: 2px 5px 1px 6px;
 }
 
+QComboBox:editable {
+	/*margin-right: 17px;*/
+	/* Top, Right, Bottom, Left */
+	padding: 1px 8px 2px 3px;
+	background: rgb(%input-bg%);
+	border-color: rgb(%input-border%);
+	border-radius: 0;
+}
+
+QComboBox:editable:on {
+	border-color: rgb(%checked%);
+}
+
 QComboBox::drop-down {
 	subcontrol-origin: padding;
 	subcontrol-position: center right;
-/*	border: 1px solid;*/
-	border-radius: 2px;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
 }
 
 QComboBox::drop-down:editable {
@@ -1440,7 +1436,7 @@ QComboBox::drop-down:editable:on {
 }
 
 QComboBox:disabled {
-	background: rgba(%button%, 25%);
+	background: rgb(%disabled-bg%);
 	color: rgb(%disabled%);
 }
 
@@ -1698,8 +1694,7 @@ QSlider::handle:pressed {
 }
 
 QSlider::handle:disabled {
-	/*background: rgba(%button%, 25%);*/
-	background: rgb(%window%);
+	background: rgb(%disabled-bg%);
 }
 
 /* End Sliders, scroll bars and dials */

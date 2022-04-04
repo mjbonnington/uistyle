@@ -366,12 +366,18 @@
           <property name="text">
            <string>Double Spin Box</string>
           </property>
+          <property name="buddy">
+           <cstring>doubleSpinBox_doubleSpinBox</cstring>
+          </property>
          </widget>
         </item>
         <item row="8" column="0">
          <widget class="QLabel" name="lineEdit_label">
           <property name="text">
            <string>Line Edit</string>
+          </property>
+          <property name="buddy">
+           <cstring>lineEdit_lineEdit</cstring>
           </property>
          </widget>
         </item>
@@ -424,12 +430,18 @@
           <property name="text">
            <string>Radio Buttons</string>
           </property>
+          <property name="buddy">
+           <cstring>radioButton1</cstring>
+          </property>
          </widget>
         </item>
         <item row="14" column="0">
          <widget class="QLabel" name="comboBox_label">
           <property name="text">
            <string>Combo Box</string>
+          </property>
+          <property name="buddy">
+           <cstring>comboBox_comboBox</cstring>
           </property>
          </widget>
         </item>
@@ -450,6 +462,9 @@
          <widget class="QLabel" name="label_17">
           <property name="text">
            <string>Spin Box / Slider Group</string>
+          </property>
+          <property name="buddy">
+           <cstring>spinSlider_spinBox</cstring>
           </property>
          </widget>
         </item>
@@ -513,6 +528,9 @@
          <widget class="QLabel" name="label_18">
           <property name="text">
            <string>Mixed Widgets</string>
+          </property>
+          <property name="buddy">
+           <cstring>spinBox_2</cstring>
           </property>
          </widget>
         </item>
@@ -611,6 +629,9 @@
           <property name="text">
            <string>Plain Text Edit</string>
           </property>
+          <property name="buddy">
+           <cstring>plainTextEdit_plainTextEdit</cstring>
+          </property>
          </widget>
         </item>
         <item row="9" column="1">
@@ -624,6 +645,9 @@
          <widget class="QLabel" name="spinBox_label">
           <property name="text">
            <string>Spin Box</string>
+          </property>
+          <property name="buddy">
+           <cstring>spinBox_spinBox</cstring>
           </property>
          </widget>
         </item>
@@ -644,6 +668,9 @@
          <widget class="QLabel" name="comboBoxEditable_label">
           <property name="text">
            <string>Combo Box (editable)</string>
+          </property>
+          <property name="buddy">
+           <cstring>comboBoxEditable_comboBox</cstring>
           </property>
          </widget>
         </item>
@@ -1633,10 +1660,13 @@
               </sizepolicy>
              </property>
              <property name="text">
-              <string>Font combo box:</string>
+              <string>Font combo box</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="buddy">
+              <cstring>fontComboBox</cstring>
              </property>
             </widget>
            </item>
@@ -1649,127 +1679,214 @@
         <item>
          <widget class="QGroupBox" name="groupBox_6">
           <property name="title">
-           <string>Spin Boxes, etc.</string>
+           <string>Numeric input</string>
           </property>
           <property name="checkable">
            <bool>true</bool>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="1" column="2">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="5">
-            <widget class="QDateTimeEdit" name="dateTimeEdit"/>
-           </item>
-           <item row="1" column="1">
-            <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
-           </item>
-           <item row="1" column="5">
-            <widget class="QDateEdit" name="dateEdit"/>
-           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_4">
              <property name="text">
-              <string>Spin Box / read-only / no buttons:</string>
+              <string>Spin Box</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="buddy">
+              <cstring>spinBox</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Double Spin Box</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="buddy">
+              <cstring>doubleSpinBox</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <widget class="QSpinBox" name="spinBox_4">
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="minimum">
+              <number>2</number>
              </property>
             </widget>
            </item>
            <item row="0" column="2">
+            <widget class="QLabel" name="label_19">
+             <property name="text">
+              <string>read-only</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="buddy">
+              <cstring>spinBox_3</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox">
+             <property name="decimals">
+              <number>3</number>
+             </property>
+             <property name="minimum">
+              <double>0.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>99.998999999999995</double>
+             </property>
+             <property name="singleStep">
+              <double>0.001000000000000</double>
+             </property>
+             <property name="value">
+              <double>0.003000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="minimum">
+              <double>0.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.010000000000000</double>
+             </property>
+             <property name="value">
+              <double>0.040000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
             <widget class="QSpinBox" name="spinBox_3">
              <property name="readOnly">
               <bool>true</bool>
              </property>
-            </widget>
-           </item>
-           <item row="2" column="4">
-            <widget class="QLabel" name="label_8">
-             <property name="text">
-              <string>Time/Date Edit:</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="4">
-            <widget class="QLabel" name="label_6">
-             <property name="text">
-              <string>Time Edit:</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <property name="minimum">
+              <number>1</number>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
             <widget class="QSpinBox" name="spinBox"/>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_5">
-             <property name="text">
-              <string>Double Spin Box / read-only / no buttons:</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="5">
-            <widget class="QTimeEdit" name="timeEdit"/>
-           </item>
-           <item row="1" column="3">
+           <item row="1" column="5">
             <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
              <property name="buttonSymbols">
               <enum>QAbstractSpinBox::NoButtons</enum>
              </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="minimum">
+              <double>0.100000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>99.900000000000006</double>
+             </property>
+             <property name="value">
+              <double>0.500000000000000</double>
+             </property>
             </widget>
            </item>
-           <item row="0" column="3">
-            <widget class="QSpinBox" name="spinBox_4">
-             <property name="buttonSymbols">
-              <enum>QAbstractSpinBox::NoButtons</enum>
+           <item row="0" column="4">
+            <widget class="QLabel" name="label_20">
+             <property name="text">
+              <string>no buttons</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="buddy">
+              <cstring>spinBox_4</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="label_23">
+             <property name="text">
+              <string>read-only</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="buddy">
+              <cstring>doubleSpinBox_2</cstring>
              </property>
             </widget>
            </item>
            <item row="1" column="4">
-            <widget class="QLabel" name="label_7">
+            <widget class="QLabel" name="label_24">
              <property name="text">
-              <string>Date Edit:</string>
+              <string>no buttons</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QSlider" name="horizontalSlider">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+             <property name="buddy">
+              <cstring>doubleSpinBox_3</cstring>
              </property>
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QLabel" name="label_21">
+            <widget class="QLabel" name="label_6">
              <property name="text">
-              <string>Slider:</string>
+              <string>Time</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
+             <property name="buddy">
+              <cstring>timeEdit</cstring>
+             </property>
             </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QTimeEdit" name="timeEdit"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Date</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="buddy">
+              <cstring>dateEdit</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QDateEdit" name="dateEdit"/>
+           </item>
+           <item row="2" column="4">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Time &amp;&amp; Date</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="buddy">
+              <cstring>dateTimeEdit</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="5">
+            <widget class="QDateTimeEdit" name="dateTimeEdit"/>
            </item>
           </layout>
          </widget>
@@ -1804,108 +1921,99 @@
               <property name="bottomMargin">
                <number>0</number>
               </property>
-              <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit">
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_13">
                 <property name="text">
-                 <string/>
-                </property>
-                <property name="placeholderText">
-                 <string>Placeholder text</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="label_14">
-                <property name="text">
-                 <string>Line Edit (no frame):</string>
+                 <string>read-only</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                 </property>
                </widget>
               </item>
-              <item row="3" column="1">
-               <widget class="QLineEdit" name="lineEdit_3">
+              <item row="0" column="1">
+               <widget class="QFrame" name="customAttr_frame_2">
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_14">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit">
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Placeholder text</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_15">
+                   <property name="minimumSize">
+                    <size>
+                     <width>96</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Password</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="buddy">
+                    <cstring>lineEdit_5</cstring>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_5">
+                   <property name="text">
+                    <string>Type here....</string>
+                   </property>
+                   <property name="echoMode">
+                    <enum>QLineEdit::Password</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_12">
                 <property name="text">
-                 <string>Can't type here...</string>
+                 <string>Custom attributes</string>
                 </property>
-                <property name="frame">
-                 <bool>true</bool>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                 </property>
-                <property name="readOnly">
-                 <bool>true</bool>
+                <property name="buddy">
+                 <cstring>lineEdit_2</cstring>
                 </property>
                 <property name="mandatoryField" stdset="0">
                  <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="lineEdit_5">
-                <property name="text">
-                 <string>Type here....</string>
-                </property>
-                <property name="echoMode">
-                 <enum>QLineEdit::Password</enum>
                 </property>
                </widget>
               </item>
               <item row="0" column="0">
                <widget class="QLabel" name="label_9">
                 <property name="text">
-                 <string>Line Edit:</string>
+                 <string>Line Edit</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="label_13">
-                <property name="text">
-                 <string>Line Edit (read-only):</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_15">
-                <property name="text">
-                 <string>Line Edit (password):</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="QLineEdit" name="lineEdit_4">
-                <property name="text">
-                 <string>Type here...</string>
-                </property>
-                <property name="frame">
-                 <bool>false</bool>
-                </property>
-                <property name="readOnly">
-                 <bool>true</bool>
-                </property>
-                <property name="mandatoryField" stdset="0">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_12">
-                <property name="text">
-                 <string>Custom attributes:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-                <property name="mandatoryField" stdset="0">
-                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -1969,6 +2077,78 @@
                 </layout>
                </widget>
               </item>
+              <item row="1" column="1">
+               <widget class="QFrame" name="customAttr_frame_3">
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_17">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_3">
+                   <property name="text">
+                    <string>Can't type here...</string>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
+                   </property>
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                   <property name="mandatoryField" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_14">
+                   <property name="minimumSize">
+                    <size>
+                     <width>96</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>no frame</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="buddy">
+                    <cstring>lineEdit_4</cstring>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_9">
+                   <property name="text">
+                    <string>Type here...</string>
+                   </property>
+                   <property name="frame">
+                    <bool>false</bool>
+                   </property>
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                   <property name="mandatoryField" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
              </layout>
             </widget>
            </item>
@@ -1994,27 +2174,22 @@
                <number>0</number>
               </property>
               <item row="2" column="1">
-               <widget class="QSlider" name="verticalSlider">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_10">
-                <property name="text">
-                 <string>Plain Text Edit:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="2">
                <widget class="QTextEdit" name="textEdit">
+                <property name="font">
+                 <font>
+                  <family>DejaVu Serif</family>
+                  <pointsize>9</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
                 <property name="html">
                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell','Cantarell','Cantarell','Cantarell'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#ffaa7f;&quot;&gt;Lorem&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; font-weight:600; color:#2f9ca5;&quot;&gt; ipsum dolor sit amet&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:20pt; color:#2f9ca5;&quot;&gt;,&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:24pt; color:#2f9ca5;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;consectetur &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;adipiscing&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; elit. &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt;Mauris placerat &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#55aaff;&quot;&gt;pharetra&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#55aaff;&quot;&gt; turpis, in pharetra purus ultrices quis.&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; Vivamus eget sem vel &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;dolor scelerisque&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; cursus eget eget ipsum. In hac habitasse platea &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-weight:600; color:#2f9ca5;&quot;&gt;dictumst&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;. Aliquam &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; font-style:italic; color:#2f9ca5;&quot;&gt;elementum&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt; odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi &lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; text-decoration: underline; color:#2f9ca5;&quot;&gt;maximus&lt;/span&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:12pt; color:#2f9ca5;&quot;&gt;, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Serif','Cantarell'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:20pt; font-weight:600; color:#ffaa7f;&quot;&gt;Lorem &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:20pt; font-weight:600; color:#e9b96e;&quot;&gt;ipsum &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:20pt; font-weight:600; color:#fce94f;&quot;&gt;dolor &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:20pt; font-weight:600; color:#8ae234;&quot;&gt;sit&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:20pt; font-weight:600; color:#2f9ca5;&quot;&gt; amet&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:20pt; color:#2f9ca5;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#729fcf;&quot;&gt;consectetur &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; font-style:italic; color:#729fcf;&quot;&gt;adipiscing&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#729fcf;&quot;&gt; elit. &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#3465a4;&quot;&gt;Mauris placerat &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; text-decoration: underline; color:#3465a4;&quot;&gt;pharetra&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#3465a4;&quot;&gt; turpis, in pharetra purus ultrices quis. &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#ad7fa8;&quot;&gt;Vivamus eget sem vel &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; text-decoration: underline; color:#ad7fa8;&quot;&gt;dolor scelerisque&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#ad7fa8;&quot;&gt; cursus eget eget ipsum. &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#d3d7cf;&quot;&gt;In hac habitasse platea &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; font-weight:600; color:#d3d7cf;&quot;&gt;dictumst&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#d3d7cf;&quot;&gt;. Aliquam &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; font-style:italic; color:#d3d7cf;&quot;&gt;elementum&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#d3d7cf;&quot;&gt; odio sed lacus laoreet blandit. Nulla lobortis, neque at vulputate lacinia, enim libero feugiat mauris, at efficitur quam nulla sit amet tortor. Donec egestas magna eget lectus lobortis, at dapibus lorem laoreet. Ut ullamcorper augue sit amet auctor semper. In hac habitasse platea dictumst. Morbi faucibus nibh eu justo laoreet, a tempor enim egestas. Mauris non mi &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; text-decoration: underline; color:#d3d7cf;&quot;&gt;maximus&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Serif, Times New Roman, serif'; font-size:12pt; color:#d3d7cf;&quot;&gt;, porta neque ut, bibendum risus. Nam eu nibh aliquam, cursus sapien nec, scelerisque nisl. Nam ac egestas turpis, ac gravida elit.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
@@ -2028,10 +2203,23 @@ p, li { white-space: pre-wrap; }
                 </property>
                </widget>
               </item>
-              <item row="1" column="2">
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_10">
+                <property name="text">
+                 <string>Plain Text Edit</string>
+                </property>
+                <property name="buddy">
+                 <cstring>plainTextEdit</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
                <widget class="QLabel" name="label_11">
                 <property name="text">
-                 <string>Rich Text Edit:</string>
+                 <string>Rich Text Edit</string>
+                </property>
+                <property name="buddy">
+                 <cstring>textEdit</cstring>
                 </property>
                </widget>
               </item>
@@ -3621,20 +3809,11 @@ p, li { white-space: pre-wrap; }
   <tabstop>doubleSpinBox</tabstop>
   <tabstop>doubleSpinBox_2</tabstop>
   <tabstop>doubleSpinBox_3</tabstop>
-  <tabstop>timeEdit</tabstop>
-  <tabstop>dateEdit</tabstop>
-  <tabstop>dateTimeEdit</tabstop>
-  <tabstop>horizontalSlider</tabstop>
   <tabstop>groupBox_7</tabstop>
-  <tabstop>lineEdit</tabstop>
-  <tabstop>lineEdit_5</tabstop>
   <tabstop>lineEdit_2</tabstop>
   <tabstop>lineEdit_6</tabstop>
   <tabstop>lineEdit_7</tabstop>
-  <tabstop>lineEdit_3</tabstop>
-  <tabstop>lineEdit_4</tabstop>
   <tabstop>plainTextEdit</tabstop>
-  <tabstop>verticalSlider</tabstop>
   <tabstop>textEdit</tabstop>
   <tabstop>allButtons_groupBox</tabstop>
   <tabstop>pushButton_1</tabstop>
@@ -3710,12 +3889,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>164</x>
-     <y>819</y>
+     <x>198</x>
+     <y>870</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1003</x>
-     <y>792</y>
+     <x>1023</x>
+     <y>830</y>
     </hint>
    </hints>
   </connection>
@@ -3726,12 +3905,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>164</x>
-     <y>819</y>
+     <x>198</x>
+     <y>870</y>
     </hint>
     <hint type="destinationlabel">
-     <x>184</x>
-     <y>779</y>
+     <x>228</x>
+     <y>830</y>
     </hint>
    </hints>
   </connection>
@@ -3746,8 +3925,8 @@ p, li { white-space: pre-wrap; }
      <y>290</y>
     </hint>
     <hint type="destinationlabel">
-     <x>460</x>
-     <y>296</y>
+     <x>730</x>
+     <y>294</y>
     </hint>
    </hints>
   </connection>
@@ -3774,12 +3953,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>749</x>
-     <y>296</y>
+     <x>1019</x>
+     <y>294</y>
     </hint>
     <hint type="destinationlabel">
-     <x>179</x>
-     <y>310</y>
+     <x>275</x>
+     <y>303</y>
     </hint>
    </hints>
   </connection>
