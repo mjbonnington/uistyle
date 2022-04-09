@@ -9,8 +9,9 @@ description = 'UI-related modules'
 authors = ['mjbonnington']
 
 requires = [
-	# 'duperlogger', 
+	'duperlogger', 
 	'python-2.7+', 
+	'pylib', 
 	'PySide2', 
 ]
 

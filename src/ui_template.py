@@ -32,10 +32,10 @@ import appearance
 # import os_wrapper
 import popup
 
-# from duperlogger import get_logger
-# logger = get_logger("uistyle", level=10)
-import logging
-logger = logging.getLogger("uistyle")
+from duperlogger import get_logger
+logger = get_logger("uistyle", level=10)
+# import logging
+# logger = logging.getLogger("uistyle")
 
 # ----------------------------------------------------------------------------
 # Environment detection
@@ -132,7 +132,7 @@ class TemplateUI(object):
 		self.setObjectName(window_object)
 		# print(self.objectName())
 
-		# Set up appearance
+		# Set up appearance --------------------------------------------------
 		# TODO: this should be called from the main window/dialog class
 		self.appearance = appearance.Appearance(
 			self, 
@@ -297,14 +297,14 @@ class TemplateUI(object):
 
 		try:  # Python 2.x
 			if type(prefs_file) in [str, unicode]:
-				from lib import metadata
+				from pyLib import metadata
 				return metadata.Metadata(prefs_file)
 			else: # Return the object as-is
 				return prefs_file
 
 		except NameError:  # Python 3.x
 			if type(prefs_file) is str:
-				from lib import metadata
+				from pyLib import metadata
 				return metadata.Metadata(prefs_file)
 			else: # Return the object as-is
 				return prefs_file

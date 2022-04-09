@@ -492,6 +492,11 @@ QTabBar::tab:selected {
 	/*font-weight: bold;*/ /* Breaks design */
 }
 
+QTabBar::tab:only-one {
+	border-color: rgb(%tab-border%);
+	/*font-weight: normal;*/
+}
+
 QTabBar::tab:selected:top,
 QTabBar::tab:selected:bottom {
 	min-height: 15px;

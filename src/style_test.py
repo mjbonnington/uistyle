@@ -152,6 +152,16 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 	# [Application code goes here] -------------------------------------------
 
 
+	def reset_appearance(self):
+		# self.ui.base_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['sys-window'].name())
+		# self.ui.accent_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['sys-highlight'].name())
+		# self.ui.uiBrightness_slider.setValue(self.col['sys-window'].lightness())
+		self.appearance.reset_()
+		self.set_icons()
+		# self.ui.info_toolButton.setToolTip("window-color: {}\naccent-color: {}".format(self.col['window'].name(), self.col['highlight'].name()))
+		self.ui.info_toolButton.setText(self.appearance.theme)
+
+
 	def set_icons(self):
 		self.ui.info_toolButton.setIcon(self.iconSet('visibility.svg'))
 		self.ui.mixed_toolButton.setIcon(self.iconSet('applications-utilities-symbolic.svg'))
@@ -167,16 +177,6 @@ class StyleTestApp(QtWidgets.QMainWindow, UI.TemplateUI):
 		self.ui.popup4_toolButton.setIcon(self.iconSet('clear.svg'))
 		self.ui.menuButton3_toolButton.setIcon(self.iconSet('edit-comment.svg'))
 		self.ui.menuButton4_toolButton.setIcon(self.iconSet(['layer-visible-off.svg', 'layer-visible-on.svg']))
-
-
-	def reset_appearance(self):
-		self.ui.base_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['sys-window'].name())
-		self.ui.accent_colorChooser_button.setStyleSheet("QWidget { background-color: %s }" % self.col['sys-highlight'].name())
-		self.ui.uiBrightness_slider.setValue(self.col['sys-window'].lightness())
-		self.appearance.reset_()
-		self.set_icons()
-		self.ui.info_toolButton.setToolTip("window-color: {}\naccent-color: {}".format(self.col['window'].name(), self.col['highlight'].name()))
-		self.ui.info_toolButton.setText(self.appearance.theme)
 
 
 	def build_styles(self):

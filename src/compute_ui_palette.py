@@ -70,6 +70,6 @@ self.col['pressed'] = self.col['button'].darker(115)
 self.col['button-text'] = self.col['text']
 
 # Compute icon theme colours
-self.col['icon-normal'] = self.nearest(self.col['text'])
-self.col['icon-disabled'] = self.nearest(self.col['disabled'])
-self.col['icon-highlighted'] = self.nearest(self.col['highlighted-text'])
+self.col['icon-normal'] = self.nearest_color(self.col['text'])
+self.col['icon-disabled'] = self.nearest_color(self.col['disabled'])
+self.col['icon-highlighted'] = self.nearest_color(self.col['highlighted-text'])
