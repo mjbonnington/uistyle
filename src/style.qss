@@ -132,6 +132,13 @@ QAbstractScrollArea:disabled {
 	background: transparent;
 }
 
+/* Style the annoying little corner between scrollbars when both a horizontal
+ * and vertical scrollbar is present.
+ */
+QAbstractScrollArea::corner {
+	background: transparent;
+}
+
 /* QAbstractItemView
  * =================
  * (inherited by QHeaderView, QTreeView, QTreeWidget, QHelpContentWidget, 
@@ -164,13 +171,6 @@ QAbstractItemView::item:selected:hover {
 QAbstractItemView::item:selected:disabled {
 	background-color: rgb(%disabled-bg%);
 	color: rgb(%disabled%);
-}
-
-QAbstractItemView::item QLineEdit {
-	margin: 0;
-	padding: 0;
-	background: rgb(%input-bg%);
-	border: 1px solid rgb(%input-border%);
 }
 
 QAbstractItemView::indicator {
@@ -759,7 +759,7 @@ QSplitter::handle:hover {
 }
 
 QSplitter::handle:pressed {
-	background: rgb(%highlight%);
+	background: rgb(%pressed%);
 }
 
 /* QProgressBar
@@ -1501,10 +1501,10 @@ QComboBox QAbstractItemView {
 QLineEdit {
 	/* Top, Right, Bottom, Left */
 	padding: 1px 3px 2px 3px;
-	min-width: 150px;
+	min-width: 100px;
 	min-height: 22px;
-	border: 1px solid rgb(%input-border%);
 	background: rgb(%input-bg%);
+	border: 1px solid rgb(%input-border%);
 }
 
 QLineEdit:read-only {
@@ -1513,6 +1513,13 @@ QLineEdit:read-only {
 
 QLineEdit:disabled {
 	background: transparent;
+}
+
+QAbstractItemView::item QLineEdit {
+	margin: 0;
+	padding: 0;
+	min-width: 0;
+	min-height: 0;
 }
 
 /* End Misc. input */
@@ -1529,7 +1536,7 @@ QScrollBar {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	background: transparent;
+	background: rgb(%input-bg%);
 }
 
 QScrollBar:horizontal {
@@ -1542,18 +1549,20 @@ QScrollBar:vertical {
 	/*min-width: 15px;*/
 }
 
-QScrollBar::add-page,
+/*QScrollBar::add-page,
 QScrollBar::sub-page {
 	background: rgb(%menu-bg%);
-}
+}*/
 
-QScrollBar::add-page:pressed,
+/*QScrollBar::add-page:pressed,
 QScrollBar::sub-page:pressed {
 	background: rgb(%hover%);
-}
+}*/
 
 QScrollBar::handle {
-	background: rgb(%button%);
+	margin: 2px;
+	background: rgb(%button-border%);
+	border-radius: 2px;
 }
 
 QScrollBar::handle:hover {
@@ -1561,24 +1570,24 @@ QScrollBar::handle:hover {
 }
 
 QScrollBar::handle:pressed {
-	background: rgb(%highlight%);
+	background: rgb(%pressed%);
 }
 
 QScrollBar::handle:horizontal {
 	min-width: 20px;
-	margin: 0 1px;
+	/*margin: 2px 0;*/
 }
 
 QScrollBar::handle:vertical {
 	min-height: 20px;
-	margin: 1px 0;
+	/*margin: 0 2px;*/
 }
 
 QScrollBar::add-line,
 QScrollBar::sub-line {
 	padding: 1px;
 	subcontrol-origin: margin;
-	background: rgb(%button%);
+	background: rgb(%input-bg%);
 }
 
 QScrollBar::add-line:horizontal,
@@ -1609,12 +1618,12 @@ QScrollBar::sub-line:vertical {
 
 QScrollBar::add-line:hover,
 QScrollBar::sub-line:hover {
-	background: rgb(%hover%);
+	background: rgba(%hover%, 25%);
 }
 
 QScrollBar::add-line:pressed,
 QScrollBar::sub-line:pressed {
-	padding: 2px 0 0 2px;
+	/*padding: 2px 0 0 2px;*/
 	background: rgb(%pressed%);
 }
 
@@ -1629,11 +1638,14 @@ QScrollBar::handle:disabled {
 
 QScrollBar::add-page:disabled,
 QScrollBar::sub-page:disabled {
-	background: rgba(%input-bg%, 20%);
+	background: transparent;
 }
 
 QScrollBar:left-arrow:horizontal {
 	image: url(:/rsc/arrow_left_%icon-normal%.png);
+}
+QScrollBar:left-arrow:horizontal:pressed {
+	image: url(:/rsc/arrow_left_%icon-highlighted%.png);
 }
 QScrollBar:left-arrow:horizontal:disabled {
 	image: url(:/rsc/arrow_left_%icon-disabled%.png);
@@ -1642,6 +1654,9 @@ QScrollBar:left-arrow:horizontal:disabled {
 QScrollBar::right-arrow:horizontal {
 	image: url(:/rsc/arrow_right_%icon-normal%.png);
 }
+QScrollBar::right-arrow:horizontal:pressed {
+	image: url(:/rsc/arrow_right_%icon-highlighted%.png);
+}
 QScrollBar::right-arrow:horizontal:disabled {
 	image: url(:/rsc/arrow_right_%icon-disabled%.png);
 }
@@ -1649,12 +1664,18 @@ QScrollBar::right-arrow:horizontal:disabled {
 QScrollBar:up-arrow:vertical {
 	image: url(:/rsc/arrow_up_%icon-normal%.png);
 }
+QScrollBar:up-arrow:vertical:pressed {
+	image: url(:/rsc/arrow_up_%icon-highlighted%.png);
+}
 QScrollBar:up-arrow:vertical:disabled {
 	image: url(:/rsc/arrow_up_%icon-disabled%.png);
 }
 
 QScrollBar::down-arrow:vertical {
 	image: url(:/rsc/arrow_down_%icon-normal%.png);
+}
+QScrollBar::down-arrow:vertical:pressed {
+	image: url(:/rsc/arrow_down_%icon-highlighted%.png);
 }
 QScrollBar::down-arrow:vertical:disabled {
 	image: url(:/rsc/arrow_down_%icon-disabled%.png);
