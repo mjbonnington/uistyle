@@ -397,7 +397,7 @@ QTabWidget::pane:left {
 
 QTabWidget::pane:disabled {
 	background: rgb(%window%);
-	border-color: rgba(%tab-border%, 50%);
+	border-color: rgb(%disabled-bg%);
 }
 
 /* QTabBar
@@ -430,7 +430,7 @@ QTabWidget::tab-bar:left {
 QTabBar::tab {
 	border: none;
 	border-radius: 0;
-	background: rgb(%button%);
+	background: rgb(%tab-border%);
 }
 
 QTabBar::tab:top,
@@ -1048,9 +1048,12 @@ QPushButton:default:hover {
 	background: rgba(%highlight%, 50%);
 }
 
-QPushButton:hover,
-QPushButton:checked:hover {
+QPushButton:hover {
 	background: rgb(%hover%);
+}
+
+QPushButton:checked:hover {
+	background: rgb(%checked-hover%);
 }
 
 QPushButton:pressed,
@@ -1099,9 +1102,17 @@ QPushButton:flat {
 	background: rgb(%button%);
 }
 
-QToolButton:hover,
+QToolButton:hover {
+	background: rgba(%hover%, 25%);
+}
+
 QPushButton:flat:hover {
-	background: rgba(%hover%, 50%);
+	background: rgb(%hover%);
+}
+
+QToolButton:checked:hover,
+QPushButton:flat:checked:hover {
+	background: rgb(%checked-hover%);
 }
 
 QToolButton:pressed,
@@ -1536,7 +1547,7 @@ QScrollBar {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	background: rgb(%input-bg%);
+	background: rgb(%menu-bg%);
 }
 
 QScrollBar:horizontal {
@@ -1566,7 +1577,7 @@ QScrollBar::handle {
 }
 
 QScrollBar::handle:hover {
-	background: rgb(%hover%);
+	background: rgb(%checked-hover%);
 }
 
 QScrollBar::handle:pressed {
@@ -1587,7 +1598,7 @@ QScrollBar::add-line,
 QScrollBar::sub-line {
 	padding: 1px;
 	subcontrol-origin: margin;
-	background: rgb(%input-bg%);
+	background: rgb(%menu-bg%);
 }
 
 QScrollBar::add-line:horizontal,
