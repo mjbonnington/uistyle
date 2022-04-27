@@ -25,18 +25,18 @@ if self.col['window'].lightness() < 128:
 		self.col['disabled'] = QtGui.QColor('#999')
 
 	# Backgrounds and borders
-	self.col['button'] = self.color_offset(self.col['window'], +34)
+	self.col['button'] = self.col['window'].lighter(160)
 	self.col['button-border'] = self.col['button']
 	self.col['group-bg'] = self.col['window'].lighter(108)
 	self.col['group-header'] = self.col['window'].lighter(150)
 	self.col['tab-bg'] = self.col['window'].lighter(116)
-	self.col['tab-border'] = self.col['window'].lighter(150)
-	self.col['input-bg'] = self.color_offset(self.col['window'], -34)
+	self.col['tab-border'] = self.col['window'].lighter(140)
+	self.col['input-bg'] = self.col['window'].darker(150)
 	self.col['input-border'] = self.col['button']
 	self.col['menu-bg'] = self.col['window'].darker(128)
 	self.col['menu-border'] = self.col['menu-bg'].lighter(150)
 	self.col['disabled-bg'] = self.col['window'].lighter(125)
-	self.col['alternate'] = self.color_offset(self.col['input-bg'], 7)
+	self.col['alternate'] = self.color_offset(self.col['input-bg'], 6)
 
 # Light mode UI
 else:
@@ -62,11 +62,12 @@ else:
 	self.col['alternate'] = self.col['input-bg'].darker(103)
 
 # Widget states
-# self.col['checked'] = self.color_offset(self.col['button'], -17)
-self.col['hover'] = self.col['button'].lighter(110)
-# self.col['checked'] = self.col['highlight'].lighter(125)
-self.col['checked'] = self.color_offset(self.col['button'], -17)
+self.col['hover'] = self.col['button'].lighter(108)
 self.col['pressed'] = self.col['button'].darker(115)
+# self.col['checked'] = self.col['highlight'].lighter(125)
+self.col['checked'] = self.col['button'].darker(119)
+self.col['checked-hover'] = self.col['checked'].lighter(108)
+
 self.col['button-text'] = self.col['text']
 
 # Compute icon theme colours
