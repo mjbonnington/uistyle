@@ -1778,6 +1778,7 @@ QWidget[bgoverride="true"] {
 QLabel[warning="true"] {
 	background: transparent;
 	color: rgb(%warning%);
+	color: rgb(0, 0, 0);
 }
 
 /*QMessageBox[warn="true"] QLabel {

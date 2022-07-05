@@ -38,7 +38,7 @@
       </item>
       <item>
        <widget class="QLineEdit" name="name_lineEdit">
-        <property name="xmlTag" stdset="0">
+        <property name="meta_key" stdset="0">
          <string>name</string>
         </property>
        </widget>
@@ -77,7 +77,7 @@
            <property name="colorChooser" stdset="0">
             <bool>true</bool>
            </property>
-           <property name="xmlTag" stdset="0">
+           <property name="meta_key" stdset="0">
             <string>color</string>
            </property>
           </widget>

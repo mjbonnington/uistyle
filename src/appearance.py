@@ -25,7 +25,7 @@ class Appearance(QtCore.QObject):
 	font_size = 11
 	color_changed = QtCore.Signal()
 
-	def __init__(self, widget, qss=None, window_color=None, accent_color=None, font_size=11):
+	def __init__(self, widget, host=None, qss=None, window_color=None, accent_color=None, font_size=11):
 		"""Class constructor.
 
 		Arguments:
@@ -57,7 +57,7 @@ class Appearance(QtCore.QObject):
 		self.shortcutCycleStyles.activated.connect(self.cycle_styles)
 
 		# Store some system UI colours & generate colour palette -------------
-		self.detect_system_theme()
+		self.detect_system_theme(host)
 		self.col['window'] = self.col['sys-window'] if window_color is None else window_color
 		self.col['highlight'] = self.col['sys-highlight'] if accent_color is None else accent_color
 		self.compute_ui_palette()
@@ -69,7 +69,7 @@ class Appearance(QtCore.QObject):
 		# End initialisation -------------------------------------------------
 
 
-	def detect_system_theme(self):
+	def detect_system_theme(self, host):
 		"""Detect the system theme (light/dark mode).
 
 		Set the appropriate UI colours in the 'self.col' dictionary. It is
@@ -77,16 +77,19 @@ class Appearance(QtCore.QObject):
 		palette.
 		"""
 		logger.debug("Detecting system theme...")
-		try:  # Detect dark theme
-			self.theme = darkdetect.theme()
-			if darkdetect.isDark():
-				self.col['sys-window'] = QtGui.QColor('#33393b')
-			else:
-				self.col['sys-window'] = QtGui.QColor('#efefef')
-		except:  # Fall back to auto-detecting window colour
-			self.col['sys-window'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Window)
+		self.col['sys-window'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Window)
 		self.col['sys-highlight'] = QtWidgets.QWidget().palette().color(QtGui.QPalette.Highlight)
-		logger.info("Detected '{}' system theme.".format(self.theme))
+		if host == 'standalone':
+			try:  # Detect dark theme
+				self.theme = darkdetect.theme()
+				if darkdetect.isDark():
+					self.col['sys-window'] = QtGui.QColor('#33393b')
+				else:
+					self.col['sys-window'] = QtGui.QColor('#efefef')
+				logger.info("Detected '{}' system theme.".format(self.theme))
+			except:  # Fall back to auto-detecting window colour
+				pass
+		logger.info("Inheriting system theme from host '{}'.".format(host))
 
 
 	def compute_ui_palette(self):

@@ -35,7 +35,7 @@
     </property>
     <item>
      <widget class="QGroupBox" name="mixedControls_groupBox">
-      <property name="xmlCategory" stdset="0">
+      <property name="meta_category" stdset="0">
        <string>appearance</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -79,7 +79,7 @@
          <property name="colorChooser" stdset="0">
           <bool>true</bool>
          </property>
-         <property name="xmlTag" stdset="0">
+         <property name="meta_key" stdset="0">
           <string>window</string>
          </property>
         </widget>
@@ -108,7 +108,7 @@
          <property name="value">
           <number>51</number>
          </property>
-         <property name="xmlTag" stdset="0">
+         <property name="meta_key" stdset="0">
           <string>brightness</string>
          </property>
         </widget>
@@ -159,7 +159,7 @@
          <property name="colorChooser" stdset="0">
           <bool>true</bool>
          </property>
-         <property name="xmlTag" stdset="0">
+         <property name="meta_key" stdset="0">
           <string>highlight</string>
          </property>
         </widget>
@@ -188,7 +188,7 @@
          <property name="value">
           <number>11</number>
          </property>
-         <property name="xmlTag" stdset="0">
+         <property name="meta_key" stdset="0">
           <string>font_size</string>
          </property>
         </widget>

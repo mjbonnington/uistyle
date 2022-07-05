@@ -136,10 +136,11 @@ class TemplateUI(object):
 		# TODO: this should be called from the main window/dialog class
 		self.appearance = appearance.Appearance(
 			self, 
-			self.checkFilePath(stylesheet), 
-			window_color=window_color if HOST == 'standalone' else None, 
-			accent_color=accent_color if HOST == 'standalone' else None, 
-			font_size=font_size
+			host=HOST, 
+			qss=self.checkFilePath(stylesheet), 
+			# window_color=window_color if HOST == 'standalone' else None, 
+			# accent_color=accent_color if HOST == 'standalone' else None, 
+			font_size=font_size, 
 		)
 		self.col = self.appearance.col  # Alias for compatibility
 
@@ -477,13 +478,13 @@ class TemplateUI(object):
 						widget.clicked.connect(self.execPushButton)
 
 			# Set up handlers for different widget types & apply values
-			attr = widget.property('xmlTag')
+			attr = widget.property('meta_key')
 			if attr:
 				self.base_widget = widget.objectName()
 				if forceCategory is None:
 					category = self.findCategory(widget)
 				if category:
-					widget.setProperty('xmlCategory', category)
+					widget.setProperty('meta_category', category)
 
 					if inherit:
 						value = self.prefs.get_attr(category, attr)
@@ -491,7 +492,7 @@ class TemplateUI(object):
 						if value is None:
 							value = inherit.get_attr(category, attr)
 
-							# widget.setProperty('xmlTag', None)
+							# widget.setProperty('meta_key', None)
 							widget.setProperty('inheritedValue', True)
 							if widget.toolTip():
 								widget.setProperty('oldToolTip', widget.toolTip())
@@ -557,12 +558,14 @@ class TemplateUI(object):
 							widget.textChanged.connect(self.storeTextEditValue)
 
 					# Check boxes...
-					elif isinstance(widget, QtWidgets.QCheckBox):
+					elif isinstance(widget, QtWidgets.QCheckBox) or isinstance(widget, QtWidgets.QGroupBox):
 						if value is not None:
 							if value == True:
-								widget.setCheckState(QtCore.Qt.Checked)
+								# widget.setCheckState(QtCore.Qt.Checked)
+								widget.setChecked(True)
 							elif value == False:
-								widget.setCheckState(QtCore.Qt.Unchecked)
+								# widget.setCheckState(QtCore.Qt.Unchecked)
+								widget.setChecked(False)
 						if storeProperties:
 							self.storeValue(category, attr, self.getCheckBoxValue(widget))
 						if not updateOnly:
@@ -638,7 +641,7 @@ class TemplateUI(object):
 		of parentObject.
 		"""
 		for widget in parentObject.findChildren(QtWidgets.QWidget):
-			if widget.property('xmlTag'):
+			if widget.property('meta_key'):
 				try:
 					widget.disconnect()
 					logger.debug("Disconnect signals from %s" % widget.objectName())
@@ -648,12 +651,12 @@ class TemplateUI(object):
 
 	def findCategory(self, widget):
 		"""Recursively check the parents of the given widget until a custom
-		property 'xmlCategory' is found.
+		property 'meta_category' is found.
 		"""
 		# print("widget: " + widget.objectName())
-		if widget.property('xmlCategory'):
-			logger.debug("Category '%s' found for '%s'." % (widget.property('xmlCategory'), widget.objectName()))
-			return widget.property('xmlCategory')
+		if widget.property('meta_category'):
+			logger.debug("Category '%s' found for '%s'." % (widget.property('meta_category'), widget.objectName()))
+			return widget.property('meta_category')
 		else:
 			# # Stop iterating if the widget's parent is the top window...
 			# if isinstance(widget.parent(), QtWidgets.QMainWindow) \
@@ -890,7 +893,8 @@ class TemplateUI(object):
 	def getCheckBoxValue(self, checkBox):
 		"""Get the value from a checkbox and return a Boolean value."""
 
-		if checkBox.checkState() == QtCore.Qt.Checked:
+		# if checkBox.checkState() == QtCore.Qt.Checked:
+		if checkBox.isChecked():
 			return True
 		else:
 			return False
@@ -904,8 +908,8 @@ class TemplateUI(object):
 
 		self.setDynamicProperty(widget, 'inheritedValue', False)
 
-		category = widget.property('xmlCategory')
-		attr = widget.property('xmlTag')
+		category = widget.property('meta_category')
+		attr = widget.property('meta_key')
 		return category, attr
 
 

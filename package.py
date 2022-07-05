@@ -2,7 +2,7 @@
 
 name = 'ic_ui'
 
-version = '3.0.0-beta'
+version = '3.0.0'
 
 description = 'UI-related modules'
 
@@ -12,12 +12,10 @@ requires = [
 	'duperlogger', 
 	'python-2.7+', 
 	'pylib', 
-	'PySide2', 
+	'~PySide2', 
 ]
 
-build_requires = [
-	'rezlib', 
-]
+build_requires = ['rezlib']
 
 build_command = 'python -m build {install}'
 

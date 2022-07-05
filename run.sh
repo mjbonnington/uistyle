@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rez env ic_ui --include='*beta*' -- style-test
+rez env ic_ui PySide2 --include='*beta*' -- style-test
